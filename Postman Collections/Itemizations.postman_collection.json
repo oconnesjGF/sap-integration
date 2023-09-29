@@ -1,0 +1,767 @@
+{
+	"info": {
+		"_postman_id": "7c163322-b70c-4610-925a-db3065ef73f2",
+		"name": "Itemizations",
+		"description": "Expense Entry Itemizations are children of an expense entry that subdivide the expense. A common use case for itemizations is on a hotel bill, which can have separate itemizations for room rate, room tax, and services such as laundry or minibar.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "expense",
+			"item": [
+				{
+					"name": "itemizations",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Get a single expense itemization",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/expense/itemizations/:id?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"itemizations",
+												":id"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter."
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Gets the specified expense itemization."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/expense/itemizations/:id?user=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"expense",
+														"itemizations",
+														":id"
+													],
+													"query": [
+														{
+															"key": "user",
+															"value": "<string>",
+															"description": "The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter."
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"AllocationType\": \"<string>\",\n  \"ApprovedAmount\": \"<double>\",\n  \"Custom1\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom10\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom11\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom12\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom13\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom14\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom15\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom16\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom17\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom18\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom19\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom2\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom20\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom21\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom22\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom23\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom24\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom25\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom26\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom27\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom28\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom29\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom3\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom30\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom31\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom32\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom33\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom34\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom35\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom36\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom37\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom38\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom39\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom4\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom40\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom5\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom6\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom7\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom8\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom9\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Description\": \"<string>\",\n  \"EntryID\": \"<string>\",\n  \"ExpenseTypeCode\": \"<string>\",\n  \"ExpenseTypeName\": \"<string>\",\n  \"HasComments\": \"<boolean>\",\n  \"HasExceptions\": \"<boolean>\",\n  \"ID\": \"<string>\",\n  \"IsBillable\": \"<boolean>\",\n  \"IsImageRequired\": \"<boolean>\",\n  \"IsPersonal\": \"<boolean>\",\n  \"LastModified\": \"<dateTime>\",\n  \"LocationCountry\": \"<string>\",\n  \"LocationID\": \"<string>\",\n  \"LocationName\": \"<string>\",\n  \"LocationSubdivision\": \"<string>\",\n  \"OrgUnit1\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"OrgUnit2\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"OrgUnit3\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"OrgUnit4\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"OrgUnit5\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"OrgUnit6\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"PostedAmount\": \"<double>\",\n  \"ReportID\": \"<string>\",\n  \"ReportOwnerID\": \"<string>\",\n  \"SpendCategoryCode\": \"<string>\",\n  \"SpendCategoryName\": \"<string>\",\n  \"TransactionAmount\": \"<double>\",\n  \"TransactionDate\": \"<dateTime>\",\n  \"URI\": \"<string>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Update an expense itemization",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Comment\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom11\": \"<string>\",\n  \"Custom12\": \"<string>\",\n  \"Custom13\": \"<string>\",\n  \"Custom14\": \"<string>\",\n  \"Custom15\": \"<string>\",\n  \"Custom16\": \"<string>\",\n  \"Custom17\": \"<string>\",\n  \"Custom18\": \"<string>\",\n  \"Custom19\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom20\": \"<string>\",\n  \"Custom21\": \"<string>\",\n  \"Custom22\": \"<string>\",\n  \"Custom23\": \"<string>\",\n  \"Custom24\": \"<string>\",\n  \"Custom25\": \"<string>\",\n  \"Custom26\": \"<string>\",\n  \"Custom27\": \"<string>\",\n  \"Custom28\": \"<string>\",\n  \"Custom29\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom30\": \"<string>\",\n  \"Custom31\": \"<string>\",\n  \"Custom32\": \"<string>\",\n  \"Custom33\": \"<string>\",\n  \"Custom34\": \"<string>\",\n  \"Custom35\": \"<string>\",\n  \"Custom36\": \"<string>\",\n  \"Custom37\": \"<string>\",\n  \"Custom38\": \"<string>\",\n  \"Custom39\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom40\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"EntryID\": \"<string>\",\n  \"ExpenseTypeCode\": \"<string>\",\n  \"IsBillable\": \"<boolean>\",\n  \"IsPersonal\": \"<boolean>\",\n  \"OrgUnit1\": \"<string>\",\n  \"OrgUnit2\": \"<string>\",\n  \"OrgUnit3\": \"<string>\",\n  \"OrgUnit4\": \"<string>\",\n  \"OrgUnit5\": \"<string>\",\n  \"OrgUnit6\": \"<string>\",\n  \"TransactionAmount\": \"<double>\",\n  \"TransactionDate\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/expense/itemizations/:id?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"itemizations",
+												":id"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter."
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Updates the specified expense itemization. Only the fields provided in the supplied object are updated. Missing fields will not be altered."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"Comment\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom11\": \"<string>\",\n  \"Custom12\": \"<string>\",\n  \"Custom13\": \"<string>\",\n  \"Custom14\": \"<string>\",\n  \"Custom15\": \"<string>\",\n  \"Custom16\": \"<string>\",\n  \"Custom17\": \"<string>\",\n  \"Custom18\": \"<string>\",\n  \"Custom19\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom20\": \"<string>\",\n  \"Custom21\": \"<string>\",\n  \"Custom22\": \"<string>\",\n  \"Custom23\": \"<string>\",\n  \"Custom24\": \"<string>\",\n  \"Custom25\": \"<string>\",\n  \"Custom26\": \"<string>\",\n  \"Custom27\": \"<string>\",\n  \"Custom28\": \"<string>\",\n  \"Custom29\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom30\": \"<string>\",\n  \"Custom31\": \"<string>\",\n  \"Custom32\": \"<string>\",\n  \"Custom33\": \"<string>\",\n  \"Custom34\": \"<string>\",\n  \"Custom35\": \"<string>\",\n  \"Custom36\": \"<string>\",\n  \"Custom37\": \"<string>\",\n  \"Custom38\": \"<string>\",\n  \"Custom39\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom40\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"EntryID\": \"<string>\",\n  \"ExpenseTypeCode\": \"<string>\",\n  \"IsBillable\": \"<boolean>\",\n  \"IsPersonal\": \"<boolean>\",\n  \"OrgUnit1\": \"<string>\",\n  \"OrgUnit2\": \"<string>\",\n  \"OrgUnit3\": \"<string>\",\n  \"OrgUnit4\": \"<string>\",\n  \"OrgUnit5\": \"<string>\",\n  \"OrgUnit6\": \"<string>\",\n  \"TransactionAmount\": \"<double>\",\n  \"TransactionDate\": \"<dateTime>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/expense/itemizations/:id?user=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"expense",
+														"itemizations",
+														":id"
+													],
+													"query": [
+														{
+															"key": "user",
+															"value": "<string>",
+															"description": "The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter."
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"Comment\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom11\": \"<string>\",\n  \"Custom12\": \"<string>\",\n  \"Custom13\": \"<string>\",\n  \"Custom14\": \"<string>\",\n  \"Custom15\": \"<string>\",\n  \"Custom16\": \"<string>\",\n  \"Custom17\": \"<string>\",\n  \"Custom18\": \"<string>\",\n  \"Custom19\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom20\": \"<string>\",\n  \"Custom21\": \"<string>\",\n  \"Custom22\": \"<string>\",\n  \"Custom23\": \"<string>\",\n  \"Custom24\": \"<string>\",\n  \"Custom25\": \"<string>\",\n  \"Custom26\": \"<string>\",\n  \"Custom27\": \"<string>\",\n  \"Custom28\": \"<string>\",\n  \"Custom29\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom30\": \"<string>\",\n  \"Custom31\": \"<string>\",\n  \"Custom32\": \"<string>\",\n  \"Custom33\": \"<string>\",\n  \"Custom34\": \"<string>\",\n  \"Custom35\": \"<string>\",\n  \"Custom36\": \"<string>\",\n  \"Custom37\": \"<string>\",\n  \"Custom38\": \"<string>\",\n  \"Custom39\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom40\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"EntryID\": \"<string>\",\n  \"ExpenseTypeCode\": \"<string>\",\n  \"IsBillable\": \"<boolean>\",\n  \"IsPersonal\": \"<boolean>\",\n  \"OrgUnit1\": \"<string>\",\n  \"OrgUnit2\": \"<string>\",\n  \"OrgUnit3\": \"<string>\",\n  \"OrgUnit4\": \"<string>\",\n  \"OrgUnit5\": \"<string>\",\n  \"OrgUnit6\": \"<string>\",\n  \"TransactionAmount\": \"<double>\",\n  \"TransactionDate\": \"<dateTime>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/expense/itemizations/:id?user=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"expense",
+														"itemizations",
+														":id"
+													],
+													"query": [
+														{
+															"key": "user",
+															"value": "<string>",
+															"description": "The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter."
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										}
+									]
+								},
+								{
+									"name": "Delete an expense itemization",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/expense/itemizations/:id?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"itemizations",
+												":id"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter."
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Deletes the specified expense itemization."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/expense/itemizations/:id?user=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"expense",
+														"itemizations",
+														":id"
+													],
+													"query": [
+														{
+															"key": "user",
+															"value": "<string>",
+															"description": "The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter."
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/expense/itemizations/:id?user=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"expense",
+														"itemizations",
+														":id"
+													],
+													"query": [
+														{
+															"key": "user",
+															"value": "<string>",
+															"description": "The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter."
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get expense itemizations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/expense/itemizations?reportID=<string>&entryID=<string>&expenseTypeCode=<string>&offset=<string>&limit=<integer>&user=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"expense",
+										"itemizations"
+									],
+									"query": [
+										{
+											"key": "reportID",
+											"value": "<string>",
+											"description": "The report ID of the itemizations to be retrieved.  Format: An alpha-numeric string"
+										},
+										{
+											"key": "entryID",
+											"value": "<string>",
+											"description": "The entry ID for the itemizations to be retrieved."
+										},
+										{
+											"key": "expenseTypeCode",
+											"value": "<string>",
+											"description": "The expense type code for the itemizations to be retrieved."
+										},
+										{
+											"key": "offset",
+											"value": "<string>",
+											"description": "The starting point of the next set of results, after the limit specified in the limit field has been reached."
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The number of records to return. Default value: 25"
+										},
+										{
+											"key": "user",
+											"value": "<string>",
+											"description": "The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter."
+										}
+									]
+								},
+								"description": "Gets all expense itemizations owned by the user, with optional filtering parameters."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/expense/itemizations?reportID=<string>&entryID=<string>&expenseTypeCode=<string>&offset=<string>&limit=<integer>&user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"itemizations"
+											],
+											"query": [
+												{
+													"key": "reportID",
+													"value": "<string>",
+													"description": "The report ID of the itemizations to be retrieved.  Format: An alpha-numeric string"
+												},
+												{
+													"key": "entryID",
+													"value": "<string>",
+													"description": "The entry ID for the itemizations to be retrieved."
+												},
+												{
+													"key": "expenseTypeCode",
+													"value": "<string>",
+													"description": "The expense type code for the itemizations to be retrieved."
+												},
+												{
+													"key": "offset",
+													"value": "<string>",
+													"description": "The starting point of the next set of results, after the limit specified in the limit field has been reached."
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "The number of records to return. Default value: 25"
+												},
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Items\": {\n    \"AllocationType\": \"<string>\",\n    \"ApprovedAmount\": \"<double>\",\n    \"Custom1\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom10\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom11\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom12\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom13\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom14\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom15\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom16\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom17\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom18\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom19\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom2\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom20\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom21\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom22\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom23\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom24\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom25\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom26\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom27\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom28\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom29\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom3\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom30\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom31\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom32\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom33\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom34\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom35\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom36\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom37\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom38\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom39\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom4\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom40\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom5\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom6\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom7\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom8\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom9\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Description\": \"<string>\",\n    \"EntryID\": \"<string>\",\n    \"ExpenseTypeCode\": \"<string>\",\n    \"ExpenseTypeName\": \"<string>\",\n    \"HasComments\": \"<boolean>\",\n    \"HasExceptions\": \"<boolean>\",\n    \"ID\": \"<string>\",\n    \"IsBillable\": \"<boolean>\",\n    \"IsImageRequired\": \"<boolean>\",\n    \"IsPersonal\": \"<boolean>\",\n    \"LastModified\": \"<dateTime>\",\n    \"LocationCountry\": \"<string>\",\n    \"LocationID\": \"<string>\",\n    \"LocationName\": \"<string>\",\n    \"LocationSubdivision\": \"<string>\",\n    \"OrgUnit1\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"OrgUnit2\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"OrgUnit3\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"OrgUnit4\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"OrgUnit5\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"OrgUnit6\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"PostedAmount\": \"<double>\",\n    \"ReportID\": \"<string>\",\n    \"ReportOwnerID\": \"<string>\",\n    \"SpendCategoryCode\": \"<string>\",\n    \"SpendCategoryName\": \"<string>\",\n    \"TransactionAmount\": \"<double>\",\n    \"TransactionDate\": \"<dateTime>\",\n    \"URI\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Create expense itemization",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"Comment\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom11\": \"<string>\",\n  \"Custom12\": \"<string>\",\n  \"Custom13\": \"<string>\",\n  \"Custom14\": \"<string>\",\n  \"Custom15\": \"<string>\",\n  \"Custom16\": \"<string>\",\n  \"Custom17\": \"<string>\",\n  \"Custom18\": \"<string>\",\n  \"Custom19\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom20\": \"<string>\",\n  \"Custom21\": \"<string>\",\n  \"Custom22\": \"<string>\",\n  \"Custom23\": \"<string>\",\n  \"Custom24\": \"<string>\",\n  \"Custom25\": \"<string>\",\n  \"Custom26\": \"<string>\",\n  \"Custom27\": \"<string>\",\n  \"Custom28\": \"<string>\",\n  \"Custom29\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom30\": \"<string>\",\n  \"Custom31\": \"<string>\",\n  \"Custom32\": \"<string>\",\n  \"Custom33\": \"<string>\",\n  \"Custom34\": \"<string>\",\n  \"Custom35\": \"<string>\",\n  \"Custom36\": \"<string>\",\n  \"Custom37\": \"<string>\",\n  \"Custom38\": \"<string>\",\n  \"Custom39\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom40\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"EntryID\": \"<string>\",\n  \"ExpenseTypeCode\": \"<string>\",\n  \"IsBillable\": \"<boolean>\",\n  \"IsPersonal\": \"<boolean>\",\n  \"OrgUnit1\": \"<string>\",\n  \"OrgUnit2\": \"<string>\",\n  \"OrgUnit3\": \"<string>\",\n  \"OrgUnit4\": \"<string>\",\n  \"OrgUnit5\": \"<string>\",\n  \"OrgUnit6\": \"<string>\",\n  \"TransactionAmount\": \"<double>\",\n  \"TransactionDate\": \"<dateTime>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/expense/itemizations?user=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"expense",
+										"itemizations"
+									],
+									"query": [
+										{
+											"key": "user",
+											"value": "<string>",
+											"description": "The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter."
+										}
+									]
+								},
+								"description": "Creates a new expense itemization for the specified expense entry."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Comment\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom11\": \"<string>\",\n  \"Custom12\": \"<string>\",\n  \"Custom13\": \"<string>\",\n  \"Custom14\": \"<string>\",\n  \"Custom15\": \"<string>\",\n  \"Custom16\": \"<string>\",\n  \"Custom17\": \"<string>\",\n  \"Custom18\": \"<string>\",\n  \"Custom19\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom20\": \"<string>\",\n  \"Custom21\": \"<string>\",\n  \"Custom22\": \"<string>\",\n  \"Custom23\": \"<string>\",\n  \"Custom24\": \"<string>\",\n  \"Custom25\": \"<string>\",\n  \"Custom26\": \"<string>\",\n  \"Custom27\": \"<string>\",\n  \"Custom28\": \"<string>\",\n  \"Custom29\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom30\": \"<string>\",\n  \"Custom31\": \"<string>\",\n  \"Custom32\": \"<string>\",\n  \"Custom33\": \"<string>\",\n  \"Custom34\": \"<string>\",\n  \"Custom35\": \"<string>\",\n  \"Custom36\": \"<string>\",\n  \"Custom37\": \"<string>\",\n  \"Custom38\": \"<string>\",\n  \"Custom39\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom40\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"EntryID\": \"<string>\",\n  \"ExpenseTypeCode\": \"<string>\",\n  \"IsBillable\": \"<boolean>\",\n  \"IsPersonal\": \"<boolean>\",\n  \"OrgUnit1\": \"<string>\",\n  \"OrgUnit2\": \"<string>\",\n  \"OrgUnit3\": \"<string>\",\n  \"OrgUnit4\": \"<string>\",\n  \"OrgUnit5\": \"<string>\",\n  \"OrgUnit6\": \"<string>\",\n  \"TransactionAmount\": \"<double>\",\n  \"TransactionDate\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/expense/itemizations?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"itemizations"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"ID\": \"<string>\",\n  \"URI\": \"<string>\"\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Comment\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom11\": \"<string>\",\n  \"Custom12\": \"<string>\",\n  \"Custom13\": \"<string>\",\n  \"Custom14\": \"<string>\",\n  \"Custom15\": \"<string>\",\n  \"Custom16\": \"<string>\",\n  \"Custom17\": \"<string>\",\n  \"Custom18\": \"<string>\",\n  \"Custom19\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom20\": \"<string>\",\n  \"Custom21\": \"<string>\",\n  \"Custom22\": \"<string>\",\n  \"Custom23\": \"<string>\",\n  \"Custom24\": \"<string>\",\n  \"Custom25\": \"<string>\",\n  \"Custom26\": \"<string>\",\n  \"Custom27\": \"<string>\",\n  \"Custom28\": \"<string>\",\n  \"Custom29\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom30\": \"<string>\",\n  \"Custom31\": \"<string>\",\n  \"Custom32\": \"<string>\",\n  \"Custom33\": \"<string>\",\n  \"Custom34\": \"<string>\",\n  \"Custom35\": \"<string>\",\n  \"Custom36\": \"<string>\",\n  \"Custom37\": \"<string>\",\n  \"Custom38\": \"<string>\",\n  \"Custom39\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom40\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"EntryID\": \"<string>\",\n  \"ExpenseTypeCode\": \"<string>\",\n  \"IsBillable\": \"<boolean>\",\n  \"IsPersonal\": \"<boolean>\",\n  \"OrgUnit1\": \"<string>\",\n  \"OrgUnit2\": \"<string>\",\n  \"OrgUnit3\": \"<string>\",\n  \"OrgUnit4\": \"<string>\",\n  \"OrgUnit5\": \"<string>\",\n  \"OrgUnit6\": \"<string>\",\n  \"TransactionAmount\": \"<double>\",\n  \"TransactionDate\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/expense/itemizations?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"itemizations"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter."
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/v3.0"
+		}
+	]
+}

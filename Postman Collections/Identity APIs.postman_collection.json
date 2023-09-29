@@ -1,0 +1,2436 @@
+{
+	"info": {
+		"_postman_id": "782661d1-af5b-4560-a45e-b2d26ee6730c",
+		"name": "Identity APIs",
+		"description": "Identity v4.1 APIs\n\nContact Support:\n Email: profile@concur.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Fetch User",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "5fd5d342-e191-42bb-b25e-e1b76c085a43"
+										}
+									]
+								},
+								"description": "Retrieve a User Identity Profile by Id"
+							},
+							"response": [
+								{
+									"name": "User Resource",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"timezone\": \"<string>\",\n  \"name\": {\n    \"familyName\": \"<string>\",\n    \"givenName\": \"<string>\",\n    \"academicTitle\": \"Prof.\",\n    \"familyNamePrefix\": \"<string>\",\n    \"formatted\": \"<string>\",\n    \"honorificPrefix\": \"<string>\",\n    \"honorificSuffix\": \"<string>\",\n    \"legalName\": \"<string>\",\n    \"middleInitial\": \"<string>\",\n    \"middleName\": \"<string>\"\n  },\n  \"preferredLanguage\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"emails\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    }\n  ],\n  \"userName\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"companyId\": \"<string>\",\n    \"startDate\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"department\": \"<string>\",\n    \"division\": \"<string>\",\n    \"employeeNumber\": \"<string>\",\n    \"leavesOfAbsence\": [\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"voluntary\"\n      },\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"mandatory\"\n      }\n    ],\n    \"legalEntity\": \"<string>\",\n    \"manager\": {\n      \"value\": \"<string>\",\n      \"$ref\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"employeeNumber\": \"<string>\"\n    },\n    \"organization\": \"<string>\",\n    \"terminationDate\": \"<string>\"\n  },\n  \"addresses\": [\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"billing\"\n    },\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"home\"\n    }\n  ],\n  \"dateOfBirth\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"emergencyContacts\": [\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Sister\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Spouse\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    }\n  ],\n  \"entitlements\": [\n    \"Invoice\",\n    \"Travel\"\n  ],\n  \"externalId\": \"<string>\",\n  \"localeOverrides\": {\n    \"preferenceEndDayViewHour\": \"<integer>\",\n    \"preferenceFirstDayOfWeek\": \"Saturday\",\n    \"preferenceDateFormat\": \"yyyy.mm.dd\",\n    \"preferenceCurrencySymbolLocation\": \"BeforeAmount\",\n    \"preferenceHourMinuteSeparator\": \".\",\n    \"preferenceDefaultCalView\": \"week\",\n    \"preference24Hour\": \"hh:mm\",\n    \"preferenceNumberFormat\": \"1,000.00\",\n    \"preferenceStartDayViewHour\": \"<integer>\",\n    \"preferenceDistance\": \"km\",\n    \"preferenceNegativeCurrencyFormat\": \"-100\",\n    \"preferenceNegativeNumberFormat\": \"-100\"\n  },\n  \"meta\": {\n    \"created\": \"<string>\",\n    \"lastModified\": \"<string>\",\n    \"location\": \"<string>\",\n    \"resourceType\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"nickName\": \"<string>\",\n  \"phoneNumbers\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"home\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"pager\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    }\n  ],\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:sap:2.0:User\": {\n    \"userUuid\": \"<string>\"\n  },\n  \"urn:ietf:params:scim:schemas:extension:settings:2.0:User\": {\n    \"theme\": \"SAP Horizon Morning\"\n  }\n}"
+								},
+								{
+									"name": "The request is invalid",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								},
+								{
+									"name": "The specified resource was not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								},
+								{
+									"name": "Internal server error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "Patch User",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:PatchOp\",\n    \"urn:ietf:params:scim:api:messages:2.0:PatchOp\"\n  ],\n  \"Operations\": [\n    {\n      \"op\": \"remove\",\n      \"path\": \"<string>\",\n      \"value\": {}\n    },\n    {\n      \"op\": \"add\",\n      \"path\": \"<string>\",\n      \"value\": {}\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>"
+										}
+									]
+								},
+								"description": "Update an existing User Identity Profile by Id"
+							},
+							"response": [
+								{
+									"name": "User Resource",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:PatchOp\",\n    \"urn:ietf:params:scim:api:messages:2.0:PatchOp\"\n  ],\n  \"Operations\": [\n    {\n      \"op\": \"remove\",\n      \"path\": \"<string>\",\n      \"value\": {}\n    },\n    {\n      \"op\": \"add\",\n      \"path\": \"<string>\",\n      \"value\": {}\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"timezone\": \"<string>\",\n  \"name\": {\n    \"familyName\": \"<string>\",\n    \"givenName\": \"<string>\",\n    \"academicTitle\": \"Prof.\",\n    \"familyNamePrefix\": \"<string>\",\n    \"formatted\": \"<string>\",\n    \"honorificPrefix\": \"<string>\",\n    \"honorificSuffix\": \"<string>\",\n    \"legalName\": \"<string>\",\n    \"middleInitial\": \"<string>\",\n    \"middleName\": \"<string>\"\n  },\n  \"preferredLanguage\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"emails\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    }\n  ],\n  \"userName\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"companyId\": \"<string>\",\n    \"startDate\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"department\": \"<string>\",\n    \"division\": \"<string>\",\n    \"employeeNumber\": \"<string>\",\n    \"leavesOfAbsence\": [\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"voluntary\"\n      },\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"mandatory\"\n      }\n    ],\n    \"legalEntity\": \"<string>\",\n    \"manager\": {\n      \"value\": \"<string>\",\n      \"$ref\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"employeeNumber\": \"<string>\"\n    },\n    \"organization\": \"<string>\",\n    \"terminationDate\": \"<string>\"\n  },\n  \"addresses\": [\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"billing\"\n    },\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"home\"\n    }\n  ],\n  \"dateOfBirth\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"emergencyContacts\": [\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Sister\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Spouse\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    }\n  ],\n  \"entitlements\": [\n    \"Invoice\",\n    \"Travel\"\n  ],\n  \"externalId\": \"<string>\",\n  \"localeOverrides\": {\n    \"preferenceEndDayViewHour\": \"<integer>\",\n    \"preferenceFirstDayOfWeek\": \"Saturday\",\n    \"preferenceDateFormat\": \"yyyy.mm.dd\",\n    \"preferenceCurrencySymbolLocation\": \"BeforeAmount\",\n    \"preferenceHourMinuteSeparator\": \".\",\n    \"preferenceDefaultCalView\": \"week\",\n    \"preference24Hour\": \"hh:mm\",\n    \"preferenceNumberFormat\": \"1,000.00\",\n    \"preferenceStartDayViewHour\": \"<integer>\",\n    \"preferenceDistance\": \"km\",\n    \"preferenceNegativeCurrencyFormat\": \"-100\",\n    \"preferenceNegativeNumberFormat\": \"-100\"\n  },\n  \"meta\": {\n    \"created\": \"<string>\",\n    \"lastModified\": \"<string>\",\n    \"location\": \"<string>\",\n    \"resourceType\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"nickName\": \"<string>\",\n  \"phoneNumbers\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"home\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"pager\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    }\n  ],\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:sap:2.0:User\": {\n    \"userUuid\": \"<string>\"\n  },\n  \"urn:ietf:params:scim:schemas:extension:settings:2.0:User\": {\n    \"theme\": \"SAP Horizon Morning\"\n  }\n}"
+								},
+								{
+									"name": "The request is invalid",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:PatchOp\",\n    \"urn:ietf:params:scim:api:messages:2.0:PatchOp\"\n  ],\n  \"Operations\": [\n    {\n      \"op\": \"remove\",\n      \"path\": \"<string>\",\n      \"value\": {}\n    },\n    {\n      \"op\": \"add\",\n      \"path\": \"<string>\",\n      \"value\": {}\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:PatchOp\",\n    \"urn:ietf:params:scim:api:messages:2.0:PatchOp\"\n  ],\n  \"Operations\": [\n    {\n      \"op\": \"remove\",\n      \"path\": \"<string>\",\n      \"value\": {}\n    },\n    {\n      \"op\": \"add\",\n      \"path\": \"<string>\",\n      \"value\": {}\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								},
+								{
+									"name": "The specified resource was not found",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:PatchOp\",\n    \"urn:ietf:params:scim:api:messages:2.0:PatchOp\"\n  ],\n  \"Operations\": [\n    {\n      \"op\": \"remove\",\n      \"path\": \"<string>\",\n      \"value\": {}\n    },\n    {\n      \"op\": \"add\",\n      \"path\": \"<string>\",\n      \"value\": {}\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								},
+								{
+									"name": "Internal server error",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:PatchOp\",\n    \"urn:ietf:params:scim:api:messages:2.0:PatchOp\"\n  ],\n  \"Operations\": [\n    {\n      \"op\": \"remove\",\n      \"path\": \"<string>\",\n      \"value\": {}\n    },\n    {\n      \"op\": \"add\",\n      \"path\": \"<string>\",\n      \"value\": {}\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "Replace User",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"timezone\": \"<string>\",\n  \"name\": {\n    \"familyName\": \"<string>\",\n    \"givenName\": \"<string>\",\n    \"academicTitle\": \"Prof.\",\n    \"familyNamePrefix\": \"<string>\",\n    \"formatted\": \"<string>\",\n    \"honorificPrefix\": \"<string>\",\n    \"honorificSuffix\": \"<string>\",\n    \"legalName\": \"<string>\",\n    \"middleInitial\": \"<string>\",\n    \"middleName\": \"<string>\"\n  },\n  \"preferredLanguage\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"emails\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    }\n  ],\n  \"userName\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"companyId\": \"<string>\",\n    \"startDate\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"department\": \"<string>\",\n    \"division\": \"<string>\",\n    \"employeeNumber\": \"<string>\",\n    \"leavesOfAbsence\": [\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"voluntary\"\n      },\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"mandatory\"\n      }\n    ],\n    \"legalEntity\": \"<string>\",\n    \"manager\": {\n      \"value\": \"<string>\",\n      \"$ref\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"employeeNumber\": \"<string>\"\n    },\n    \"organization\": \"<string>\",\n    \"terminationDate\": \"<string>\"\n  },\n  \"addresses\": [\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"billing\"\n    },\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"home\"\n    }\n  ],\n  \"dateOfBirth\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"emergencyContacts\": [\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Sister\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Spouse\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    }\n  ],\n  \"entitlements\": [\n    \"Invoice\",\n    \"Travel\"\n  ],\n  \"externalId\": \"<string>\",\n  \"localeOverrides\": {\n    \"preferenceEndDayViewHour\": \"<integer>\",\n    \"preferenceFirstDayOfWeek\": \"Saturday\",\n    \"preferenceDateFormat\": \"yyyy.mm.dd\",\n    \"preferenceCurrencySymbolLocation\": \"BeforeAmount\",\n    \"preferenceHourMinuteSeparator\": \".\",\n    \"preferenceDefaultCalView\": \"week\",\n    \"preference24Hour\": \"hh:mm\",\n    \"preferenceNumberFormat\": \"1,000.00\",\n    \"preferenceStartDayViewHour\": \"<integer>\",\n    \"preferenceDistance\": \"km\",\n    \"preferenceNegativeCurrencyFormat\": \"-100\",\n    \"preferenceNegativeNumberFormat\": \"-100\"\n  },\n  \"meta\": {\n    \"created\": \"<string>\",\n    \"lastModified\": \"<string>\",\n    \"location\": \"<string>\",\n    \"resourceType\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"nickName\": \"<string>\",\n  \"phoneNumbers\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"home\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"pager\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    }\n  ],\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:sap:2.0:User\": {\n    \"userUuid\": \"<string>\"\n  },\n  \"urn:ietf:params:scim:schemas:extension:settings:2.0:User\": {\n    \"theme\": \"SAP Horizon Morning\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>"
+										}
+									]
+								},
+								"description": "Update an existing User Identity Profile by Id"
+							},
+							"response": [
+								{
+									"name": "User Resource",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"timezone\": \"<string>\",\n  \"name\": {\n    \"familyName\": \"<string>\",\n    \"givenName\": \"<string>\",\n    \"academicTitle\": \"Prof.\",\n    \"familyNamePrefix\": \"<string>\",\n    \"formatted\": \"<string>\",\n    \"honorificPrefix\": \"<string>\",\n    \"honorificSuffix\": \"<string>\",\n    \"legalName\": \"<string>\",\n    \"middleInitial\": \"<string>\",\n    \"middleName\": \"<string>\"\n  },\n  \"preferredLanguage\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"emails\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    }\n  ],\n  \"userName\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"companyId\": \"<string>\",\n    \"startDate\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"department\": \"<string>\",\n    \"division\": \"<string>\",\n    \"employeeNumber\": \"<string>\",\n    \"leavesOfAbsence\": [\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"voluntary\"\n      },\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"mandatory\"\n      }\n    ],\n    \"legalEntity\": \"<string>\",\n    \"manager\": {\n      \"value\": \"<string>\",\n      \"$ref\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"employeeNumber\": \"<string>\"\n    },\n    \"organization\": \"<string>\",\n    \"terminationDate\": \"<string>\"\n  },\n  \"addresses\": [\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"billing\"\n    },\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"home\"\n    }\n  ],\n  \"dateOfBirth\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"emergencyContacts\": [\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Sister\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Spouse\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    }\n  ],\n  \"entitlements\": [\n    \"Invoice\",\n    \"Travel\"\n  ],\n  \"externalId\": \"<string>\",\n  \"localeOverrides\": {\n    \"preferenceEndDayViewHour\": \"<integer>\",\n    \"preferenceFirstDayOfWeek\": \"Saturday\",\n    \"preferenceDateFormat\": \"yyyy.mm.dd\",\n    \"preferenceCurrencySymbolLocation\": \"BeforeAmount\",\n    \"preferenceHourMinuteSeparator\": \".\",\n    \"preferenceDefaultCalView\": \"week\",\n    \"preference24Hour\": \"hh:mm\",\n    \"preferenceNumberFormat\": \"1,000.00\",\n    \"preferenceStartDayViewHour\": \"<integer>\",\n    \"preferenceDistance\": \"km\",\n    \"preferenceNegativeCurrencyFormat\": \"-100\",\n    \"preferenceNegativeNumberFormat\": \"-100\"\n  },\n  \"meta\": {\n    \"created\": \"<string>\",\n    \"lastModified\": \"<string>\",\n    \"location\": \"<string>\",\n    \"resourceType\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"nickName\": \"<string>\",\n  \"phoneNumbers\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"home\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"pager\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    }\n  ],\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:sap:2.0:User\": {\n    \"userUuid\": \"<string>\"\n  },\n  \"urn:ietf:params:scim:schemas:extension:settings:2.0:User\": {\n    \"theme\": \"SAP Horizon Morning\"\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"timezone\": \"<string>\",\n  \"name\": {\n    \"familyName\": \"<string>\",\n    \"givenName\": \"<string>\",\n    \"academicTitle\": \"Prof.\",\n    \"familyNamePrefix\": \"<string>\",\n    \"formatted\": \"<string>\",\n    \"honorificPrefix\": \"<string>\",\n    \"honorificSuffix\": \"<string>\",\n    \"legalName\": \"<string>\",\n    \"middleInitial\": \"<string>\",\n    \"middleName\": \"<string>\"\n  },\n  \"preferredLanguage\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"emails\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    }\n  ],\n  \"userName\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"companyId\": \"<string>\",\n    \"startDate\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"department\": \"<string>\",\n    \"division\": \"<string>\",\n    \"employeeNumber\": \"<string>\",\n    \"leavesOfAbsence\": [\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"voluntary\"\n      },\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"mandatory\"\n      }\n    ],\n    \"legalEntity\": \"<string>\",\n    \"manager\": {\n      \"value\": \"<string>\",\n      \"$ref\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"employeeNumber\": \"<string>\"\n    },\n    \"organization\": \"<string>\",\n    \"terminationDate\": \"<string>\"\n  },\n  \"addresses\": [\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"billing\"\n    },\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"home\"\n    }\n  ],\n  \"dateOfBirth\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"emergencyContacts\": [\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Sister\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Spouse\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    }\n  ],\n  \"entitlements\": [\n    \"Invoice\",\n    \"Travel\"\n  ],\n  \"externalId\": \"<string>\",\n  \"localeOverrides\": {\n    \"preferenceEndDayViewHour\": \"<integer>\",\n    \"preferenceFirstDayOfWeek\": \"Saturday\",\n    \"preferenceDateFormat\": \"yyyy.mm.dd\",\n    \"preferenceCurrencySymbolLocation\": \"BeforeAmount\",\n    \"preferenceHourMinuteSeparator\": \".\",\n    \"preferenceDefaultCalView\": \"week\",\n    \"preference24Hour\": \"hh:mm\",\n    \"preferenceNumberFormat\": \"1,000.00\",\n    \"preferenceStartDayViewHour\": \"<integer>\",\n    \"preferenceDistance\": \"km\",\n    \"preferenceNegativeCurrencyFormat\": \"-100\",\n    \"preferenceNegativeNumberFormat\": \"-100\"\n  },\n  \"meta\": {\n    \"created\": \"<string>\",\n    \"lastModified\": \"<string>\",\n    \"location\": \"<string>\",\n    \"resourceType\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"nickName\": \"<string>\",\n  \"phoneNumbers\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"home\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"pager\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    }\n  ],\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:sap:2.0:User\": {\n    \"userUuid\": \"<string>\"\n  },\n  \"urn:ietf:params:scim:schemas:extension:settings:2.0:User\": {\n    \"theme\": \"SAP Horizon Morning\"\n  }\n}"
+								},
+								{
+									"name": "The request is invalid",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"timezone\": \"<string>\",\n  \"name\": {\n    \"familyName\": \"<string>\",\n    \"givenName\": \"<string>\",\n    \"academicTitle\": \"Prof.\",\n    \"familyNamePrefix\": \"<string>\",\n    \"formatted\": \"<string>\",\n    \"honorificPrefix\": \"<string>\",\n    \"honorificSuffix\": \"<string>\",\n    \"legalName\": \"<string>\",\n    \"middleInitial\": \"<string>\",\n    \"middleName\": \"<string>\"\n  },\n  \"preferredLanguage\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"emails\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    }\n  ],\n  \"userName\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"companyId\": \"<string>\",\n    \"startDate\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"department\": \"<string>\",\n    \"division\": \"<string>\",\n    \"employeeNumber\": \"<string>\",\n    \"leavesOfAbsence\": [\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"voluntary\"\n      },\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"mandatory\"\n      }\n    ],\n    \"legalEntity\": \"<string>\",\n    \"manager\": {\n      \"value\": \"<string>\",\n      \"$ref\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"employeeNumber\": \"<string>\"\n    },\n    \"organization\": \"<string>\",\n    \"terminationDate\": \"<string>\"\n  },\n  \"addresses\": [\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"billing\"\n    },\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"home\"\n    }\n  ],\n  \"dateOfBirth\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"emergencyContacts\": [\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Sister\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Spouse\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    }\n  ],\n  \"entitlements\": [\n    \"Invoice\",\n    \"Travel\"\n  ],\n  \"externalId\": \"<string>\",\n  \"localeOverrides\": {\n    \"preferenceEndDayViewHour\": \"<integer>\",\n    \"preferenceFirstDayOfWeek\": \"Saturday\",\n    \"preferenceDateFormat\": \"yyyy.mm.dd\",\n    \"preferenceCurrencySymbolLocation\": \"BeforeAmount\",\n    \"preferenceHourMinuteSeparator\": \".\",\n    \"preferenceDefaultCalView\": \"week\",\n    \"preference24Hour\": \"hh:mm\",\n    \"preferenceNumberFormat\": \"1,000.00\",\n    \"preferenceStartDayViewHour\": \"<integer>\",\n    \"preferenceDistance\": \"km\",\n    \"preferenceNegativeCurrencyFormat\": \"-100\",\n    \"preferenceNegativeNumberFormat\": \"-100\"\n  },\n  \"meta\": {\n    \"created\": \"<string>\",\n    \"lastModified\": \"<string>\",\n    \"location\": \"<string>\",\n    \"resourceType\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"nickName\": \"<string>\",\n  \"phoneNumbers\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"home\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"pager\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    }\n  ],\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:sap:2.0:User\": {\n    \"userUuid\": \"<string>\"\n  },\n  \"urn:ietf:params:scim:schemas:extension:settings:2.0:User\": {\n    \"theme\": \"SAP Horizon Morning\"\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"timezone\": \"<string>\",\n  \"name\": {\n    \"familyName\": \"<string>\",\n    \"givenName\": \"<string>\",\n    \"academicTitle\": \"Prof.\",\n    \"familyNamePrefix\": \"<string>\",\n    \"formatted\": \"<string>\",\n    \"honorificPrefix\": \"<string>\",\n    \"honorificSuffix\": \"<string>\",\n    \"legalName\": \"<string>\",\n    \"middleInitial\": \"<string>\",\n    \"middleName\": \"<string>\"\n  },\n  \"preferredLanguage\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"emails\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    }\n  ],\n  \"userName\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"companyId\": \"<string>\",\n    \"startDate\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"department\": \"<string>\",\n    \"division\": \"<string>\",\n    \"employeeNumber\": \"<string>\",\n    \"leavesOfAbsence\": [\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"voluntary\"\n      },\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"mandatory\"\n      }\n    ],\n    \"legalEntity\": \"<string>\",\n    \"manager\": {\n      \"value\": \"<string>\",\n      \"$ref\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"employeeNumber\": \"<string>\"\n    },\n    \"organization\": \"<string>\",\n    \"terminationDate\": \"<string>\"\n  },\n  \"addresses\": [\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"billing\"\n    },\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"home\"\n    }\n  ],\n  \"dateOfBirth\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"emergencyContacts\": [\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Sister\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Spouse\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    }\n  ],\n  \"entitlements\": [\n    \"Invoice\",\n    \"Travel\"\n  ],\n  \"externalId\": \"<string>\",\n  \"localeOverrides\": {\n    \"preferenceEndDayViewHour\": \"<integer>\",\n    \"preferenceFirstDayOfWeek\": \"Saturday\",\n    \"preferenceDateFormat\": \"yyyy.mm.dd\",\n    \"preferenceCurrencySymbolLocation\": \"BeforeAmount\",\n    \"preferenceHourMinuteSeparator\": \".\",\n    \"preferenceDefaultCalView\": \"week\",\n    \"preference24Hour\": \"hh:mm\",\n    \"preferenceNumberFormat\": \"1,000.00\",\n    \"preferenceStartDayViewHour\": \"<integer>\",\n    \"preferenceDistance\": \"km\",\n    \"preferenceNegativeCurrencyFormat\": \"-100\",\n    \"preferenceNegativeNumberFormat\": \"-100\"\n  },\n  \"meta\": {\n    \"created\": \"<string>\",\n    \"lastModified\": \"<string>\",\n    \"location\": \"<string>\",\n    \"resourceType\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"nickName\": \"<string>\",\n  \"phoneNumbers\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"home\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"pager\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    }\n  ],\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:sap:2.0:User\": {\n    \"userUuid\": \"<string>\"\n  },\n  \"urn:ietf:params:scim:schemas:extension:settings:2.0:User\": {\n    \"theme\": \"SAP Horizon Morning\"\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								},
+								{
+									"name": "The specified resource was not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"timezone\": \"<string>\",\n  \"name\": {\n    \"familyName\": \"<string>\",\n    \"givenName\": \"<string>\",\n    \"academicTitle\": \"Prof.\",\n    \"familyNamePrefix\": \"<string>\",\n    \"formatted\": \"<string>\",\n    \"honorificPrefix\": \"<string>\",\n    \"honorificSuffix\": \"<string>\",\n    \"legalName\": \"<string>\",\n    \"middleInitial\": \"<string>\",\n    \"middleName\": \"<string>\"\n  },\n  \"preferredLanguage\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"emails\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    }\n  ],\n  \"userName\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"companyId\": \"<string>\",\n    \"startDate\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"department\": \"<string>\",\n    \"division\": \"<string>\",\n    \"employeeNumber\": \"<string>\",\n    \"leavesOfAbsence\": [\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"voluntary\"\n      },\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"mandatory\"\n      }\n    ],\n    \"legalEntity\": \"<string>\",\n    \"manager\": {\n      \"value\": \"<string>\",\n      \"$ref\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"employeeNumber\": \"<string>\"\n    },\n    \"organization\": \"<string>\",\n    \"terminationDate\": \"<string>\"\n  },\n  \"addresses\": [\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"billing\"\n    },\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"home\"\n    }\n  ],\n  \"dateOfBirth\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"emergencyContacts\": [\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Sister\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Spouse\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    }\n  ],\n  \"entitlements\": [\n    \"Invoice\",\n    \"Travel\"\n  ],\n  \"externalId\": \"<string>\",\n  \"localeOverrides\": {\n    \"preferenceEndDayViewHour\": \"<integer>\",\n    \"preferenceFirstDayOfWeek\": \"Saturday\",\n    \"preferenceDateFormat\": \"yyyy.mm.dd\",\n    \"preferenceCurrencySymbolLocation\": \"BeforeAmount\",\n    \"preferenceHourMinuteSeparator\": \".\",\n    \"preferenceDefaultCalView\": \"week\",\n    \"preference24Hour\": \"hh:mm\",\n    \"preferenceNumberFormat\": \"1,000.00\",\n    \"preferenceStartDayViewHour\": \"<integer>\",\n    \"preferenceDistance\": \"km\",\n    \"preferenceNegativeCurrencyFormat\": \"-100\",\n    \"preferenceNegativeNumberFormat\": \"-100\"\n  },\n  \"meta\": {\n    \"created\": \"<string>\",\n    \"lastModified\": \"<string>\",\n    \"location\": \"<string>\",\n    \"resourceType\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"nickName\": \"<string>\",\n  \"phoneNumbers\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"home\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"pager\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    }\n  ],\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:sap:2.0:User\": {\n    \"userUuid\": \"<string>\"\n  },\n  \"urn:ietf:params:scim:schemas:extension:settings:2.0:User\": {\n    \"theme\": \"SAP Horizon Morning\"\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								},
+								{
+									"name": "Internal server error",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"timezone\": \"<string>\",\n  \"name\": {\n    \"familyName\": \"<string>\",\n    \"givenName\": \"<string>\",\n    \"academicTitle\": \"Prof.\",\n    \"familyNamePrefix\": \"<string>\",\n    \"formatted\": \"<string>\",\n    \"honorificPrefix\": \"<string>\",\n    \"honorificSuffix\": \"<string>\",\n    \"legalName\": \"<string>\",\n    \"middleInitial\": \"<string>\",\n    \"middleName\": \"<string>\"\n  },\n  \"preferredLanguage\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"emails\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    }\n  ],\n  \"userName\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"companyId\": \"<string>\",\n    \"startDate\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"department\": \"<string>\",\n    \"division\": \"<string>\",\n    \"employeeNumber\": \"<string>\",\n    \"leavesOfAbsence\": [\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"voluntary\"\n      },\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"mandatory\"\n      }\n    ],\n    \"legalEntity\": \"<string>\",\n    \"manager\": {\n      \"value\": \"<string>\",\n      \"$ref\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"employeeNumber\": \"<string>\"\n    },\n    \"organization\": \"<string>\",\n    \"terminationDate\": \"<string>\"\n  },\n  \"addresses\": [\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"billing\"\n    },\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"home\"\n    }\n  ],\n  \"dateOfBirth\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"emergencyContacts\": [\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Sister\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Spouse\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    }\n  ],\n  \"entitlements\": [\n    \"Invoice\",\n    \"Travel\"\n  ],\n  \"externalId\": \"<string>\",\n  \"localeOverrides\": {\n    \"preferenceEndDayViewHour\": \"<integer>\",\n    \"preferenceFirstDayOfWeek\": \"Saturday\",\n    \"preferenceDateFormat\": \"yyyy.mm.dd\",\n    \"preferenceCurrencySymbolLocation\": \"BeforeAmount\",\n    \"preferenceHourMinuteSeparator\": \".\",\n    \"preferenceDefaultCalView\": \"week\",\n    \"preference24Hour\": \"hh:mm\",\n    \"preferenceNumberFormat\": \"1,000.00\",\n    \"preferenceStartDayViewHour\": \"<integer>\",\n    \"preferenceDistance\": \"km\",\n    \"preferenceNegativeCurrencyFormat\": \"-100\",\n    \"preferenceNegativeNumberFormat\": \"-100\"\n  },\n  \"meta\": {\n    \"created\": \"<string>\",\n    \"lastModified\": \"<string>\",\n    \"location\": \"<string>\",\n    \"resourceType\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"nickName\": \"<string>\",\n  \"phoneNumbers\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"home\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"pager\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    }\n  ],\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:sap:2.0:User\": {\n    \"userUuid\": \"<string>\"\n  },\n  \"urn:ietf:params:scim:schemas:extension:settings:2.0:User\": {\n    \"theme\": \"SAP Horizon Morning\"\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete User",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>"
+										}
+									]
+								},
+								"description": "Delete all data associated with User Identity Profile by Id"
+							},
+							"response": [
+								{
+									"name": "Successfully deleted user identity profile",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "The request is invalid",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								},
+								{
+									"name": "The specified resource was not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								},
+								{
+									"name": "Internal server error",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": ".search",
+					"item": [
+						{
+							"name": "Filter for Users within a Company",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"attributes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"continuationToken\": \"<string>\",\n  \"count\": \"<integer>\",\n  \"cursor\": \"<string>\",\n  \"excludedAttributes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"filter\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Users/.search",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Users",
+										".search"
+									]
+								},
+								"description": "Retrieve all matching user profiles by a unique query"
+							},
+							"response": [
+								{
+									"name": "ListResponse containing user resources",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"attributes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"continuationToken\": \"<string>\",\n  \"count\": \"<integer>\",\n  \"cursor\": \"<string>\",\n  \"excludedAttributes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"filter\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Users/.search",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												".search"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:ListResponse\",\n    \"urn:ietf:params:scim:api:messages:2.0:ListResponse\"\n  ],\n  \"totalResults\": \"<integer>\",\n  \"itemsPerPage\": \"<integer>\",\n  \"startIndex\": \"<integer>\",\n  \"Resources\": [\n    {\n      \"timezone\": \"<string>\",\n      \"name\": {\n        \"familyName\": \"<string>\",\n        \"givenName\": \"<string>\",\n        \"academicTitle\": \"Professor Doctor\",\n        \"familyNamePrefix\": \"<string>\",\n        \"formatted\": \"<string>\",\n        \"honorificPrefix\": \"<string>\",\n        \"honorificSuffix\": \"<string>\",\n        \"legalName\": \"<string>\",\n        \"middleInitial\": \"<string>\",\n        \"middleName\": \"<string>\"\n      },\n      \"preferredLanguage\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"emails\": [\n        {\n          \"value\": \"<string>\",\n          \"type\": \"work2\",\n          \"notifications\": \"<boolean>\",\n          \"verified\": \"<boolean>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"type\": \"home\",\n          \"notifications\": \"<boolean>\",\n          \"verified\": \"<boolean>\"\n        }\n      ],\n      \"userName\": \"<string>\",\n      \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n        \"companyId\": \"<string>\",\n        \"startDate\": \"<string>\",\n        \"costCenter\": \"<string>\",\n        \"department\": \"<string>\",\n        \"division\": \"<string>\",\n        \"employeeNumber\": \"<string>\",\n        \"leavesOfAbsence\": [\n          {\n            \"startDate\": \"<string>\",\n            \"endDate\": \"<string>\",\n            \"type\": \"mandatory\"\n          },\n          {\n            \"startDate\": \"<string>\",\n            \"endDate\": \"<string>\",\n            \"type\": \"voluntary\"\n          }\n        ],\n        \"legalEntity\": \"<string>\",\n        \"manager\": {\n          \"value\": \"<string>\",\n          \"$ref\": \"<string>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\"\n        },\n        \"organization\": \"<string>\",\n        \"terminationDate\": \"<string>\"\n      },\n      \"addresses\": [\n        {\n          \"country\": \"<string>\",\n          \"locality\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"region\": \"<string>\",\n          \"streetAddress\": \"<string>\",\n          \"type\": \"billing\"\n        },\n        {\n          \"country\": \"<string>\",\n          \"locality\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"region\": \"<string>\",\n          \"streetAddress\": \"<string>\",\n          \"type\": \"billing\"\n        }\n      ],\n      \"dateOfBirth\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"emergencyContacts\": [\n        {\n          \"name\": \"<string>\",\n          \"relationship\": \"Spouse\",\n          \"country\": \"<string>\",\n          \"emails\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"locality\": \"<string>\",\n          \"phones\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"postalCode\": \"<string>\",\n          \"region\": \"<string>\",\n          \"streetAddress\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"relationship\": \"Brother\",\n          \"country\": \"<string>\",\n          \"emails\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"locality\": \"<string>\",\n          \"phones\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"postalCode\": \"<string>\",\n          \"region\": \"<string>\",\n          \"streetAddress\": \"<string>\"\n        }\n      ],\n      \"entitlements\": [\n        \"Expense\",\n        \"Invoice\"\n      ],\n      \"externalId\": \"<string>\",\n      \"localeOverrides\": {\n        \"preferenceEndDayViewHour\": \"<integer>\",\n        \"preferenceFirstDayOfWeek\": \"Saturday\",\n        \"preferenceDateFormat\": \"yyyy-mm-dd\",\n        \"preferenceCurrencySymbolLocation\": \"AfterAmount\",\n        \"preferenceHourMinuteSeparator\": \".\",\n        \"preferenceDefaultCalView\": \"month\",\n        \"preference24Hour\": \"hh:mm\",\n        \"preferenceNumberFormat\": \"1.000,00\",\n        \"preferenceStartDayViewHour\": \"<integer>\",\n        \"preferenceDistance\": \"km\",\n        \"preferenceNegativeCurrencyFormat\": \"-100\",\n        \"preferenceNegativeNumberFormat\": \"-100\"\n      },\n      \"meta\": {\n        \"created\": \"<string>\",\n        \"lastModified\": \"<string>\",\n        \"location\": \"<string>\",\n        \"resourceType\": \"<string>\",\n        \"version\": \"<integer>\"\n      },\n      \"nickName\": \"<string>\",\n      \"phoneNumbers\": [\n        {\n          \"value\": \"<string>\",\n          \"type\": \"fax\",\n          \"display\": \"<string>\",\n          \"issuingCountry\": \"<string>\",\n          \"notifications\": \"<boolean>\",\n          \"primary\": \"<boolean>\",\n          \"workExtension\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"type\": \"mobile\",\n          \"display\": \"<string>\",\n          \"issuingCountry\": \"<string>\",\n          \"notifications\": \"<boolean>\",\n          \"primary\": \"<boolean>\",\n          \"workExtension\": \"<string>\"\n        }\n      ],\n      \"schemas\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"title\": \"<string>\",\n      \"urn:ietf:params:scim:schemas:extension:sap:2.0:User\": {\n        \"userUuid\": \"<string>\"\n      },\n      \"urn:ietf:params:scim:schemas:extension:settings:2.0:User\": {\n        \"theme\": \"Concur Gateway\"\n      }\n    },\n    {\n      \"timezone\": \"<string>\",\n      \"name\": {\n        \"familyName\": \"<string>\",\n        \"givenName\": \"<string>\",\n        \"academicTitle\": \"Prof. Dr.\",\n        \"familyNamePrefix\": \"<string>\",\n        \"formatted\": \"<string>\",\n        \"honorificPrefix\": \"<string>\",\n        \"honorificSuffix\": \"<string>\",\n        \"legalName\": \"<string>\",\n        \"middleInitial\": \"<string>\",\n        \"middleName\": \"<string>\"\n      },\n      \"preferredLanguage\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"emails\": [\n        {\n          \"value\": \"<string>\",\n          \"type\": \"home\",\n          \"notifications\": \"<boolean>\",\n          \"verified\": \"<boolean>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"type\": \"work\",\n          \"notifications\": \"<boolean>\",\n          \"verified\": \"<boolean>\"\n        }\n      ],\n      \"userName\": \"<string>\",\n      \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n        \"companyId\": \"<string>\",\n        \"startDate\": \"<string>\",\n        \"costCenter\": \"<string>\",\n        \"department\": \"<string>\",\n        \"division\": \"<string>\",\n        \"employeeNumber\": \"<string>\",\n        \"leavesOfAbsence\": [\n          {\n            \"startDate\": \"<string>\",\n            \"endDate\": \"<string>\",\n            \"type\": \"mandatory\"\n          },\n          {\n            \"startDate\": \"<string>\",\n            \"endDate\": \"<string>\",\n            \"type\": \"voluntary\"\n          }\n        ],\n        \"legalEntity\": \"<string>\",\n        \"manager\": {\n          \"value\": \"<string>\",\n          \"$ref\": \"<string>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\"\n        },\n        \"organization\": \"<string>\",\n        \"terminationDate\": \"<string>\"\n      },\n      \"addresses\": [\n        {\n          \"country\": \"<string>\",\n          \"locality\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"region\": \"<string>\",\n          \"streetAddress\": \"<string>\",\n          \"type\": \"billing\"\n        },\n        {\n          \"country\": \"<string>\",\n          \"locality\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"region\": \"<string>\",\n          \"streetAddress\": \"<string>\",\n          \"type\": \"billing\"\n        }\n      ],\n      \"dateOfBirth\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"emergencyContacts\": [\n        {\n          \"name\": \"<string>\",\n          \"relationship\": \"Parent\",\n          \"country\": \"<string>\",\n          \"emails\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"locality\": \"<string>\",\n          \"phones\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"postalCode\": \"<string>\",\n          \"region\": \"<string>\",\n          \"streetAddress\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"relationship\": \"Brother\",\n          \"country\": \"<string>\",\n          \"emails\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"locality\": \"<string>\",\n          \"phones\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"postalCode\": \"<string>\",\n          \"region\": \"<string>\",\n          \"streetAddress\": \"<string>\"\n        }\n      ],\n      \"entitlements\": [\n        \"Analytics\",\n        \"Invoice\"\n      ],\n      \"externalId\": \"<string>\",\n      \"localeOverrides\": {\n        \"preferenceEndDayViewHour\": \"<integer>\",\n        \"preferenceFirstDayOfWeek\": \"Tuesday\",\n        \"preferenceDateFormat\": \"yyyy/mm/dd\",\n        \"preferenceCurrencySymbolLocation\": \"BeforeAmount\",\n        \"preferenceHourMinuteSeparator\": \":\",\n        \"preferenceDefaultCalView\": \"day\",\n        \"preference24Hour\": \"H:mm AM/PM\",\n        \"preferenceNumberFormat\": \"1'000,00\",\n        \"preferenceStartDayViewHour\": \"<integer>\",\n        \"preferenceDistance\": \"mile\",\n        \"preferenceNegativeCurrencyFormat\": \"(100)\",\n        \"preferenceNegativeNumberFormat\": \"(100)\"\n      },\n      \"meta\": {\n        \"created\": \"<string>\",\n        \"lastModified\": \"<string>\",\n        \"location\": \"<string>\",\n        \"resourceType\": \"<string>\",\n        \"version\": \"<integer>\"\n      },\n      \"nickName\": \"<string>\",\n      \"phoneNumbers\": [\n        {\n          \"value\": \"<string>\",\n          \"type\": \"mobile\",\n          \"display\": \"<string>\",\n          \"issuingCountry\": \"<string>\",\n          \"notifications\": \"<boolean>\",\n          \"primary\": \"<boolean>\",\n          \"workExtension\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"type\": \"mobile\",\n          \"display\": \"<string>\",\n          \"issuingCountry\": \"<string>\",\n          \"notifications\": \"<boolean>\",\n          \"primary\": \"<boolean>\",\n          \"workExtension\": \"<string>\"\n        }\n      ],\n      \"schemas\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"title\": \"<string>\",\n      \"urn:ietf:params:scim:schemas:extension:sap:2.0:User\": {\n        \"userUuid\": \"<string>\"\n      },\n      \"urn:ietf:params:scim:schemas:extension:settings:2.0:User\": {\n        \"theme\": \"SAP Horizon Morning\"\n      }\n    }\n  ],\n  \"nextCursor\": \"<string>\"\n}"
+								},
+								{
+									"name": "The request is invalid",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"attributes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"continuationToken\": \"<string>\",\n  \"count\": \"<integer>\",\n  \"cursor\": \"<string>\",\n  \"excludedAttributes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"filter\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Users/.search",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												".search"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"attributes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"continuationToken\": \"<string>\",\n  \"count\": \"<integer>\",\n  \"cursor\": \"<string>\",\n  \"excludedAttributes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"filter\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Users/.search",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												".search"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								},
+								{
+									"name": "Internal server error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"attributes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"continuationToken\": \"<string>\",\n  \"count\": \"<integer>\",\n  \"cursor\": \"<string>\",\n  \"excludedAttributes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"filter\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Users/.search",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Users",
+												".search"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Fetch all Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/Users/?count=100",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Users",
+								""
+							],
+							"query": [
+								{
+									"key": "attributes",
+									"value": "<string>",
+									"description": "A list of strings indicating the names of resource attributes to return in the response, overriding the set of attributes that would be returned by default.",
+									"disabled": true
+								},
+								{
+									"key": "excludedAttributes",
+									"value": "<string>",
+									"description": "A list of strings indicating the names of resource attributes to be removed from the default set of attributes to return.",
+									"disabled": true
+								},
+								{
+									"key": "count",
+									"value": "100",
+									"description": "An integer indicating the desired maximum number of query results per page."
+								},
+								{
+									"key": "cursor",
+									"value": "<string>",
+									"description": "Can be used to paginate to the next page for a single, unique query.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Retrieve all User Profiles within a Company resource"
+					},
+					"response": [
+						{
+							"name": "ListResponse containing user resources",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Users?attributes=<string>&excludedAttributes=<string>&count=100&cursor=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Users"
+									],
+									"query": [
+										{
+											"key": "attributes",
+											"value": "<string>",
+											"description": "A list of strings indicating the names of resource attributes to return in the response, overriding the set of attributes that would be returned by default."
+										},
+										{
+											"key": "excludedAttributes",
+											"value": "<string>",
+											"description": "A list of strings indicating the names of resource attributes to be removed from the default set of attributes to return."
+										},
+										{
+											"key": "count",
+											"value": "100",
+											"description": "An integer indicating the desired maximum number of query results per page."
+										},
+										{
+											"key": "cursor",
+											"value": "<string>",
+											"description": "Can be used to paginate to the next page for a single, unique query."
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:ListResponse\",\n    \"urn:ietf:params:scim:api:messages:2.0:ListResponse\"\n  ],\n  \"totalResults\": \"<integer>\",\n  \"itemsPerPage\": \"<integer>\",\n  \"startIndex\": \"<integer>\",\n  \"Resources\": [\n    {\n      \"timezone\": \"<string>\",\n      \"name\": {\n        \"familyName\": \"<string>\",\n        \"givenName\": \"<string>\",\n        \"academicTitle\": \"Professor Doctor\",\n        \"familyNamePrefix\": \"<string>\",\n        \"formatted\": \"<string>\",\n        \"honorificPrefix\": \"<string>\",\n        \"honorificSuffix\": \"<string>\",\n        \"legalName\": \"<string>\",\n        \"middleInitial\": \"<string>\",\n        \"middleName\": \"<string>\"\n      },\n      \"preferredLanguage\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"emails\": [\n        {\n          \"value\": \"<string>\",\n          \"type\": \"work2\",\n          \"notifications\": \"<boolean>\",\n          \"verified\": \"<boolean>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"type\": \"home\",\n          \"notifications\": \"<boolean>\",\n          \"verified\": \"<boolean>\"\n        }\n      ],\n      \"userName\": \"<string>\",\n      \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n        \"companyId\": \"<string>\",\n        \"startDate\": \"<string>\",\n        \"costCenter\": \"<string>\",\n        \"department\": \"<string>\",\n        \"division\": \"<string>\",\n        \"employeeNumber\": \"<string>\",\n        \"leavesOfAbsence\": [\n          {\n            \"startDate\": \"<string>\",\n            \"endDate\": \"<string>\",\n            \"type\": \"mandatory\"\n          },\n          {\n            \"startDate\": \"<string>\",\n            \"endDate\": \"<string>\",\n            \"type\": \"voluntary\"\n          }\n        ],\n        \"legalEntity\": \"<string>\",\n        \"manager\": {\n          \"value\": \"<string>\",\n          \"$ref\": \"<string>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\"\n        },\n        \"organization\": \"<string>\",\n        \"terminationDate\": \"<string>\"\n      },\n      \"addresses\": [\n        {\n          \"country\": \"<string>\",\n          \"locality\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"region\": \"<string>\",\n          \"streetAddress\": \"<string>\",\n          \"type\": \"billing\"\n        },\n        {\n          \"country\": \"<string>\",\n          \"locality\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"region\": \"<string>\",\n          \"streetAddress\": \"<string>\",\n          \"type\": \"billing\"\n        }\n      ],\n      \"dateOfBirth\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"emergencyContacts\": [\n        {\n          \"name\": \"<string>\",\n          \"relationship\": \"Spouse\",\n          \"country\": \"<string>\",\n          \"emails\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"locality\": \"<string>\",\n          \"phones\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"postalCode\": \"<string>\",\n          \"region\": \"<string>\",\n          \"streetAddress\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"relationship\": \"Brother\",\n          \"country\": \"<string>\",\n          \"emails\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"locality\": \"<string>\",\n          \"phones\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"postalCode\": \"<string>\",\n          \"region\": \"<string>\",\n          \"streetAddress\": \"<string>\"\n        }\n      ],\n      \"entitlements\": [\n        \"Expense\",\n        \"Invoice\"\n      ],\n      \"externalId\": \"<string>\",\n      \"localeOverrides\": {\n        \"preferenceEndDayViewHour\": \"<integer>\",\n        \"preferenceFirstDayOfWeek\": \"Saturday\",\n        \"preferenceDateFormat\": \"yyyy-mm-dd\",\n        \"preferenceCurrencySymbolLocation\": \"AfterAmount\",\n        \"preferenceHourMinuteSeparator\": \".\",\n        \"preferenceDefaultCalView\": \"month\",\n        \"preference24Hour\": \"hh:mm\",\n        \"preferenceNumberFormat\": \"1.000,00\",\n        \"preferenceStartDayViewHour\": \"<integer>\",\n        \"preferenceDistance\": \"km\",\n        \"preferenceNegativeCurrencyFormat\": \"-100\",\n        \"preferenceNegativeNumberFormat\": \"-100\"\n      },\n      \"meta\": {\n        \"created\": \"<string>\",\n        \"lastModified\": \"<string>\",\n        \"location\": \"<string>\",\n        \"resourceType\": \"<string>\",\n        \"version\": \"<integer>\"\n      },\n      \"nickName\": \"<string>\",\n      \"phoneNumbers\": [\n        {\n          \"value\": \"<string>\",\n          \"type\": \"fax\",\n          \"display\": \"<string>\",\n          \"issuingCountry\": \"<string>\",\n          \"notifications\": \"<boolean>\",\n          \"primary\": \"<boolean>\",\n          \"workExtension\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"type\": \"mobile\",\n          \"display\": \"<string>\",\n          \"issuingCountry\": \"<string>\",\n          \"notifications\": \"<boolean>\",\n          \"primary\": \"<boolean>\",\n          \"workExtension\": \"<string>\"\n        }\n      ],\n      \"schemas\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"title\": \"<string>\",\n      \"urn:ietf:params:scim:schemas:extension:sap:2.0:User\": {\n        \"userUuid\": \"<string>\"\n      },\n      \"urn:ietf:params:scim:schemas:extension:settings:2.0:User\": {\n        \"theme\": \"Concur Gateway\"\n      }\n    },\n    {\n      \"timezone\": \"<string>\",\n      \"name\": {\n        \"familyName\": \"<string>\",\n        \"givenName\": \"<string>\",\n        \"academicTitle\": \"Prof. Dr.\",\n        \"familyNamePrefix\": \"<string>\",\n        \"formatted\": \"<string>\",\n        \"honorificPrefix\": \"<string>\",\n        \"honorificSuffix\": \"<string>\",\n        \"legalName\": \"<string>\",\n        \"middleInitial\": \"<string>\",\n        \"middleName\": \"<string>\"\n      },\n      \"preferredLanguage\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"emails\": [\n        {\n          \"value\": \"<string>\",\n          \"type\": \"home\",\n          \"notifications\": \"<boolean>\",\n          \"verified\": \"<boolean>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"type\": \"work\",\n          \"notifications\": \"<boolean>\",\n          \"verified\": \"<boolean>\"\n        }\n      ],\n      \"userName\": \"<string>\",\n      \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n        \"companyId\": \"<string>\",\n        \"startDate\": \"<string>\",\n        \"costCenter\": \"<string>\",\n        \"department\": \"<string>\",\n        \"division\": \"<string>\",\n        \"employeeNumber\": \"<string>\",\n        \"leavesOfAbsence\": [\n          {\n            \"startDate\": \"<string>\",\n            \"endDate\": \"<string>\",\n            \"type\": \"mandatory\"\n          },\n          {\n            \"startDate\": \"<string>\",\n            \"endDate\": \"<string>\",\n            \"type\": \"voluntary\"\n          }\n        ],\n        \"legalEntity\": \"<string>\",\n        \"manager\": {\n          \"value\": \"<string>\",\n          \"$ref\": \"<string>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\"\n        },\n        \"organization\": \"<string>\",\n        \"terminationDate\": \"<string>\"\n      },\n      \"addresses\": [\n        {\n          \"country\": \"<string>\",\n          \"locality\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"region\": \"<string>\",\n          \"streetAddress\": \"<string>\",\n          \"type\": \"billing\"\n        },\n        {\n          \"country\": \"<string>\",\n          \"locality\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"region\": \"<string>\",\n          \"streetAddress\": \"<string>\",\n          \"type\": \"billing\"\n        }\n      ],\n      \"dateOfBirth\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"emergencyContacts\": [\n        {\n          \"name\": \"<string>\",\n          \"relationship\": \"Parent\",\n          \"country\": \"<string>\",\n          \"emails\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"locality\": \"<string>\",\n          \"phones\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"postalCode\": \"<string>\",\n          \"region\": \"<string>\",\n          \"streetAddress\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"relationship\": \"Brother\",\n          \"country\": \"<string>\",\n          \"emails\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"locality\": \"<string>\",\n          \"phones\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"postalCode\": \"<string>\",\n          \"region\": \"<string>\",\n          \"streetAddress\": \"<string>\"\n        }\n      ],\n      \"entitlements\": [\n        \"Analytics\",\n        \"Invoice\"\n      ],\n      \"externalId\": \"<string>\",\n      \"localeOverrides\": {\n        \"preferenceEndDayViewHour\": \"<integer>\",\n        \"preferenceFirstDayOfWeek\": \"Tuesday\",\n        \"preferenceDateFormat\": \"yyyy/mm/dd\",\n        \"preferenceCurrencySymbolLocation\": \"BeforeAmount\",\n        \"preferenceHourMinuteSeparator\": \":\",\n        \"preferenceDefaultCalView\": \"day\",\n        \"preference24Hour\": \"H:mm AM/PM\",\n        \"preferenceNumberFormat\": \"1'000,00\",\n        \"preferenceStartDayViewHour\": \"<integer>\",\n        \"preferenceDistance\": \"mile\",\n        \"preferenceNegativeCurrencyFormat\": \"(100)\",\n        \"preferenceNegativeNumberFormat\": \"(100)\"\n      },\n      \"meta\": {\n        \"created\": \"<string>\",\n        \"lastModified\": \"<string>\",\n        \"location\": \"<string>\",\n        \"resourceType\": \"<string>\",\n        \"version\": \"<integer>\"\n      },\n      \"nickName\": \"<string>\",\n      \"phoneNumbers\": [\n        {\n          \"value\": \"<string>\",\n          \"type\": \"mobile\",\n          \"display\": \"<string>\",\n          \"issuingCountry\": \"<string>\",\n          \"notifications\": \"<boolean>\",\n          \"primary\": \"<boolean>\",\n          \"workExtension\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"type\": \"mobile\",\n          \"display\": \"<string>\",\n          \"issuingCountry\": \"<string>\",\n          \"notifications\": \"<boolean>\",\n          \"primary\": \"<boolean>\",\n          \"workExtension\": \"<string>\"\n        }\n      ],\n      \"schemas\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"title\": \"<string>\",\n      \"urn:ietf:params:scim:schemas:extension:sap:2.0:User\": {\n        \"userUuid\": \"<string>\"\n      },\n      \"urn:ietf:params:scim:schemas:extension:settings:2.0:User\": {\n        \"theme\": \"SAP Horizon Morning\"\n      }\n    }\n  ],\n  \"nextCursor\": \"<string>\"\n}"
+						},
+						{
+							"name": "The request is invalid",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Users?attributes=<string>&excludedAttributes=<string>&count=100&cursor=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Users"
+									],
+									"query": [
+										{
+											"key": "attributes",
+											"value": "<string>",
+											"description": "A list of strings indicating the names of resource attributes to return in the response, overriding the set of attributes that would be returned by default."
+										},
+										{
+											"key": "excludedAttributes",
+											"value": "<string>",
+											"description": "A list of strings indicating the names of resource attributes to be removed from the default set of attributes to return."
+										},
+										{
+											"key": "count",
+											"value": "100",
+											"description": "An integer indicating the desired maximum number of query results per page."
+										},
+										{
+											"key": "cursor",
+											"value": "<string>",
+											"description": "Can be used to paginate to the next page for a single, unique query."
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Users?attributes=<string>&excludedAttributes=<string>&count=100&cursor=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Users"
+									],
+									"query": [
+										{
+											"key": "attributes",
+											"value": "<string>",
+											"description": "A list of strings indicating the names of resource attributes to return in the response, overriding the set of attributes that would be returned by default."
+										},
+										{
+											"key": "excludedAttributes",
+											"value": "<string>",
+											"description": "A list of strings indicating the names of resource attributes to be removed from the default set of attributes to return."
+										},
+										{
+											"key": "count",
+											"value": "100",
+											"description": "An integer indicating the desired maximum number of query results per page."
+										},
+										{
+											"key": "cursor",
+											"value": "<string>",
+											"description": "Can be used to paginate to the next page for a single, unique query."
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+						},
+						{
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Users?attributes=<string>&excludedAttributes=<string>&count=100&cursor=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Users"
+									],
+									"query": [
+										{
+											"key": "attributes",
+											"value": "<string>",
+											"description": "A list of strings indicating the names of resource attributes to return in the response, overriding the set of attributes that would be returned by default."
+										},
+										{
+											"key": "excludedAttributes",
+											"value": "<string>",
+											"description": "A list of strings indicating the names of resource attributes to be removed from the default set of attributes to return."
+										},
+										{
+											"key": "count",
+											"value": "100",
+											"description": "An integer indicating the desired maximum number of query results per page."
+										},
+										{
+											"key": "cursor",
+											"value": "<string>",
+											"description": "Can be used to paginate to the next page for a single, unique query."
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"timezone\": \"<string>\",\n  \"name\": {\n    \"familyName\": \"<string>\",\n    \"givenName\": \"<string>\",\n    \"academicTitle\": \"Prof.\",\n    \"familyNamePrefix\": \"<string>\",\n    \"formatted\": \"<string>\",\n    \"honorificPrefix\": \"<string>\",\n    \"honorificSuffix\": \"<string>\",\n    \"legalName\": \"<string>\",\n    \"middleInitial\": \"<string>\",\n    \"middleName\": \"<string>\"\n  },\n  \"preferredLanguage\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"emails\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    }\n  ],\n  \"userName\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"companyId\": \"<string>\",\n    \"startDate\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"department\": \"<string>\",\n    \"division\": \"<string>\",\n    \"employeeNumber\": \"<string>\",\n    \"leavesOfAbsence\": [\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"voluntary\"\n      },\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"mandatory\"\n      }\n    ],\n    \"legalEntity\": \"<string>\",\n    \"manager\": {\n      \"value\": \"<string>\",\n      \"$ref\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"employeeNumber\": \"<string>\"\n    },\n    \"organization\": \"<string>\",\n    \"terminationDate\": \"<string>\"\n  },\n  \"addresses\": [\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"billing\"\n    },\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"home\"\n    }\n  ],\n  \"dateOfBirth\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"emergencyContacts\": [\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Sister\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Spouse\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    }\n  ],\n  \"entitlements\": [\n    \"Invoice\",\n    \"Travel\"\n  ],\n  \"externalId\": \"<string>\",\n  \"localeOverrides\": {\n    \"preferenceEndDayViewHour\": \"<integer>\",\n    \"preferenceFirstDayOfWeek\": \"Saturday\",\n    \"preferenceDateFormat\": \"yyyy.mm.dd\",\n    \"preferenceCurrencySymbolLocation\": \"BeforeAmount\",\n    \"preferenceHourMinuteSeparator\": \".\",\n    \"preferenceDefaultCalView\": \"week\",\n    \"preference24Hour\": \"hh:mm\",\n    \"preferenceNumberFormat\": \"1,000.00\",\n    \"preferenceStartDayViewHour\": \"<integer>\",\n    \"preferenceDistance\": \"km\",\n    \"preferenceNegativeCurrencyFormat\": \"-100\",\n    \"preferenceNegativeNumberFormat\": \"-100\"\n  },\n  \"meta\": {\n    \"created\": \"<string>\",\n    \"lastModified\": \"<string>\",\n    \"location\": \"<string>\",\n    \"resourceType\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"nickName\": \"<string>\",\n  \"phoneNumbers\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"home\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"pager\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    }\n  ],\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:sap:2.0:User\": {\n    \"userUuid\": \"<string>\"\n  },\n  \"urn:ietf:params:scim:schemas:extension:settings:2.0:User\": {\n    \"theme\": \"SAP Horizon Morning\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/Users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Users"
+							]
+						},
+						"description": "Create a new User Identity Profile within a Company Resource"
+					},
+					"response": [
+						{
+							"name": "User Resource",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"timezone\": \"<string>\",\n  \"name\": {\n    \"familyName\": \"<string>\",\n    \"givenName\": \"<string>\",\n    \"academicTitle\": \"Prof.\",\n    \"familyNamePrefix\": \"<string>\",\n    \"formatted\": \"<string>\",\n    \"honorificPrefix\": \"<string>\",\n    \"honorificSuffix\": \"<string>\",\n    \"legalName\": \"<string>\",\n    \"middleInitial\": \"<string>\",\n    \"middleName\": \"<string>\"\n  },\n  \"preferredLanguage\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"emails\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    }\n  ],\n  \"userName\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"companyId\": \"<string>\",\n    \"startDate\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"department\": \"<string>\",\n    \"division\": \"<string>\",\n    \"employeeNumber\": \"<string>\",\n    \"leavesOfAbsence\": [\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"voluntary\"\n      },\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"mandatory\"\n      }\n    ],\n    \"legalEntity\": \"<string>\",\n    \"manager\": {\n      \"value\": \"<string>\",\n      \"$ref\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"employeeNumber\": \"<string>\"\n    },\n    \"organization\": \"<string>\",\n    \"terminationDate\": \"<string>\"\n  },\n  \"addresses\": [\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"billing\"\n    },\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"home\"\n    }\n  ],\n  \"dateOfBirth\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"emergencyContacts\": [\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Sister\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Spouse\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    }\n  ],\n  \"entitlements\": [\n    \"Invoice\",\n    \"Travel\"\n  ],\n  \"externalId\": \"<string>\",\n  \"localeOverrides\": {\n    \"preferenceEndDayViewHour\": \"<integer>\",\n    \"preferenceFirstDayOfWeek\": \"Saturday\",\n    \"preferenceDateFormat\": \"yyyy.mm.dd\",\n    \"preferenceCurrencySymbolLocation\": \"BeforeAmount\",\n    \"preferenceHourMinuteSeparator\": \".\",\n    \"preferenceDefaultCalView\": \"week\",\n    \"preference24Hour\": \"hh:mm\",\n    \"preferenceNumberFormat\": \"1,000.00\",\n    \"preferenceStartDayViewHour\": \"<integer>\",\n    \"preferenceDistance\": \"km\",\n    \"preferenceNegativeCurrencyFormat\": \"-100\",\n    \"preferenceNegativeNumberFormat\": \"-100\"\n  },\n  \"meta\": {\n    \"created\": \"<string>\",\n    \"lastModified\": \"<string>\",\n    \"location\": \"<string>\",\n    \"resourceType\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"nickName\": \"<string>\",\n  \"phoneNumbers\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"home\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"pager\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    }\n  ],\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:sap:2.0:User\": {\n    \"userUuid\": \"<string>\"\n  },\n  \"urn:ietf:params:scim:schemas:extension:settings:2.0:User\": {\n    \"theme\": \"SAP Horizon Morning\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"timezone\": \"<string>\",\n  \"name\": {\n    \"familyName\": \"<string>\",\n    \"givenName\": \"<string>\",\n    \"academicTitle\": \"Prof.\",\n    \"familyNamePrefix\": \"<string>\",\n    \"formatted\": \"<string>\",\n    \"honorificPrefix\": \"<string>\",\n    \"honorificSuffix\": \"<string>\",\n    \"legalName\": \"<string>\",\n    \"middleInitial\": \"<string>\",\n    \"middleName\": \"<string>\"\n  },\n  \"preferredLanguage\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"emails\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    }\n  ],\n  \"userName\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"companyId\": \"<string>\",\n    \"startDate\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"department\": \"<string>\",\n    \"division\": \"<string>\",\n    \"employeeNumber\": \"<string>\",\n    \"leavesOfAbsence\": [\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"voluntary\"\n      },\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"mandatory\"\n      }\n    ],\n    \"legalEntity\": \"<string>\",\n    \"manager\": {\n      \"value\": \"<string>\",\n      \"$ref\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"employeeNumber\": \"<string>\"\n    },\n    \"organization\": \"<string>\",\n    \"terminationDate\": \"<string>\"\n  },\n  \"addresses\": [\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"billing\"\n    },\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"home\"\n    }\n  ],\n  \"dateOfBirth\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"emergencyContacts\": [\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Sister\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Spouse\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    }\n  ],\n  \"entitlements\": [\n    \"Invoice\",\n    \"Travel\"\n  ],\n  \"externalId\": \"<string>\",\n  \"localeOverrides\": {\n    \"preferenceEndDayViewHour\": \"<integer>\",\n    \"preferenceFirstDayOfWeek\": \"Saturday\",\n    \"preferenceDateFormat\": \"yyyy.mm.dd\",\n    \"preferenceCurrencySymbolLocation\": \"BeforeAmount\",\n    \"preferenceHourMinuteSeparator\": \".\",\n    \"preferenceDefaultCalView\": \"week\",\n    \"preference24Hour\": \"hh:mm\",\n    \"preferenceNumberFormat\": \"1,000.00\",\n    \"preferenceStartDayViewHour\": \"<integer>\",\n    \"preferenceDistance\": \"km\",\n    \"preferenceNegativeCurrencyFormat\": \"-100\",\n    \"preferenceNegativeNumberFormat\": \"-100\"\n  },\n  \"meta\": {\n    \"created\": \"<string>\",\n    \"lastModified\": \"<string>\",\n    \"location\": \"<string>\",\n    \"resourceType\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"nickName\": \"<string>\",\n  \"phoneNumbers\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"home\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"pager\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    }\n  ],\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:sap:2.0:User\": {\n    \"userUuid\": \"<string>\"\n  },\n  \"urn:ietf:params:scim:schemas:extension:settings:2.0:User\": {\n    \"theme\": \"SAP Horizon Morning\"\n  }\n}"
+						},
+						{
+							"name": "The request is invalid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"timezone\": \"<string>\",\n  \"name\": {\n    \"familyName\": \"<string>\",\n    \"givenName\": \"<string>\",\n    \"academicTitle\": \"Prof.\",\n    \"familyNamePrefix\": \"<string>\",\n    \"formatted\": \"<string>\",\n    \"honorificPrefix\": \"<string>\",\n    \"honorificSuffix\": \"<string>\",\n    \"legalName\": \"<string>\",\n    \"middleInitial\": \"<string>\",\n    \"middleName\": \"<string>\"\n  },\n  \"preferredLanguage\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"emails\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    }\n  ],\n  \"userName\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"companyId\": \"<string>\",\n    \"startDate\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"department\": \"<string>\",\n    \"division\": \"<string>\",\n    \"employeeNumber\": \"<string>\",\n    \"leavesOfAbsence\": [\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"voluntary\"\n      },\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"mandatory\"\n      }\n    ],\n    \"legalEntity\": \"<string>\",\n    \"manager\": {\n      \"value\": \"<string>\",\n      \"$ref\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"employeeNumber\": \"<string>\"\n    },\n    \"organization\": \"<string>\",\n    \"terminationDate\": \"<string>\"\n  },\n  \"addresses\": [\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"billing\"\n    },\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"home\"\n    }\n  ],\n  \"dateOfBirth\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"emergencyContacts\": [\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Sister\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Spouse\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    }\n  ],\n  \"entitlements\": [\n    \"Invoice\",\n    \"Travel\"\n  ],\n  \"externalId\": \"<string>\",\n  \"localeOverrides\": {\n    \"preferenceEndDayViewHour\": \"<integer>\",\n    \"preferenceFirstDayOfWeek\": \"Saturday\",\n    \"preferenceDateFormat\": \"yyyy.mm.dd\",\n    \"preferenceCurrencySymbolLocation\": \"BeforeAmount\",\n    \"preferenceHourMinuteSeparator\": \".\",\n    \"preferenceDefaultCalView\": \"week\",\n    \"preference24Hour\": \"hh:mm\",\n    \"preferenceNumberFormat\": \"1,000.00\",\n    \"preferenceStartDayViewHour\": \"<integer>\",\n    \"preferenceDistance\": \"km\",\n    \"preferenceNegativeCurrencyFormat\": \"-100\",\n    \"preferenceNegativeNumberFormat\": \"-100\"\n  },\n  \"meta\": {\n    \"created\": \"<string>\",\n    \"lastModified\": \"<string>\",\n    \"location\": \"<string>\",\n    \"resourceType\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"nickName\": \"<string>\",\n  \"phoneNumbers\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"home\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"pager\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    }\n  ],\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:sap:2.0:User\": {\n    \"userUuid\": \"<string>\"\n  },\n  \"urn:ietf:params:scim:schemas:extension:settings:2.0:User\": {\n    \"theme\": \"SAP Horizon Morning\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"timezone\": \"<string>\",\n  \"name\": {\n    \"familyName\": \"<string>\",\n    \"givenName\": \"<string>\",\n    \"academicTitle\": \"Prof.\",\n    \"familyNamePrefix\": \"<string>\",\n    \"formatted\": \"<string>\",\n    \"honorificPrefix\": \"<string>\",\n    \"honorificSuffix\": \"<string>\",\n    \"legalName\": \"<string>\",\n    \"middleInitial\": \"<string>\",\n    \"middleName\": \"<string>\"\n  },\n  \"preferredLanguage\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"emails\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    }\n  ],\n  \"userName\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"companyId\": \"<string>\",\n    \"startDate\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"department\": \"<string>\",\n    \"division\": \"<string>\",\n    \"employeeNumber\": \"<string>\",\n    \"leavesOfAbsence\": [\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"voluntary\"\n      },\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"mandatory\"\n      }\n    ],\n    \"legalEntity\": \"<string>\",\n    \"manager\": {\n      \"value\": \"<string>\",\n      \"$ref\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"employeeNumber\": \"<string>\"\n    },\n    \"organization\": \"<string>\",\n    \"terminationDate\": \"<string>\"\n  },\n  \"addresses\": [\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"billing\"\n    },\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"home\"\n    }\n  ],\n  \"dateOfBirth\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"emergencyContacts\": [\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Sister\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Spouse\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    }\n  ],\n  \"entitlements\": [\n    \"Invoice\",\n    \"Travel\"\n  ],\n  \"externalId\": \"<string>\",\n  \"localeOverrides\": {\n    \"preferenceEndDayViewHour\": \"<integer>\",\n    \"preferenceFirstDayOfWeek\": \"Saturday\",\n    \"preferenceDateFormat\": \"yyyy.mm.dd\",\n    \"preferenceCurrencySymbolLocation\": \"BeforeAmount\",\n    \"preferenceHourMinuteSeparator\": \".\",\n    \"preferenceDefaultCalView\": \"week\",\n    \"preference24Hour\": \"hh:mm\",\n    \"preferenceNumberFormat\": \"1,000.00\",\n    \"preferenceStartDayViewHour\": \"<integer>\",\n    \"preferenceDistance\": \"km\",\n    \"preferenceNegativeCurrencyFormat\": \"-100\",\n    \"preferenceNegativeNumberFormat\": \"-100\"\n  },\n  \"meta\": {\n    \"created\": \"<string>\",\n    \"lastModified\": \"<string>\",\n    \"location\": \"<string>\",\n    \"resourceType\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"nickName\": \"<string>\",\n  \"phoneNumbers\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"home\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"pager\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    }\n  ],\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:sap:2.0:User\": {\n    \"userUuid\": \"<string>\"\n  },\n  \"urn:ietf:params:scim:schemas:extension:settings:2.0:User\": {\n    \"theme\": \"SAP Horizon Morning\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Users"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+						},
+						{
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"timezone\": \"<string>\",\n  \"name\": {\n    \"familyName\": \"<string>\",\n    \"givenName\": \"<string>\",\n    \"academicTitle\": \"Prof.\",\n    \"familyNamePrefix\": \"<string>\",\n    \"formatted\": \"<string>\",\n    \"honorificPrefix\": \"<string>\",\n    \"honorificSuffix\": \"<string>\",\n    \"legalName\": \"<string>\",\n    \"middleInitial\": \"<string>\",\n    \"middleName\": \"<string>\"\n  },\n  \"preferredLanguage\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"emails\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"other2\",\n      \"notifications\": \"<boolean>\",\n      \"verified\": \"<boolean>\"\n    }\n  ],\n  \"userName\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"companyId\": \"<string>\",\n    \"startDate\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"department\": \"<string>\",\n    \"division\": \"<string>\",\n    \"employeeNumber\": \"<string>\",\n    \"leavesOfAbsence\": [\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"voluntary\"\n      },\n      {\n        \"startDate\": \"<string>\",\n        \"endDate\": \"<string>\",\n        \"type\": \"mandatory\"\n      }\n    ],\n    \"legalEntity\": \"<string>\",\n    \"manager\": {\n      \"value\": \"<string>\",\n      \"$ref\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"employeeNumber\": \"<string>\"\n    },\n    \"organization\": \"<string>\",\n    \"terminationDate\": \"<string>\"\n  },\n  \"addresses\": [\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"billing\"\n    },\n    {\n      \"country\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"type\": \"home\"\n    }\n  ],\n  \"dateOfBirth\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"emergencyContacts\": [\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Sister\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"relationship\": \"Spouse\",\n      \"country\": \"<string>\",\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"locality\": \"<string>\",\n      \"phones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"postalCode\": \"<string>\",\n      \"region\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    }\n  ],\n  \"entitlements\": [\n    \"Invoice\",\n    \"Travel\"\n  ],\n  \"externalId\": \"<string>\",\n  \"localeOverrides\": {\n    \"preferenceEndDayViewHour\": \"<integer>\",\n    \"preferenceFirstDayOfWeek\": \"Saturday\",\n    \"preferenceDateFormat\": \"yyyy.mm.dd\",\n    \"preferenceCurrencySymbolLocation\": \"BeforeAmount\",\n    \"preferenceHourMinuteSeparator\": \".\",\n    \"preferenceDefaultCalView\": \"week\",\n    \"preference24Hour\": \"hh:mm\",\n    \"preferenceNumberFormat\": \"1,000.00\",\n    \"preferenceStartDayViewHour\": \"<integer>\",\n    \"preferenceDistance\": \"km\",\n    \"preferenceNegativeCurrencyFormat\": \"-100\",\n    \"preferenceNegativeNumberFormat\": \"-100\"\n  },\n  \"meta\": {\n    \"created\": \"<string>\",\n    \"lastModified\": \"<string>\",\n    \"location\": \"<string>\",\n    \"resourceType\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"nickName\": \"<string>\",\n  \"phoneNumbers\": [\n    {\n      \"value\": \"<string>\",\n      \"type\": \"home\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"type\": \"pager\",\n      \"display\": \"<string>\",\n      \"issuingCountry\": \"<string>\",\n      \"notifications\": \"<boolean>\",\n      \"primary\": \"<boolean>\",\n      \"workExtension\": \"<string>\"\n    }\n  ],\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"urn:ietf:params:scim:schemas:extension:sap:2.0:User\": {\n    \"userUuid\": \"<string>\"\n  },\n  \"urn:ietf:params:scim:schemas:extension:settings:2.0:User\": {\n    \"theme\": \"SAP Horizon Morning\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Users"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Schemas",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Fetch Schema",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Schemas/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Schemas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "com:concur:cte:company:2.0"
+										}
+									]
+								},
+								"description": "Fetch schema by Id"
+							},
+							"response": [
+								{
+									"name": "Successfully fetched schema",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/Schemas/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Schemas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "The request is invalid",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Schemas/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Schemas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Schemas/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Schemas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								},
+								{
+									"name": "The specified resource was not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Schemas/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Schemas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								},
+								{
+									"name": "Internal server error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Schemas/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Schemas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Fetch all schemas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/Schemas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Schemas"
+							]
+						},
+						"description": "Fetch all supported schemas"
+					},
+					"response": [
+						{
+							"name": "All supported schemas",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/Schemas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Schemas"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "The request is invalid",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Schemas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Schemas"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Schemas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Schemas"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+						},
+						{
+							"name": "Internal server error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Schemas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Schemas"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"status\": \"<string>\",\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"urn:ietf:params:scim:api:messages:concur:2.0:Error\": {\n    \"messages\": [\n      {\n        \"code\": \"<string>\",\n        \"type\": \"error\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"type\": \"warning\",\n        \"message\": \"<string>\",\n        \"schemaPath\": \"<string>\"\n      }\n    ]\n  }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ServiceProviderConfig",
+			"item": [
+				{
+					"name": "Get Service Provider Configurations",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/ServiceProviderConfig",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ServiceProviderConfig"
+							]
+						},
+						"description": "Queries service provider configurations."
+					},
+					"response": [
+						{
+							"name": "The request has succeeded.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/ServiceProviderConfig",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"ServiceProviderConfig"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"documentationUrl\": \"<string>\",\n  \"patch\": {\n    \"supported\": \"<boolean>\"\n  },\n  \"bulk\": {\n    \"supported\": \"<boolean>\"\n  },\n  \"filter\": {\n    \"supported\": \"<boolean>\"\n  },\n  \"changePassword\": {\n    \"supported\": \"<boolean>\"\n  },\n  \"sort\": {\n    \"supported\": \"<boolean>\"\n  },\n  \"etag\": {\n    \"supported\": \"<boolean>\"\n  },\n  \"authenticationSchemes\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"specUrl\": \"<string>\",\n    \"documentationUrl\": \"<string>\"\n  },\n  \"pagination\": {\n    \"cursor\": {\n      \"supported\": \"<boolean>\"\n    },\n    \"index\": {\n      \"supported\": \"<boolean>\"\n    },\n    \"defaultPageSize\": \"<integer>\",\n    \"maxPageSize\": \"<integer>\"\n  }\n}"
+						},
+						{
+							"name": "Invalid token passed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/ServiceProviderConfig",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"ServiceProviderConfig"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Authentication or account gateway error occurred",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/ServiceProviderConfig",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"ServiceProviderConfig"
+									]
+								}
+							},
+							"status": "Bad Gateway",
+							"code": 502,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Authentication or account gateway timeout occurred",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/ServiceProviderConfig",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"ServiceProviderConfig"
+									]
+								}
+							},
+							"status": "Gateway Timeout",
+							"code": 504,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ResourceTypes",
+			"item": [
+				{
+					"name": "Get Service Provider Configurations",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/ResourceTypes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ResourceTypes"
+							]
+						},
+						"description": "Queries service provider resource types."
+					},
+					"response": [
+						{
+							"name": "The request has succeeded.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/ResourceTypes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"ResourceTypes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"name\": \"Company\",\n    \"description\": \"<string>\",\n    \"schema\": \"urn:ietf:params:scim:schemas:core:2.0:Company\",\n    \"endpoint\": \"/Companies\",\n    \"schemaExtensions\": [\n      {\n        \"schema\": \"<string>\",\n        \"required\": \"<boolean>\"\n      },\n      {\n        \"schema\": \"<string>\",\n        \"required\": \"<boolean>\"\n      }\n    ],\n    \"id\": 31738445\n  },\n  {\n    \"name\": \"User\",\n    \"description\": \"<string>\",\n    \"schema\": \"urn:ietf:params:scim:schemas:core:2.0:Company\",\n    \"endpoint\": \"/Companies\",\n    \"schemaExtensions\": [\n      {\n        \"schema\": \"<string>\",\n        \"required\": \"<boolean>\"\n      },\n      {\n        \"schema\": \"<string>\",\n        \"required\": \"<boolean>\"\n      }\n    ],\n    \"id\": \"et laborum consectetur\"\n  }\n]"
+						},
+						{
+							"name": "Invalid token passed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/ResourceTypes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"ResourceTypes"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Authentication or account gateway error occurred",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/ResourceTypes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"ResourceTypes"
+									]
+								}
+							},
+							"status": "Bad Gateway",
+							"code": 502,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Authentication or account gateway timeout occurred",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/ResourceTypes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"ResourceTypes"
+									]
+								}
+							},
+							"status": "Gateway Timeout",
+							"code": 504,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://us.api.concursolutions.com/profile/identity/v4.1"
+		}
+	]
+}

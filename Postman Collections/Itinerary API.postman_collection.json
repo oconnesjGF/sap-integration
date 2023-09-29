@@ -1,0 +1,729 @@
+{
+	"info": {
+		"_postman_id": "07a3bfb8-ecc6-49e5-a1ca-45f3f31e25c5",
+		"name": "Itinerary API",
+		"description": "This is the api specification for the Itinerary API.\n\nIntroduction\nThe Itinerary API provides clients and authorized partners access to travel itinerary data. They can now subscribe to events and fetch trips by ID.\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "trips",
+			"item": [
+				{
+					"name": "{tripID}",
+					"item": [
+						{
+							"name": "v4 - Get Trip record",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Accepts gzip",
+										"key": "Accept-Encoding",
+										"value": "<string>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/trips/:tripID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"trips",
+										":tripID"
+									],
+									"variable": [
+										{
+											"key": "tripID",
+											"value": "057a920a-9eb3-5e01-8782-fd1904e00347"
+										}
+									]
+								},
+								"description": "Gets the trip record"
+							},
+							"response": [
+								{
+									"name": "Successful response of trip data.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Accepts gzip",
+												"key": "Accept-Encoding",
+												"value": "<string>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/trips/:tripID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"trips",
+												":tripID"
+											],
+											"variable": [
+												{
+													"key": "tripID"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"BookedByFirstName\": \"<string>\",\n  \"BookedByLastName\": \"<string>\",\n  \"BookedVia\": \"<string>\",\n  \"Bookings\": [\n    {\n      \"AgencyName\": \"<string>\",\n      \"AgencyPCC\": \"<string>\",\n      \"AirfareQuotes\": [\n        {\n          \"AirlineCharges\": {\n            \"Fixed\": [\n              {\n                \"Amount\": \"<number>\",\n                \"Currency\": \"<string>\",\n                \"Description\": \"<string>\",\n                \"IsPaid\": \"<boolean>\",\n                \"IsPrimary\": \"<boolean>\",\n                \"SemanticsCode\": \"<string>\",\n                \"SemanticsVendorType\": \"<string>\",\n                \"StartDateLocal\": \"<string>\",\n                \"Vendor\": \"<string>\",\n                \"VendorChargeCode\": \"<string>\"\n              }\n            ],\n            \"Percent\": [\n              {\n                \"Amount\": \"<number>\",\n                \"Currency\": \"<string>\",\n                \"Description\": \"<string>\",\n                \"IsPaid\": \"<boolean>\",\n                \"IsPrimary\": \"<boolean>\",\n                \"SemanticsCode\": \"<string>\",\n                \"SemanticsVendorType\": \"<string>\",\n                \"StartDateLocal\": \"<string>\",\n                \"Vendor\": \"<string>\",\n                \"VendorChargeCode\": \"<string>\"\n              }\n            ],\n            \"Rate\": [\n              {\n                \"Amount\": \"<number>\",\n                \"Currency\": \"<string>\",\n                \"Description\": \"<string>\",\n                \"IsPaid\": \"<boolean>\",\n                \"IsPrimary\": \"<boolean>\",\n                \"NumUnits\": \"<number>\",\n                \"PerUnit\": \"<string>\",\n                \"SemanticsCode\": \"<string>\",\n                \"SemanticsVendorType\": \"<string>\",\n                \"StartDateLocal\": \"<string>\",\n                \"Vendor\": \"<string>\",\n                \"VendorChargeCode\": \"<string>\"\n              }\n            ],\n            \"RateWithAllowance\": [\n              {\n                \"AllowanceAmount\": \"<number>\",\n                \"AllowanceIsUnlimited\": \"<boolean>\",\n                \"AllowanceNumUnits\": \"<number>\",\n                \"AllowanceUnit\": \"<string>\",\n                \"Amount\": \"<number>\",\n                \"Currency\": \"<string>\",\n                \"Description\": \"<string>\",\n                \"IsPaid\": \"<boolean>\",\n                \"IsPrimary\": \"<boolean>\",\n                \"NumUnits\": \"<number>\",\n                \"PerUnit\": \"<string>\",\n                \"SemanticsCode\": \"<string>\",\n                \"SemanticsVendorType\": \"<string>\",\n                \"StartDateLocal\": \"<string>\",\n                \"Vendor\": \"<string>\",\n                \"VendorChargeCode\": \"<string>\"\n              }\n            ]\n          },\n          \"BaseFare\": \"<number>\",\n          \"BaseFareCurrency\": \"<string>\",\n          \"BaseFareNuc\": \"<number>\",\n          \"BaseFareNucCurrency\": \"<string>\",\n          \"DateCreatedUtc\": \"<string>\",\n          \"DateModifiedUtc\": \"<string>\",\n          \"Endorsements\": \"<string>\",\n          \"IssueByDate\": \"<string>\",\n          \"TotalFare\": \"<number>\",\n          \"TotalFareCurrency\": \"<string>\"\n        }\n      ],\n      \"AirlineTickets\": {\n        \"AirlineAdjustment\": [\n          {\n            \"AddCollectAmount\": \"<number>\",\n            \"AdjustmentDateTime\": \"<string>\",\n            \"AdjustmentDateTimeUTC\": \"<string>\",\n            \"AdjustmentType\": \"<string>\",\n            \"AirlineCharges\": {\n              \"Fixed\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Percent\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Rate\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"RateWithAllowance\": [\n                {\n                  \"AllowanceAmount\": \"<number>\",\n                  \"AllowanceIsUnlimited\": \"<boolean>\",\n                  \"AllowanceNumUnits\": \"<number>\",\n                  \"AllowanceUnit\": \"<string>\",\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ]\n            },\n            \"DateCreatedUtc\": \"<string>\",\n            \"DateModifiedUtc\": \"<string>\",\n            \"PassengerName\": \"<string>\",\n            \"PlatingCarrierNumericCode\": \"<string>\",\n            \"PlatingControlNumber\": \"<string>\",\n            \"RecordLocator\": \"<string>\",\n            \"Taxes\": [\n              {\n                \"TaxAmount\": \"<number>\",\n                \"TaxAuthority\": \"<string>\",\n                \"TaxName\": \"<string>\",\n                \"TaxRate\": \"<number>\",\n                \"TaxType\": \"<string>\"\n              }\n            ],\n            \"TotalAdjustment\": \"<number>\",\n            \"TotalAdjustmentCurrency\": \"<string>\"\n          }\n        ],\n        \"AirlineTicket\": [\n          {\n            \"AccountingLine\": {\n              \"AirlineCode\": \"<string>\",\n              \"AmountPaid\": \"<string>\",\n              \"AmountPaidCurrency\": \"<string>\",\n              \"CCNumber\": \"<string>\",\n              \"Comment\": \"<string>\",\n              \"Commission\": \"<string>\",\n              \"CommissionCurrency\": \"<string>\",\n              \"ExchangedTicketNumber\": \"<string>\",\n              \"FOPMethod\": \"<string>\",\n              \"Fare\": \"<string>\",\n              \"FareCurrency\": \"<string>\",\n              \"IssueDate\": \"<string>\",\n              \"MCOType\": \"<string>\",\n              \"Tax\": \"<string>\",\n              \"TaxCurrency\": \"<string>\",\n              \"TranControlNbr\": \"<string>\",\n              \"TranPlatingNbr\": \"<string>\"\n            },\n            \"AddCollectAmount\": \"<number>\",\n            \"AirlineCharges\": {\n              \"Fixed\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Percent\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Rate\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"RateWithAllowance\": [\n                {\n                  \"AllowanceAmount\": \"<number>\",\n                  \"AllowanceIsUnlimited\": \"<boolean>\",\n                  \"AllowanceNumUnits\": \"<number>\",\n                  \"AllowanceUnit\": \"<string>\",\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ]\n            },\n            \"AirlineTicketCoupons\": [\n              {\n                \"ClassOfService\": \"<string>\",\n                \"CouponNumber\": \"<integer>\",\n                \"CouponStatus\": \"<string>\",\n                \"EndCityCode\": \"<string>\",\n                \"FlightNumber\": \"<string>\",\n                \"NotValidAfterDate\": \"<string>\",\n                \"NotValidBeforeDate\": \"<string>\",\n                \"RateCode\": \"<string>\",\n                \"StartCityCode\": \"<string>\",\n                \"StartDateLocal\": \"<string>\",\n                \"Status\": \"<string>\",\n                \"TicketDesignator\": \"<string>\",\n                \"Vendor\": \"<string>\"\n              }\n            ],\n            \"AirlineTicketExchanges\": [\n              {\n                \"Amount\": \"<number>\",\n                \"AppliedSegment1\": \"<integer>\",\n                \"AppliedSegment10\": \"<integer>\",\n                \"AppliedSegment2\": \"<integer>\",\n                \"AppliedSegment3\": \"<integer>\",\n                \"AppliedSegment4\": \"<integer>\",\n                \"AppliedSegment5\": \"<integer>\",\n                \"AppliedSegment6\": \"<integer>\",\n                \"AppliedSegment7\": \"<integer>\",\n                \"AppliedSegment8\": \"<integer>\",\n                \"AppliedSegment9\": \"<integer>\",\n                \"Currency\": \"<string>\",\n                \"DateModifiedUtc\": \"<string>\",\n                \"OldRecordLocator\": \"<string>\",\n                \"PlatingCarrierNumericCode\": \"<string>\",\n                \"PlatingControlNumber\": \"<string>\"\n              }\n            ],\n            \"AirlineTicketFareBreakups\": [\n              {\n                \"BaseFare\": \"<number>\",\n                \"ClassOfService\": \"<string>\",\n                \"Currency\": \"<string>\",\n                \"EndCityCode\": \"<string>\",\n                \"IsRefundable\": \"<boolean>\",\n                \"StartCityCode\": \"<string>\",\n                \"TotalFare\": \"<number>\",\n                \"Vendor\": \"<string>\"\n              }\n            ],\n            \"BaseFare\": \"<number>\",\n            \"BaseFareCurrency\": \"<string>\",\n            \"BaseFareNuc\": \"<number>\",\n            \"BaseFareNucCurrency\": \"<string>\",\n            \"ComparisonFare\": \"<number>\",\n            \"ComparisonFareCurrency\": \"<string>\",\n            \"DateCreatedUtc\": \"<string>\",\n            \"DateModifiedUtc\": \"<string>\",\n            \"Endorsements\": \"<string>\",\n            \"InvoiceNumber\": \"<string>\",\n            \"IssueDateTime\": \"<string>\",\n            \"IssueDateTimeUTC\": \"<string>\",\n            \"IssuingIataAgencyNumber\": \"<integer>\",\n            \"IssuingPseudoCity\": \"<string>\",\n            \"LinearFareConstructor\": \"<string>\",\n            \"MasterTicketNumber\": \"<string>\",\n            \"NameReference\": \"<string>\",\n            \"PassengerName\": \"<string>\",\n            \"PlatingCarrierNumericCode\": \"<string>\",\n            \"PlatingControlNumber\": \"<string>\",\n            \"ProgramCarrierCode\": \"<string>\",\n            \"ProgramMembershipNumber\": \"<string>\",\n            \"RecordLocator\": \"<string>\",\n            \"SabreDkNumber\": \"<string>\",\n            \"Taxes\": [\n              {\n                \"TaxAmount\": \"<number>\",\n                \"TaxAuthority\": \"<string>\",\n                \"TaxName\": \"<string>\",\n                \"TaxRate\": \"<number>\",\n                \"TaxType\": \"<string>\"\n              }\n            ],\n            \"TicketType\": \"<string>\",\n            \"Ticketless\": \"<boolean>\",\n            \"TotalFare\": \"<number>\",\n            \"TotalFareCurrency\": \"<string>\",\n            \"TourIdentifier\": \"<string>\"\n          }\n        ],\n        \"ManualAirlineTicket\": [\n          {\n            \"AirlineCharges\": {\n              \"Fixed\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Percent\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Rate\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"RateWithAllowance\": [\n                {\n                  \"AllowanceAmount\": \"<number>\",\n                  \"AllowanceIsUnlimited\": \"<boolean>\",\n                  \"AllowanceNumUnits\": \"<number>\",\n                  \"AllowanceUnit\": \"<string>\",\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ]\n            },\n            \"BaseFare\": \"<number>\",\n            \"BaseFareCurrency\": \"<string>\",\n            \"DateCreatedUtc\": \"<string>\",\n            \"DateModifiedUtc\": \"<string>\",\n            \"Taxes\": [\n              {\n                \"TaxAmount\": \"<number>\",\n                \"TaxAuthority\": \"<string>\",\n                \"TaxName\": \"<string>\",\n                \"TaxRate\": \"<number>\",\n                \"TaxType\": \"<string>\"\n              }\n            ],\n            \"TotalFare\": \"<number>\",\n            \"TotalFareCurrency\": \"<string>\"\n          }\n        ]\n      },\n      \"BookingOwner\": \"<string>\",\n      \"BookingSource\": \"<string>\",\n      \"Charges\": {\n        \"Fixed\": [\n          {\n            \"Amount\": \"<number>\",\n            \"Currency\": \"<string>\",\n            \"Description\": \"<string>\",\n            \"IsPaid\": \"<boolean>\",\n            \"IsPrimary\": \"<boolean>\",\n            \"SemanticsCode\": \"<string>\",\n            \"SemanticsVendorType\": \"<string>\",\n            \"StartDateLocal\": \"<string>\",\n            \"Vendor\": \"<string>\",\n            \"VendorChargeCode\": \"<string>\"\n          }\n        ],\n        \"Percent\": [\n          {\n            \"Amount\": \"<number>\",\n            \"Currency\": \"<string>\",\n            \"Description\": \"<string>\",\n            \"IsPaid\": \"<boolean>\",\n            \"IsPrimary\": \"<boolean>\",\n            \"SemanticsCode\": \"<string>\",\n            \"SemanticsVendorType\": \"<string>\",\n            \"StartDateLocal\": \"<string>\",\n            \"Vendor\": \"<string>\",\n            \"VendorChargeCode\": \"<string>\"\n          }\n        ],\n        \"Rate\": [\n          {\n            \"Amount\": \"<number>\",\n            \"Currency\": \"<string>\",\n            \"Description\": \"<string>\",\n            \"IsPaid\": \"<boolean>\",\n            \"IsPrimary\": \"<boolean>\",\n            \"NumUnits\": \"<number>\",\n            \"PerUnit\": \"<string>\",\n            \"SemanticsCode\": \"<string>\",\n            \"SemanticsVendorType\": \"<string>\",\n            \"StartDateLocal\": \"<string>\",\n            \"Vendor\": \"<string>\",\n            \"VendorChargeCode\": \"<string>\"\n          }\n        ],\n        \"RateWithAllowance\": [\n          {\n            \"AllowanceAmount\": \"<number>\",\n            \"AllowanceIsUnlimited\": \"<boolean>\",\n            \"AllowanceNumUnits\": \"<number>\",\n            \"AllowanceUnit\": \"<string>\",\n            \"Amount\": \"<number>\",\n            \"Currency\": \"<string>\",\n            \"Description\": \"<string>\",\n            \"IsPaid\": \"<boolean>\",\n            \"IsPrimary\": \"<boolean>\",\n            \"NumUnits\": \"<number>\",\n            \"PerUnit\": \"<string>\",\n            \"SemanticsCode\": \"<string>\",\n            \"SemanticsVendorType\": \"<string>\",\n            \"StartDateLocal\": \"<string>\",\n            \"Vendor\": \"<string>\",\n            \"VendorChargeCode\": \"<string>\"\n          }\n        ]\n      },\n      \"DateBookedLocal\": \"<string>\",\n      \"DateCreatedUtc\": \"<string>\",\n      \"DateModifiedUtc\": \"<string>\",\n      \"Delivery\": {\n        \"Type\": \"<string>\",\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"City\": \"<string>\",\n        \"Country\": \"<string>\",\n        \"Email\": \"<string>\",\n        \"Latitude\": \"<number>\",\n        \"LocationAdditionalDetails\": \"<string>\",\n        \"LocationDesc\": \"<string>\",\n        \"LocationName\": \"<string>\",\n        \"Longitude\": \"<number>\",\n        \"PhoneNumber\": \"<string>\",\n        \"ReferenceNumber\": \"<string>\",\n        \"State\": \"<string>\",\n        \"Zip\": \"<string>\"\n      },\n      \"FormOfPaymentName\": \"<string>\",\n      \"FormOfPaymentType\": \"<string>\",\n      \"IsGhostCard\": \"<boolean>\",\n      \"ItinSourceName\": \"<string>\",\n      \"LastTicketDateUtc\": \"<string>\",\n      \"MiscChargeOrders\": [\n        {\n          \"PlatingCarrierNumericCode\": \"<string>\",\n          \"PlatingControlNumber\": \"<string>\",\n          \"TotalAmount\": \"<number>\",\n          \"TotalAmountCurrency\": \"<string>\",\n          \"DateCreatedUtc\": \"<string>\",\n          \"DateModifiedUtc\": \"<string>\",\n          \"IssueDate\": \"<string>\"\n        }\n      ],\n      \"PassPrograms\": [\n        {\n          \"Amount\": \"<number>\",\n          \"Name\": \"<string>\",\n          \"Type\": \"<string>\",\n          \"UserFirstName\": \"<string>\",\n          \"UserLastName\": \"<string>\"\n        }\n      ],\n      \"Passengers\": [\n        {\n          \"City\": \"<string>\",\n          \"Country\": \"<string>\",\n          \"FirstNameNumber\": \"<integer>\",\n          \"FrequentTravelerPrograms\": {\n            \"FrequentFlyer\": [\n              {\n                \"AirlineVendor\": \"<string>\",\n                \"Description\": \"<string>\",\n                \"DiscountProgramExpirationDate\": \"<string>\",\n                \"DiscountProgramType\": \"<string>\",\n                \"FrequentFlyerNumber\": \"<string>\",\n                \"Status\": \"<string>\",\n                \"StatusExpirationDate\": \"<string>\"\n              }\n            ],\n            \"RailProgram\": [\n              {\n                \"Description\": \"<string>\",\n                \"DiscountProgramExpirationDate\": \"<string>\",\n                \"DiscountProgramType\": \"<string>\",\n                \"ProgramNumber\": \"<string>\",\n                \"Status\": \"<string>\",\n                \"StatusExpirationDate\": \"<string>\"\n              }\n            ]\n          },\n          \"LastNameNumber\": \"<integer>\",\n          \"NameFirst\": \"<string>\",\n          \"NameLast\": \"<string>\",\n          \"NameMiddle\": \"<string>\",\n          \"NamePrefix\": \"<string>\",\n          \"NameRemark\": \"<string>\",\n          \"NameSuffix\": \"<string>\",\n          \"NameTitle\": \"<string>\",\n          \"PostalCode\": \"<string>\",\n          \"State\": \"<string>\",\n          \"StreetAddress\": \"<string>\",\n          \"StreetAddress2\": \"<string>\",\n          \"TextName\": \"<string>\"\n        }\n      ],\n      \"PhoneNumbers\": [\n        {\n          \"Description\": \"<string>\",\n          \"PassengerRPH\": \"<integer>\",\n          \"PhoneNumber\": \"<string>\",\n          \"Type\": \"<string>\"\n        }\n      ],\n      \"RailPayments\": {\n        \"RailAdjustment\": [\n          {\n            \"AdjustmentDateTime\": \"<string>\",\n            \"AdjustmentDateTimeUTC\": \"<string>\",\n            \"AdjustmentType\": \"<string>\",\n            \"DateCreatedUtc\": \"<string>\",\n            \"DateModifiedUtc\": \"<string>\",\n            \"RailCharges\": {\n              \"Fixed\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Percent\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Rate\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"RateWithAllowance\": [\n                {\n                  \"AllowanceAmount\": \"<number>\",\n                  \"AllowanceIsUnlimited\": \"<boolean>\",\n                  \"AllowanceNumUnits\": \"<number>\",\n                  \"AllowanceUnit\": \"<string>\",\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ]\n            },\n            \"Taxes\": [\n              {\n                \"TaxAmount\": \"<number>\",\n                \"TaxAuthority\": \"<string>\",\n                \"TaxName\": \"<string>\",\n                \"TaxRate\": \"<number>\",\n                \"TaxType\": \"<string>\"\n              }\n            ],\n            \"TicketDocumentIdentifier\": \"<string>\",\n            \"TotalAdjustment\": \"<number>\",\n            \"TotalAdjustmentCurrency\": \"<string>\"\n          }\n        ],\n        \"RailPayment\": [\n          {\n            \"BaseFare\": \"<number>\",\n            \"BaseFareCurrency\": \"<string>\",\n            \"DateCreatedUtc\": \"<string>\",\n            \"DateModifiedUtc\": \"<string>\",\n            \"IncludesVAT\": \"<boolean>\",\n            \"IssueByDate\": \"<string>\",\n            \"IssueDateTime\": \"<string>\",\n            \"IssueDateTimeUTC\": \"<string>\",\n            \"RailCharges\": {\n              \"Fixed\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Percent\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Rate\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"RateWithAllowance\": [\n                {\n                  \"AllowanceAmount\": \"<number>\",\n                  \"AllowanceIsUnlimited\": \"<boolean>\",\n                  \"AllowanceNumUnits\": \"<number>\",\n                  \"AllowanceUnit\": \"<string>\",\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ]\n            },\n            \"TaxInvoice\": \"<boolean>\",\n            \"Taxes\": [\n              {\n                \"TaxAmount\": \"<number>\",\n                \"TaxAuthority\": \"<string>\",\n                \"TaxName\": \"<string>\",\n                \"TaxRate\": \"<number>\",\n                \"TaxType\": \"<string>\"\n              }\n            ],\n            \"TicketDocumentIdentifier\": \"<string>\",\n            \"TicketType\": \"<string>\",\n            \"TotalFare\": \"<number>\",\n            \"TotalFareCurrency\": \"<string>\",\n            \"vatApplicable\": \"<boolean>\"\n          }\n        ]\n      },\n      \"RecordLocator\": \"<string>\",\n      \"Remarks\": {\n        \"TripLinkRemarks\": [\n          {\n            \"TripLinkRemark\": [\n              {\n                \"Text\": \"<string>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"Segments\": {\n        \"Air\": [\n          {\n            \"AircraftCode\": \"<string>\",\n            \"Bags\": \"<string>\",\n            \"Cabin\": \"<string>\",\n            \"CancellationNumber\": \"<string>\",\n            \"CancellationPolicy\": \"<string>\",\n            \"CarbonEmissionLbs\": \"<number>\",\n            \"CarbonModel\": \"<integer>\",\n            \"Charges\": {\n              \"Fixed\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Percent\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Rate\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"RateWithAllowance\": [\n                {\n                  \"AllowanceAmount\": \"<number>\",\n                  \"AllowanceIsUnlimited\": \"<boolean>\",\n                  \"AllowanceNumUnits\": \"<number>\",\n                  \"AllowanceUnit\": \"<string>\",\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ]\n            },\n            \"CheckedBaggage\": \"<string>\",\n            \"ClassOfService\": \"<string>\",\n            \"ConfirmationNumber\": \"<string>\",\n            \"DateCancelledUtc\": \"<string>\",\n            \"DateCreatedUtc\": \"<string>\",\n            \"DateModifiedUtc\": \"<string>\",\n            \"Duration\": \"<integer>\",\n            \"ETicket\": \"<string>\",\n            \"EndCityCode\": \"<string>\",\n            \"EndDateLocal\": \"<string>\",\n            \"EndDateUtc\": \"<string>\",\n            \"EndGate\": \"<string>\",\n            \"EndTerminal\": \"<string>\",\n            \"FlightNumber\": \"<string>\",\n            \"FrequentTravelerId\": \"<string>\",\n            \"IsOpenSegment\": \"<boolean>\",\n            \"IsPreferredVendor\": \"<integer>\",\n            \"IsUpgradeAllowed\": \"<boolean>\",\n            \"LegId\": \"<integer>\",\n            \"Meals\": \"<string>\",\n            \"Miles\": \"<integer>\",\n            \"Notes\": \"<string>\",\n            \"NumStops\": \"<integer>\",\n            \"OpenSegment\": \"<string>\",\n            \"OperatedByFlightNumber\": \"<string>\",\n            \"OperatedByVendor\": \"<string>\",\n            \"OperatedByVendorName\": \"<string>\",\n            \"Remarks\": {\n              \"TripLinkRemarks\": [\n                {\n                  \"TripLinkRemark\": [\n                    {\n                      \"Text\": \"<string>\"\n                    }\n                  ]\n                }\n              ]\n            },\n            \"RuleViolations\": [\n              {\n                \"CompanyReasonCode\": \"<string>\",\n                \"CompanyRuleText\": \"<string>\",\n                \"ViolationReasonCode\": \"<integer>\"\n              }\n            ],\n            \"Seats\": [\n              {\n                \"PassengerRph\": \"<integer>\",\n                \"SeatNumber\": \"<string>\",\n                \"Status\": \"<string>\"\n              }\n            ],\n            \"Services\": \"<string>\",\n            \"SpecialInstructions\": \"<string>\",\n            \"StartCityCode\": \"<string>\",\n            \"StartDateLocal\": \"<string>\",\n            \"StartDateUtc\": \"<string>\",\n            \"StartGate\": \"<string>\",\n            \"StartTerminal\": \"<string>\",\n            \"Status\": \"<string>\",\n            \"TimeZone\": \"<string>\",\n            \"TimeZoneId\": \"<integer>\",\n            \"UpgradedDateTime\": \"<string>\",\n            \"Vendor\": \"<string>\",\n            \"VendorFlags\": \"<string>\",\n            \"VendorName\": \"<string>\"\n          }\n        ],\n        \"Car\": [\n          {\n            \"AirCondition\": \"<string>\",\n            \"Body\": \"<string>\",\n            \"CancellationNumber\": \"<string>\",\n            \"Charges\": {\n              \"Fixed\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Percent\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Rate\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"RateWithAllowance\": [\n                {\n                  \"AllowanceAmount\": \"<number>\",\n                  \"AllowanceIsUnlimited\": \"<boolean>\",\n                  \"AllowanceNumUnits\": \"<number>\",\n                  \"AllowanceUnit\": \"<string>\",\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ]\n            },\n            \"Class\": \"<string>\",\n            \"ConfirmationNumber\": \"<string>\",\n            \"Currency\": \"<string>\",\n            \"DailyRate\": \"<number>\",\n            \"DateCancelledUtc\": \"<string>\",\n            \"DateCreatedUtc\": \"<string>\",\n            \"DateModifiedUtc\": \"<string>\",\n            \"DiscountCode\": \"<string>\",\n            \"DropoffCollectionAddress1\": \"<string>\",\n            \"DropoffCollectionAddressType\": \"<string>\",\n            \"DropoffCollectionCategory\": \"<string>\",\n            \"DropoffCollectionCity\": \"<string>\",\n            \"DropoffCollectionCityCode\": \"<string>\",\n            \"DropoffCollectionCountry\": \"<string>\",\n            \"DropoffCollectionLatitude\": \"<string>\",\n            \"DropoffCollectionLongitude\": \"<string>\",\n            \"DropoffCollectionNumber\": \"<string>\",\n            \"DropoffCollectionPhoneNumber\": \"<string>\",\n            \"DropoffCollectionPostalCode\": \"<string>\",\n            \"DropoffCollectionState\": \"<string>\",\n            \"EndAddress\": \"<string>\",\n            \"EndAddress2\": \"<string>\",\n            \"EndCity\": \"<string>\",\n            \"EndCityCode\": \"<string>\",\n            \"EndCloseTime\": \"<string>\",\n            \"EndCountry\": \"<string>\",\n            \"EndDateLocal\": \"<string>\",\n            \"EndDateUtc\": \"<string>\",\n            \"EndLatitude\": \"<number>\",\n            \"EndLongitude\": \"<number>\",\n            \"EndOpenTime\": \"<string>\",\n            \"EndPhoneNumber\": \"<string>\",\n            \"EndPostalCode\": \"<string>\",\n            \"EndState\": \"<string>\",\n            \"IsGhostCard\": \"<boolean>\",\n            \"IsPreferredVendor\": \"<integer>\",\n            \"IsUpgradeAllowed\": \"<boolean>\",\n            \"Notes\": \"<string>\",\n            \"NumCars\": \"<integer>\",\n            \"NumPersons\": \"<integer>\",\n            \"PhoneNumber\": \"<string>\",\n            \"PickupDeliveryAddress1\": \"<string>\",\n            \"PickupDeliveryAddressType\": \"<string>\",\n            \"PickupDeliveryCategory\": \"<string>\",\n            \"PickupDeliveryCity\": \"<string>\",\n            \"PickupDeliveryCityCode\": \"<string>\",\n            \"PickupDeliveryCountry\": \"<string>\",\n            \"PickupDeliveryLatitude\": \"<string>\",\n            \"PickupDeliveryLongitude\": \"<string>\",\n            \"PickupDeliveryNumber\": \"<string>\",\n            \"PickupDeliveryPhoneNumber\": \"<string>\",\n            \"PickupDeliveryPostalCode\": \"<string>\",\n            \"PickupDeliveryState\": \"<string>\",\n            \"RateCode\": \"<string>\",\n            \"RateType\": \"<string>\",\n            \"Remarks\": {\n              \"TripLinkRemarks\": [\n                {\n                  \"TripLinkRemark\": [\n                    {\n                      \"Text\": \"<string>\"\n                    }\n                  ]\n                }\n              ]\n            },\n            \"SpecialEquipment\": \"<string>\",\n            \"SpecialInstructions\": \"<string>\",\n            \"StartAddress\": \"<string>\",\n            \"StartAddress2\": \"<string>\",\n            \"StartCity\": \"<string>\",\n            \"StartCityCode\": \"<string>\",\n            \"StartCloseTime\": \"<string>\",\n            \"StartCountry\": \"<string>\",\n            \"StartDateLocal\": \"<string>\",\n            \"StartDateUtc\": \"<string>\",\n            \"StartLatitude\": \"<number>\",\n            \"StartLocation\": \"<string>\",\n            \"StartLongitude\": \"<number>\",\n            \"StartOpenTime\": \"<string>\",\n            \"StartPostalCode\": \"<string>\",\n            \"StartState\": \"<string>\",\n            \"Status\": \"<string>\",\n            \"TimeZone\": \"<string>\",\n            \"TimeZoneId\": \"<integer>\",\n            \"TotalRate\": \"<number>\",\n            \"Transmission\": \"<string>\",\n            \"UpgradedDateTime\": \"<string>\",\n            \"Vendor\": \"<string>\",\n            \"VendorFlags\": \"<string>\",\n            \"VendorName\": \"<string>\"\n          }\n        ],\n        \"Dining\": [\n          {\n            \"CancellationNumber\": \"<string>\",\n            \"Charges\": {\n              \"Fixed\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Percent\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Rate\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"RateWithAllowance\": [\n                {\n                  \"AllowanceAmount\": \"<number>\",\n                  \"AllowanceIsUnlimited\": \"<boolean>\",\n                  \"AllowanceNumUnits\": \"<number>\",\n                  \"AllowanceUnit\": \"<string>\",\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ]\n            },\n            \"ConfirmationNumber\": \"<string>\",\n            \"DateCancelledUtc\": \"<string>\",\n            \"DateCreatedUtc\": \"<string>\",\n            \"DateModifiedUtc\": \"<string>\",\n            \"EndDateLocal\": \"<string>\",\n            \"EndDateUtc\": \"<string>\",\n            \"FrequentTravelerId\": \"<string>\",\n            \"IsPreferredVendor\": \"<integer>\",\n            \"IsUpgradeAllowed\": \"<boolean>\",\n            \"Name\": \"<string>\",\n            \"Notes\": \"<string>\",\n            \"NumPersons\": \"<integer>\",\n            \"PhoneNumber\": \"<string>\",\n            \"Remarks\": {\n              \"TripLinkRemarks\": [\n                {\n                  \"TripLinkRemark\": [\n                    {\n                      \"Text\": \"<string>\"\n                    }\n                  ]\n                }\n              ]\n            },\n            \"ReservationId\": \"<string>\",\n            \"StartAddress\": \"<string>\",\n            \"StartAddress2\": \"<string>\",\n            \"StartCity\": \"<string>\",\n            \"StartCountry\": \"<string>\",\n            \"StartDateLocal\": \"<string>\",\n            \"StartDateUtc\": \"<string>\",\n            \"StartLatitude\": \"<number>\",\n            \"StartLongitude\": \"<number>\",\n            \"StartPostalCode\": \"<string>\",\n            \"StartState\": \"<string>\",\n            \"Status\": \"<string>\",\n            \"TimeZone\": \"<string>\",\n            \"TimeZoneId\": \"<integer>\",\n            \"UpgradedDateTime\": \"<string>\",\n            \"Vendor\": \"<string>\",\n            \"VendorFlags\": \"<string>\",\n            \"VendorName\": \"<string>\"\n          }\n        ],\n        \"Hotel\": [\n          {\n            \"Breakfast\": \"<boolean>\",\n            \"CancellationNumber\": \"<string>\",\n            \"CancellationPolicy\": \"<string>\",\n            \"Charges\": {\n              \"Fixed\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Percent\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Rate\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"RateWithAllowance\": [\n                {\n                  \"AllowanceAmount\": \"<number>\",\n                  \"AllowanceIsUnlimited\": \"<boolean>\",\n                  \"AllowanceNumUnits\": \"<number>\",\n                  \"AllowanceUnit\": \"<string>\",\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ]\n            },\n            \"CheckinTime\": \"<string>\",\n            \"CheckoutTime\": \"<string>\",\n            \"ConfirmationNumber\": \"<string>\",\n            \"Currency\": \"<string>\",\n            \"DailyRate\": \"<number>\",\n            \"DateCancelledUtc\": \"<string>\",\n            \"DateCreatedUtc\": \"<string>\",\n            \"DateModifiedUtc\": \"<string>\",\n            \"DirectBill\": \"<boolean>\",\n            \"DiscountCode\": \"<string>\",\n            \"Email\": \"<string>\",\n            \"EndDateLocal\": \"<string>\",\n            \"EndDateUtc\": \"<string>\",\n            \"EquipmentCode\": \"<string>\",\n            \"FaxNumber\": \"<string>\",\n            \"FrequentTravelerId\": \"<string>\",\n            \"HotelPropertyId\": \"<string>\",\n            \"IncludedCustomAmenities\": \"<string>\",\n            \"IsGhostCard\": \"<boolean>\",\n            \"IsPreferredVendor\": \"<integer>\",\n            \"IsUpgradeAllowed\": \"<boolean>\",\n            \"ModificationCode\": \"<string>\",\n            \"Name\": \"<string>\",\n            \"Notes\": \"<string>\",\n            \"NumPersons\": \"<integer>\",\n            \"NumRooms\": \"<integer>\",\n            \"Parking\": \"<boolean>\",\n            \"PartnerMembershipId\": \"<string>\",\n            \"PassiveType\": \"<string>\",\n            \"PhoneNumber\": \"<string>\",\n            \"RateAccess\": \"<string>\",\n            \"RateCode\": \"<string>\",\n            \"RateType\": \"<string>\",\n            \"Remarks\": {\n              \"TripLinkRemarks\": [\n                {\n                  \"TripLinkRemark\": [\n                    {\n                      \"Text\": \"<string>\"\n                    }\n                  ]\n                }\n              ]\n            },\n            \"RoomDescription\": \"<string>\",\n            \"RoomType\": \"<string>\",\n            \"SpecialInstructions\": \"<string>\",\n            \"StartAddress\": \"<string>\",\n            \"StartAddress2\": \"<string>\",\n            \"StartCity\": \"<string>\",\n            \"StartCityCode\": \"<string>\",\n            \"StartCountry\": \"<string>\",\n            \"StartDateLocal\": \"<string>\",\n            \"StartDateUtc\": \"<string>\",\n            \"StartLatitude\": \"<number>\",\n            \"StartLongitude\": \"<number>\",\n            \"StartPostalCode\": \"<string>\",\n            \"StartState\": \"<string>\",\n            \"Status\": \"<string>\",\n            \"TimeZone\": \"<string>\",\n            \"TimeZoneId\": \"<integer>\",\n            \"TotalRate\": \"<number>\",\n            \"UpgradedDateTime\": \"<string>\",\n            \"Vendor\": \"<string>\",\n            \"VendorFlags\": \"<string>\",\n            \"VendorName\": \"<string>\",\n            \"Wifi\": \"<boolean>\"\n          }\n        ],\n        \"Parking\": [\n          {\n            \"StartDateLocal\": \"<string>\",\n            \"CancellationNumber\": \"<string>\",\n            \"Charges\": {\n              \"Fixed\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Percent\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Rate\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"RateWithAllowance\": [\n                {\n                  \"AllowanceAmount\": \"<number>\",\n                  \"AllowanceIsUnlimited\": \"<boolean>\",\n                  \"AllowanceNumUnits\": \"<number>\",\n                  \"AllowanceUnit\": \"<string>\",\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ]\n            },\n            \"ClassOfService\": \"<string>\",\n            \"ConfirmationNumber\": \"<string>\",\n            \"Currency\": \"<string>\",\n            \"DateCancelledUtc\": \"<string>\",\n            \"DateCreatedUtc\": \"<string>\",\n            \"DateModifiedUtc\": \"<string>\",\n            \"EndDateLocal\": \"<string>\",\n            \"EndDateUtc\": \"<string>\",\n            \"FrequentTravelerId\": \"<string>\",\n            \"IsPreferredVendor\": \"<integer>\",\n            \"IsUpgradeAllowed\": \"<boolean>\",\n            \"Name\": \"<string>\",\n            \"Notes\": \"<string>\",\n            \"OperatedByVendor\": \"<string>\",\n            \"ParkingLocationId\": \"<string>\",\n            \"PhoneNumber\": \"<string>\",\n            \"Pin\": \"<string>\",\n            \"RateCode\": \"<string>\",\n            \"Remarks\": {\n              \"TripLinkRemarks\": [\n                {\n                  \"TripLinkRemark\": [\n                    {\n                      \"Text\": \"<string>\"\n                    }\n                  ]\n                }\n              ]\n            },\n            \"StartAddress\": \"<string>\",\n            \"StartAddress2\": \"<string>\",\n            \"StartCity\": \"<string>\",\n            \"StartCityCode\": \"<string>\",\n            \"StartCountry\": \"<string>\",\n            \"StartDateUtc\": \"<string>\",\n            \"StartLocation\": \"<string>\",\n            \"StartPostalCode\": \"<string>\",\n            \"StartState\": \"<string>\",\n            \"Status\": \"<string>\",\n            \"TimeZone\": \"<string>\",\n            \"TimeZoneId\": \"<integer>\",\n            \"TotalRate\": \"<number>\",\n            \"UpgradedDateTime\": \"<string>\",\n            \"Vendor\": \"<string>\",\n            \"VendorFlags\": \"<string>\",\n            \"VendorName\": \"<string>\"\n          }\n        ],\n        \"Rail\": [\n          {\n            \"StartDateLocal\": \"<string>\",\n            \"Amenities\": \"<string>\",\n            \"Cabin\": \"<string>\",\n            \"CancellationNumber\": \"<string>\",\n            \"CarbonEmissionLbs\": \"<number>\",\n            \"CarbonModel\": \"<integer>\",\n            \"Charges\": {\n              \"Fixed\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Percent\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Rate\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"RateWithAllowance\": [\n                {\n                  \"AllowanceAmount\": \"<number>\",\n                  \"AllowanceIsUnlimited\": \"<boolean>\",\n                  \"AllowanceNumUnits\": \"<number>\",\n                  \"AllowanceUnit\": \"<string>\",\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ]\n            },\n            \"ClassOfService\": \"<string>\",\n            \"ConfirmationNumber\": \"<string>\",\n            \"Currency\": \"<string>\",\n            \"DateCancelledUtc\": \"<string>\",\n            \"DateCreatedUtc\": \"<string>\",\n            \"DateModifiedUtc\": \"<string>\",\n            \"DiscountCode\": \"<string>\",\n            \"Duration\": \"<integer>\",\n            \"ETicket\": \"<string>\",\n            \"EndCity\": \"<string>\",\n            \"EndCityCode\": \"<string>\",\n            \"EndCountry\": \"<string>\",\n            \"EndDateLocal\": \"<string>\",\n            \"EndDateUtc\": \"<string>\",\n            \"EndLatitude\": \"<number>\",\n            \"EndLongitude\": \"<number>\",\n            \"EndPlatform\": \"<string>\",\n            \"EndRailStation\": \"<string>\",\n            \"EndRailStationName\": \"<string>\",\n            \"EndState\": \"<string>\",\n            \"FrequentTravelerId\": \"<string>\",\n            \"IsPreferredVendor\": \"<integer>\",\n            \"IsUpgradeAllowed\": \"<boolean>\",\n            \"LegId\": \"<integer>\",\n            \"Meals\": \"<string>\",\n            \"Miles\": \"<integer>\",\n            \"Notes\": \"<string>\",\n            \"NumPersons\": \"<integer>\",\n            \"NumStops\": \"<integer>\",\n            \"OperatedByTrainNumber\": \"<string>\",\n            \"OperatedByVendor\": \"<string>\",\n            \"RateCode\": \"<string>\",\n            \"Remarks\": {\n              \"TripLinkRemarks\": [\n                {\n                  \"TripLinkRemark\": [\n                    {\n                      \"Text\": \"<string>\"\n                    }\n                  ]\n                }\n              ]\n            },\n            \"RouteRestrictCode\": \"<string>\",\n            \"Seats\": [\n              {\n                \"Amenities\": \"<string>\",\n                \"BerthPosition\": \"<string>\",\n                \"Deck\": \"<string>\",\n                \"FacingForward\": \"<string>\",\n                \"FareSpaceComfort\": \"<string>\",\n                \"PassengerRph\": \"<integer>\",\n                \"SeatNumber\": \"<string>\",\n                \"SeatPosition\": \"<string>\",\n                \"SeatType\": \"<string>\",\n                \"SpaceType\": \"<string>\",\n                \"Status\": \"<string>\",\n                \"WagonNumber\": \"<string>\",\n                \"WagonType\": \"<string>\"\n              }\n            ],\n            \"SpecialInstructions\": \"<string>\",\n            \"StartCity\": \"<string>\",\n            \"StartCityCode\": \"<string>\",\n            \"StartCountry\": \"<string>\",\n            \"StartDateUtc\": \"<string>\",\n            \"StartLatitude\": \"<number>\",\n            \"StartLongitude\": \"<number>\",\n            \"StartPlatform\": \"<string>\",\n            \"StartRailStation\": \"<string>\",\n            \"StartRailStationName\": \"<string>\",\n            \"StartState\": \"<string>\",\n            \"Status\": \"<string>\",\n            \"TimeZone\": \"<string>\",\n            \"TimeZoneId\": \"<integer>\",\n            \"TotalRate\": \"<number>\",\n            \"TrainNumber\": \"<string>\",\n            \"TrainTypeCode\": \"<string>\",\n            \"TrainTypeName\": \"<string>\",\n            \"TransportMode\": \"<string>\",\n            \"UpgradedDateTime\": \"<string>\",\n            \"Vendor\": \"<string>\",\n            \"VendorFlags\": \"<string>\",\n            \"VendorName\": \"<string>\",\n            \"WagonNumber\": \"<string>\"\n          }\n        ],\n        \"Ride\": [\n          {\n            \"CancellationNumber\": \"<string>\",\n            \"CancellationPolicy\": \"<string>\",\n            \"Charges\": {\n              \"Fixed\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Percent\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Rate\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"RateWithAllowance\": [\n                {\n                  \"AllowanceAmount\": \"<number>\",\n                  \"AllowanceIsUnlimited\": \"<boolean>\",\n                  \"AllowanceNumUnits\": \"<number>\",\n                  \"AllowanceUnit\": \"<string>\",\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ]\n            },\n            \"ConfirmationNumber\": \"<string>\",\n            \"Currency\": \"<string>\",\n            \"DateCancelledUtc\": \"<string>\",\n            \"DateCreatedUtc\": \"<string>\",\n            \"DateModifiedUtc\": \"<string>\",\n            \"DropoffInstructions\": \"<string>\",\n            \"Duration\": \"<integer>\",\n            \"EndAddress\": \"<string>\",\n            \"EndAddress2\": \"<string>\",\n            \"EndCity\": \"<string>\",\n            \"EndCityCode\": \"<string>\",\n            \"EndCountry\": \"<string>\",\n            \"EndDateLocal\": \"<string>\",\n            \"EndDateUtc\": \"<string>\",\n            \"EndLatitude\": \"<number>\",\n            \"EndLocationCode\": \"<string>\",\n            \"EndLongitude\": \"<number>\",\n            \"EndPostalCode\": \"<string>\",\n            \"EndState\": \"<string>\",\n            \"IsGhostCard\": \"<boolean>\",\n            \"IsPreferredVendor\": \"<integer>\",\n            \"IsUpgradeAllowed\": \"<boolean>\",\n            \"MeetingInstructions\": \"<string>\",\n            \"Miles\": \"<integer>\",\n            \"Name\": \"<string>\",\n            \"Notes\": \"<string>\",\n            \"NumPersons\": \"<integer>\",\n            \"NumberOfHours\": \"<number>\",\n            \"OperatedByVendorName\": \"<string>\",\n            \"PassiveCityCode\": \"<string>\",\n            \"PhoneNumber\": \"<string>\",\n            \"PickupInstructions\": \"<string>\",\n            \"ProviderFeedback\": \"<string>\",\n            \"Rate\": \"<number>\",\n            \"RateDescription\": \"<string>\",\n            \"RateNotes\": \"<string>\",\n            \"RateType\": \"<string>\",\n            \"Remarks\": {\n              \"TripLinkRemarks\": [\n                {\n                  \"TripLinkRemark\": [\n                    {\n                      \"Text\": \"<string>\"\n                    }\n                  ]\n                }\n              ]\n            },\n            \"ReservationId\": \"<string>\",\n            \"SpecialInstructions\": \"<string>\",\n            \"StartAddress\": \"<string>\",\n            \"StartAddress2\": \"<string>\",\n            \"StartCity\": \"<string>\",\n            \"StartCityCode\": \"<string>\",\n            \"StartCountry\": \"<string>\",\n            \"StartDateLocal\": \"<string>\",\n            \"StartDateUtc\": \"<string>\",\n            \"StartLatitude\": \"<number>\",\n            \"StartLocation\": \"<string>\",\n            \"StartLocationCode\": \"<string>\",\n            \"StartLocationName\": \"<string>\",\n            \"StartLongitude\": \"<number>\",\n            \"StartPostalCode\": \"<string>\",\n            \"StartState\": \"<string>\",\n            \"TimeZone\": \"<string>\",\n            \"TimeZoneId\": \"<integer>\",\n            \"TotalRate\": \"<number>\",\n            \"UpgradedDateTime\": \"<string>\",\n            \"Vendor\": \"<string>\",\n            \"VendorFlags\": \"<string>\",\n            \"VendorName\": \"<string>\"\n          }\n        ],\n        \"Travel\": [\n          {\n            \"StartDateLocal\": \"<string>\",\n            \"CancellationNumber\": \"<string>\",\n            \"Charges\": {\n              \"Fixed\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Percent\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"Rate\": [\n                {\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ],\n              \"RateWithAllowance\": [\n                {\n                  \"AllowanceAmount\": \"<number>\",\n                  \"AllowanceIsUnlimited\": \"<boolean>\",\n                  \"AllowanceNumUnits\": \"<number>\",\n                  \"AllowanceUnit\": \"<string>\",\n                  \"Amount\": \"<number>\",\n                  \"Currency\": \"<string>\",\n                  \"Description\": \"<string>\",\n                  \"IsPaid\": \"<boolean>\",\n                  \"IsPrimary\": \"<boolean>\",\n                  \"NumUnits\": \"<number>\",\n                  \"PerUnit\": \"<string>\",\n                  \"SemanticsCode\": \"<string>\",\n                  \"SemanticsVendorType\": \"<string>\",\n                  \"StartDateLocal\": \"<string>\",\n                  \"Vendor\": \"<string>\",\n                  \"VendorChargeCode\": \"<string>\"\n                }\n              ]\n            },\n            \"ConfirmationNumber\": \"<string>\",\n            \"Currency\": \"<string>\",\n            \"DailyRate\": \"<number>\",\n            \"DateCancelledUtc\": \"<string>\",\n            \"DateCreatedUtc\": \"<string>\",\n            \"DateModifiedUtc\": \"<string>\",\n            \"EndAddress\": \"<string>\",\n            \"EndAddress2\": \"<string>\",\n            \"EndCity\": \"<string>\",\n            \"EndCityCode\": \"<string>\",\n            \"EndCountry\": \"<string>\",\n            \"EndDateLocal\": \"<string>\",\n            \"EndDateUtc\": \"<string>\",\n            \"EndLatitude\": \"<number>\",\n            \"EndLocation\": \"<string>\",\n            \"EndLongitude\": \"<number>\",\n            \"EndPostalCode\": \"<string>\",\n            \"EndState\": \"<string>\",\n            \"IsGhostCard\": \"<boolean>\",\n            \"Notes\": \"<string>\",\n            \"NumPersons\": \"<integer>\",\n            \"PhoneNumber\": \"<string>\",\n            \"Remarks\": {\n              \"TripLinkRemarks\": [\n                {\n                  \"TripLinkRemark\": [\n                    {\n                      \"Text\": \"<string>\"\n                    }\n                  ]\n                }\n              ]\n            },\n            \"SpecialInstructions\": \"<string>\",\n            \"StartAddress\": \"<string>\",\n            \"StartAddress2\": \"<string>\",\n            \"StartCity\": \"<string>\",\n            \"StartCityCode\": \"<string>\",\n            \"StartCountry\": \"<string>\",\n            \"StartDateUtc\": \"<string>\",\n            \"StartLatitude\": \"<number>\",\n            \"StartLocation\": \"<string>\",\n            \"StartLongitude\": \"<number>\",\n            \"StartPostalCode\": \"<string>\",\n            \"StartState\": \"<string>\",\n            \"Status\": \"<string>\",\n            \"TimeZone\": \"<string>\",\n            \"TimeZoneId\": \"<integer>\",\n            \"TotalRate\": \"<number>\",\n            \"TransportMode\": \"<string>\",\n            \"Vendor\": \"<string>\",\n            \"VendorName\": \"<string>\"\n          }\n        ]\n      },\n      \"TicketMailingAddress\": \"<string>\",\n      \"TicketPickupLocation\": \"<string>\",\n      \"TicketPickupNumber\": \"<string>\",\n      \"WaitListSegments\": {\n        \"SegmentOption\": [\n          {\n            \"Flight\": [\n              {\n                \"ArrAirp\": \"<string>\",\n                \"Cabin\": \"<string>\",\n                \"Carrier\": \"<string>\",\n                \"DepAirp\": \"<string>\",\n                \"FlightNum\": \"<string>\"\n              }\n            ],\n            \"SegmentIndex\": \"<string>\",\n            \"StatusCode\": \"<string>\",\n            \"TimeStamp\": \"<string>\"\n          }\n        ]\n      },\n      \"Warnings\": [\n        {\n          \"Code\": [\n            \"<string>\"\n          ],\n          \"Text\": [\n            \"<string>\"\n          ],\n          \"Type\": [\n            \"<string>\"\n          ]\n        }\n      ],\n      \"WebAddresses\": [\n        {\n          \"Description\": \"<string>\",\n          \"Format\": \"<string>\",\n          \"PassengerRPH\": \"<integer>\",\n          \"Type\": \"<string>\",\n          \"WebAddress\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"CancelComments\": \"<string>\",\n  \"ClientLocator\": \"<string>\",\n  \"Comments\": \"<string>\",\n  \"CustomAttributes\": [\n    {\n      \"Data\": \"<string>\",\n      \"DataType\": \"<string>\",\n      \"DisplayOnItinerary\": \"<boolean>\",\n      \"DisplayTitle\": \"<string>\",\n      \"ExternalId\": \"<integer>\",\n      \"Name\": \"<string>\"\n    }\n  ],\n  \"DateBookedLocal\": \"<string>\",\n  \"DateCreatedUtc\": \"<string>\",\n  \"DateModifiedUtc\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"EndDateLocal\": \"<string>\",\n  \"EndDateUtc\": \"<string>\",\n  \"HasOpenBookingPassive\": \"<boolean>\",\n  \"IsPersonal\": \"<boolean>\",\n  \"ItinLocator\": \"<string>\",\n  \"ProjectName\": \"<string>\",\n  \"StartDateLocal\": \"<string>\",\n  \"StartDateUtc\": \"<string>\",\n  \"TravelRequestId\": \"<string>\",\n  \"TripLinkLocator\": \"<string>\",\n  \"TripName\": \"<string>\",\n  \"TripStatus\": \"<integer>\",\n  \"UserLoginId\": \"<string>\",\n  \"id\": \"<string>\"\n}"
+								},
+								{
+									"name": "Wrong format or structure of the provided request.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Accepts gzip",
+												"key": "Accept-Encoding",
+												"value": "<string>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/trips/:tripID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"trips",
+												":tripID"
+											],
+											"variable": [
+												{
+													"key": "tripID"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"errors\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        }\n      ]\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"errors\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        }\n      ]\n    }\n  ]\n}"
+								},
+								{
+									"name": "Access denied, authentication is required.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Accepts gzip",
+												"key": "Accept-Encoding",
+												"value": "<string>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/trips/:tripID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"trips",
+												":tripID"
+											],
+											"variable": [
+												{
+													"key": "tripID"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"errors\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        }\n      ]\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"errors\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        }\n      ]\n    }\n  ]\n}"
+								},
+								{
+									"name": "Access denied. You do not have the required permissions to access this resource.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Accepts gzip",
+												"key": "Accept-Encoding",
+												"value": "<string>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/trips/:tripID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"trips",
+												":tripID"
+											],
+											"variable": [
+												{
+													"key": "tripID"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Trip ID Not Found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Accepts gzip",
+												"key": "Accept-Encoding",
+												"value": "<string>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/trips/:tripID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"trips",
+												":tripID"
+											],
+											"variable": [
+												{
+													"key": "tripID"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"errors\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        }\n      ]\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"errors\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        }\n      ]\n    }\n  ]\n}"
+								},
+								{
+									"name": "Internal Server Error. The operation you requested led to an error during execution.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Accepts gzip",
+												"key": "Accept-Encoding",
+												"value": "<string>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/trips/:tripID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"trips",
+												":tripID"
+											],
+											"variable": [
+												{
+													"key": "tripID"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"errors\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        }\n      ]\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"errors\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        }\n      ]\n    }\n  ]\n}"
+								},
+								{
+									"name": "Service is unavailable or a rate limit is in effect.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Accepts gzip",
+												"key": "Accept-Encoding",
+												"value": "<string>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/trips/:tripID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"trips",
+												":tripID"
+											],
+											"variable": [
+												{
+													"key": "tripID"
+												}
+											]
+										}
+									},
+									"status": "Service Unavailable",
+									"code": 503,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "v4 - Get Trip Ids by Company",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/trips?schema=id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trips"
+							],
+							"query": [
+								{
+									"key": "schema",
+									"value": "id",
+									"description": "Output schema type. Supported value is id"
+								},
+								{
+									"key": "endDateFrom",
+									"value": "<string>",
+									"description": "start date for the query list | format - `2023-01-02`. Date cannot be older than 6 months from now",
+									"disabled": true
+								},
+								{
+									"key": "endDateTo",
+									"value": "<string>",
+									"description": "end date for the query list, results include this date | format - `2023-01-02`",
+									"disabled": true
+								},
+								{
+									"key": "startAfter",
+									"value": "<string>",
+									"description": "Get results after a specific start Id",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Gets the upcoming trips for the given company. Company JWT is required as part of the authorization."
+					},
+					"response": [
+						{
+							"name": "Successful response of trip ids by company.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/trips?schema=<string>&endDateFrom=<string>&endDateTo=<string>&startAfter=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"trips"
+									],
+									"query": [
+										{
+											"key": "schema",
+											"value": "<string>",
+											"description": "Output schema type. Supported value is id"
+										},
+										{
+											"key": "endDateFrom",
+											"value": "<string>",
+											"description": "start date for the query list | format - `2023-01-02`. Date cannot be older than 6 months from now"
+										},
+										{
+											"key": "endDateTo",
+											"value": "<string>",
+											"description": "end date for the query list, results include this date | format - `2023-01-02`"
+										},
+										{
+											"key": "startAfter",
+											"value": "<string>",
+											"description": "Get results after a specific start Id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"href\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"href\": \"<string>\"\n    }\n  ],\n  \"operations\": [\n    {\n      \"rel\": \"<string>\",\n      \"href\": \"<string>\"\n    },\n    {\n      \"rel\": \"<string>\",\n      \"href\": \"<string>\"\n    }\n  ]\n}"
+						},
+						{
+							"name": "Wrong format or structure of the provided request.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/trips?schema=<string>&endDateFrom=<string>&endDateTo=<string>&startAfter=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"trips"
+									],
+									"query": [
+										{
+											"key": "schema",
+											"value": "<string>",
+											"description": "Output schema type. Supported value is id"
+										},
+										{
+											"key": "endDateFrom",
+											"value": "<string>",
+											"description": "start date for the query list | format - `2023-01-02`. Date cannot be older than 6 months from now"
+										},
+										{
+											"key": "endDateTo",
+											"value": "<string>",
+											"description": "end date for the query list, results include this date | format - `2023-01-02`"
+										},
+										{
+											"key": "startAfter",
+											"value": "<string>",
+											"description": "Get results after a specific start Id"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"errors\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        }\n      ]\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"errors\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        }\n      ]\n    }\n  ]\n}"
+						},
+						{
+							"name": "Access denied, authentication is required.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/trips?schema=<string>&endDateFrom=<string>&endDateTo=<string>&startAfter=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"trips"
+									],
+									"query": [
+										{
+											"key": "schema",
+											"value": "<string>",
+											"description": "Output schema type. Supported value is id"
+										},
+										{
+											"key": "endDateFrom",
+											"value": "<string>",
+											"description": "start date for the query list | format - `2023-01-02`. Date cannot be older than 6 months from now"
+										},
+										{
+											"key": "endDateTo",
+											"value": "<string>",
+											"description": "end date for the query list, results include this date | format - `2023-01-02`"
+										},
+										{
+											"key": "startAfter",
+											"value": "<string>",
+											"description": "Get results after a specific start Id"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"errors\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        }\n      ]\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"errors\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        }\n      ]\n    }\n  ]\n}"
+						},
+						{
+							"name": "Access denied. You do not have the required permissions to access this resource.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/trips?schema=<string>&endDateFrom=<string>&endDateTo=<string>&startAfter=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"trips"
+									],
+									"query": [
+										{
+											"key": "schema",
+											"value": "<string>",
+											"description": "Output schema type. Supported value is id"
+										},
+										{
+											"key": "endDateFrom",
+											"value": "<string>",
+											"description": "start date for the query list | format - `2023-01-02`. Date cannot be older than 6 months from now"
+										},
+										{
+											"key": "endDateTo",
+											"value": "<string>",
+											"description": "end date for the query list, results include this date | format - `2023-01-02`"
+										},
+										{
+											"key": "startAfter",
+											"value": "<string>",
+											"description": "Get results after a specific start Id"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal Server Error. The operation you requested led to an error during execution.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/trips?schema=<string>&endDateFrom=<string>&endDateTo=<string>&startAfter=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"trips"
+									],
+									"query": [
+										{
+											"key": "schema",
+											"value": "<string>",
+											"description": "Output schema type. Supported value is id"
+										},
+										{
+											"key": "endDateFrom",
+											"value": "<string>",
+											"description": "start date for the query list | format - `2023-01-02`. Date cannot be older than 6 months from now"
+										},
+										{
+											"key": "endDateTo",
+											"value": "<string>",
+											"description": "end date for the query list, results include this date | format - `2023-01-02`"
+										},
+										{
+											"key": "startAfter",
+											"value": "<string>",
+											"description": "Get results after a specific start Id"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"errors\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        }\n      ]\n    },\n    {\n      \"errorCode\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"errors\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/model.ExternalErrorObject detected>\"\n        }\n      ]\n    }\n  ]\n}"
+						},
+						{
+							"name": "Service is unavailable or a rate limit is in effect.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/trips?schema=<string>&endDateFrom=<string>&endDateTo=<string>&startAfter=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"trips"
+									],
+									"query": [
+										{
+											"key": "schema",
+											"value": "<string>",
+											"description": "Output schema type. Supported value is id"
+										},
+										{
+											"key": "endDateFrom",
+											"value": "<string>",
+											"description": "start date for the query list | format - `2023-01-02`. Date cannot be older than 6 months from now"
+										},
+										{
+											"key": "endDateTo",
+											"value": "<string>",
+											"description": "end date for the query list, results include this date | format - `2023-01-02`"
+										},
+										{
+											"key": "startAfter",
+											"value": "<string>",
+											"description": "Get results after a specific start Id"
+										}
+									]
+								}
+							},
+							"status": "Service Unavailable",
+							"code": 503,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://us.api.concursolutions.com/travel/v4"
+		}
+	]
+}

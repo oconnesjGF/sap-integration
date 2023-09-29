@@ -1,0 +1,1341 @@
+{
+	"info": {
+		"_postman_id": "f0b351e5-c717-4ede-8758-83f77ceaa994",
+		"name": "Launch External URL",
+		"description": "Rest API for Launch External URL Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "launchexternalurl",
+			"item": [
+				{
+					"name": "v4",
+					"item": [
+						{
+							"name": "leuconfig",
+							"item": [
+								{
+									"name": "Launch external url configuration",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												},
+												{
+													"key": "value",
+													"value": "{{apiKey}}",
+													"type": "string"
+												},
+												{
+													"key": "in",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"description": "(Required) The unique identifier of the company in question",
+												"key": "company-uid",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"description": "The unique identifier of the logged in user (required when using user jwt)",
+												"key": "concur-uid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"context_type\": \"<string>\",\n  \"form_field_id\": \"<string>\",\n  \"logged_in_user_id\": \"<string>\",\n  \"report_id\": \"<string>\",\n  \"report_owner_user_id\": \"<string>\",\n  \"source\": \"<string>\",\n  \"allocation_id\": \"<string>\",\n  \"expense_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"is_mobile\": \"<boolean>\",\n  \"logged_in_user_login_id\": \"<string>\",\n  \"rpe_key\": \"<string>\",\n  \"rpt_key\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/launchexternalurl/v4/leuconfig",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"launchexternalurl",
+												"v4",
+												"leuconfig"
+											]
+										},
+										"description": "returns the launch external url configuration for the form field"
+									},
+									"response": [
+										{
+											"name": "Successfully retrieved launch external url config",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "(Required) The unique identifier of the company in question",
+														"key": "company-uid",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the logged in user (required when using user jwt)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"context_type\": \"<string>\",\n  \"form_field_id\": \"<string>\",\n  \"logged_in_user_id\": \"<string>\",\n  \"report_id\": \"<string>\",\n  \"report_owner_user_id\": \"<string>\",\n  \"source\": \"<string>\",\n  \"allocation_id\": \"<string>\",\n  \"expense_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"is_mobile\": \"<boolean>\",\n  \"logged_in_user_login_id\": \"<string>\",\n  \"rpe_key\": \"<string>\",\n  \"rpt_key\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/launchexternalurl/v4/leuconfig",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"launchexternalurl",
+														"v4",
+														"leuconfig"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"client_url\": \"<string>\",\n  \"leu_version\": \"<string>\",\n  \"popup_height\": \"<integer>\",\n  \"popup_width\": \"<integer>\"\n}"
+										},
+										{
+											"name": "Bad Request - Your request is missing parameters. Please verify and resubmit.",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "(Required) The unique identifier of the company in question",
+														"key": "company-uid",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the logged in user (required when using user jwt)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"context_type\": \"<string>\",\n  \"form_field_id\": \"<string>\",\n  \"logged_in_user_id\": \"<string>\",\n  \"report_id\": \"<string>\",\n  \"report_owner_user_id\": \"<string>\",\n  \"source\": \"<string>\",\n  \"allocation_id\": \"<string>\",\n  \"expense_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"is_mobile\": \"<boolean>\",\n  \"logged_in_user_login_id\": \"<string>\",\n  \"rpe_key\": \"<string>\",\n  \"rpt_key\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/launchexternalurl/v4/leuconfig",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"launchexternalurl",
+														"v4",
+														"leuconfig"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Full authentication is required to access this resource.",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "(Required) The unique identifier of the company in question",
+														"key": "company-uid",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the logged in user (required when using user jwt)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"context_type\": \"<string>\",\n  \"form_field_id\": \"<string>\",\n  \"logged_in_user_id\": \"<string>\",\n  \"report_id\": \"<string>\",\n  \"report_owner_user_id\": \"<string>\",\n  \"source\": \"<string>\",\n  \"allocation_id\": \"<string>\",\n  \"expense_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"is_mobile\": \"<boolean>\",\n  \"logged_in_user_login_id\": \"<string>\",\n  \"rpe_key\": \"<string>\",\n  \"rpt_key\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/launchexternalurl/v4/leuconfig",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"launchexternalurl",
+														"v4",
+														"leuconfig"
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Unable to find resource requested",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "(Required) The unique identifier of the company in question",
+														"key": "company-uid",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the logged in user (required when using user jwt)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"context_type\": \"<string>\",\n  \"form_field_id\": \"<string>\",\n  \"logged_in_user_id\": \"<string>\",\n  \"report_id\": \"<string>\",\n  \"report_owner_user_id\": \"<string>\",\n  \"source\": \"<string>\",\n  \"allocation_id\": \"<string>\",\n  \"expense_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"is_mobile\": \"<boolean>\",\n  \"logged_in_user_login_id\": \"<string>\",\n  \"rpe_key\": \"<string>\",\n  \"rpt_key\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/launchexternalurl/v4/leuconfig",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"launchexternalurl",
+														"v4",
+														"leuconfig"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Internal server error, please contact the administrator.",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "(Required) The unique identifier of the company in question",
+														"key": "company-uid",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the logged in user (required when using user jwt)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"context_type\": \"<string>\",\n  \"form_field_id\": \"<string>\",\n  \"logged_in_user_id\": \"<string>\",\n  \"report_id\": \"<string>\",\n  \"report_owner_user_id\": \"<string>\",\n  \"source\": \"<string>\",\n  \"allocation_id\": \"<string>\",\n  \"expense_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"is_mobile\": \"<boolean>\",\n  \"logged_in_user_login_id\": \"<string>\",\n  \"rpe_key\": \"<string>\",\n  \"rpt_key\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/launchexternalurl/v4/leuconfig",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"launchexternalurl",
+														"v4",
+														"leuconfig"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "The service is unavailable either due to being offline or refusing the connection",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "(Required) The unique identifier of the company in question",
+														"key": "company-uid",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the logged in user (required when using user jwt)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"context_type\": \"<string>\",\n  \"form_field_id\": \"<string>\",\n  \"logged_in_user_id\": \"<string>\",\n  \"report_id\": \"<string>\",\n  \"report_owner_user_id\": \"<string>\",\n  \"source\": \"<string>\",\n  \"allocation_id\": \"<string>\",\n  \"expense_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"is_mobile\": \"<boolean>\",\n  \"logged_in_user_login_id\": \"<string>\",\n  \"rpe_key\": \"<string>\",\n  \"rpt_key\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/launchexternalurl/v4/leuconfig",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"launchexternalurl",
+														"v4",
+														"leuconfig"
+													]
+												}
+											},
+											"status": "Service Unavailable",
+											"code": 503,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "leuversion",
+							"item": [
+								{
+									"name": "{formFieldId}",
+									"item": [
+										{
+											"name": "Launch external url version",
+											"request": {
+												"auth": {
+													"type": "apikey",
+													"apikey": [
+														{
+															"key": "key",
+															"value": "Authorization",
+															"type": "string"
+														},
+														{
+															"key": "value",
+															"value": "{{apiKey}}",
+															"type": "string"
+														},
+														{
+															"key": "in",
+															"value": "header",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [
+													{
+														"description": "(Required) The unique identifier of the company in question",
+														"key": "company-uid",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the logged in user (required when using user jwt)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/launchexternalurl/v4/leuversion/:formFieldId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"launchexternalurl",
+														"v4",
+														"leuversion",
+														":formFieldId"
+													],
+													"variable": [
+														{
+															"key": "formFieldId",
+															"value": "<string>"
+														}
+													]
+												},
+												"description": "returns Launch external url version configured for the form field"
+											},
+											"response": [
+												{
+													"name": "Successfully retrieved launch external url version",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"description": "(Required) The unique identifier of the company in question",
+																"key": "company-uid",
+																"value": "<string>"
+															},
+															{
+																"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the logged in user (required when using user jwt)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Accept",
+																"value": "*/*"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/launchexternalurl/v4/leuversion/:formFieldId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"launchexternalurl",
+																"v4",
+																"leuversion",
+																":formFieldId"
+															],
+															"variable": [
+																{
+																	"key": "formFieldId"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"leu_version\": \"<string>\"\n}"
+												},
+												{
+													"name": "Bad Request - Your request is missing parameters. Please verify and resubmit.",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"description": "(Required) The unique identifier of the company in question",
+																"key": "company-uid",
+																"value": "<string>"
+															},
+															{
+																"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the logged in user (required when using user jwt)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Accept",
+																"value": "*/*"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/launchexternalurl/v4/leuversion/:formFieldId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"launchexternalurl",
+																"v4",
+																"leuversion",
+																":formFieldId"
+															],
+															"variable": [
+																{
+																	"key": "formFieldId"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+												},
+												{
+													"name": "Full authentication is required to access this resource.",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"description": "(Required) The unique identifier of the company in question",
+																"key": "company-uid",
+																"value": "<string>"
+															},
+															{
+																"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the logged in user (required when using user jwt)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Accept",
+																"value": "*/*"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/launchexternalurl/v4/leuversion/:formFieldId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"launchexternalurl",
+																"v4",
+																"leuversion",
+																":formFieldId"
+															],
+															"variable": [
+																{
+																	"key": "formFieldId"
+																}
+															]
+														}
+													},
+													"status": "Unauthorized",
+													"code": 401,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+												},
+												{
+													"name": "Unable to find resource requested",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"description": "(Required) The unique identifier of the company in question",
+																"key": "company-uid",
+																"value": "<string>"
+															},
+															{
+																"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the logged in user (required when using user jwt)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Accept",
+																"value": "*/*"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/launchexternalurl/v4/leuversion/:formFieldId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"launchexternalurl",
+																"v4",
+																"leuversion",
+																":formFieldId"
+															],
+															"variable": [
+																{
+																	"key": "formFieldId"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+												},
+												{
+													"name": "Internal server error, please contact the administrator.",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"description": "(Required) The unique identifier of the company in question",
+																"key": "company-uid",
+																"value": "<string>"
+															},
+															{
+																"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the logged in user (required when using user jwt)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Accept",
+																"value": "*/*"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/launchexternalurl/v4/leuversion/:formFieldId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"launchexternalurl",
+																"v4",
+																"leuversion",
+																":formFieldId"
+															],
+															"variable": [
+																{
+																	"key": "formFieldId"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+												},
+												{
+													"name": "The service is unavailable either due to being offline or refusing the connection",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"description": "(Required) The unique identifier of the company in question",
+																"key": "company-uid",
+																"value": "<string>"
+															},
+															{
+																"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the logged in user (required when using user jwt)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Accept",
+																"value": "*/*"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/launchexternalurl/v4/leuversion/:formFieldId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"launchexternalurl",
+																"v4",
+																"leuversion",
+																":formFieldId"
+															],
+															"variable": [
+																{
+																	"key": "formFieldId"
+																}
+															]
+														}
+													},
+													"status": "Service Unavailable",
+													"code": 503,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "mgmt",
+			"item": [
+				{
+					"name": "version",
+					"item": [
+						{
+							"name": "Get current server time and git commit sha of deployed LEU",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "{{apiKey}}",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) The unique identifier of the company in question",
+										"key": "company-uid",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+										"key": "concur-correlationid",
+										"value": "<string>"
+									},
+									{
+										"description": "The unique identifier of the logged in user (required when using user jwt)",
+										"key": "concur-uid",
+										"value": "<string>"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/mgmt/version",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"mgmt",
+										"version"
+									]
+								},
+								"description": "/api based path requires authentication"
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) The unique identifier of the company in question",
+												"key": "company-uid",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"description": "The unique identifier of the logged in user (required when using user jwt)",
+												"key": "concur-uid",
+												"value": "<string>"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/mgmt/version",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mgmt",
+												"version"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "<string>"
+								},
+								{
+									"name": "Bad Request - Your request is missing parameters. Please verify and resubmit.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) The unique identifier of the company in question",
+												"key": "company-uid",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"description": "The unique identifier of the logged in user (required when using user jwt)",
+												"key": "concur-uid",
+												"value": "<string>"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/mgmt/version",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mgmt",
+												"version"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "Full authentication is required to access this resource.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) The unique identifier of the company in question",
+												"key": "company-uid",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"description": "The unique identifier of the logged in user (required when using user jwt)",
+												"key": "concur-uid",
+												"value": "<string>"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/mgmt/version",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mgmt",
+												"version"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "Unable to find resource requested.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) The unique identifier of the company in question",
+												"key": "company-uid",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"description": "The unique identifier of the logged in user (required when using user jwt)",
+												"key": "concur-uid",
+												"value": "<string>"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/mgmt/version",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mgmt",
+												"version"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "Internal server error, please contact the administrator.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) The unique identifier of the company in question",
+												"key": "company-uid",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"description": "The unique identifier of the logged in user (required when using user jwt)",
+												"key": "concur-uid",
+												"value": "<string>"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/mgmt/version",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mgmt",
+												"version"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "Service Unavailable.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) The unique identifier of the company in question",
+												"key": "company-uid",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"description": "The unique identifier of the logged in user (required when using user jwt)",
+												"key": "concur-uid",
+												"value": "<string>"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/mgmt/version",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mgmt",
+												"version"
+											]
+										}
+									},
+									"status": "Service Unavailable",
+									"code": 503,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "//launchexternalurl-prod.seapr1.uscom.cnqr.delivery"
+		}
+	]
+}

@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "5d6fbbd1-ed55-417c-b9b5-67f23e4c776f",
+		"name": "Opportunities",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "insights",
+			"item": [
+				{
+					"name": "opportunities",
+					"item": [
+						{
+							"name": "Gets a collection of opportunities for a specified trip or for all trips that fall within a date range",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/insights/opportunities?tripId=<string>&opportunityType=<string>&fromUtc=<dateTime>&toUtc=<dateTime>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"insights",
+										"opportunities"
+									],
+									"query": [
+										{
+											"key": "tripId",
+											"value": "<string>",
+											"description": "The trip id"
+										},
+										{
+											"key": "opportunityType",
+											"value": "<string>",
+											"description": "Comma seperated list of opportunities (Hotel, Car, Air, Rail, Taxi and Service) to get. Do not specify any values to get all opportunities"
+										},
+										{
+											"key": "fromUtc",
+											"value": "<dateTime>",
+											"description": "The From date in UTC for the date range"
+										},
+										{
+											"key": "toUtc",
+											"value": "<dateTime>",
+											"description": "The To date in UTC for the date range"
+										}
+									]
+								},
+								"description": "Gets a collection of opportunities for a specified trip or for all trips that fall within a date range. Specify values for fromUtc and toUtc to get opportunities for a range of trips. Specify only tripId to get opportunities for a single trip. Specify OpportunityType to filter results by the specified opportunity types."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/insights/opportunities?tripId=<string>&opportunityType=<string>&fromUtc=<dateTime>&toUtc=<dateTime>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"insights",
+												"opportunities"
+											],
+											"query": [
+												{
+													"key": "tripId",
+													"value": "<string>",
+													"description": "The trip id"
+												},
+												{
+													"key": "opportunityType",
+													"value": "<string>",
+													"description": "Comma seperated list of opportunities (Hotel, Car, Air, Rail, Taxi and Service) to get. Do not specify any values to get all opportunities"
+												},
+												{
+													"key": "fromUtc",
+													"value": "<dateTime>",
+													"description": "The From date in UTC for the date range"
+												},
+												{
+													"key": "toUtc",
+													"value": "<dateTime>",
+													"description": "The To date in UTC for the date range"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Items\": {\n    \"EndCityCode\": \"<string>\",\n    \"EndDateLocal\": \"<dateTime>\",\n    \"EndPostalCode\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"IsActive\": \"<boolean>\",\n    \"StartCityCode\": \"<string>\",\n    \"StartDateLocal\": \"<dateTime>\",\n    \"StartPostalCode\": \"<string>\",\n    \"TripId\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"URI\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/v3.0"
+		}
+	]
+}

@@ -1,0 +1,2568 @@
+{
+	"info": {
+		"_postman_id": "b92ff5d0-0fe7-4635-85d9-db84a06a96d1",
+		"name": "HotelService API",
+		"description": "## Important: Please refer to [Endpoints](https://developer.concur.com/api-reference/direct-connects/hotel-service-4/v4.endpoints.html) document for detailed documentation on all endpoints for this API.\nHotelService API provides a method for Custom Hotel Source vendors to provide hotel inventory, rates and booking related functionality to users of Concur OBT (Online Booking Tool).\n\nContact Support:\n Name: SAP Concur Developer Center",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "hotels",
+			"item": [
+				{
+					"name": "details",
+					"item": [
+						{
+							"name": "Retrieve descriptive details about specified hotels.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+										"key": "concur-correlationid",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"hotelCodes\": [\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"searchSessionToken\": \"<uuid>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/hotels/details",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"hotels",
+										"details"
+									]
+								},
+								"description": "Retrieve hotel property information"
+							},
+							"response": [
+								{
+									"name": "Hotel descriptive info for requested properties",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"hotelCodes\": [\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"searchSessionToken\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/details",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"details"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"hotelDetailsList\": [\n    {\n      \"hotelDescriptiveInfo\": {\n        \"descriptiveInfos\": [\n          {\n            \"contents\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"otaCode\": \"<integer>\",\n            \"endDate\": \"<date>\",\n            \"startDate\": \"<date>\"\n          },\n          {\n            \"contents\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"otaCode\": \"<integer>\",\n            \"endDate\": \"<date>\",\n            \"startDate\": \"<date>\"\n          }\n        ],\n        \"mediaItems\": [\n          {\n            \"type\": \"IMAGE\",\n            \"url\": \"<uri>\",\n            \"category\": \"<integer>\",\n            \"description\": \"<string>\"\n          },\n          {\n            \"type\": \"IMAGE\",\n            \"url\": \"<uri>\",\n            \"category\": \"<integer>\",\n            \"description\": \"<string>\"\n          }\n        ],\n        \"propertyDescription\": \"<string>\"\n      },\n      \"propertyRef\": {\n        \"propertyCode\": \"<string>\",\n        \"chainCode\": \"<string>\"\n      },\n      \"checkInTime\": \"<string>\",\n      \"checkOutTime\": \"<string>\"\n    },\n    {\n      \"hotelDescriptiveInfo\": {\n        \"descriptiveInfos\": [\n          {\n            \"contents\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"otaCode\": \"<integer>\",\n            \"endDate\": \"<date>\",\n            \"startDate\": \"<date>\"\n          },\n          {\n            \"contents\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"otaCode\": \"<integer>\",\n            \"endDate\": \"<date>\",\n            \"startDate\": \"<date>\"\n          }\n        ],\n        \"mediaItems\": [\n          {\n            \"type\": \"VIDEO\",\n            \"url\": \"<uri>\",\n            \"category\": \"<integer>\",\n            \"description\": \"<string>\"\n          },\n          {\n            \"type\": \"IMAGE\",\n            \"url\": \"<uri>\",\n            \"category\": \"<integer>\",\n            \"description\": \"<string>\"\n          }\n        ],\n        \"propertyDescription\": \"<string>\"\n      },\n      \"propertyRef\": {\n        \"propertyCode\": \"<string>\",\n        \"chainCode\": \"<string>\"\n      },\n      \"checkInTime\": \"<string>\",\n      \"checkOutTime\": \"<string>\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "Invalid client request. Request shouldn't be retried without changing it.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"hotelCodes\": [\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"searchSessionToken\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/details",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"details"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\",\n  \"otaCode\": \"<integer>\"\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"hotelCodes\": [\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"searchSessionToken\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/details",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"details"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error while processing the request. Request can be retried as is at a later time.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"hotelCodes\": [\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"searchSessionToken\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/details",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"details"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\",\n  \"otaCode\": \"<integer>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "ratedetails",
+					"item": [
+						{
+							"name": "Retrieve hotel rate details",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+										"key": "concur-correlationid",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"hotelPropertyRef\": {\n    \"propertyCode\": \"<string>\",\n    \"chainCode\": \"<string>\"\n  },\n  \"ratePlanIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"guestCountryCode\": \"<string>\",\n  \"numGuests\": 1,\n  \"rateCategories\": [\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"searchSessionToken\": \"<uuid>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/hotels/ratedetails",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"hotels",
+										"ratedetails"
+									]
+								},
+								"description": "Retrieve hotel rate details for rates of a property - used when rate details are missing from /rates call and/or during checkout process."
+							},
+							"response": [
+								{
+									"name": "Hotel rates for requested properties",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"hotelPropertyRef\": {\n    \"propertyCode\": \"<string>\",\n    \"chainCode\": \"<string>\"\n  },\n  \"ratePlanIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"guestCountryCode\": \"<string>\",\n  \"numGuests\": 1,\n  \"rateCategories\": [\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"searchSessionToken\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/ratedetails",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"ratedetails"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"roomRates\": [\n    {\n      \"cancelPenalties\": {\n        \"penalties\": [\n          {\n            \"description\": \"<string>\",\n            \"refundableStatus\": \"FULLY_REFUNDABLE\",\n            \"amountPercent\": {\n              \"amount\": {\n                \"amount\": \"<number>\",\n                \"currencyCode\": \"<string>\"\n              },\n              \"applyAs\": \"LAST_NIGHT_DEPOST\",\n              \"basisType\": \"FIRST_LAST\",\n              \"feesInclusive\": \"<boolean>\",\n              \"numberOfNights\": \"<integer>\",\n              \"percent\": \"<number>\",\n              \"taxInclusive\": \"<boolean>\"\n            },\n            \"cancelDeadline\": \"<string>\"\n          }\n        ]\n      },\n      \"guarantee\": {\n        \"guaranteeType\": \"DEPOSIT_REQUIRED\",\n        \"acceptedPayments\": [\n          \"AMEX\",\n          \"AMEX\"\n        ],\n        \"amountPercent\": {\n          \"amount\": {\n            \"amount\": \"<number>\",\n            \"currencyCode\": \"<string>\"\n          },\n          \"applyAs\": \"FIRST_AND_LAST_NIGHT_DEPOSIT\",\n          \"basisType\": \"NIGHTS\",\n          \"feesInclusive\": \"<boolean>\",\n          \"numberOfNights\": \"<integer>\",\n          \"percent\": \"<number>\",\n          \"taxInclusive\": \"<boolean>\"\n        },\n        \"cvvRequired\": \"<boolean>\"\n      },\n      \"rateChangesOverStay\": \"<boolean>\",\n      \"ratePlanId\": \"<string>\",\n      \"totalPrice\": {\n        \"currencyCode\": \"<string>\",\n        \"totalBeforeTax\": \"<number>\",\n        \"fees\": \"<number>\",\n        \"isTotalBeforeTaxDisplayEligible\": true,\n        \"taxes\": \"<number>\",\n        \"totalAfterTax\": \"<number>\"\n      },\n      \"nightlyPrices\": [\n        {\n          \"basePrice\": \"<number>\",\n          \"currencyCode\": \"<string>\",\n          \"endDate\": \"<date>\",\n          \"startDate\": \"<date>\",\n          \"fees\": {\n            \"amount\": \"<number>\",\n            \"feeBreakdown\": [\n              {\n                \"amount\": \"<number>\",\n                \"fttCode\": \"<integer>\",\n                \"inclusive\": \"<boolean>\"\n              },\n              {\n                \"amount\": \"<number>\",\n                \"fttCode\": \"<integer>\",\n                \"inclusive\": \"<boolean>\"\n              }\n            ]\n          },\n          \"taxes\": {\n            \"amount\": \"<number>\",\n            \"taxBreakdown\": [\n              {\n                \"amount\": \"<number>\",\n                \"fttCode\": \"<integer>\",\n                \"inclusive\": \"<boolean>\"\n              },\n              {\n                \"amount\": \"<number>\",\n                \"fttCode\": \"<integer>\",\n                \"inclusive\": \"<boolean>\"\n              }\n            ]\n          },\n          \"totalPrice\": \"<number>\"\n        }\n      ],\n      \"prepayRequired\": \"<boolean>\",\n      \"rateCategory\": {\n        \"otaCode\": \"<integer>\",\n        \"value\": \"<string>\"\n      },\n      \"rateDescription\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"refundable\": \"<boolean>\",\n      \"roomId\": \"<string>\",\n      \"rateDetailsCallRequired\": false\n    },\n    {\n      \"cancelPenalties\": {\n        \"penalties\": [\n          {\n            \"description\": \"<string>\",\n            \"refundableStatus\": \"PARTIALLY_REFUNDABLE\",\n            \"amountPercent\": {\n              \"amount\": {\n                \"amount\": \"<number>\",\n                \"currencyCode\": \"<string>\"\n              },\n              \"applyAs\": \"FIRST_AND_LAST_NIGHT_PAYMENT\",\n              \"basisType\": \"FULL_STAY\",\n              \"feesInclusive\": \"<boolean>\",\n              \"numberOfNights\": \"<integer>\",\n              \"percent\": \"<number>\",\n              \"taxInclusive\": \"<boolean>\"\n            },\n            \"cancelDeadline\": \"<string>\"\n          }\n        ]\n      },\n      \"guarantee\": {\n        \"guaranteeType\": \"GUARANTEE_REQUIRED\",\n        \"acceptedPayments\": [\n          \"AMERICAN_AIRLINES\",\n          \"DINERS_CLUB\"\n        ],\n        \"amountPercent\": {\n          \"amount\": {\n            \"amount\": \"<number>\",\n            \"currencyCode\": \"<string>\"\n          },\n          \"applyAs\": \"FIRST_NIGHT_PAYMENT\",\n          \"basisType\": \"FIRST_LAST\",\n          \"feesInclusive\": \"<boolean>\",\n          \"numberOfNights\": \"<integer>\",\n          \"percent\": \"<number>\",\n          \"taxInclusive\": \"<boolean>\"\n        },\n        \"cvvRequired\": \"<boolean>\"\n      },\n      \"rateChangesOverStay\": \"<boolean>\",\n      \"ratePlanId\": \"<string>\",\n      \"totalPrice\": {\n        \"currencyCode\": \"<string>\",\n        \"totalBeforeTax\": \"<number>\",\n        \"fees\": \"<number>\",\n        \"isTotalBeforeTaxDisplayEligible\": true,\n        \"taxes\": \"<number>\",\n        \"totalAfterTax\": \"<number>\"\n      },\n      \"nightlyPrices\": [\n        {\n          \"basePrice\": \"<number>\",\n          \"currencyCode\": \"<string>\",\n          \"endDate\": \"<date>\",\n          \"startDate\": \"<date>\",\n          \"fees\": {\n            \"amount\": \"<number>\",\n            \"feeBreakdown\": [\n              {\n                \"amount\": \"<number>\",\n                \"fttCode\": \"<integer>\",\n                \"inclusive\": \"<boolean>\"\n              },\n              {\n                \"amount\": \"<number>\",\n                \"fttCode\": \"<integer>\",\n                \"inclusive\": \"<boolean>\"\n              }\n            ]\n          },\n          \"taxes\": {\n            \"amount\": \"<number>\",\n            \"taxBreakdown\": [\n              {\n                \"amount\": \"<number>\",\n                \"fttCode\": \"<integer>\",\n                \"inclusive\": \"<boolean>\"\n              },\n              {\n                \"amount\": \"<number>\",\n                \"fttCode\": \"<integer>\",\n                \"inclusive\": \"<boolean>\"\n              }\n            ]\n          },\n          \"totalPrice\": \"<number>\"\n        }\n      ],\n      \"prepayRequired\": \"<boolean>\",\n      \"rateCategory\": {\n        \"otaCode\": \"<integer>\",\n        \"value\": \"<string>\"\n      },\n      \"rateDescription\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"refundable\": \"<boolean>\",\n      \"roomId\": \"<string>\",\n      \"rateDetailsCallRequired\": false\n    }\n  ]\n}"
+								},
+								{
+									"name": "Invalid client request. Request shouldn't be retried without changing it.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"hotelPropertyRef\": {\n    \"propertyCode\": \"<string>\",\n    \"chainCode\": \"<string>\"\n  },\n  \"ratePlanIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"guestCountryCode\": \"<string>\",\n  \"numGuests\": 1,\n  \"rateCategories\": [\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"searchSessionToken\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/ratedetails",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"ratedetails"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\",\n  \"otaCode\": \"<integer>\"\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"hotelPropertyRef\": {\n    \"propertyCode\": \"<string>\",\n    \"chainCode\": \"<string>\"\n  },\n  \"ratePlanIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"guestCountryCode\": \"<string>\",\n  \"numGuests\": 1,\n  \"rateCategories\": [\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"searchSessionToken\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/ratedetails",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"ratedetails"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error while processing the request. Request can be retried as is at a later time.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"hotelPropertyRef\": {\n    \"propertyCode\": \"<string>\",\n    \"chainCode\": \"<string>\"\n  },\n  \"ratePlanIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"guestCountryCode\": \"<string>\",\n  \"numGuests\": 1,\n  \"rateCategories\": [\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"searchSessionToken\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/ratedetails",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"ratedetails"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\",\n  \"otaCode\": \"<integer>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "rates",
+					"item": [
+						{
+							"name": "Retrieve rates for specific hotel properties",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+										"key": "concur-correlationid",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"hotelPropertyRefs\": [\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"guestCountryCode\": \"<string>\",\n  \"numGuests\": 1,\n  \"rateCategories\": [\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"searchSessionToken\": \"<uuid>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/hotels/rates",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"hotels",
+										"rates"
+									]
+								},
+								"description": "Retrieve hotel rates"
+							},
+							"response": [
+								{
+									"name": "Hotel rates for requested properties",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"hotelPropertyRefs\": [\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"guestCountryCode\": \"<string>\",\n  \"numGuests\": 1,\n  \"rateCategories\": [\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"searchSessionToken\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/rates",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"rates"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"hotelRates\": [\n    {\n      \"propertyCode\": \"<string>\",\n      \"rates\": [\n        {\n          \"roomRate\": {\n            \"rateChangesOverStay\": \"<boolean>\",\n            \"ratePlanId\": \"<string>\",\n            \"totalPrice\": {\n              \"currencyCode\": \"<string>\",\n              \"totalBeforeTax\": \"<number>\",\n              \"fees\": \"<number>\",\n              \"isTotalBeforeTaxDisplayEligible\": true,\n              \"taxes\": \"<number>\",\n              \"totalAfterTax\": \"<number>\"\n            },\n            \"cancelPenalties\": {\n              \"penalties\": [\n                {\n                  \"description\": \"<string>\",\n                  \"refundableStatus\": \"PARTIALLY_REFUNDABLE\",\n                  \"amountPercent\": {\n                    \"amount\": {\n                      \"amount\": \"<number>\",\n                      \"currencyCode\": \"<string>\"\n                    },\n                    \"applyAs\": \"FIRST_AND_LAST_NIGHT_DEPOSIT\",\n                    \"basisType\": \"FIRST_LAST\",\n                    \"feesInclusive\": \"<boolean>\",\n                    \"numberOfNights\": \"<integer>\",\n                    \"percent\": \"<number>\",\n                    \"taxInclusive\": \"<boolean>\"\n                  },\n                  \"cancelDeadline\": \"<string>\"\n                }\n              ]\n            },\n            \"guarantee\": {\n              \"guaranteeType\": \"DEPOSIT_REQUIRED\",\n              \"acceptedPayments\": [\n                \"AWARD_CREDIT\",\n                \"UNITED_TRAVEL\"\n              ],\n              \"amountPercent\": {\n                \"amount\": {\n                  \"amount\": \"<number>\",\n                  \"currencyCode\": \"<string>\"\n                },\n                \"applyAs\": \"FIRST_NIGHT_PAYMENT\",\n                \"basisType\": \"NIGHTS\",\n                \"feesInclusive\": \"<boolean>\",\n                \"numberOfNights\": \"<integer>\",\n                \"percent\": \"<number>\",\n                \"taxInclusive\": \"<boolean>\"\n              },\n              \"cvvRequired\": \"<boolean>\"\n            },\n            \"nightlyPrices\": [\n              {\n                \"basePrice\": \"<number>\",\n                \"currencyCode\": \"<string>\",\n                \"endDate\": \"<date>\",\n                \"startDate\": \"<date>\",\n                \"fees\": {\n                  \"amount\": \"<number>\",\n                  \"feeBreakdown\": [\n                    {\n                      \"amount\": \"<number>\",\n                      \"fttCode\": \"<integer>\",\n                      \"inclusive\": \"<boolean>\"\n                    },\n                    {\n                      \"amount\": \"<number>\",\n                      \"fttCode\": \"<integer>\",\n                      \"inclusive\": \"<boolean>\"\n                    }\n                  ]\n                },\n                \"taxes\": {\n                  \"amount\": \"<number>\",\n                  \"taxBreakdown\": [\n                    {\n                      \"amount\": \"<number>\",\n                      \"fttCode\": \"<integer>\",\n                      \"inclusive\": \"<boolean>\"\n                    },\n                    {\n                      \"amount\": \"<number>\",\n                      \"fttCode\": \"<integer>\",\n                      \"inclusive\": \"<boolean>\"\n                    }\n                  ]\n                },\n                \"totalPrice\": \"<number>\"\n              }\n            ],\n            \"prepayRequired\": \"<boolean>\",\n            \"rateCategory\": {\n              \"otaCode\": \"<integer>\",\n              \"value\": \"<string>\"\n            },\n            \"rateDescription\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"refundable\": \"<boolean>\",\n            \"roomId\": \"<string>\",\n            \"rateDetailsCallRequired\": false\n          },\n          \"bedding\": [\n            {\n              \"bedTypeCode\": \"<integer>\",\n              \"quantity\": \"<integer>\"\n            },\n            {\n              \"bedTypeCode\": \"<integer>\",\n              \"quantity\": \"<integer>\"\n            }\n          ],\n          \"mealsIncluded\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"roomAmenities\": [\n            {\n              \"amenityCode\": \"<integer>\"\n            },\n            {\n              \"amenityCode\": \"<integer>\"\n            }\n          ],\n          \"roomDescription\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"roomType\": \"<integer>\",\n          \"source\": {\n            \"logo\": \"<uri>\",\n            \"name\": \"<string>\",\n            \"suppress\": \"<boolean>\"\n          }\n        },\n        {\n          \"roomRate\": {\n            \"rateChangesOverStay\": \"<boolean>\",\n            \"ratePlanId\": \"<string>\",\n            \"totalPrice\": {\n              \"currencyCode\": \"<string>\",\n              \"totalBeforeTax\": \"<number>\",\n              \"fees\": \"<number>\",\n              \"isTotalBeforeTaxDisplayEligible\": true,\n              \"taxes\": \"<number>\",\n              \"totalAfterTax\": \"<number>\"\n            },\n            \"cancelPenalties\": {\n              \"penalties\": [\n                {\n                  \"description\": \"<string>\",\n                  \"refundableStatus\": \"NON_REFUNDABLE\",\n                  \"amountPercent\": {\n                    \"amount\": {\n                      \"amount\": \"<number>\",\n                      \"currencyCode\": \"<string>\"\n                    },\n                    \"applyAs\": \"LAST_NIGHT_DEPOST\",\n                    \"basisType\": \"FULL_STAY\",\n                    \"feesInclusive\": \"<boolean>\",\n                    \"numberOfNights\": \"<integer>\",\n                    \"percent\": \"<number>\",\n                    \"taxInclusive\": \"<boolean>\"\n                  },\n                  \"cancelDeadline\": \"<string>\"\n                }\n              ]\n            },\n            \"guarantee\": {\n              \"guaranteeType\": \"GUARANTEE_REQUIRED\",\n              \"acceptedPayments\": [\n                \"TWA\",\n                \"DISCOVER\"\n              ],\n              \"amountPercent\": {\n                \"amount\": {\n                  \"amount\": \"<number>\",\n                  \"currencyCode\": \"<string>\"\n                },\n                \"applyAs\": \"FIRST_AND_LAST_NIGHT_DEPOSIT\",\n                \"basisType\": \"FIRST_LAST\",\n                \"feesInclusive\": \"<boolean>\",\n                \"numberOfNights\": \"<integer>\",\n                \"percent\": \"<number>\",\n                \"taxInclusive\": \"<boolean>\"\n              },\n              \"cvvRequired\": \"<boolean>\"\n            },\n            \"nightlyPrices\": [\n              {\n                \"basePrice\": \"<number>\",\n                \"currencyCode\": \"<string>\",\n                \"endDate\": \"<date>\",\n                \"startDate\": \"<date>\",\n                \"fees\": {\n                  \"amount\": \"<number>\",\n                  \"feeBreakdown\": [\n                    {\n                      \"amount\": \"<number>\",\n                      \"fttCode\": \"<integer>\",\n                      \"inclusive\": \"<boolean>\"\n                    },\n                    {\n                      \"amount\": \"<number>\",\n                      \"fttCode\": \"<integer>\",\n                      \"inclusive\": \"<boolean>\"\n                    }\n                  ]\n                },\n                \"taxes\": {\n                  \"amount\": \"<number>\",\n                  \"taxBreakdown\": [\n                    {\n                      \"amount\": \"<number>\",\n                      \"fttCode\": \"<integer>\",\n                      \"inclusive\": \"<boolean>\"\n                    },\n                    {\n                      \"amount\": \"<number>\",\n                      \"fttCode\": \"<integer>\",\n                      \"inclusive\": \"<boolean>\"\n                    }\n                  ]\n                },\n                \"totalPrice\": \"<number>\"\n              }\n            ],\n            \"prepayRequired\": \"<boolean>\",\n            \"rateCategory\": {\n              \"otaCode\": \"<integer>\",\n              \"value\": \"<string>\"\n            },\n            \"rateDescription\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"refundable\": \"<boolean>\",\n            \"roomId\": \"<string>\",\n            \"rateDetailsCallRequired\": false\n          },\n          \"bedding\": [\n            {\n              \"bedTypeCode\": \"<integer>\",\n              \"quantity\": \"<integer>\"\n            },\n            {\n              \"bedTypeCode\": \"<integer>\",\n              \"quantity\": \"<integer>\"\n            }\n          ],\n          \"mealsIncluded\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"roomAmenities\": [\n            {\n              \"amenityCode\": \"<integer>\"\n            },\n            {\n              \"amenityCode\": \"<integer>\"\n            }\n          ],\n          \"roomDescription\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"roomType\": \"<integer>\",\n          \"source\": {\n            \"logo\": \"<uri>\",\n            \"name\": \"<string>\",\n            \"suppress\": \"<boolean>\"\n          }\n        }\n      ]\n    },\n    {\n      \"propertyCode\": \"<string>\",\n      \"rates\": [\n        {\n          \"roomRate\": {\n            \"rateChangesOverStay\": \"<boolean>\",\n            \"ratePlanId\": \"<string>\",\n            \"totalPrice\": {\n              \"currencyCode\": \"<string>\",\n              \"totalBeforeTax\": \"<number>\",\n              \"fees\": \"<number>\",\n              \"isTotalBeforeTaxDisplayEligible\": true,\n              \"taxes\": \"<number>\",\n              \"totalAfterTax\": \"<number>\"\n            },\n            \"cancelPenalties\": {\n              \"penalties\": [\n                {\n                  \"description\": \"<string>\",\n                  \"refundableStatus\": \"FULLY_REFUNDABLE\",\n                  \"amountPercent\": {\n                    \"amount\": {\n                      \"amount\": \"<number>\",\n                      \"currencyCode\": \"<string>\"\n                    },\n                    \"applyAs\": \"FIRST_NIGHT_PAYMENT\",\n                    \"basisType\": \"FIRST_LAST\",\n                    \"feesInclusive\": \"<boolean>\",\n                    \"numberOfNights\": \"<integer>\",\n                    \"percent\": \"<number>\",\n                    \"taxInclusive\": \"<boolean>\"\n                  },\n                  \"cancelDeadline\": \"<string>\"\n                }\n              ]\n            },\n            \"guarantee\": {\n              \"guaranteeType\": \"GUARANTEE_REQUIRED\",\n              \"acceptedPayments\": [\n                \"TWA\",\n                \"DELTA\"\n              ],\n              \"amountPercent\": {\n                \"amount\": {\n                  \"amount\": \"<number>\",\n                  \"currencyCode\": \"<string>\"\n                },\n                \"applyAs\": \"FIRST_AND_LAST_NIGHT_PAYMENT\",\n                \"basisType\": \"FULL_STAY\",\n                \"feesInclusive\": \"<boolean>\",\n                \"numberOfNights\": \"<integer>\",\n                \"percent\": \"<number>\",\n                \"taxInclusive\": \"<boolean>\"\n              },\n              \"cvvRequired\": \"<boolean>\"\n            },\n            \"nightlyPrices\": [\n              {\n                \"basePrice\": \"<number>\",\n                \"currencyCode\": \"<string>\",\n                \"endDate\": \"<date>\",\n                \"startDate\": \"<date>\",\n                \"fees\": {\n                  \"amount\": \"<number>\",\n                  \"feeBreakdown\": [\n                    {\n                      \"amount\": \"<number>\",\n                      \"fttCode\": \"<integer>\",\n                      \"inclusive\": \"<boolean>\"\n                    },\n                    {\n                      \"amount\": \"<number>\",\n                      \"fttCode\": \"<integer>\",\n                      \"inclusive\": \"<boolean>\"\n                    }\n                  ]\n                },\n                \"taxes\": {\n                  \"amount\": \"<number>\",\n                  \"taxBreakdown\": [\n                    {\n                      \"amount\": \"<number>\",\n                      \"fttCode\": \"<integer>\",\n                      \"inclusive\": \"<boolean>\"\n                    },\n                    {\n                      \"amount\": \"<number>\",\n                      \"fttCode\": \"<integer>\",\n                      \"inclusive\": \"<boolean>\"\n                    }\n                  ]\n                },\n                \"totalPrice\": \"<number>\"\n              }\n            ],\n            \"prepayRequired\": \"<boolean>\",\n            \"rateCategory\": {\n              \"otaCode\": \"<integer>\",\n              \"value\": \"<string>\"\n            },\n            \"rateDescription\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"refundable\": \"<boolean>\",\n            \"roomId\": \"<string>\",\n            \"rateDetailsCallRequired\": false\n          },\n          \"bedding\": [\n            {\n              \"bedTypeCode\": \"<integer>\",\n              \"quantity\": \"<integer>\"\n            },\n            {\n              \"bedTypeCode\": \"<integer>\",\n              \"quantity\": \"<integer>\"\n            }\n          ],\n          \"mealsIncluded\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"roomAmenities\": [\n            {\n              \"amenityCode\": \"<integer>\"\n            },\n            {\n              \"amenityCode\": \"<integer>\"\n            }\n          ],\n          \"roomDescription\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"roomType\": \"<integer>\",\n          \"source\": {\n            \"logo\": \"<uri>\",\n            \"name\": \"<string>\",\n            \"suppress\": \"<boolean>\"\n          }\n        },\n        {\n          \"roomRate\": {\n            \"rateChangesOverStay\": \"<boolean>\",\n            \"ratePlanId\": \"<string>\",\n            \"totalPrice\": {\n              \"currencyCode\": \"<string>\",\n              \"totalBeforeTax\": \"<number>\",\n              \"fees\": \"<number>\",\n              \"isTotalBeforeTaxDisplayEligible\": true,\n              \"taxes\": \"<number>\",\n              \"totalAfterTax\": \"<number>\"\n            },\n            \"cancelPenalties\": {\n              \"penalties\": [\n                {\n                  \"description\": \"<string>\",\n                  \"refundableStatus\": \"PARTIALLY_REFUNDABLE\",\n                  \"amountPercent\": {\n                    \"amount\": {\n                      \"amount\": \"<number>\",\n                      \"currencyCode\": \"<string>\"\n                    },\n                    \"applyAs\": \"LAST_NIGHT_PAYMENT\",\n                    \"basisType\": \"NIGHTS\",\n                    \"feesInclusive\": \"<boolean>\",\n                    \"numberOfNights\": \"<integer>\",\n                    \"percent\": \"<number>\",\n                    \"taxInclusive\": \"<boolean>\"\n                  },\n                  \"cancelDeadline\": \"<string>\"\n                }\n              ]\n            },\n            \"guarantee\": {\n              \"guaranteeType\": \"DEPOSIT_REQUIRED\",\n              \"acceptedPayments\": [\n                \"VISA\",\n                \"UNITED_TRAVEL\"\n              ],\n              \"amountPercent\": {\n                \"amount\": {\n                  \"amount\": \"<number>\",\n                  \"currencyCode\": \"<string>\"\n                },\n                \"applyAs\": \"FIRST_AND_LAST_NIGHT_DEPOSIT\",\n                \"basisType\": \"NIGHTS\",\n                \"feesInclusive\": \"<boolean>\",\n                \"numberOfNights\": \"<integer>\",\n                \"percent\": \"<number>\",\n                \"taxInclusive\": \"<boolean>\"\n              },\n              \"cvvRequired\": \"<boolean>\"\n            },\n            \"nightlyPrices\": [\n              {\n                \"basePrice\": \"<number>\",\n                \"currencyCode\": \"<string>\",\n                \"endDate\": \"<date>\",\n                \"startDate\": \"<date>\",\n                \"fees\": {\n                  \"amount\": \"<number>\",\n                  \"feeBreakdown\": [\n                    {\n                      \"amount\": \"<number>\",\n                      \"fttCode\": \"<integer>\",\n                      \"inclusive\": \"<boolean>\"\n                    },\n                    {\n                      \"amount\": \"<number>\",\n                      \"fttCode\": \"<integer>\",\n                      \"inclusive\": \"<boolean>\"\n                    }\n                  ]\n                },\n                \"taxes\": {\n                  \"amount\": \"<number>\",\n                  \"taxBreakdown\": [\n                    {\n                      \"amount\": \"<number>\",\n                      \"fttCode\": \"<integer>\",\n                      \"inclusive\": \"<boolean>\"\n                    },\n                    {\n                      \"amount\": \"<number>\",\n                      \"fttCode\": \"<integer>\",\n                      \"inclusive\": \"<boolean>\"\n                    }\n                  ]\n                },\n                \"totalPrice\": \"<number>\"\n              }\n            ],\n            \"prepayRequired\": \"<boolean>\",\n            \"rateCategory\": {\n              \"otaCode\": \"<integer>\",\n              \"value\": \"<string>\"\n            },\n            \"rateDescription\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"refundable\": \"<boolean>\",\n            \"roomId\": \"<string>\",\n            \"rateDetailsCallRequired\": false\n          },\n          \"bedding\": [\n            {\n              \"bedTypeCode\": \"<integer>\",\n              \"quantity\": \"<integer>\"\n            },\n            {\n              \"bedTypeCode\": \"<integer>\",\n              \"quantity\": \"<integer>\"\n            }\n          ],\n          \"mealsIncluded\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"roomAmenities\": [\n            {\n              \"amenityCode\": \"<integer>\"\n            },\n            {\n              \"amenityCode\": \"<integer>\"\n            }\n          ],\n          \"roomDescription\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"roomType\": \"<integer>\",\n          \"source\": {\n            \"logo\": \"<uri>\",\n            \"name\": \"<string>\",\n            \"suppress\": \"<boolean>\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+								},
+								{
+									"name": "Invalid client request. Request shouldn't be retried without changing it.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"hotelPropertyRefs\": [\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"guestCountryCode\": \"<string>\",\n  \"numGuests\": 1,\n  \"rateCategories\": [\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"searchSessionToken\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/rates",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"rates"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\",\n  \"otaCode\": \"<integer>\"\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"hotelPropertyRefs\": [\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"guestCountryCode\": \"<string>\",\n  \"numGuests\": 1,\n  \"rateCategories\": [\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"searchSessionToken\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/rates",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"rates"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error while processing the request. Request can be retried as is at a later time.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"hotelPropertyRefs\": [\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"guestCountryCode\": \"<string>\",\n  \"numGuests\": 1,\n  \"rateCategories\": [\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"searchSessionToken\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/rates",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"rates"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\",\n  \"otaCode\": \"<integer>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "reservation",
+					"item": [
+						{
+							"name": "cancel",
+							"item": [
+								{
+									"name": "Cancel specified reservation",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"SUPPLIER_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"HOTEL_CONFIRMATION\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/reservation/cancel",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"reservation",
+												"cancel"
+											]
+										},
+										"description": "Cancel specified reservation"
+									},
+									"response": [
+										{
+											"name": "Reservation successfully cancelled",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept-Language",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"SUPPLIER_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"HOTEL_CONFIRMATION\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/hotels/reservation/cancel",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"hotels",
+														"reservation",
+														"cancel"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"HOTEL_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"SUPPLIER_CONFIRMATION\"\n    }\n  ],\n  \"cancellationRemarks\": \"<string>\"\n}"
+										},
+										{
+											"name": "Invalid client request. Request shouldn't be retried without changing it.",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept-Language",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"SUPPLIER_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"HOTEL_CONFIRMATION\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/hotels/reservation/cancel",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"hotels",
+														"reservation",
+														"cancel"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"otaCode\": \"<integer>\"\n}"
+										},
+										{
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept-Language",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"SUPPLIER_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"HOTEL_CONFIRMATION\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/hotels/reservation/cancel",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"hotels",
+														"reservation",
+														"cancel"
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Reservation record not found",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept-Language",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"SUPPLIER_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"HOTEL_CONFIRMATION\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/hotels/reservation/cancel",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"hotels",
+														"reservation",
+														"cancel"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Error while processing the request. Request can be retried as is at a later time.",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept-Language",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"SUPPLIER_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"HOTEL_CONFIRMATION\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/hotels/reservation/cancel",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"hotels",
+														"reservation",
+														"cancel"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"otaCode\": \"<integer>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "modify",
+							"item": [
+								{
+									"name": "Modify specific reservation",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"PASSIVE_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"CONCUR_GDS_REFERENCE\"\n    }\n  ],\n  \"reservationCriteria\": {\n    \"checkin\": \"<date>\",\n    \"checkout\": \"<date>\",\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"guests\": [\n      {\n        \"firstname\": \"<string>\",\n        \"lastname\": \"<string>\",\n        \"address\": {\n          \"addressLines\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"city\": \"<string>\",\n          \"countryCode\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"state\": \"<string>\",\n          \"stateName\": \"<string>\"\n        },\n        \"birthdate\": \"<date>\",\n        \"companyName\": \"<string>\",\n        \"contactInfo\": {\n          \"emails\": [\n            \"<email>\",\n            \"<email>\"\n          ],\n          \"phoneNumbers\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"faxNumber\": \"<string>\"\n        }\n      },\n      {\n        \"firstname\": \"<string>\",\n        \"lastname\": \"<string>\",\n        \"address\": {\n          \"addressLines\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"city\": \"<string>\",\n          \"countryCode\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"state\": \"<string>\",\n          \"stateName\": \"<string>\"\n        },\n        \"birthdate\": \"<date>\",\n        \"companyName\": \"<string>\",\n        \"contactInfo\": {\n          \"emails\": [\n            \"<email>\",\n            \"<email>\"\n          ],\n          \"phoneNumbers\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"faxNumber\": \"<string>\"\n        }\n      }\n    ],\n    \"hotelPropertyRef\": {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    \"ratePlanId\": \"<string>\",\n    \"requestorInfo\": {\n      \"posRequestorId\": \"<string>\",\n      \"travelerUuid\": \"<string>\",\n      \"bookingForSelf\": \"<boolean>\",\n      \"loginId\": \"<string>\"\n    },\n    \"comments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"guarantee\": {\n      \"cardNumber\": \"<string>\",\n      \"cardType\": \"DISCOVER\",\n      \"cardHolderAddress\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"cardHolderName\": \"<string>\",\n      \"cardExpiryMonth\": \"<integer>\",\n      \"cardExpiryYear\": \"<integer>\",\n      \"cvv\": \"<string>\"\n    },\n    \"legalEntity\": {\n      \"name\": \"<string>\",\n      \"taxId\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      }\n    },\n    \"loyalty\": {\n      \"accountId\": \"<string>\",\n      \"programCode\": \"<string>\"\n    },\n    \"paymentModeIndicator\": \"CONCUR_VIRTUAL_CARD\",\n    \"searchSessionToken\": \"<uuid>\",\n    \"threeDSecure\": {\n      \"avv\": \"<string>\",\n      \"eci\": \"<string>\",\n      \"messageVersion\": \"<string>\",\n      \"transactionId\": \"<string>\",\n      \"cavvAlgorithm\": \"<string>\",\n      \"exemptionCode\": \"<string>\",\n      \"threeDSServerTransactionId\": \"<string>\"\n    }\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/reservation/modify",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"reservation",
+												"modify"
+											]
+										},
+										"description": "Modify given reservation"
+									},
+									"response": [
+										{
+											"name": "Reservation succeessfully modified",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept-Language",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"PASSIVE_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"CONCUR_GDS_REFERENCE\"\n    }\n  ],\n  \"reservationCriteria\": {\n    \"checkin\": \"<date>\",\n    \"checkout\": \"<date>\",\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"guests\": [\n      {\n        \"firstname\": \"<string>\",\n        \"lastname\": \"<string>\",\n        \"address\": {\n          \"addressLines\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"city\": \"<string>\",\n          \"countryCode\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"state\": \"<string>\",\n          \"stateName\": \"<string>\"\n        },\n        \"birthdate\": \"<date>\",\n        \"companyName\": \"<string>\",\n        \"contactInfo\": {\n          \"emails\": [\n            \"<email>\",\n            \"<email>\"\n          ],\n          \"phoneNumbers\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"faxNumber\": \"<string>\"\n        }\n      },\n      {\n        \"firstname\": \"<string>\",\n        \"lastname\": \"<string>\",\n        \"address\": {\n          \"addressLines\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"city\": \"<string>\",\n          \"countryCode\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"state\": \"<string>\",\n          \"stateName\": \"<string>\"\n        },\n        \"birthdate\": \"<date>\",\n        \"companyName\": \"<string>\",\n        \"contactInfo\": {\n          \"emails\": [\n            \"<email>\",\n            \"<email>\"\n          ],\n          \"phoneNumbers\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"faxNumber\": \"<string>\"\n        }\n      }\n    ],\n    \"hotelPropertyRef\": {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    \"ratePlanId\": \"<string>\",\n    \"requestorInfo\": {\n      \"posRequestorId\": \"<string>\",\n      \"travelerUuid\": \"<string>\",\n      \"bookingForSelf\": \"<boolean>\",\n      \"loginId\": \"<string>\"\n    },\n    \"comments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"guarantee\": {\n      \"cardNumber\": \"<string>\",\n      \"cardType\": \"DISCOVER\",\n      \"cardHolderAddress\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"cardHolderName\": \"<string>\",\n      \"cardExpiryMonth\": \"<integer>\",\n      \"cardExpiryYear\": \"<integer>\",\n      \"cvv\": \"<string>\"\n    },\n    \"legalEntity\": {\n      \"name\": \"<string>\",\n      \"taxId\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      }\n    },\n    \"loyalty\": {\n      \"accountId\": \"<string>\",\n      \"programCode\": \"<string>\"\n    },\n    \"paymentModeIndicator\": \"CONCUR_VIRTUAL_CARD\",\n    \"searchSessionToken\": \"<uuid>\",\n    \"threeDSecure\": {\n      \"avv\": \"<string>\",\n      \"eci\": \"<string>\",\n      \"messageVersion\": \"<string>\",\n      \"transactionId\": \"<string>\",\n      \"cavvAlgorithm\": \"<string>\",\n      \"exemptionCode\": \"<string>\",\n      \"threeDSServerTransactionId\": \"<string>\"\n    }\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/hotels/reservation/modify",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"hotels",
+														"reservation",
+														"modify"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"basicHotelProperty\": {\n    \"cityCode\": \"<string>\",\n    \"contactInfo\": {\n      \"emails\": [\n        \"<email>\",\n        \"<email>\"\n      ],\n      \"phoneNumbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"faxNumber\": \"<string>\"\n    },\n    \"hotelName\": \"<string>\",\n    \"propertyCode\": \"<string>\",\n    \"address\": {\n      \"addressLines\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"city\": \"<string>\",\n      \"countryCode\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"stateName\": \"<string>\"\n    },\n    \"chainCode\": \"<string>\",\n    \"position\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    }\n  },\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"SUPPLIER_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"HOTEL_CONFIRMATION\"\n    }\n  ],\n  \"guests\": [\n    {\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"birthdate\": \"<date>\",\n      \"companyName\": \"<string>\",\n      \"contactInfo\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"phoneNumbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"faxNumber\": \"<string>\"\n      }\n    },\n    {\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"birthdate\": \"<date>\",\n      \"companyName\": \"<string>\",\n      \"contactInfo\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"phoneNumbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"faxNumber\": \"<string>\"\n      }\n    }\n  ],\n  \"roomDescription\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"roomRate\": {\n    \"cancelPenalties\": {\n      \"penalties\": [\n        {\n          \"description\": \"<string>\",\n          \"refundableStatus\": \"FULLY_REFUNDABLE\",\n          \"amountPercent\": {\n            \"amount\": {\n              \"amount\": \"<number>\",\n              \"currencyCode\": \"<string>\"\n            },\n            \"applyAs\": \"FIRST_AND_LAST_NIGHT_DEPOSIT\",\n            \"basisType\": \"FIRST_LAST\",\n            \"feesInclusive\": \"<boolean>\",\n            \"numberOfNights\": \"<integer>\",\n            \"percent\": \"<number>\",\n            \"taxInclusive\": \"<boolean>\"\n          },\n          \"cancelDeadline\": \"<string>\"\n        }\n      ]\n    },\n    \"guarantee\": {\n      \"guaranteeType\": \"DEPOSIT_REQUIRED\",\n      \"acceptedPayments\": [\n        \"UNITED_TRAVEL\",\n        \"CONFERMA\"\n      ],\n      \"amountPercent\": {\n        \"amount\": {\n          \"amount\": \"<number>\",\n          \"currencyCode\": \"<string>\"\n        },\n        \"applyAs\": \"FIRST_AND_LAST_NIGHT_DEPOSIT\",\n        \"basisType\": \"FULL_STAY\",\n        \"feesInclusive\": \"<boolean>\",\n        \"numberOfNights\": \"<integer>\",\n        \"percent\": \"<number>\",\n        \"taxInclusive\": \"<boolean>\"\n      },\n      \"cvvRequired\": \"<boolean>\"\n    },\n    \"rateChangesOverStay\": \"<boolean>\",\n    \"ratePlanId\": \"<string>\",\n    \"totalPrice\": {\n      \"currencyCode\": \"<string>\",\n      \"totalBeforeTax\": \"<number>\",\n      \"fees\": \"<number>\",\n      \"isTotalBeforeTaxDisplayEligible\": true,\n      \"taxes\": \"<number>\",\n      \"totalAfterTax\": \"<number>\"\n    },\n    \"nightlyPrices\": [\n      {\n        \"basePrice\": \"<number>\",\n        \"currencyCode\": \"<string>\",\n        \"endDate\": \"<date>\",\n        \"startDate\": \"<date>\",\n        \"fees\": {\n          \"amount\": \"<number>\",\n          \"feeBreakdown\": [\n            {\n              \"amount\": \"<number>\",\n              \"fttCode\": \"<integer>\",\n              \"inclusive\": \"<boolean>\"\n            },\n            {\n              \"amount\": \"<number>\",\n              \"fttCode\": \"<integer>\",\n              \"inclusive\": \"<boolean>\"\n            }\n          ]\n        },\n        \"taxes\": {\n          \"amount\": \"<number>\",\n          \"taxBreakdown\": [\n            {\n              \"amount\": \"<number>\",\n              \"fttCode\": \"<integer>\",\n              \"inclusive\": \"<boolean>\"\n            },\n            {\n              \"amount\": \"<number>\",\n              \"fttCode\": \"<integer>\",\n              \"inclusive\": \"<boolean>\"\n            }\n          ]\n        },\n        \"totalPrice\": \"<number>\"\n      }\n    ],\n    \"prepayRequired\": \"<boolean>\",\n    \"rateCategory\": {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    },\n    \"rateDescription\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"refundable\": \"<boolean>\",\n    \"roomId\": \"<string>\",\n    \"rateDetailsCallRequired\": false\n  },\n  \"status\": \"CANCELLED\",\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"comments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"isModifiable\": true\n}"
+										},
+										{
+											"name": "Invalid client request. Request shouldn't be retried without changing it.",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept-Language",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"PASSIVE_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"CONCUR_GDS_REFERENCE\"\n    }\n  ],\n  \"reservationCriteria\": {\n    \"checkin\": \"<date>\",\n    \"checkout\": \"<date>\",\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"guests\": [\n      {\n        \"firstname\": \"<string>\",\n        \"lastname\": \"<string>\",\n        \"address\": {\n          \"addressLines\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"city\": \"<string>\",\n          \"countryCode\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"state\": \"<string>\",\n          \"stateName\": \"<string>\"\n        },\n        \"birthdate\": \"<date>\",\n        \"companyName\": \"<string>\",\n        \"contactInfo\": {\n          \"emails\": [\n            \"<email>\",\n            \"<email>\"\n          ],\n          \"phoneNumbers\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"faxNumber\": \"<string>\"\n        }\n      },\n      {\n        \"firstname\": \"<string>\",\n        \"lastname\": \"<string>\",\n        \"address\": {\n          \"addressLines\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"city\": \"<string>\",\n          \"countryCode\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"state\": \"<string>\",\n          \"stateName\": \"<string>\"\n        },\n        \"birthdate\": \"<date>\",\n        \"companyName\": \"<string>\",\n        \"contactInfo\": {\n          \"emails\": [\n            \"<email>\",\n            \"<email>\"\n          ],\n          \"phoneNumbers\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"faxNumber\": \"<string>\"\n        }\n      }\n    ],\n    \"hotelPropertyRef\": {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    \"ratePlanId\": \"<string>\",\n    \"requestorInfo\": {\n      \"posRequestorId\": \"<string>\",\n      \"travelerUuid\": \"<string>\",\n      \"bookingForSelf\": \"<boolean>\",\n      \"loginId\": \"<string>\"\n    },\n    \"comments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"guarantee\": {\n      \"cardNumber\": \"<string>\",\n      \"cardType\": \"DISCOVER\",\n      \"cardHolderAddress\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"cardHolderName\": \"<string>\",\n      \"cardExpiryMonth\": \"<integer>\",\n      \"cardExpiryYear\": \"<integer>\",\n      \"cvv\": \"<string>\"\n    },\n    \"legalEntity\": {\n      \"name\": \"<string>\",\n      \"taxId\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      }\n    },\n    \"loyalty\": {\n      \"accountId\": \"<string>\",\n      \"programCode\": \"<string>\"\n    },\n    \"paymentModeIndicator\": \"CONCUR_VIRTUAL_CARD\",\n    \"searchSessionToken\": \"<uuid>\",\n    \"threeDSecure\": {\n      \"avv\": \"<string>\",\n      \"eci\": \"<string>\",\n      \"messageVersion\": \"<string>\",\n      \"transactionId\": \"<string>\",\n      \"cavvAlgorithm\": \"<string>\",\n      \"exemptionCode\": \"<string>\",\n      \"threeDSServerTransactionId\": \"<string>\"\n    }\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/hotels/reservation/modify",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"hotels",
+														"reservation",
+														"modify"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"otaCode\": \"<integer>\"\n}"
+										},
+										{
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept-Language",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"PASSIVE_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"CONCUR_GDS_REFERENCE\"\n    }\n  ],\n  \"reservationCriteria\": {\n    \"checkin\": \"<date>\",\n    \"checkout\": \"<date>\",\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"guests\": [\n      {\n        \"firstname\": \"<string>\",\n        \"lastname\": \"<string>\",\n        \"address\": {\n          \"addressLines\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"city\": \"<string>\",\n          \"countryCode\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"state\": \"<string>\",\n          \"stateName\": \"<string>\"\n        },\n        \"birthdate\": \"<date>\",\n        \"companyName\": \"<string>\",\n        \"contactInfo\": {\n          \"emails\": [\n            \"<email>\",\n            \"<email>\"\n          ],\n          \"phoneNumbers\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"faxNumber\": \"<string>\"\n        }\n      },\n      {\n        \"firstname\": \"<string>\",\n        \"lastname\": \"<string>\",\n        \"address\": {\n          \"addressLines\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"city\": \"<string>\",\n          \"countryCode\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"state\": \"<string>\",\n          \"stateName\": \"<string>\"\n        },\n        \"birthdate\": \"<date>\",\n        \"companyName\": \"<string>\",\n        \"contactInfo\": {\n          \"emails\": [\n            \"<email>\",\n            \"<email>\"\n          ],\n          \"phoneNumbers\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"faxNumber\": \"<string>\"\n        }\n      }\n    ],\n    \"hotelPropertyRef\": {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    \"ratePlanId\": \"<string>\",\n    \"requestorInfo\": {\n      \"posRequestorId\": \"<string>\",\n      \"travelerUuid\": \"<string>\",\n      \"bookingForSelf\": \"<boolean>\",\n      \"loginId\": \"<string>\"\n    },\n    \"comments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"guarantee\": {\n      \"cardNumber\": \"<string>\",\n      \"cardType\": \"DISCOVER\",\n      \"cardHolderAddress\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"cardHolderName\": \"<string>\",\n      \"cardExpiryMonth\": \"<integer>\",\n      \"cardExpiryYear\": \"<integer>\",\n      \"cvv\": \"<string>\"\n    },\n    \"legalEntity\": {\n      \"name\": \"<string>\",\n      \"taxId\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      }\n    },\n    \"loyalty\": {\n      \"accountId\": \"<string>\",\n      \"programCode\": \"<string>\"\n    },\n    \"paymentModeIndicator\": \"CONCUR_VIRTUAL_CARD\",\n    \"searchSessionToken\": \"<uuid>\",\n    \"threeDSecure\": {\n      \"avv\": \"<string>\",\n      \"eci\": \"<string>\",\n      \"messageVersion\": \"<string>\",\n      \"transactionId\": \"<string>\",\n      \"cavvAlgorithm\": \"<string>\",\n      \"exemptionCode\": \"<string>\",\n      \"threeDSServerTransactionId\": \"<string>\"\n    }\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/hotels/reservation/modify",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"hotels",
+														"reservation",
+														"modify"
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Reservation record not found",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept-Language",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"PASSIVE_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"CONCUR_GDS_REFERENCE\"\n    }\n  ],\n  \"reservationCriteria\": {\n    \"checkin\": \"<date>\",\n    \"checkout\": \"<date>\",\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"guests\": [\n      {\n        \"firstname\": \"<string>\",\n        \"lastname\": \"<string>\",\n        \"address\": {\n          \"addressLines\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"city\": \"<string>\",\n          \"countryCode\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"state\": \"<string>\",\n          \"stateName\": \"<string>\"\n        },\n        \"birthdate\": \"<date>\",\n        \"companyName\": \"<string>\",\n        \"contactInfo\": {\n          \"emails\": [\n            \"<email>\",\n            \"<email>\"\n          ],\n          \"phoneNumbers\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"faxNumber\": \"<string>\"\n        }\n      },\n      {\n        \"firstname\": \"<string>\",\n        \"lastname\": \"<string>\",\n        \"address\": {\n          \"addressLines\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"city\": \"<string>\",\n          \"countryCode\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"state\": \"<string>\",\n          \"stateName\": \"<string>\"\n        },\n        \"birthdate\": \"<date>\",\n        \"companyName\": \"<string>\",\n        \"contactInfo\": {\n          \"emails\": [\n            \"<email>\",\n            \"<email>\"\n          ],\n          \"phoneNumbers\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"faxNumber\": \"<string>\"\n        }\n      }\n    ],\n    \"hotelPropertyRef\": {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    \"ratePlanId\": \"<string>\",\n    \"requestorInfo\": {\n      \"posRequestorId\": \"<string>\",\n      \"travelerUuid\": \"<string>\",\n      \"bookingForSelf\": \"<boolean>\",\n      \"loginId\": \"<string>\"\n    },\n    \"comments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"guarantee\": {\n      \"cardNumber\": \"<string>\",\n      \"cardType\": \"DISCOVER\",\n      \"cardHolderAddress\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"cardHolderName\": \"<string>\",\n      \"cardExpiryMonth\": \"<integer>\",\n      \"cardExpiryYear\": \"<integer>\",\n      \"cvv\": \"<string>\"\n    },\n    \"legalEntity\": {\n      \"name\": \"<string>\",\n      \"taxId\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      }\n    },\n    \"loyalty\": {\n      \"accountId\": \"<string>\",\n      \"programCode\": \"<string>\"\n    },\n    \"paymentModeIndicator\": \"CONCUR_VIRTUAL_CARD\",\n    \"searchSessionToken\": \"<uuid>\",\n    \"threeDSecure\": {\n      \"avv\": \"<string>\",\n      \"eci\": \"<string>\",\n      \"messageVersion\": \"<string>\",\n      \"transactionId\": \"<string>\",\n      \"cavvAlgorithm\": \"<string>\",\n      \"exemptionCode\": \"<string>\",\n      \"threeDSServerTransactionId\": \"<string>\"\n    }\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/hotels/reservation/modify",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"hotels",
+														"reservation",
+														"modify"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Error while processing the request. Request can be retried as is at a later time.",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept-Language",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"PASSIVE_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"CONCUR_GDS_REFERENCE\"\n    }\n  ],\n  \"reservationCriteria\": {\n    \"checkin\": \"<date>\",\n    \"checkout\": \"<date>\",\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"guests\": [\n      {\n        \"firstname\": \"<string>\",\n        \"lastname\": \"<string>\",\n        \"address\": {\n          \"addressLines\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"city\": \"<string>\",\n          \"countryCode\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"state\": \"<string>\",\n          \"stateName\": \"<string>\"\n        },\n        \"birthdate\": \"<date>\",\n        \"companyName\": \"<string>\",\n        \"contactInfo\": {\n          \"emails\": [\n            \"<email>\",\n            \"<email>\"\n          ],\n          \"phoneNumbers\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"faxNumber\": \"<string>\"\n        }\n      },\n      {\n        \"firstname\": \"<string>\",\n        \"lastname\": \"<string>\",\n        \"address\": {\n          \"addressLines\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"city\": \"<string>\",\n          \"countryCode\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"state\": \"<string>\",\n          \"stateName\": \"<string>\"\n        },\n        \"birthdate\": \"<date>\",\n        \"companyName\": \"<string>\",\n        \"contactInfo\": {\n          \"emails\": [\n            \"<email>\",\n            \"<email>\"\n          ],\n          \"phoneNumbers\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"faxNumber\": \"<string>\"\n        }\n      }\n    ],\n    \"hotelPropertyRef\": {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    \"ratePlanId\": \"<string>\",\n    \"requestorInfo\": {\n      \"posRequestorId\": \"<string>\",\n      \"travelerUuid\": \"<string>\",\n      \"bookingForSelf\": \"<boolean>\",\n      \"loginId\": \"<string>\"\n    },\n    \"comments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"guarantee\": {\n      \"cardNumber\": \"<string>\",\n      \"cardType\": \"DISCOVER\",\n      \"cardHolderAddress\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"cardHolderName\": \"<string>\",\n      \"cardExpiryMonth\": \"<integer>\",\n      \"cardExpiryYear\": \"<integer>\",\n      \"cvv\": \"<string>\"\n    },\n    \"legalEntity\": {\n      \"name\": \"<string>\",\n      \"taxId\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      }\n    },\n    \"loyalty\": {\n      \"accountId\": \"<string>\",\n      \"programCode\": \"<string>\"\n    },\n    \"paymentModeIndicator\": \"CONCUR_VIRTUAL_CARD\",\n    \"searchSessionToken\": \"<uuid>\",\n    \"threeDSecure\": {\n      \"avv\": \"<string>\",\n      \"eci\": \"<string>\",\n      \"messageVersion\": \"<string>\",\n      \"transactionId\": \"<string>\",\n      \"cavvAlgorithm\": \"<string>\",\n      \"exemptionCode\": \"<string>\",\n      \"threeDSServerTransactionId\": \"<string>\"\n    }\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/hotels/reservation/modify",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"hotels",
+														"reservation",
+														"modify"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"otaCode\": \"<integer>\"\n}"
+										},
+										{
+											"name": "Endpoint not implemented",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept-Language",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"PASSIVE_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"CONCUR_GDS_REFERENCE\"\n    }\n  ],\n  \"reservationCriteria\": {\n    \"checkin\": \"<date>\",\n    \"checkout\": \"<date>\",\n    \"customFields\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"guests\": [\n      {\n        \"firstname\": \"<string>\",\n        \"lastname\": \"<string>\",\n        \"address\": {\n          \"addressLines\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"city\": \"<string>\",\n          \"countryCode\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"state\": \"<string>\",\n          \"stateName\": \"<string>\"\n        },\n        \"birthdate\": \"<date>\",\n        \"companyName\": \"<string>\",\n        \"contactInfo\": {\n          \"emails\": [\n            \"<email>\",\n            \"<email>\"\n          ],\n          \"phoneNumbers\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"faxNumber\": \"<string>\"\n        }\n      },\n      {\n        \"firstname\": \"<string>\",\n        \"lastname\": \"<string>\",\n        \"address\": {\n          \"addressLines\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"city\": \"<string>\",\n          \"countryCode\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"state\": \"<string>\",\n          \"stateName\": \"<string>\"\n        },\n        \"birthdate\": \"<date>\",\n        \"companyName\": \"<string>\",\n        \"contactInfo\": {\n          \"emails\": [\n            \"<email>\",\n            \"<email>\"\n          ],\n          \"phoneNumbers\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"faxNumber\": \"<string>\"\n        }\n      }\n    ],\n    \"hotelPropertyRef\": {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    \"ratePlanId\": \"<string>\",\n    \"requestorInfo\": {\n      \"posRequestorId\": \"<string>\",\n      \"travelerUuid\": \"<string>\",\n      \"bookingForSelf\": \"<boolean>\",\n      \"loginId\": \"<string>\"\n    },\n    \"comments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"guarantee\": {\n      \"cardNumber\": \"<string>\",\n      \"cardType\": \"DISCOVER\",\n      \"cardHolderAddress\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"cardHolderName\": \"<string>\",\n      \"cardExpiryMonth\": \"<integer>\",\n      \"cardExpiryYear\": \"<integer>\",\n      \"cvv\": \"<string>\"\n    },\n    \"legalEntity\": {\n      \"name\": \"<string>\",\n      \"taxId\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      }\n    },\n    \"loyalty\": {\n      \"accountId\": \"<string>\",\n      \"programCode\": \"<string>\"\n    },\n    \"paymentModeIndicator\": \"CONCUR_VIRTUAL_CARD\",\n    \"searchSessionToken\": \"<uuid>\",\n    \"threeDSecure\": {\n      \"avv\": \"<string>\",\n      \"eci\": \"<string>\",\n      \"messageVersion\": \"<string>\",\n      \"transactionId\": \"<string>\",\n      \"cavvAlgorithm\": \"<string>\",\n      \"exemptionCode\": \"<string>\",\n      \"threeDSServerTransactionId\": \"<string>\"\n    }\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/hotels/reservation/modify",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"hotels",
+														"reservation",
+														"modify"
+													]
+												}
+											},
+											"status": "Not Implemented",
+											"code": 501,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "read",
+							"item": [
+								{
+									"name": "Returns detailed information about a hotel reservation.",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"SUPPLIER_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"HOTEL_CONFIRMATION\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/reservation/read",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"reservation",
+												"read"
+											]
+										},
+										"description": "Read reservation details. Used in a process of reserving a hotel to acknowledge receipt of booking confirmation as well as write information to Itinerary. Not invoked by user, but by automatic Concur process. Hotel Supplier should reply with the same response as provided for the book response.\n"
+									},
+									"response": [
+										{
+											"name": "Successful read itinerary",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept-Language",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"SUPPLIER_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"HOTEL_CONFIRMATION\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/hotels/reservation/read",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"hotels",
+														"reservation",
+														"read"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"basicHotelProperty\": {\n    \"cityCode\": \"<string>\",\n    \"contactInfo\": {\n      \"emails\": [\n        \"<email>\",\n        \"<email>\"\n      ],\n      \"phoneNumbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"faxNumber\": \"<string>\"\n    },\n    \"hotelName\": \"<string>\",\n    \"propertyCode\": \"<string>\",\n    \"address\": {\n      \"addressLines\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"city\": \"<string>\",\n      \"countryCode\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"stateName\": \"<string>\"\n    },\n    \"chainCode\": \"<string>\",\n    \"position\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    }\n  },\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"SUPPLIER_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"HOTEL_CONFIRMATION\"\n    }\n  ],\n  \"guests\": [\n    {\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"birthdate\": \"<date>\",\n      \"companyName\": \"<string>\",\n      \"contactInfo\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"phoneNumbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"faxNumber\": \"<string>\"\n      }\n    },\n    {\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"birthdate\": \"<date>\",\n      \"companyName\": \"<string>\",\n      \"contactInfo\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"phoneNumbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"faxNumber\": \"<string>\"\n      }\n    }\n  ],\n  \"roomDescription\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"roomRate\": {\n    \"cancelPenalties\": {\n      \"penalties\": [\n        {\n          \"description\": \"<string>\",\n          \"refundableStatus\": \"FULLY_REFUNDABLE\",\n          \"amountPercent\": {\n            \"amount\": {\n              \"amount\": \"<number>\",\n              \"currencyCode\": \"<string>\"\n            },\n            \"applyAs\": \"FIRST_AND_LAST_NIGHT_DEPOSIT\",\n            \"basisType\": \"FIRST_LAST\",\n            \"feesInclusive\": \"<boolean>\",\n            \"numberOfNights\": \"<integer>\",\n            \"percent\": \"<number>\",\n            \"taxInclusive\": \"<boolean>\"\n          },\n          \"cancelDeadline\": \"<string>\"\n        }\n      ]\n    },\n    \"guarantee\": {\n      \"guaranteeType\": \"DEPOSIT_REQUIRED\",\n      \"acceptedPayments\": [\n        \"UNITED_TRAVEL\",\n        \"CONFERMA\"\n      ],\n      \"amountPercent\": {\n        \"amount\": {\n          \"amount\": \"<number>\",\n          \"currencyCode\": \"<string>\"\n        },\n        \"applyAs\": \"FIRST_AND_LAST_NIGHT_DEPOSIT\",\n        \"basisType\": \"FULL_STAY\",\n        \"feesInclusive\": \"<boolean>\",\n        \"numberOfNights\": \"<integer>\",\n        \"percent\": \"<number>\",\n        \"taxInclusive\": \"<boolean>\"\n      },\n      \"cvvRequired\": \"<boolean>\"\n    },\n    \"rateChangesOverStay\": \"<boolean>\",\n    \"ratePlanId\": \"<string>\",\n    \"totalPrice\": {\n      \"currencyCode\": \"<string>\",\n      \"totalBeforeTax\": \"<number>\",\n      \"fees\": \"<number>\",\n      \"isTotalBeforeTaxDisplayEligible\": true,\n      \"taxes\": \"<number>\",\n      \"totalAfterTax\": \"<number>\"\n    },\n    \"nightlyPrices\": [\n      {\n        \"basePrice\": \"<number>\",\n        \"currencyCode\": \"<string>\",\n        \"endDate\": \"<date>\",\n        \"startDate\": \"<date>\",\n        \"fees\": {\n          \"amount\": \"<number>\",\n          \"feeBreakdown\": [\n            {\n              \"amount\": \"<number>\",\n              \"fttCode\": \"<integer>\",\n              \"inclusive\": \"<boolean>\"\n            },\n            {\n              \"amount\": \"<number>\",\n              \"fttCode\": \"<integer>\",\n              \"inclusive\": \"<boolean>\"\n            }\n          ]\n        },\n        \"taxes\": {\n          \"amount\": \"<number>\",\n          \"taxBreakdown\": [\n            {\n              \"amount\": \"<number>\",\n              \"fttCode\": \"<integer>\",\n              \"inclusive\": \"<boolean>\"\n            },\n            {\n              \"amount\": \"<number>\",\n              \"fttCode\": \"<integer>\",\n              \"inclusive\": \"<boolean>\"\n            }\n          ]\n        },\n        \"totalPrice\": \"<number>\"\n      }\n    ],\n    \"prepayRequired\": \"<boolean>\",\n    \"rateCategory\": {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    },\n    \"rateDescription\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"refundable\": \"<boolean>\",\n    \"roomId\": \"<string>\",\n    \"rateDetailsCallRequired\": false\n  },\n  \"status\": \"CANCELLED\",\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"comments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"isModifiable\": true\n}"
+										},
+										{
+											"name": "Invalid client request. Request shouldn't be retried without changing it.",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept-Language",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"SUPPLIER_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"HOTEL_CONFIRMATION\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/hotels/reservation/read",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"hotels",
+														"reservation",
+														"read"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"otaCode\": \"<integer>\"\n}"
+										},
+										{
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept-Language",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"SUPPLIER_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"HOTEL_CONFIRMATION\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/hotels/reservation/read",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"hotels",
+														"reservation",
+														"read"
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Reservation record not found",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept-Language",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"SUPPLIER_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"HOTEL_CONFIRMATION\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/hotels/reservation/read",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"hotels",
+														"reservation",
+														"read"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Error while processing the request. Request can be retried as is at a later time.",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept-Language",
+														"value": "<string>"
+													},
+													{
+														"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: basic",
+														"key": "Authorization",
+														"value": "Basic <credentials>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"SUPPLIER_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"HOTEL_CONFIRMATION\"\n    }\n  ],\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/hotels/reservation/read",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"hotels",
+														"reservation",
+														"read"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"otaCode\": \"<integer>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Reserve the given hotel rate",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+										"key": "concur-correlationid",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"customFields\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"guests\": [\n    {\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"birthdate\": \"<date>\",\n      \"companyName\": \"<string>\",\n      \"contactInfo\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"phoneNumbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"faxNumber\": \"<string>\"\n      }\n    },\n    {\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"birthdate\": \"<date>\",\n      \"companyName\": \"<string>\",\n      \"contactInfo\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"phoneNumbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"faxNumber\": \"<string>\"\n      }\n    }\n  ],\n  \"hotelPropertyRef\": {\n    \"propertyCode\": \"<string>\",\n    \"chainCode\": \"<string>\"\n  },\n  \"ratePlanId\": \"<string>\",\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"comments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"guarantee\": {\n    \"cardNumber\": \"<string>\",\n    \"cardType\": \"UATP\",\n    \"cardHolderAddress\": {\n      \"addressLines\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"city\": \"<string>\",\n      \"countryCode\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"stateName\": \"<string>\"\n    },\n    \"cardHolderName\": \"<string>\",\n    \"cardExpiryMonth\": \"<integer>\",\n    \"cardExpiryYear\": \"<integer>\",\n    \"cvv\": \"<string>\"\n  },\n  \"legalEntity\": {\n    \"name\": \"<string>\",\n    \"taxId\": \"<string>\",\n    \"address\": {\n      \"addressLines\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"city\": \"<string>\",\n      \"countryCode\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"stateName\": \"<string>\"\n    }\n  },\n  \"loyalty\": {\n    \"accountId\": \"<string>\",\n    \"programCode\": \"<string>\"\n  },\n  \"paymentModeIndicator\": \"CONCUR_VIRTUAL_CARD\",\n  \"searchSessionToken\": \"<uuid>\",\n  \"threeDSecure\": {\n    \"avv\": \"<string>\",\n    \"eci\": \"<string>\",\n    \"messageVersion\": \"<string>\",\n    \"transactionId\": \"<string>\",\n    \"cavvAlgorithm\": \"<string>\",\n    \"exemptionCode\": \"<string>\",\n    \"threeDSServerTransactionId\": \"<string>\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/hotels/reservation",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"hotels",
+										"reservation"
+									]
+								},
+								"description": "Reserve hotel rate"
+							},
+							"response": [
+								{
+									"name": "Hotel reservation successful",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"customFields\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"guests\": [\n    {\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"birthdate\": \"<date>\",\n      \"companyName\": \"<string>\",\n      \"contactInfo\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"phoneNumbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"faxNumber\": \"<string>\"\n      }\n    },\n    {\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"birthdate\": \"<date>\",\n      \"companyName\": \"<string>\",\n      \"contactInfo\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"phoneNumbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"faxNumber\": \"<string>\"\n      }\n    }\n  ],\n  \"hotelPropertyRef\": {\n    \"propertyCode\": \"<string>\",\n    \"chainCode\": \"<string>\"\n  },\n  \"ratePlanId\": \"<string>\",\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"comments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"guarantee\": {\n    \"cardNumber\": \"<string>\",\n    \"cardType\": \"UATP\",\n    \"cardHolderAddress\": {\n      \"addressLines\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"city\": \"<string>\",\n      \"countryCode\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"stateName\": \"<string>\"\n    },\n    \"cardHolderName\": \"<string>\",\n    \"cardExpiryMonth\": \"<integer>\",\n    \"cardExpiryYear\": \"<integer>\",\n    \"cvv\": \"<string>\"\n  },\n  \"legalEntity\": {\n    \"name\": \"<string>\",\n    \"taxId\": \"<string>\",\n    \"address\": {\n      \"addressLines\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"city\": \"<string>\",\n      \"countryCode\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"stateName\": \"<string>\"\n    }\n  },\n  \"loyalty\": {\n    \"accountId\": \"<string>\",\n    \"programCode\": \"<string>\"\n  },\n  \"paymentModeIndicator\": \"CONCUR_VIRTUAL_CARD\",\n  \"searchSessionToken\": \"<uuid>\",\n  \"threeDSecure\": {\n    \"avv\": \"<string>\",\n    \"eci\": \"<string>\",\n    \"messageVersion\": \"<string>\",\n    \"transactionId\": \"<string>\",\n    \"cavvAlgorithm\": \"<string>\",\n    \"exemptionCode\": \"<string>\",\n    \"threeDSServerTransactionId\": \"<string>\"\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/reservation",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"reservation"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"basicHotelProperty\": {\n    \"cityCode\": \"<string>\",\n    \"contactInfo\": {\n      \"emails\": [\n        \"<email>\",\n        \"<email>\"\n      ],\n      \"phoneNumbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"faxNumber\": \"<string>\"\n    },\n    \"hotelName\": \"<string>\",\n    \"propertyCode\": \"<string>\",\n    \"address\": {\n      \"addressLines\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"city\": \"<string>\",\n      \"countryCode\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"stateName\": \"<string>\"\n    },\n    \"chainCode\": \"<string>\",\n    \"position\": {\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    }\n  },\n  \"confirmationCodes\": [\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"SUPPLIER_CONFIRMATION\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"codeType\": \"HOTEL_CONFIRMATION\"\n    }\n  ],\n  \"guests\": [\n    {\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"birthdate\": \"<date>\",\n      \"companyName\": \"<string>\",\n      \"contactInfo\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"phoneNumbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"faxNumber\": \"<string>\"\n      }\n    },\n    {\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"birthdate\": \"<date>\",\n      \"companyName\": \"<string>\",\n      \"contactInfo\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"phoneNumbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"faxNumber\": \"<string>\"\n      }\n    }\n  ],\n  \"roomDescription\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"roomRate\": {\n    \"cancelPenalties\": {\n      \"penalties\": [\n        {\n          \"description\": \"<string>\",\n          \"refundableStatus\": \"FULLY_REFUNDABLE\",\n          \"amountPercent\": {\n            \"amount\": {\n              \"amount\": \"<number>\",\n              \"currencyCode\": \"<string>\"\n            },\n            \"applyAs\": \"FIRST_AND_LAST_NIGHT_DEPOSIT\",\n            \"basisType\": \"FIRST_LAST\",\n            \"feesInclusive\": \"<boolean>\",\n            \"numberOfNights\": \"<integer>\",\n            \"percent\": \"<number>\",\n            \"taxInclusive\": \"<boolean>\"\n          },\n          \"cancelDeadline\": \"<string>\"\n        }\n      ]\n    },\n    \"guarantee\": {\n      \"guaranteeType\": \"DEPOSIT_REQUIRED\",\n      \"acceptedPayments\": [\n        \"UNITED_TRAVEL\",\n        \"CONFERMA\"\n      ],\n      \"amountPercent\": {\n        \"amount\": {\n          \"amount\": \"<number>\",\n          \"currencyCode\": \"<string>\"\n        },\n        \"applyAs\": \"FIRST_AND_LAST_NIGHT_DEPOSIT\",\n        \"basisType\": \"FULL_STAY\",\n        \"feesInclusive\": \"<boolean>\",\n        \"numberOfNights\": \"<integer>\",\n        \"percent\": \"<number>\",\n        \"taxInclusive\": \"<boolean>\"\n      },\n      \"cvvRequired\": \"<boolean>\"\n    },\n    \"rateChangesOverStay\": \"<boolean>\",\n    \"ratePlanId\": \"<string>\",\n    \"totalPrice\": {\n      \"currencyCode\": \"<string>\",\n      \"totalBeforeTax\": \"<number>\",\n      \"fees\": \"<number>\",\n      \"isTotalBeforeTaxDisplayEligible\": true,\n      \"taxes\": \"<number>\",\n      \"totalAfterTax\": \"<number>\"\n    },\n    \"nightlyPrices\": [\n      {\n        \"basePrice\": \"<number>\",\n        \"currencyCode\": \"<string>\",\n        \"endDate\": \"<date>\",\n        \"startDate\": \"<date>\",\n        \"fees\": {\n          \"amount\": \"<number>\",\n          \"feeBreakdown\": [\n            {\n              \"amount\": \"<number>\",\n              \"fttCode\": \"<integer>\",\n              \"inclusive\": \"<boolean>\"\n            },\n            {\n              \"amount\": \"<number>\",\n              \"fttCode\": \"<integer>\",\n              \"inclusive\": \"<boolean>\"\n            }\n          ]\n        },\n        \"taxes\": {\n          \"amount\": \"<number>\",\n          \"taxBreakdown\": [\n            {\n              \"amount\": \"<number>\",\n              \"fttCode\": \"<integer>\",\n              \"inclusive\": \"<boolean>\"\n            },\n            {\n              \"amount\": \"<number>\",\n              \"fttCode\": \"<integer>\",\n              \"inclusive\": \"<boolean>\"\n            }\n          ]\n        },\n        \"totalPrice\": \"<number>\"\n      }\n    ],\n    \"prepayRequired\": \"<boolean>\",\n    \"rateCategory\": {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    },\n    \"rateDescription\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"refundable\": \"<boolean>\",\n    \"roomId\": \"<string>\",\n    \"rateDetailsCallRequired\": false\n  },\n  \"status\": \"CANCELLED\",\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"comments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"isModifiable\": true\n}"
+								},
+								{
+									"name": "Invalid client request. Request shouldn't be retried without changing it.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"customFields\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"guests\": [\n    {\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"birthdate\": \"<date>\",\n      \"companyName\": \"<string>\",\n      \"contactInfo\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"phoneNumbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"faxNumber\": \"<string>\"\n      }\n    },\n    {\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"birthdate\": \"<date>\",\n      \"companyName\": \"<string>\",\n      \"contactInfo\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"phoneNumbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"faxNumber\": \"<string>\"\n      }\n    }\n  ],\n  \"hotelPropertyRef\": {\n    \"propertyCode\": \"<string>\",\n    \"chainCode\": \"<string>\"\n  },\n  \"ratePlanId\": \"<string>\",\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"comments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"guarantee\": {\n    \"cardNumber\": \"<string>\",\n    \"cardType\": \"UATP\",\n    \"cardHolderAddress\": {\n      \"addressLines\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"city\": \"<string>\",\n      \"countryCode\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"stateName\": \"<string>\"\n    },\n    \"cardHolderName\": \"<string>\",\n    \"cardExpiryMonth\": \"<integer>\",\n    \"cardExpiryYear\": \"<integer>\",\n    \"cvv\": \"<string>\"\n  },\n  \"legalEntity\": {\n    \"name\": \"<string>\",\n    \"taxId\": \"<string>\",\n    \"address\": {\n      \"addressLines\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"city\": \"<string>\",\n      \"countryCode\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"stateName\": \"<string>\"\n    }\n  },\n  \"loyalty\": {\n    \"accountId\": \"<string>\",\n    \"programCode\": \"<string>\"\n  },\n  \"paymentModeIndicator\": \"CONCUR_VIRTUAL_CARD\",\n  \"searchSessionToken\": \"<uuid>\",\n  \"threeDSecure\": {\n    \"avv\": \"<string>\",\n    \"eci\": \"<string>\",\n    \"messageVersion\": \"<string>\",\n    \"transactionId\": \"<string>\",\n    \"cavvAlgorithm\": \"<string>\",\n    \"exemptionCode\": \"<string>\",\n    \"threeDSServerTransactionId\": \"<string>\"\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/reservation",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"reservation"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\",\n  \"otaCode\": \"<integer>\"\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"customFields\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"guests\": [\n    {\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"birthdate\": \"<date>\",\n      \"companyName\": \"<string>\",\n      \"contactInfo\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"phoneNumbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"faxNumber\": \"<string>\"\n      }\n    },\n    {\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"birthdate\": \"<date>\",\n      \"companyName\": \"<string>\",\n      \"contactInfo\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"phoneNumbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"faxNumber\": \"<string>\"\n      }\n    }\n  ],\n  \"hotelPropertyRef\": {\n    \"propertyCode\": \"<string>\",\n    \"chainCode\": \"<string>\"\n  },\n  \"ratePlanId\": \"<string>\",\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"comments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"guarantee\": {\n    \"cardNumber\": \"<string>\",\n    \"cardType\": \"UATP\",\n    \"cardHolderAddress\": {\n      \"addressLines\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"city\": \"<string>\",\n      \"countryCode\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"stateName\": \"<string>\"\n    },\n    \"cardHolderName\": \"<string>\",\n    \"cardExpiryMonth\": \"<integer>\",\n    \"cardExpiryYear\": \"<integer>\",\n    \"cvv\": \"<string>\"\n  },\n  \"legalEntity\": {\n    \"name\": \"<string>\",\n    \"taxId\": \"<string>\",\n    \"address\": {\n      \"addressLines\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"city\": \"<string>\",\n      \"countryCode\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"stateName\": \"<string>\"\n    }\n  },\n  \"loyalty\": {\n    \"accountId\": \"<string>\",\n    \"programCode\": \"<string>\"\n  },\n  \"paymentModeIndicator\": \"CONCUR_VIRTUAL_CARD\",\n  \"searchSessionToken\": \"<uuid>\",\n  \"threeDSecure\": {\n    \"avv\": \"<string>\",\n    \"eci\": \"<string>\",\n    \"messageVersion\": \"<string>\",\n    \"transactionId\": \"<string>\",\n    \"cavvAlgorithm\": \"<string>\",\n    \"exemptionCode\": \"<string>\",\n    \"threeDSServerTransactionId\": \"<string>\"\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/reservation",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"reservation"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error while processing the request. Request can be retried as is at a later time.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) This unique code can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"customFields\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"guests\": [\n    {\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"birthdate\": \"<date>\",\n      \"companyName\": \"<string>\",\n      \"contactInfo\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"phoneNumbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"faxNumber\": \"<string>\"\n      }\n    },\n    {\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"birthdate\": \"<date>\",\n      \"companyName\": \"<string>\",\n      \"contactInfo\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"phoneNumbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"faxNumber\": \"<string>\"\n      }\n    }\n  ],\n  \"hotelPropertyRef\": {\n    \"propertyCode\": \"<string>\",\n    \"chainCode\": \"<string>\"\n  },\n  \"ratePlanId\": \"<string>\",\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"comments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"guarantee\": {\n    \"cardNumber\": \"<string>\",\n    \"cardType\": \"UATP\",\n    \"cardHolderAddress\": {\n      \"addressLines\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"city\": \"<string>\",\n      \"countryCode\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"stateName\": \"<string>\"\n    },\n    \"cardHolderName\": \"<string>\",\n    \"cardExpiryMonth\": \"<integer>\",\n    \"cardExpiryYear\": \"<integer>\",\n    \"cvv\": \"<string>\"\n  },\n  \"legalEntity\": {\n    \"name\": \"<string>\",\n    \"taxId\": \"<string>\",\n    \"address\": {\n      \"addressLines\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"city\": \"<string>\",\n      \"countryCode\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"state\": \"<string>\",\n      \"stateName\": \"<string>\"\n    }\n  },\n  \"loyalty\": {\n    \"accountId\": \"<string>\",\n    \"programCode\": \"<string>\"\n  },\n  \"paymentModeIndicator\": \"CONCUR_VIRTUAL_CARD\",\n  \"searchSessionToken\": \"<uuid>\",\n  \"threeDSecure\": {\n    \"avv\": \"<string>\",\n    \"eci\": \"<string>\",\n    \"messageVersion\": \"<string>\",\n    \"transactionId\": \"<string>\",\n    \"cavvAlgorithm\": \"<string>\",\n    \"exemptionCode\": \"<string>\",\n    \"threeDSServerTransactionId\": \"<string>\"\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/reservation",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"reservation"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\",\n  \"otaCode\": \"<integer>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "search",
+					"item": [
+						{
+							"name": "Perform the initial search for hotels.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) ",
+										"key": "concur-correlationid",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"includeDepositRequired\": \"<boolean>\",\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"customFields\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"guestCountryCode\": \"<string>\",\n  \"hotelPropertyRefs\": [\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    }\n  ],\n  \"locationSearch\": {\n    \"location\": {\n      \"geoLocation\": {\n        \"latitude\": \"<number>\",\n        \"longitude\": \"<number>\"\n      },\n      \"locationType\": \"ADDRESS\",\n      \"name\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"iataCode\": \"<string>\"\n    },\n    \"maxRadius\": {\n      \"unit\": \"KM\",\n      \"value\": \"<integer>\"\n    },\n    \"radius\": {\n      \"unit\": \"KM\",\n      \"value\": \"<integer>\"\n    }\n  },\n  \"maxSearchResults\": 100,\n  \"numGuests\": 1,\n  \"rateCategories\": [\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/hotels/search",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"hotels",
+										"search"
+									]
+								},
+								"description": "Perform the initial search for hotels."
+							},
+							"response": [
+								{
+									"name": "Search results that meet criteria",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) ",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"includeDepositRequired\": \"<boolean>\",\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"customFields\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"guestCountryCode\": \"<string>\",\n  \"hotelPropertyRefs\": [\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    }\n  ],\n  \"locationSearch\": {\n    \"location\": {\n      \"geoLocation\": {\n        \"latitude\": \"<number>\",\n        \"longitude\": \"<number>\"\n      },\n      \"locationType\": \"ADDRESS\",\n      \"name\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"iataCode\": \"<string>\"\n    },\n    \"maxRadius\": {\n      \"unit\": \"KM\",\n      \"value\": \"<integer>\"\n    },\n    \"radius\": {\n      \"unit\": \"KM\",\n      \"value\": \"<integer>\"\n    }\n  },\n  \"maxSearchResults\": 100,\n  \"numGuests\": 1,\n  \"rateCategories\": [\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/search",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"search"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"hotelProperties\": [\n    {\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"amenities\": [\n        {\n          \"amenityCode\": \"<integer>\"\n        },\n        {\n          \"amenityCode\": \"<integer>\"\n        }\n      ],\n      \"availabilityStatus\": \"AVAILABLE_FOR_SALE\",\n      \"contactInfo\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"phoneNumbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"faxNumber\": \"<string>\"\n      },\n      \"hotelName\": \"<string>\",\n      \"leadImageURI\": \"<uri>\",\n      \"leadRate\": {\n        \"avgNightlyRate\": {\n          \"amount\": \"<number>\",\n          \"currencyCode\": \"<string>\"\n        },\n        \"isTaxAndFeesInclusive\": false\n      },\n      \"propertyCode\": \"<string>\",\n      \"altPropertyCode\": {\n        \"catalogCode\": \"<string>\",\n        \"catalogName\": \"NORTHSTAR\"\n      },\n      \"chainCode\": \"<string>\",\n      \"position\": {\n        \"latitude\": \"<number>\",\n        \"longitude\": \"<number>\"\n      },\n      \"preferenceRank\": \"MOST_PREFERRED\",\n      \"preferenceLevel\": \"PROPERTY\",\n      \"rating\": {\n        \"source\": \"AAA_DIAMONDS\",\n        \"value\": \"<integer>\",\n        \"name\": \"<string>\"\n      },\n      \"superChainCode\": \"<string>\",\n      \"sustainabilityAwards\": [\n        {\n          \"label\": \"GREEN_STAY\",\n          \"level\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"label\": \"GREEN_SEAL\",\n          \"level\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"amenities\": [\n        {\n          \"amenityCode\": \"<integer>\"\n        },\n        {\n          \"amenityCode\": \"<integer>\"\n        }\n      ],\n      \"availabilityStatus\": \"CLOSED_OUT\",\n      \"contactInfo\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"phoneNumbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"faxNumber\": \"<string>\"\n      },\n      \"hotelName\": \"<string>\",\n      \"leadImageURI\": \"<uri>\",\n      \"leadRate\": {\n        \"avgNightlyRate\": {\n          \"amount\": \"<number>\",\n          \"currencyCode\": \"<string>\"\n        },\n        \"isTaxAndFeesInclusive\": false\n      },\n      \"propertyCode\": \"<string>\",\n      \"altPropertyCode\": {\n        \"catalogCode\": \"<string>\",\n        \"catalogName\": \"BOOKING.COM\"\n      },\n      \"chainCode\": \"<string>\",\n      \"position\": {\n        \"latitude\": \"<number>\",\n        \"longitude\": \"<number>\"\n      },\n      \"preferenceRank\": \"PREFERRED\",\n      \"preferenceLevel\": \"CHAIN\",\n      \"rating\": {\n        \"source\": \"HRS_STAR_RATING\",\n        \"value\": \"<integer>\",\n        \"name\": \"<string>\"\n      },\n      \"superChainCode\": \"<string>\",\n      \"sustainabilityAwards\": [\n        {\n          \"label\": \"GSTC\",\n          \"level\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"label\": \"LEED\",\n          \"level\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"searchSessionToken\": \"<uuid>\"\n}"
+								},
+								{
+									"name": "Invalid client request. Request shouldn't be retried without changing it.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) ",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"includeDepositRequired\": \"<boolean>\",\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"customFields\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"guestCountryCode\": \"<string>\",\n  \"hotelPropertyRefs\": [\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    }\n  ],\n  \"locationSearch\": {\n    \"location\": {\n      \"geoLocation\": {\n        \"latitude\": \"<number>\",\n        \"longitude\": \"<number>\"\n      },\n      \"locationType\": \"ADDRESS\",\n      \"name\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"iataCode\": \"<string>\"\n    },\n    \"maxRadius\": {\n      \"unit\": \"KM\",\n      \"value\": \"<integer>\"\n    },\n    \"radius\": {\n      \"unit\": \"KM\",\n      \"value\": \"<integer>\"\n    }\n  },\n  \"maxSearchResults\": 100,\n  \"numGuests\": 1,\n  \"rateCategories\": [\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/search",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"search"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\",\n  \"otaCode\": \"<integer>\"\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) ",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"includeDepositRequired\": \"<boolean>\",\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"customFields\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"guestCountryCode\": \"<string>\",\n  \"hotelPropertyRefs\": [\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    }\n  ],\n  \"locationSearch\": {\n    \"location\": {\n      \"geoLocation\": {\n        \"latitude\": \"<number>\",\n        \"longitude\": \"<number>\"\n      },\n      \"locationType\": \"ADDRESS\",\n      \"name\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"iataCode\": \"<string>\"\n    },\n    \"maxRadius\": {\n      \"unit\": \"KM\",\n      \"value\": \"<integer>\"\n    },\n    \"radius\": {\n      \"unit\": \"KM\",\n      \"value\": \"<integer>\"\n    }\n  },\n  \"maxSearchResults\": 100,\n  \"numGuests\": 1,\n  \"rateCategories\": [\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/search",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"search"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Error while processing the request. Request can be retried as is at a later time.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept-Language",
+												"value": "<string>"
+											},
+											{
+												"description": "(Required) ",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"checkin\": \"<date>\",\n  \"checkout\": \"<date>\",\n  \"includeDepositRequired\": \"<boolean>\",\n  \"requestorInfo\": {\n    \"posRequestorId\": \"<string>\",\n    \"travelerUuid\": \"<string>\",\n    \"bookingForSelf\": \"<boolean>\",\n    \"loginId\": \"<string>\"\n  },\n  \"customFields\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"guestCountryCode\": \"<string>\",\n  \"hotelPropertyRefs\": [\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    },\n    {\n      \"propertyCode\": \"<string>\",\n      \"chainCode\": \"<string>\"\n    }\n  ],\n  \"locationSearch\": {\n    \"location\": {\n      \"geoLocation\": {\n        \"latitude\": \"<number>\",\n        \"longitude\": \"<number>\"\n      },\n      \"locationType\": \"ADDRESS\",\n      \"name\": \"<string>\",\n      \"address\": {\n        \"addressLines\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"city\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"state\": \"<string>\",\n        \"stateName\": \"<string>\"\n      },\n      \"iataCode\": \"<string>\"\n    },\n    \"maxRadius\": {\n      \"unit\": \"KM\",\n      \"value\": \"<integer>\"\n    },\n    \"radius\": {\n      \"unit\": \"KM\",\n      \"value\": \"<integer>\"\n    }\n  },\n  \"maxSearchResults\": 100,\n  \"numGuests\": 1,\n  \"rateCategories\": [\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"otaCode\": \"<integer>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/search",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												"search"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\",\n  \"otaCode\": \"<integer>\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "{{basicAuthUsername}}",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "{{basicAuthPassword}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://hs-mock.service.cnqr.tech"
+		}
+	]
+}

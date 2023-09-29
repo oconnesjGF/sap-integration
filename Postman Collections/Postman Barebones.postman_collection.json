@@ -1,0 +1,34 @@
+{
+	"info": {
+		"_postman_id": "7cd710f7-d2a0-49ec-9305-fd6f9ab1f62c",
+		"name": "Postman Barebones",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "Post_content",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://msprqa3.concurtech.net/api/v3.0/common/receipts",
+					"protocol": "https",
+					"host": [
+						"msprqa3",
+						"concurtech",
+						"net"
+					],
+					"path": [
+						"api",
+						"v3.0",
+						"common",
+						"receipts"
+					]
+				},
+				"description": "Create a new receipt entry"
+			},
+			"response": []
+		}
+	]
+}

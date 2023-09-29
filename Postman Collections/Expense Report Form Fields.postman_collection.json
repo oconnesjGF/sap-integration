@@ -1,0 +1,361 @@
+{
+	"info": {
+		"_postman_id": "fe5671a0-d802-4428-a281-7efb281f8f06",
+		"name": "Expense Report Form Fields",
+		"description": "Returns the configured fields for the specified expense form.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "expense",
+			"item": [
+				{
+					"name": "expensereport",
+					"item": [
+						{
+							"name": "v1.1",
+							"item": [
+								{
+									"name": "report",
+									"item": [
+										{
+											"name": "Forms",
+											"item": [
+												{
+													"name": "{FormId}",
+													"item": [
+														{
+															"name": "Fields",
+															"item": [
+																{
+																	"name": "Get form fields",
+																	"request": {
+																		"method": "GET",
+																		"header": [
+																			{
+																				"key": "Accept",
+																				"value": "application/xml"
+																			}
+																		],
+																		"url": {
+																			"raw": "{{baseUrl}}/expense/expensereport/v1.1/report/Forms/:FormId/Fields",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"expense",
+																				"expensereport",
+																				"v1.1",
+																				"report",
+																				"Forms",
+																				":FormId",
+																				"Fields"
+																			],
+																			"variable": [
+																				{
+																					"key": "FormId",
+																					"value": "<string>"
+																				}
+																			]
+																		},
+																		"description": "Retrieves the list of configured form fields for the specified form."
+																	},
+																	"response": [
+																		{
+																			"name": "OK",
+																			"originalRequest": {
+																				"method": "GET",
+																				"header": [
+																					{
+																						"key": "Accept",
+																						"value": "application/xml"
+																					},
+																					{
+																						"description": "Added as a part of security scheme: oauth2",
+																						"key": "Authorization",
+																						"value": "<token>"
+																					}
+																				],
+																				"url": {
+																					"raw": "{{baseUrl}}/expense/expensereport/v1.1/report/Forms/:FormId/Fields",
+																					"host": [
+																						"{{baseUrl}}"
+																					],
+																					"path": [
+																						"expense",
+																						"expensereport",
+																						"v1.1",
+																						"report",
+																						"Forms",
+																						":FormId",
+																						"Fields"
+																					],
+																					"variable": [
+																						{
+																							"key": "FormId"
+																						}
+																					]
+																				}
+																			},
+																			"status": "OK",
+																			"code": 200,
+																			"_postman_previewlanguage": "xml",
+																			"header": [
+																				{
+																					"key": "Content-Type",
+																					"value": "application/xml"
+																				}
+																			],
+																			"cookie": [],
+																			"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <FormField>\n    <Id>(string)</Id>\n    <Label>(string)</Label>\n    <ControlType>(string)</ControlType>\n    <DataType>(string)</DataType>\n    <MaxLength>(integer)</MaxLength>\n    <Required>(string)</Required>\n    <Cols>(integer)</Cols>\n    <Access>(string)</Access>\n    <Width>(integer)</Width>\n    <Custom>(string)</Custom>\n    <Sequence>(integer)</Sequence>\n  </FormField>\n  <FormField>\n    <Id>(string)</Id>\n    <Label>(string)</Label>\n    <ControlType>(string)</ControlType>\n    <DataType>(string)</DataType>\n    <MaxLength>(integer)</MaxLength>\n    <Required>(string)</Required>\n    <Cols>(integer)</Cols>\n    <Access>(string)</Access>\n    <Width>(integer)</Width>\n    <Custom>(string)</Custom>\n    <Sequence>(integer)</Sequence>\n  </FormField>\n</element>"
+																		},
+																		{
+																			"name": "Invalid request",
+																			"originalRequest": {
+																				"method": "GET",
+																				"header": [
+																					{
+																						"description": "Added as a part of security scheme: oauth2",
+																						"key": "Authorization",
+																						"value": "<token>"
+																					}
+																				],
+																				"url": {
+																					"raw": "{{baseUrl}}/expense/expensereport/v1.1/report/Forms/:FormId/Fields",
+																					"host": [
+																						"{{baseUrl}}"
+																					],
+																					"path": [
+																						"expense",
+																						"expensereport",
+																						"v1.1",
+																						"report",
+																						"Forms",
+																						":FormId",
+																						"Fields"
+																					],
+																					"variable": [
+																						{
+																							"key": "FormId"
+																						}
+																					]
+																				}
+																			},
+																			"status": "Bad Request",
+																			"code": 400,
+																			"_postman_previewlanguage": "text",
+																			"header": [],
+																			"cookie": [],
+																			"body": ""
+																		},
+																		{
+																			"name": "Unauthorized",
+																			"originalRequest": {
+																				"method": "GET",
+																				"header": [
+																					{
+																						"description": "Added as a part of security scheme: oauth2",
+																						"key": "Authorization",
+																						"value": "<token>"
+																					}
+																				],
+																				"url": {
+																					"raw": "{{baseUrl}}/expense/expensereport/v1.1/report/Forms/:FormId/Fields",
+																					"host": [
+																						"{{baseUrl}}"
+																					],
+																					"path": [
+																						"expense",
+																						"expensereport",
+																						"v1.1",
+																						"report",
+																						"Forms",
+																						":FormId",
+																						"Fields"
+																					],
+																					"variable": [
+																						{
+																							"key": "FormId"
+																						}
+																					]
+																				}
+																			},
+																			"status": "Unauthorized",
+																			"code": 401,
+																			"_postman_previewlanguage": "text",
+																			"header": [],
+																			"cookie": [],
+																			"body": ""
+																		},
+																		{
+																			"name": "Forbidden",
+																			"originalRequest": {
+																				"method": "GET",
+																				"header": [
+																					{
+																						"description": "Added as a part of security scheme: oauth2",
+																						"key": "Authorization",
+																						"value": "<token>"
+																					}
+																				],
+																				"url": {
+																					"raw": "{{baseUrl}}/expense/expensereport/v1.1/report/Forms/:FormId/Fields",
+																					"host": [
+																						"{{baseUrl}}"
+																					],
+																					"path": [
+																						"expense",
+																						"expensereport",
+																						"v1.1",
+																						"report",
+																						"Forms",
+																						":FormId",
+																						"Fields"
+																					],
+																					"variable": [
+																						{
+																							"key": "FormId"
+																						}
+																					]
+																				}
+																			},
+																			"status": "Forbidden",
+																			"code": 403,
+																			"_postman_previewlanguage": "text",
+																			"header": [],
+																			"cookie": [],
+																			"body": ""
+																		},
+																		{
+																			"name": "Not Found",
+																			"originalRequest": {
+																				"method": "GET",
+																				"header": [
+																					{
+																						"description": "Added as a part of security scheme: oauth2",
+																						"key": "Authorization",
+																						"value": "<token>"
+																					}
+																				],
+																				"url": {
+																					"raw": "{{baseUrl}}/expense/expensereport/v1.1/report/Forms/:FormId/Fields",
+																					"host": [
+																						"{{baseUrl}}"
+																					],
+																					"path": [
+																						"expense",
+																						"expensereport",
+																						"v1.1",
+																						"report",
+																						"Forms",
+																						":FormId",
+																						"Fields"
+																					],
+																					"variable": [
+																						{
+																							"key": "FormId"
+																						}
+																					]
+																				}
+																			},
+																			"status": "Not Found",
+																			"code": 404,
+																			"_postman_previewlanguage": "text",
+																			"header": [],
+																			"cookie": [],
+																			"body": ""
+																		},
+																		{
+																			"name": "Internal error",
+																			"originalRequest": {
+																				"method": "GET",
+																				"header": [
+																					{
+																						"description": "Added as a part of security scheme: oauth2",
+																						"key": "Authorization",
+																						"value": "<token>"
+																					}
+																				],
+																				"url": {
+																					"raw": "{{baseUrl}}/expense/expensereport/v1.1/report/Forms/:FormId/Fields",
+																					"host": [
+																						"{{baseUrl}}"
+																					],
+																					"path": [
+																						"expense",
+																						"expensereport",
+																						"v1.1",
+																						"report",
+																						"Forms",
+																						":FormId",
+																						"Fields"
+																					],
+																					"variable": [
+																						{
+																							"key": "FormId"
+																						}
+																					]
+																				}
+																			},
+																			"status": "Internal Server Error",
+																			"code": 500,
+																			"_postman_previewlanguage": "text",
+																			"header": [],
+																			"cookie": [],
+																			"body": ""
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/expense/expensereport/v1.1"
+		}
+	]
+}

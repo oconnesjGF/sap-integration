@@ -1,0 +1,800 @@
+{
+	"info": {
+		"_postman_id": "65ee1fcd-9d5f-4e12-ab3d-d27f716b9de4",
+		"name": "List Items",
+		"description": "Provides an automated solution to clients who would like to manage list items. This API provides methods to view, add, update or delete list items owned by the specified lists. This API supports Concur Expense, Concur Invoice, and Concur Request.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "common",
+			"item": [
+				{
+					"name": "listitems",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Get a single list item by ID",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/common/listitems/:id?listId=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"listitems",
+												":id"
+											],
+											"query": [
+												{
+													"key": "listId",
+													"value": "<string>",
+													"description": "The unique identifier for the list this item is a member."
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Returns the specified list item."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/common/listitems/:id?listId=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"common",
+														"listitems",
+														":id"
+													],
+													"query": [
+														{
+															"key": "listId",
+															"value": "<string>",
+															"description": "The unique identifier for the list this item is a member."
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"ID\": \"<string>\",\n  \"Level10Code\": \"<string>\",\n  \"Level1Code\": \"<string>\",\n  \"Level2Code\": \"<string>\",\n  \"Level3Code\": \"<string>\",\n  \"Level4Code\": \"<string>\",\n  \"Level5Code\": \"<string>\",\n  \"Level6Code\": \"<string>\",\n  \"Level7Code\": \"<string>\",\n  \"Level8Code\": \"<string>\",\n  \"Level9Code\": \"<string>\",\n  \"ListID\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"ParentID\": \"<string>\",\n  \"URI\": \"<string>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Update list item",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Code\": \"<string>\",\n  \"ListID\": \"<string>\",\n  \"Name\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/common/listitems/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"listitems",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Updates the specified list item. Only the provided fields will be updated, missing fields will not be altered."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"Code\": \"<string>\",\n  \"ListID\": \"<string>\",\n  \"Name\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/common/listitems/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"common",
+														"listitems",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"Code\": \"<string>\",\n  \"ListID\": \"<string>\",\n  \"Name\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/common/listitems/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"common",
+														"listitems",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										}
+									]
+								},
+								{
+									"name": "Delete list item by ID",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/common/listitems/:id?listId=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"listitems",
+												":id"
+											],
+											"query": [
+												{
+													"key": "listId",
+													"value": "<string>",
+													"description": "(Required) The unique identifier of the list associated with a list item to be deleted"
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Deletes the specified list item."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/common/listitems/:id?listId=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"common",
+														"listitems",
+														":id"
+													],
+													"query": [
+														{
+															"key": "listId",
+															"value": "<string>",
+															"description": "(Required) The unique identifier of the list associated with a list item to be deleted"
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/common/listitems/:id?listId=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"common",
+														"listitems",
+														":id"
+													],
+													"query": [
+														{
+															"key": "listId",
+															"value": "<string>",
+															"description": "(Required) The unique identifier of the list associated with a list item to be deleted"
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get all list items",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/common/listitems?limit=<integer>&offset=<string>&listId=<string>&name=<string>&parentId=<string>&level1Code=<string>&level2Code=<string>&level3Code=<string>&level4Code=<string>&level5Code=<string>&level6Code=<string>&level7Code=<string>&level8Code=<string>&level9Code=<string>&level10Code=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"common",
+										"listitems"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The number of records to return. The default is 25 and the maximum is 100."
+										},
+										{
+											"key": "offset",
+											"value": "<string>",
+											"description": "The start of the page offset. The default is from the beginning."
+										},
+										{
+											"key": "listId",
+											"value": "<string>",
+											"description": "The unique identifier for the list this item is a member of."
+										},
+										{
+											"key": "name",
+											"value": "<string>",
+											"description": "The name of the list item. Maximum length: 64."
+										},
+										{
+											"key": "parentId",
+											"value": "<string>",
+											"description": "The unique identifier of this item's parent. Empty when there is no parent."
+										},
+										{
+											"key": "level1Code",
+											"value": "<string>",
+											"description": "The item code for the first level of the list. All lists have at least a Level1Code. Maximum 32 characters"
+										},
+										{
+											"key": "level2Code",
+											"value": "<string>",
+											"description": "The item code for the second level of the list. Empty when this level doesn't exist in the list. Maximum 32 characters"
+										},
+										{
+											"key": "level3Code",
+											"value": "<string>",
+											"description": "The item code for the third level of the list. Empty when this level doesn't exist in the list. Maximum 32 characters"
+										},
+										{
+											"key": "level4Code",
+											"value": "<string>",
+											"description": "The item code for the fourth level of the list. Empty when this level doesn't exist in the list. Maximum 32 characters"
+										},
+										{
+											"key": "level5Code",
+											"value": "<string>",
+											"description": "The item code for the fifth level of the list. Empty when this level doesn't exist in the list. Maximum 32 characters"
+										},
+										{
+											"key": "level6Code",
+											"value": "<string>",
+											"description": "The item code for the sixth level of the list. Empty when this level doesn't exist in the list. Maximum 32 characters"
+										},
+										{
+											"key": "level7Code",
+											"value": "<string>",
+											"description": "The item code for the seventh level of the list. Empty when this level doesn't exist in the list. Maximum 32 characters"
+										},
+										{
+											"key": "level8Code",
+											"value": "<string>",
+											"description": "The item code for the eighth level of the list. Empty when this level doesn't exist in the list. Maximum 32 characters"
+										},
+										{
+											"key": "level9Code",
+											"value": "<string>",
+											"description": "The item code for the ninth level of the list. Empty when this level doesn't exist in the list. Maximum 32 characters"
+										},
+										{
+											"key": "level10Code",
+											"value": "<string>",
+											"description": "The item code for the tenth level of the list. Empty when this level doesn't exist in the list. Maximum 32 characters"
+										}
+									]
+								},
+								"description": "Returns all list items based on the search criteria."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/common/listitems?limit=<integer>&offset=<string>&listId=<string>&name=<string>&parentId=<string>&level1Code=<string>&level2Code=<string>&level3Code=<string>&level4Code=<string>&level5Code=<string>&level6Code=<string>&level7Code=<string>&level8Code=<string>&level9Code=<string>&level10Code=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"listitems"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "The number of records to return. The default is 25 and the maximum is 100."
+												},
+												{
+													"key": "offset",
+													"value": "<string>",
+													"description": "The start of the page offset. The default is from the beginning."
+												},
+												{
+													"key": "listId",
+													"value": "<string>",
+													"description": "The unique identifier for the list this item is a member of."
+												},
+												{
+													"key": "name",
+													"value": "<string>",
+													"description": "The name of the list item. Maximum length: 64."
+												},
+												{
+													"key": "parentId",
+													"value": "<string>",
+													"description": "The unique identifier of this item's parent. Empty when there is no parent."
+												},
+												{
+													"key": "level1Code",
+													"value": "<string>",
+													"description": "The item code for the first level of the list. All lists have at least a Level1Code. Maximum 32 characters"
+												},
+												{
+													"key": "level2Code",
+													"value": "<string>",
+													"description": "The item code for the second level of the list. Empty when this level doesn't exist in the list. Maximum 32 characters"
+												},
+												{
+													"key": "level3Code",
+													"value": "<string>",
+													"description": "The item code for the third level of the list. Empty when this level doesn't exist in the list. Maximum 32 characters"
+												},
+												{
+													"key": "level4Code",
+													"value": "<string>",
+													"description": "The item code for the fourth level of the list. Empty when this level doesn't exist in the list. Maximum 32 characters"
+												},
+												{
+													"key": "level5Code",
+													"value": "<string>",
+													"description": "The item code for the fifth level of the list. Empty when this level doesn't exist in the list. Maximum 32 characters"
+												},
+												{
+													"key": "level6Code",
+													"value": "<string>",
+													"description": "The item code for the sixth level of the list. Empty when this level doesn't exist in the list. Maximum 32 characters"
+												},
+												{
+													"key": "level7Code",
+													"value": "<string>",
+													"description": "The item code for the seventh level of the list. Empty when this level doesn't exist in the list. Maximum 32 characters"
+												},
+												{
+													"key": "level8Code",
+													"value": "<string>",
+													"description": "The item code for the eighth level of the list. Empty when this level doesn't exist in the list. Maximum 32 characters"
+												},
+												{
+													"key": "level9Code",
+													"value": "<string>",
+													"description": "The item code for the ninth level of the list. Empty when this level doesn't exist in the list. Maximum 32 characters"
+												},
+												{
+													"key": "level10Code",
+													"value": "<string>",
+													"description": "The item code for the tenth level of the list. Empty when this level doesn't exist in the list. Maximum 32 characters"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Items\": {\n    \"ID\": \"<string>\",\n    \"Level10Code\": \"<string>\",\n    \"Level1Code\": \"<string>\",\n    \"Level2Code\": \"<string>\",\n    \"Level3Code\": \"<string>\",\n    \"Level4Code\": \"<string>\",\n    \"Level5Code\": \"<string>\",\n    \"Level6Code\": \"<string>\",\n    \"Level7Code\": \"<string>\",\n    \"Level8Code\": \"<string>\",\n    \"Level9Code\": \"<string>\",\n    \"ListID\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"ParentID\": \"<string>\",\n    \"URI\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Create a new list item",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"Level10Code\": \"<string>\",\n  \"Level1Code\": \"<string>\",\n  \"Level2Code\": \"<string>\",\n  \"Level3Code\": \"<string>\",\n  \"Level4Code\": \"<string>\",\n  \"Level5Code\": \"<string>\",\n  \"Level6Code\": \"<string>\",\n  \"Level7Code\": \"<string>\",\n  \"Level8Code\": \"<string>\",\n  \"Level9Code\": \"<string>\",\n  \"ListID\": \"<string>\",\n  \"Name\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/common/listitems",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"common",
+										"listitems"
+									]
+								},
+								"description": "Creates a new item in the specified list."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Level10Code\": \"<string>\",\n  \"Level1Code\": \"<string>\",\n  \"Level2Code\": \"<string>\",\n  \"Level3Code\": \"<string>\",\n  \"Level4Code\": \"<string>\",\n  \"Level5Code\": \"<string>\",\n  \"Level6Code\": \"<string>\",\n  \"Level7Code\": \"<string>\",\n  \"Level8Code\": \"<string>\",\n  \"Level9Code\": \"<string>\",\n  \"ListID\": \"<string>\",\n  \"Name\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/common/listitems",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"listitems"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"ID\": \"<string>\",\n  \"URI\": \"<string>\"\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Level10Code\": \"<string>\",\n  \"Level1Code\": \"<string>\",\n  \"Level2Code\": \"<string>\",\n  \"Level3Code\": \"<string>\",\n  \"Level4Code\": \"<string>\",\n  \"Level5Code\": \"<string>\",\n  \"Level6Code\": \"<string>\",\n  \"Level7Code\": \"<string>\",\n  \"Level8Code\": \"<string>\",\n  \"Level9Code\": \"<string>\",\n  \"ListID\": \"<string>\",\n  \"Name\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/common/listitems",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"listitems"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessTokenUrl",
+				"value": "https://us.api.concursolutions.com/oauth2/v0",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/v3.0"
+		}
+	]
+}

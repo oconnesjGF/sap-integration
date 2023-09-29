@@ -1,0 +1,2318 @@
+{
+	"info": {
+		"_postman_id": "08097d3a-abbe-40f9-8707-a2d74de55c70",
+		"name": "Image API Documentation",
+		"description": "The SAP Concur Imaging Web service allows clients to manage the receipt images attached to expense reports and the images attached to invoices. Clients can retrieve existing images by reportID, image ID, or invoiceID, and upload new images to a user, expense entry, report, or invoice.<p>The Imaging web service supports the following image formats:</p><p><li>&nbsp;&nbsp;&nbsp;&nbsp;`application/pdf`<li>&nbsp;&nbsp;&nbsp;&nbsp;`image/jpg`<li>&nbsp;&nbsp;&nbsp;&nbsp;`image/jpeg`<li>&nbsp;&nbsp;&nbsp;&nbsp;`image/png`</p><p>The maximum file size allowed is 10 MB.</p>",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "receipt",
+			"item": [
+				{
+					"name": "{imageId}",
+					"item": [
+						{
+							"name": "Retrieve Report and Line Item Images.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/xml"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/receipt/:imageId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"receipt",
+										":imageId"
+									],
+									"variable": [
+										{
+											"key": "imageId",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/xml"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/receipt/:imageId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"receipt",
+												":imageId"
+											],
+											"variable": [
+												{
+													"key": "imageId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "xml",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/xml"
+										}
+									],
+									"cookie": [],
+									"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <Id>(string)</Id>\n  <Url>(string)</Url>\n</element>"
+								},
+								{
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/receipt/:imageId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"receipt",
+												":imageId"
+											],
+											"variable": [
+												{
+													"key": "imageId"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/receipt/:imageId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"receipt",
+												":imageId"
+											],
+											"variable": [
+												{
+													"key": "imageId"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/receipt/:imageId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"receipt",
+												":imageId"
+											],
+											"variable": [
+												{
+													"key": "imageId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/receipt/:imageId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"receipt",
+												":imageId"
+											],
+											"variable": [
+												{
+													"key": "imageId"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Internal error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/receipt/:imageId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"receipt",
+												":imageId"
+											],
+											"variable": [
+												{
+													"key": "imageId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Add Line Item Images.",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							},
+							{
+								"key": "Accept",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Image File",
+									"value": "<string>",
+									"description": "(Required) Receipt Image to Upload",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/receipt",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"receipt"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									},
+									{
+										"key": "Accept",
+										"value": "application/xml"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "Image File",
+											"value": "<string>",
+											"description": "(Required) Receipt Image to Upload",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/receipt",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"receipt"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/xml"
+								}
+							],
+							"cookie": [],
+							"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>"
+						},
+						{
+							"name": "Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "Image File",
+											"value": "<string>",
+											"description": "(Required) Receipt Image to Upload",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/receipt",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"receipt"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Invalid request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "Image File",
+											"value": "<string>",
+											"description": "(Required) Receipt Image to Upload",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/receipt",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"receipt"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "Image File",
+											"value": "<string>",
+											"description": "(Required) Receipt Image to Upload",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/receipt",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"receipt"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "Image File",
+											"value": "<string>",
+											"description": "(Required) Receipt Image to Upload",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/receipt",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"receipt"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "Image File",
+											"value": "<string>",
+											"description": "(Required) Receipt Image to Upload",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/receipt",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"receipt"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "Image File",
+											"value": "<string>",
+											"description": "(Required) Receipt Image to Upload",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/receipt",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"receipt"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "expenseentry",
+			"item": [
+				{
+					"name": "{entryId}",
+					"item": [
+						{
+							"name": "Add Line Item Images.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									},
+									{
+										"key": "Accept",
+										"value": "application/xml"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "Image File",
+											"value": "<string>",
+											"description": "(Required) Receipt Image to Upload",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/expenseentry/:entryId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"expenseentry",
+										":entryId"
+									],
+									"variable": [
+										{
+											"key": "entryId",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											},
+											{
+												"key": "Accept",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/expenseentry/:entryId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expenseentry",
+												":entryId"
+											],
+											"variable": [
+												{
+													"key": "entryId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "xml",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/xml"
+										}
+									],
+									"cookie": [],
+									"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>"
+								},
+								{
+									"name": "Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/expenseentry/:entryId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expenseentry",
+												":entryId"
+											],
+											"variable": [
+												{
+													"key": "entryId"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/expenseentry/:entryId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expenseentry",
+												":entryId"
+											],
+											"variable": [
+												{
+													"key": "entryId"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/expenseentry/:entryId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expenseentry",
+												":entryId"
+											],
+											"variable": [
+												{
+													"key": "entryId"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/expenseentry/:entryId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expenseentry",
+												":entryId"
+											],
+											"variable": [
+												{
+													"key": "entryId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/expenseentry/:entryId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expenseentry",
+												":entryId"
+											],
+											"variable": [
+												{
+													"key": "entryId"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Internal error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/expenseentry/:entryId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expenseentry",
+												":entryId"
+											],
+											"variable": [
+												{
+													"key": "entryId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Retrieve Report and Line Item Images.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/xml"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/expenseentry/:entryId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"expenseentry",
+										":entryId"
+									],
+									"variable": [
+										{
+											"key": "entryId",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/xml"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/expenseentry/:entryId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expenseentry",
+												":entryId"
+											],
+											"variable": [
+												{
+													"key": "entryId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "xml",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/xml"
+										}
+									],
+									"cookie": [],
+									"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <Id>(string)</Id>\n  <Url>(string)</Url>\n</element>"
+								},
+								{
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/expenseentry/:entryId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expenseentry",
+												":entryId"
+											],
+											"variable": [
+												{
+													"key": "entryId"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/expenseentry/:entryId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expenseentry",
+												":entryId"
+											],
+											"variable": [
+												{
+													"key": "entryId"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/expenseentry/:entryId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expenseentry",
+												":entryId"
+											],
+											"variable": [
+												{
+													"key": "entryId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/expenseentry/:entryId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expenseentry",
+												":entryId"
+											],
+											"variable": [
+												{
+													"key": "entryId"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Internal error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/expenseentry/:entryId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expenseentry",
+												":entryId"
+											],
+											"variable": [
+												{
+													"key": "entryId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "invoice",
+			"item": [
+				{
+					"name": "{requestId}",
+					"item": [
+						{
+							"name": "Add Report Images.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									},
+									{
+										"key": "Accept",
+										"value": "application/xml"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "Image File",
+											"value": "<string>",
+											"description": "(Required) Receipt Image to Upload",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/invoice/:requestId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"invoice",
+										":requestId"
+									],
+									"variable": [
+										{
+											"key": "requestId",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											},
+											{
+												"key": "Accept",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/:requestId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												":requestId"
+											],
+											"variable": [
+												{
+													"key": "requestId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "xml",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/xml"
+										}
+									],
+									"cookie": [],
+									"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>"
+								},
+								{
+									"name": "Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/:requestId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												":requestId"
+											],
+											"variable": [
+												{
+													"key": "requestId"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/:requestId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												":requestId"
+											],
+											"variable": [
+												{
+													"key": "requestId"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/:requestId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												":requestId"
+											],
+											"variable": [
+												{
+													"key": "requestId"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/:requestId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												":requestId"
+											],
+											"variable": [
+												{
+													"key": "requestId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/:requestId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												":requestId"
+											],
+											"variable": [
+												{
+													"key": "requestId"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Internal error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/:requestId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												":requestId"
+											],
+											"variable": [
+												{
+													"key": "requestId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Retrieve Report and Line Item Images.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/xml"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/invoice/:requestId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"invoice",
+										":requestId"
+									],
+									"variable": [
+										{
+											"key": "requestId",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/xml"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/invoice/:requestId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												":requestId"
+											],
+											"variable": [
+												{
+													"key": "requestId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "xml",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/xml"
+										}
+									],
+									"cookie": [],
+									"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <Id>(string)</Id>\n  <Url>(string)</Url>\n</element>"
+								},
+								{
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/invoice/:requestId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												":requestId"
+											],
+											"variable": [
+												{
+													"key": "requestId"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/invoice/:requestId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												":requestId"
+											],
+											"variable": [
+												{
+													"key": "requestId"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/invoice/:requestId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												":requestId"
+											],
+											"variable": [
+												{
+													"key": "requestId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/invoice/:requestId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												":requestId"
+											],
+											"variable": [
+												{
+													"key": "requestId"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Internal error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/invoice/:requestId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												":requestId"
+											],
+											"variable": [
+												{
+													"key": "requestId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "report",
+			"item": [
+				{
+					"name": "{reportId}",
+					"item": [
+						{
+							"name": "Add Report Images.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									},
+									{
+										"key": "Accept",
+										"value": "application/xml"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "Image File",
+											"value": "<string>",
+											"description": "(Required) Receipt Image to Upload",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/report/:reportId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"report",
+										":reportId"
+									],
+									"variable": [
+										{
+											"key": "reportId",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											},
+											{
+												"key": "Accept",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/report/:reportId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"report",
+												":reportId"
+											],
+											"variable": [
+												{
+													"key": "reportId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "xml",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/xml"
+										}
+									],
+									"cookie": [],
+									"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>"
+								},
+								{
+									"name": "Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/report/:reportId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"report",
+												":reportId"
+											],
+											"variable": [
+												{
+													"key": "reportId"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/report/:reportId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"report",
+												":reportId"
+											],
+											"variable": [
+												{
+													"key": "reportId"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/report/:reportId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"report",
+												":reportId"
+											],
+											"variable": [
+												{
+													"key": "reportId"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/report/:reportId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"report",
+												":reportId"
+											],
+											"variable": [
+												{
+													"key": "reportId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/report/:reportId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"report",
+												":reportId"
+											],
+											"variable": [
+												{
+													"key": "reportId"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Internal error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "Image File",
+													"value": "<string>",
+													"description": "(Required) Receipt Image to Upload",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/report/:reportId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"report",
+												":reportId"
+											],
+											"variable": [
+												{
+													"key": "reportId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Retrieve Report and Line Item Images.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/xml"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/report/:reportId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"report",
+										":reportId"
+									],
+									"variable": [
+										{
+											"key": "reportId",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/xml"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/report/:reportId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"report",
+												":reportId"
+											],
+											"variable": [
+												{
+													"key": "reportId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "xml",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/xml"
+										}
+									],
+									"cookie": [],
+									"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <Id>(string)</Id>\n  <Url>(string)</Url>\n</element>"
+								},
+								{
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/report/:reportId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"report",
+												":reportId"
+											],
+											"variable": [
+												{
+													"key": "reportId"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/report/:reportId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"report",
+												":reportId"
+											],
+											"variable": [
+												{
+													"key": "reportId"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/report/:reportId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"report",
+												":reportId"
+											],
+											"variable": [
+												{
+													"key": "reportId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/report/:reportId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"report",
+												":reportId"
+											],
+											"variable": [
+												{
+													"key": "reportId"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Internal error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/report/:reportId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"report",
+												":reportId"
+											],
+											"variable": [
+												{
+													"key": "reportId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "//www.concursolutions.com/api/image/v1.0"
+		}
+	]
+}

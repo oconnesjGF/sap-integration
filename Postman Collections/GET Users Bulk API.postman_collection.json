@@ -1,0 +1,343 @@
+{
+	"info": {
+		"_postman_id": "142b32a8-a2ea-4e40-bec7-1e19eb63088f",
+		"name": "GET Users Bulk API",
+		"description": "This API takes a company level token, and returns a list of users that match the search criteria\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "/users/",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users/?offset=<integer>&limit=<integer>&isactive=<string>&loginid=<string>&lastname=<string>&employeeid=<string>&primaryemail=<string>&countrycode=<string>&id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								""
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "<integer>",
+									"description": "The number of items to skip before returning result set"
+								},
+								{
+									"key": "limit",
+									"value": "<integer>",
+									"description": "The numbers of items to return."
+								},
+								{
+									"key": "isactive",
+									"value": "<string>",
+									"description": "Whether the user is active"
+								},
+								{
+									"key": "loginid",
+									"value": "<string>",
+									"description": "login_id of the user"
+								},
+								{
+									"key": "lastname",
+									"value": "<string>",
+									"description": "last name of the user"
+								},
+								{
+									"key": "employeeid",
+									"value": "<string>",
+									"description": "Employee Id of the user"
+								},
+								{
+									"key": "primaryemail",
+									"value": "<string>",
+									"description": "Primary email of the user"
+								},
+								{
+									"key": "countrycode",
+									"value": "<string>",
+									"description": "Country Code of the user"
+								},
+								{
+									"key": "id",
+									"value": "<string>",
+									"description": "Id of the user"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/users/?offset=<integer>&limit=<integer>&isactive=<string>&loginid=<string>&lastname=<string>&employeeid=<string>&primaryemail=<string>&countrycode=<string>&id=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										""
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<integer>",
+											"description": "The number of items to skip before returning result set"
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The numbers of items to return."
+										},
+										{
+											"key": "isactive",
+											"value": "<string>",
+											"description": "Whether the user is active"
+										},
+										{
+											"key": "loginid",
+											"value": "<string>",
+											"description": "login_id of the user"
+										},
+										{
+											"key": "lastname",
+											"value": "<string>",
+											"description": "last name of the user"
+										},
+										{
+											"key": "employeeid",
+											"value": "<string>",
+											"description": "Employee Id of the user"
+										},
+										{
+											"key": "primaryemail",
+											"value": "<string>",
+											"description": "Primary email of the user"
+										},
+										{
+											"key": "countrycode",
+											"value": "<string>",
+											"description": "Country Code of the user"
+										},
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "Id of the user"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"total\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"company\": {\n    \"name\": \"<string>\",\n    \"address\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"Items\": [\n    {\n      \"ID\": \"<string>\",\n      \"Active\": \"<boolean>\",\n      \"CountryCode\": \"<string>\",\n      \"CellPhoneNumber\": \"<string>\",\n      \"PrimaryEmail\": \"<string>\",\n      \"EmployeeID\": \"<string>\",\n      \"OrganizationUnit\": \"<string>\",\n      \"FirstName\": \"<string>\",\n      \"MiddleName\": \"<string>\",\n      \"LastName\": \"<string>\",\n      \"LoginID\": \"<string>\",\n      \"Emails\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"ID\": \"<string>\",\n      \"Active\": \"<boolean>\",\n      \"CountryCode\": \"<string>\",\n      \"CellPhoneNumber\": \"<string>\",\n      \"PrimaryEmail\": \"<string>\",\n      \"EmployeeID\": \"<string>\",\n      \"OrganizationUnit\": \"<string>\",\n      \"FirstName\": \"<string>\",\n      \"MiddleName\": \"<string>\",\n      \"LastName\": \"<string>\",\n      \"LoginID\": \"<string>\",\n      \"Emails\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+						},
+						{
+							"name": "Authorization Required",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/?offset=<integer>&limit=<integer>&isactive=<string>&loginid=<string>&lastname=<string>&employeeid=<string>&primaryemail=<string>&countrycode=<string>&id=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										""
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<integer>",
+											"description": "The number of items to skip before returning result set"
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The numbers of items to return."
+										},
+										{
+											"key": "isactive",
+											"value": "<string>",
+											"description": "Whether the user is active"
+										},
+										{
+											"key": "loginid",
+											"value": "<string>",
+											"description": "login_id of the user"
+										},
+										{
+											"key": "lastname",
+											"value": "<string>",
+											"description": "last name of the user"
+										},
+										{
+											"key": "employeeid",
+											"value": "<string>",
+											"description": "Employee Id of the user"
+										},
+										{
+											"key": "primaryemail",
+											"value": "<string>",
+											"description": "Primary email of the user"
+										},
+										{
+											"key": "countrycode",
+											"value": "<string>",
+											"description": "Country Code of the user"
+										},
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "Id of the user"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Resoource not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/?offset=<integer>&limit=<integer>&isactive=<string>&loginid=<string>&lastname=<string>&employeeid=<string>&primaryemail=<string>&countrycode=<string>&id=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										""
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<integer>",
+											"description": "The number of items to skip before returning result set"
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The numbers of items to return."
+										},
+										{
+											"key": "isactive",
+											"value": "<string>",
+											"description": "Whether the user is active"
+										},
+										{
+											"key": "loginid",
+											"value": "<string>",
+											"description": "login_id of the user"
+										},
+										{
+											"key": "lastname",
+											"value": "<string>",
+											"description": "last name of the user"
+										},
+										{
+											"key": "employeeid",
+											"value": "<string>",
+											"description": "Employee Id of the user"
+										},
+										{
+											"key": "primaryemail",
+											"value": "<string>",
+											"description": "Primary email of the user"
+										},
+										{
+											"key": "countrycode",
+											"value": "<string>",
+											"description": "Country Code of the user"
+										},
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "Id of the user"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://us.api.concursolutions.com"
+		}
+	]
+}

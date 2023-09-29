@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "be5af6bc-b323-4da8-9b39-3447e9b526ee",
+		"name": "Locations",
+		"description": "The valid city location codes in SAP Concur. The location codes vary by client, and cannot be used across multiple clients. This API provides methods to get a list of valid locations for the supplied user, or get details of a location by ID.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "common",
+			"item": [
+				{
+					"name": "locations",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Retrieves a location by ID.",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/common/locations/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"locations",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Gets details of the specified location."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/common/locations/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"common",
+														"locations",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"AdministrativeRegion\": \"<string>\",\n  \"Country\": \"<string>\",\n  \"CountrySubdivision\": \"<string>\",\n  \"IATACode\": \"<string>\",\n  \"ID\": \"<string>\",\n  \"IsAirport\": \"<boolean>\",\n  \"IsBookingTool\": \"<boolean>\",\n  \"Latitude\": \"<double>\",\n  \"Longitude\": \"<double>\",\n  \"Name\": \"<string>\",\n  \"URI\": \"<string>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Retrieves all locations.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/common/locations?offset=<string>&limit=<integer>&name=<string>&city=<string>&countrySubdivision=<string>&country=<string>&administrativeRegion=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"common",
+										"locations"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<string>",
+											"description": "The starting point of the next set of results, after the limit specified in the limit field has been reached."
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The number of records to return. Default value: 25."
+										},
+										{
+											"key": "name",
+											"value": "<string>",
+											"description": "A common name associated with the location. This name can be a location description such as a neighborhood (SoHo), a landmark (Statue of Liberty), or a city name (New York)."
+										},
+										{
+											"key": "city",
+											"value": "<string>",
+											"description": "The city name of the location."
+										},
+										{
+											"key": "countrySubdivision",
+											"value": "<string>",
+											"description": "The ISO 3166-2:2007 country subdivision code for the location. Example: US-WA."
+										},
+										{
+											"key": "country",
+											"value": "<string>",
+											"description": "The 2-letter ISO 3166-1 country code for the location. Example: United States is US."
+										},
+										{
+											"key": "administrativeRegion",
+											"value": "<string>",
+											"description": "The administrative region of the location. An administrative region is a government unit, such as a county, that contains one or more cities."
+										}
+									]
+								},
+								"description": "Gets details of locations that are used by SAP Concur and that are valid at the user's company."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/common/locations?offset=<string>&limit=<integer>&name=<string>&city=<string>&countrySubdivision=<string>&country=<string>&administrativeRegion=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"locations"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "<string>",
+													"description": "The starting point of the next set of results, after the limit specified in the limit field has been reached."
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "The number of records to return. Default value: 25."
+												},
+												{
+													"key": "name",
+													"value": "<string>",
+													"description": "A common name associated with the location. This name can be a location description such as a neighborhood (SoHo), a landmark (Statue of Liberty), or a city name (New York)."
+												},
+												{
+													"key": "city",
+													"value": "<string>",
+													"description": "The city name of the location."
+												},
+												{
+													"key": "countrySubdivision",
+													"value": "<string>",
+													"description": "The ISO 3166-2:2007 country subdivision code for the location. Example: US-WA."
+												},
+												{
+													"key": "country",
+													"value": "<string>",
+													"description": "The 2-letter ISO 3166-1 country code for the location. Example: United States is US."
+												},
+												{
+													"key": "administrativeRegion",
+													"value": "<string>",
+													"description": "The administrative region of the location. An administrative region is a government unit, such as a county, that contains one or more cities."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Items\": {\n    \"AdministrativeRegion\": \"<string>\",\n    \"Country\": \"<string>\",\n    \"CountrySubdivision\": \"<string>\",\n    \"IATACode\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"IsAirport\": \"<boolean>\",\n    \"IsBookingTool\": \"<boolean>\",\n    \"Latitude\": \"<double>\",\n    \"Longitude\": \"<double>\",\n    \"Name\": \"<string>\",\n    \"URI\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessTokenUrl",
+				"value": "https://us.api.concursolutions.com/oauth2/v0",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/v3.0"
+		}
+	]
+}

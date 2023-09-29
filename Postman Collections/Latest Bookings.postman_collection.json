@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "3910a23f-557c-4bfc-8938-abe58f038b41",
+		"name": "Latest Bookings",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "insights",
+			"item": [
+				{
+					"name": "latestbookings",
+					"item": [
+						{
+							"name": "Get the latest hotel and air booking for a particular user.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/insights/latestbookings/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"insights",
+										"latestbookings",
+										""
+									],
+									"query": [
+										{
+											"key": "user",
+											"value": "",
+											"description": "Optional. The login ID of the user. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Get the latest hotel and air booking for a particular user."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/insights/latestbookings/?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"insights",
+												"latestbookings",
+												""
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "Optional. The login ID of the user. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Airlines\": {\n    \"BookingClass\": \"<string>\",\n    \"Code\": \"<string>\"\n  },\n  \"Hotel\": {\n    \"Location\": \"<string>\",\n    \"StarRating\": \"<integer>\"\n  }\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/v3.0"
+		}
+	]
+}

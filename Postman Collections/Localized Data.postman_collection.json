@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "5c2ed3bc-7bdd-4cbc-9cdd-7d398a88dd20",
+		"name": "Localized Data",
+		"description": "Invoice includes various status codes, and error messages. This API provides a method to list the localized strings of various codes.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "invoice",
+			"item": [
+				{
+					"name": "localizeddata",
+					"item": [
+						{
+							"name": "Get localized string of various codes in Invoice. ",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/invoice/localizeddata?type=<string>&langCode=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"invoice",
+										"localizeddata"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "<string>",
+											"description": "Valid types are -    approvalStatus, paymentStatus, expenseType, ledgerCode, dataSourceCode, payMethod, receiptConfirmation, unitOfMeasure."
+										},
+										{
+											"key": "langCode",
+											"value": "<string>",
+											"description": "Optional. The language code requested. lang codes examples - de, en, es, fr, fr_CA, hu, it, ja, pl, pt_BR"
+										}
+									]
+								},
+								"description": "Returns the  localized string of various codes in Invoice. "
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/invoice/localizeddata?type=<string>&langCode=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"localizeddata"
+											],
+											"query": [
+												{
+													"key": "type",
+													"value": "<string>",
+													"description": "Valid types are -    approvalStatus, paymentStatus, expenseType, ledgerCode, dataSourceCode, payMethod, receiptConfirmation, unitOfMeasure."
+												},
+												{
+													"key": "langCode",
+													"value": "<string>",
+													"description": "Optional. The language code requested. lang codes examples - de, en, es, fr, fr_CA, hu, it, ja, pl, pt_BR"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"LocalizationData\": {\n    \"Code\": \"<string>\",\n    \"LangCode\": \"<string>\",\n    \"LocalizedValue\": \"<string>\"\n  },\n  \"TotalCount\": \"<integer>\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/v3.0"
+		}
+	]
+}

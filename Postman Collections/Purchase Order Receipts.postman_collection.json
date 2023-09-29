@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "13ec6f4c-a871-477b-b454-4b3042937b4f",
+		"name": "Purchase Order Receipts",
+		"description": "Purchase order receipts are records that the purchase order was completed. This API provides methods to create a new purchase order receipt, view or update an existing purchase order receipt, or delete a purchase order receipt.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "invoice",
+			"item": [
+				{
+					"name": "purchaseorderreceipts",
+					"item": [
+						{
+							"name": "Updates purchase order receipts that are already in the system.",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"LineItemExternalID\": \"<string>\",\n  \"PurchaseOrderNumber\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Deleted\": \"<string>\",\n  \"DeliverySlipNumber\": \"<string>\",\n  \"GoodsReceiptNumber\": \"<string>\",\n  \"ID\": \"<string>\",\n  \"ReceivedDate\": \"<string>\",\n  \"ReceivedQuantity\": \"<string>\",\n  \"UnitOfMeasureCode\": \"<string>\",\n  \"URI\": \"<string>\",\n  \"Version\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/invoice/purchaseorderreceipts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"invoice",
+										"purchaseorderreceipts"
+									]
+								},
+								"description": "Updates purchase order receipts that are already in the system and returns status of the update."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"LineItemExternalID\": \"<string>\",\n  \"PurchaseOrderNumber\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Deleted\": \"<string>\",\n  \"DeliverySlipNumber\": \"<string>\",\n  \"GoodsReceiptNumber\": \"<string>\",\n  \"ID\": \"<string>\",\n  \"ReceivedDate\": \"<string>\",\n  \"ReceivedQuantity\": \"<string>\",\n  \"UnitOfMeasureCode\": \"<string>\",\n  \"URI\": \"<string>\",\n  \"Version\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/purchaseorderreceipts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"purchaseorderreceipts"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"ErrorCode\": \"<string>\",\n  \"ErrorMessage\": \"<string>\",\n  \"FieldCode\": \"<string>\",\n  \"LineItemExternalID\": \"<string>\",\n  \"Message\": \"<string>\",\n  \"PurchaseOrderNumber\": \"<string>\",\n  \"Status\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Create purchase order receiving information for a purchase order line item.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"LineItemExternalID\": \"<string>\",\n  \"PurchaseOrderNumber\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Deleted\": \"<string>\",\n  \"DeliverySlipNumber\": \"<string>\",\n  \"GoodsReceiptNumber\": \"<string>\",\n  \"ID\": \"<string>\",\n  \"ReceivedDate\": \"<string>\",\n  \"ReceivedQuantity\": \"<string>\",\n  \"UnitOfMeasureCode\": \"<string>\",\n  \"URI\": \"<string>\",\n  \"Version\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/invoice/purchaseorderreceipts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"invoice",
+										"purchaseorderreceipts"
+									]
+								},
+								"description": "Creates purchase order receipts and associate if to purchase order line item and returns status of updation."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"LineItemExternalID\": \"<string>\",\n  \"PurchaseOrderNumber\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Deleted\": \"<string>\",\n  \"DeliverySlipNumber\": \"<string>\",\n  \"GoodsReceiptNumber\": \"<string>\",\n  \"ID\": \"<string>\",\n  \"ReceivedDate\": \"<string>\",\n  \"ReceivedQuantity\": \"<string>\",\n  \"UnitOfMeasureCode\": \"<string>\",\n  \"URI\": \"<string>\",\n  \"Version\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/purchaseorderreceipts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"purchaseorderreceipts"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"ErrorCode\": \"<string>\",\n  \"ErrorMessage\": \"<string>\",\n  \"FieldCode\": \"<string>\",\n  \"LineItemExternalID\": \"<string>\",\n  \"Message\": \"<string>\",\n  \"PurchaseOrderNumber\": \"<string>\",\n  \"Status\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Gets existing purchase order receipts information.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/invoice/purchaseorderreceipts?goodsReceiptNumber=<string>&purchaseOrderNumber=<string>&lineItemExternalID=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"invoice",
+										"purchaseorderreceipts"
+									],
+									"query": [
+										{
+											"key": "goodsReceiptNumber",
+											"value": "<string>",
+											"description": "(Required) Goods receipt number for a purchase order line item receipt. This parameter can be used alone or in combination with the other two parameters."
+										},
+										{
+											"key": "purchaseOrderNumber",
+											"value": "<string>",
+											"description": "(Required) The purchase order number. This parameter can be used alone or in combination with the other two parameters."
+										},
+										{
+											"key": "lineItemExternalID",
+											"value": "<string>",
+											"description": "A value that uniquely identifies the line item within the purchase order. This parameter cannot be used alone. It must be used in combination with one or more of the other available parameters."
+										}
+									]
+								},
+								"description": "Gets existing purchase order receipts using below parameters."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/invoice/purchaseorderreceipts?goodsReceiptNumber=<string>&purchaseOrderNumber=<string>&lineItemExternalID=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"purchaseorderreceipts"
+											],
+											"query": [
+												{
+													"key": "goodsReceiptNumber",
+													"value": "<string>",
+													"description": "(Required) Goods receipt number for a purchase order line item receipt. This parameter can be used alone or in combination with the other two parameters."
+												},
+												{
+													"key": "purchaseOrderNumber",
+													"value": "<string>",
+													"description": "(Required) The purchase order number. This parameter can be used alone or in combination with the other two parameters."
+												},
+												{
+													"key": "lineItemExternalID",
+													"value": "<string>",
+													"description": "A value that uniquely identifies the line item within the purchase order. This parameter cannot be used alone. It must be used in combination with one or more of the other available parameters."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Items\": {\n    \"LineItemExternalID\": \"<string>\",\n    \"PurchaseOrderNumber\": \"<string>\",\n    \"Custom1\": \"<string>\",\n    \"Custom10\": \"<string>\",\n    \"Custom2\": \"<string>\",\n    \"Custom3\": \"<string>\",\n    \"Custom4\": \"<string>\",\n    \"Custom5\": \"<string>\",\n    \"Custom6\": \"<string>\",\n    \"Custom7\": \"<string>\",\n    \"Custom8\": \"<string>\",\n    \"Custom9\": \"<string>\",\n    \"Deleted\": \"<string>\",\n    \"DeliverySlipNumber\": \"<string>\",\n    \"GoodsReceiptNumber\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"ReceivedDate\": \"<string>\",\n    \"ReceivedQuantity\": \"<string>\",\n    \"UnitOfMeasureCode\": \"<string>\",\n    \"URI\": \"<string>\",\n    \"Version\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"Info\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Deletes a purchase order line item receipt.",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/invoice/purchaseorderreceipts?goodsReceiptNumber=<string>&purchaseOrderNumber=<string>&lineItemExternalID=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"invoice",
+										"purchaseorderreceipts"
+									],
+									"query": [
+										{
+											"key": "goodsReceiptNumber",
+											"value": "<string>",
+											"description": "(Required) Goods receipt number for a purchase order line item receipt. This parameter can be used alone or in combination with the other two parameters."
+										},
+										{
+											"key": "purchaseOrderNumber",
+											"value": "<string>",
+											"description": "(Required) The purchase order number. This parameter can be used alone or in combination with the other two parameters."
+										},
+										{
+											"key": "lineItemExternalID",
+											"value": "<string>",
+											"description": "A value that uniquely identifies the line item within the purchase order. This parameter cannot be used alone. It must be used in combination with one or more of the other available parameters."
+										}
+									]
+								},
+								"description": "Deletes a existing purchase order line item receipt using the available parameters below. The delete will only be executed if a unique record is found and not associated to a payment request."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/invoice/purchaseorderreceipts?goodsReceiptNumber=<string>&purchaseOrderNumber=<string>&lineItemExternalID=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"purchaseorderreceipts"
+											],
+											"query": [
+												{
+													"key": "goodsReceiptNumber",
+													"value": "<string>",
+													"description": "(Required) Goods receipt number for a purchase order line item receipt. This parameter can be used alone or in combination with the other two parameters."
+												},
+												{
+													"key": "purchaseOrderNumber",
+													"value": "<string>",
+													"description": "(Required) The purchase order number. This parameter can be used alone or in combination with the other two parameters."
+												},
+												{
+													"key": "lineItemExternalID",
+													"value": "<string>",
+													"description": "A value that uniquely identifies the line item within the purchase order. This parameter cannot be used alone. It must be used in combination with one or more of the other available parameters."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/v3.0"
+		}
+	]
+}

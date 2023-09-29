@@ -1,0 +1,388 @@
+{
+	"info": {
+		"_postman_id": "133cd3a7-0672-49f9-958b-ba406f1ed721",
+		"name": "Lists",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "common",
+			"item": [
+				{
+					"name": "lists",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Get a single list by ID",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/common/lists/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"lists",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Returns a list by ID."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/common/lists/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"common",
+														"lists",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"ConnectorID\": \"<string>\",\n  \"DisplayCodeFirst\": \"<boolean>\",\n  \"ExternalThreshold\": \"<integer>\",\n  \"ID\": \"<string>\",\n  \"IsVendorList\": \"<boolean>\",\n  \"Name\": \"<string>\",\n  \"SearchCriteriaCode\": \"<string>\",\n  \"URI\": \"<string>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Update list",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"DisplayCodeFirst\": \"<boolean>\",\n  \"Name\": \"<string>\",\n  \"SearchCriteriaCode\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/common/lists/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"lists",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016. Updates list specified in the URL.  Only the fields provided in the supplied object will be updated, missing fields will not be altered."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"DisplayCodeFirst\": \"<boolean>\",\n  \"Name\": \"<string>\",\n  \"SearchCriteriaCode\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/common/lists/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"common",
+														"lists",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Gets all lists",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/common/lists",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"common",
+										"lists"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The number of records to return. The default is 25 and the maximum is 100.",
+											"disabled": true
+										},
+										{
+											"key": "offset",
+											"value": "<string>",
+											"description": "The start of the page offset. The default is from the beginning.",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Returns all lists based on the search criteria."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/common/lists?limit=<integer>&offset=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"lists"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "The number of records to return. The default is 25 and the maximum is 100."
+												},
+												{
+													"key": "offset",
+													"value": "<string>",
+													"description": "The start of the page offset. The default is from the beginning."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Items\": {\n    \"ConnectorID\": \"<string>\",\n    \"DisplayCodeFirst\": \"<boolean>\",\n    \"ExternalThreshold\": \"<integer>\",\n    \"ID\": \"<string>\",\n    \"IsVendorList\": \"<boolean>\",\n    \"Name\": \"<string>\",\n    \"SearchCriteriaCode\": \"<string>\",\n    \"URI\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Create a new list",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"ConnectorID\": \"<string>\",\n  \"DisplayCodeFirst\": \"<boolean>\",\n  \"ExternalThreshold\": \"<integer>\",\n  \"IsVendorList\": \"<boolean>\",\n  \"Name\": \"<string>\",\n  \"SearchCriteriaCode\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/common/lists",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"common",
+										"lists"
+									]
+								},
+								"description": "Create a new list"
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"ConnectorID\": \"<string>\",\n  \"DisplayCodeFirst\": \"<boolean>\",\n  \"ExternalThreshold\": \"<integer>\",\n  \"IsVendorList\": \"<boolean>\",\n  \"Name\": \"<string>\",\n  \"SearchCriteriaCode\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/common/lists",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"lists"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"ID\": \"<string>\",\n  \"URI\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/v3.0"
+		}
+	]
+}
