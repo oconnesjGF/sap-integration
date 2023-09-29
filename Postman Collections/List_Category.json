@@ -2277,9 +2277,37 @@
 			"id": "b81267fd-c239-4945-9bb3-b7d27b418fa3"
 		}
 	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "{{accessToken}}"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e87f04d3-6cac-4774-9fd3-bf0bf8974580",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d2916ed1-c108-42f7-a110-0c3ee2e7a37a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
-			"id": "9fb9d75f-494b-4256-83e2-ebdc6b786298",
+			"id": "8fced188-7a58-4740-a55c-11c9d67743d7",
 			"key": "baseUrl",
 			"value": "https://www.concursolutions.com/api/v4.0"
 		}
