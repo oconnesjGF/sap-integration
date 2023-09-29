@@ -1841,14 +1841,6 @@
 										"disableBodyPruning": true
 									},
 									"request": {
-										"auth": {
-											"type": "apikey",
-											"apikey": {
-												"key": "Authorization",
-												"value": "{{apiKey}}",
-												"in": "header"
-											}
-										},
 										"method": "POST",
 										"header": [
 											{
@@ -2291,7 +2283,7 @@
 	],
 	"variable": [
 		{
-			"id": "ad1d7c17-0675-4003-8684-f22dded76a15",
+			"id": "9fe32137-a651-49b8-8c59-305fd77163c6",
 			"key": "baseUrl",
 			"value": "https://www.concursolutions.com/api/v4.0"
 		}
