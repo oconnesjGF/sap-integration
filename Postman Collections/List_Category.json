@@ -1,0 +1,2302 @@
+{
+	"info": {
+		"_postman_id": "05bd785c-20e9-4d09-936d-f3f5659441e5",
+		"name": "List Category",
+		"description": "Provides an automated solution to clients who would like to manage list categories. This API provides methods to view, add, update or delete list categories.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "list",
+			"item": [
+				{
+					"name": "v4",
+					"item": [
+						{
+							"name": "categories",
+							"item": [
+								{
+									"name": "{categoryId}",
+									"item": [
+										{
+											"name": "Get a list category with provided id",
+											"id": "eb8bf39d-2999-481b-b4b5-63e0f8501b38",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "apikey",
+													"apikey": {
+														"key": "Authorization",
+														"value": "{{apiKey}}",
+														"in": "header"
+													}
+												},
+												"method": "GET",
+												"header": [
+													{
+														"description": "Language code",
+														"key": "Accept-Language",
+														"value": "en"
+													},
+													{
+														"description": "Company UUID of the user (Used for x509 authorization)",
+														"key": "company-uuid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"list",
+														"v4",
+														"categories",
+														":categoryId"
+													],
+													"variable": [
+														{
+															"id": "1dd6687d-136d-4822-aca7-7b291b94100b",
+															"key": "categoryId",
+															"value": "<uuid>"
+														}
+													]
+												},
+												"description": "Returns an existing category"
+											},
+											"response": [
+												{
+													"id": "db1749f9-cb73-45dc-a2f3-8a5dffc10b39",
+													"name": "Successfully get list category",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"description": "Language code",
+																"key": "Accept-Language",
+																"value": "en"
+															},
+															{
+																"description": "Company UUID of the user (Used for x509 authorization)",
+																"key": "company-uuid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"list",
+																"v4",
+																"categories",
+																":categoryId"
+															],
+															"variable": [
+																{
+																	"key": "categoryId"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n  \"id\": \"<uuid>\",\n  \"value\": \"<string>\",\n  \"type\": \"<string>\",\n  \"isSystemRecord\": \"<boolean>\",\n  \"isDeleted\": \"<boolean>\",\n  \"isReadOnly\": \"<boolean>\"\n}"
+												},
+												{
+													"id": "b25a79f8-1bc2-4498-9abb-5c72ef968434",
+													"name": "Entity does not exist",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"description": "Language code",
+																"key": "Accept-Language",
+																"value": "en"
+															},
+															{
+																"description": "Company UUID of the user (Used for x509 authorization)",
+																"key": "company-uuid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"list",
+																"v4",
+																"categories",
+																":categoryId"
+															],
+															"variable": [
+																{
+																	"key": "categoryId"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+												},
+												{
+													"id": "b76ad1b4-888a-4cf1-a307-9118e6ac3ad1",
+													"name": "Access Denied",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"description": "Language code",
+																"key": "Accept-Language",
+																"value": "en"
+															},
+															{
+																"description": "Company UUID of the user (Used for x509 authorization)",
+																"key": "company-uuid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"list",
+																"v4",
+																"categories",
+																":categoryId"
+															],
+															"variable": [
+																{
+																	"key": "categoryId"
+																}
+															]
+														}
+													},
+													"status": "Unauthorized",
+													"code": 401,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+												},
+												{
+													"id": "11cd2870-88a7-4221-8a39-78506fc1621e",
+													"name": "List category not found",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"description": "Language code",
+																"key": "Accept-Language",
+																"value": "en"
+															},
+															{
+																"description": "Company UUID of the user (Used for x509 authorization)",
+																"key": "company-uuid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"list",
+																"v4",
+																"categories",
+																":categoryId"
+															],
+															"variable": [
+																{
+																	"key": "categoryId"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+												},
+												{
+													"id": "d9ec7867-e4a1-4154-92de-213369f355b1",
+													"name": "Internal server error",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"description": "Language code",
+																"key": "Accept-Language",
+																"value": "en"
+															},
+															{
+																"description": "Company UUID of the user (Used for x509 authorization)",
+																"key": "company-uuid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"list",
+																"v4",
+																"categories",
+																":categoryId"
+															],
+															"variable": [
+																{
+																	"key": "categoryId"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+												}
+											]
+										},
+										{
+											"name": "Updates the specified category with provided request body",
+											"id": "32ab8453-f268-469b-b810-0a74c7612b80",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "apikey",
+													"apikey": {
+														"key": "Authorization",
+														"value": "{{apiKey}}",
+														"in": "header"
+													}
+												},
+												"method": "PUT",
+												"header": [
+													{
+														"description": "Language code",
+														"key": "Accept-Language",
+														"value": "en"
+													},
+													{
+														"description": "Company UUID of the user (Used for x509 authorization)",
+														"key": "company-uuid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"value\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"list",
+														"v4",
+														"categories",
+														":categoryId"
+													],
+													"variable": [
+														{
+															"id": "93d8f370-4501-4f72-871f-79fa62aa2ee1",
+															"key": "categoryId",
+															"value": "<uuid>"
+														}
+													]
+												},
+												"description": "Returns an updated category"
+											},
+											"response": [
+												{
+													"id": "96a1c2f0-d845-473c-9cac-25782b2e159d",
+													"name": "Successfully updated the list category",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"description": "Language code",
+																"key": "Accept-Language",
+																"value": "en"
+															},
+															{
+																"description": "Company UUID of the user (Used for x509 authorization)",
+																"key": "company-uuid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"value\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"list",
+																"v4",
+																"categories",
+																":categoryId"
+															],
+															"variable": [
+																{
+																	"key": "categoryId"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n  \"id\": \"<uuid>\",\n  \"value\": \"<string>\",\n  \"type\": \"<string>\",\n  \"isSystemRecord\": \"<boolean>\",\n  \"isDeleted\": \"<boolean>\",\n  \"isReadOnly\": \"<boolean>\"\n}"
+												},
+												{
+													"id": "24048457-21b4-46ef-b588-446b126dfd4c",
+													"name": "This List Category name is already in use",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"description": "Language code",
+																"key": "Accept-Language",
+																"value": "en"
+															},
+															{
+																"description": "Company UUID of the user (Used for x509 authorization)",
+																"key": "company-uuid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"value\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"list",
+																"v4",
+																"categories",
+																":categoryId"
+															],
+															"variable": [
+																{
+																	"key": "categoryId"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+												},
+												{
+													"id": "ba5cdbe4-4469-491a-a122-11486f93b287",
+													"name": "Access Denied",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"description": "Language code",
+																"key": "Accept-Language",
+																"value": "en"
+															},
+															{
+																"description": "Company UUID of the user (Used for x509 authorization)",
+																"key": "company-uuid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"value\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"list",
+																"v4",
+																"categories",
+																":categoryId"
+															],
+															"variable": [
+																{
+																	"key": "categoryId"
+																}
+															]
+														}
+													},
+													"status": "Unauthorized",
+													"code": 401,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+												},
+												{
+													"id": "8a8f51ac-d351-4d6e-8da4-3b85b78f8d43",
+													"name": "Forbidden",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"description": "Language code",
+																"key": "Accept-Language",
+																"value": "en"
+															},
+															{
+																"description": "Company UUID of the user (Used for x509 authorization)",
+																"key": "company-uuid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"value\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"list",
+																"v4",
+																"categories",
+																":categoryId"
+															],
+															"variable": [
+																{
+																	"key": "categoryId"
+																}
+															]
+														}
+													},
+													"status": "Forbidden",
+													"code": 403,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+												},
+												{
+													"id": "9544f9f5-c270-4570-88de-3c20c879864f",
+													"name": "List category not found",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"description": "Language code",
+																"key": "Accept-Language",
+																"value": "en"
+															},
+															{
+																"description": "Company UUID of the user (Used for x509 authorization)",
+																"key": "company-uuid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"value\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"list",
+																"v4",
+																"categories",
+																":categoryId"
+															],
+															"variable": [
+																{
+																	"key": "categoryId"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+												},
+												{
+													"id": "63bd4958-5823-430e-ae2c-9b7a7f426962",
+													"name": "The specified media type is not supported",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"description": "Language code",
+																"key": "Accept-Language",
+																"value": "en"
+															},
+															{
+																"description": "Company UUID of the user (Used for x509 authorization)",
+																"key": "company-uuid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"value\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"list",
+																"v4",
+																"categories",
+																":categoryId"
+															],
+															"variable": [
+																{
+																	"key": "categoryId"
+																}
+															]
+														}
+													},
+													"status": "Unsupported Media Type",
+													"code": 415,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+												},
+												{
+													"id": "cce2d04b-cbd4-4a1c-bb60-6a98c00b4fe9",
+													"name": "List category not updated",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"description": "Language code",
+																"key": "Accept-Language",
+																"value": "en"
+															},
+															{
+																"description": "Company UUID of the user (Used for x509 authorization)",
+																"key": "company-uuid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"value\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"list",
+																"v4",
+																"categories",
+																":categoryId"
+															],
+															"variable": [
+																{
+																	"key": "categoryId"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+												}
+											]
+										},
+										{
+											"name": "Delete a list category",
+											"id": "f3ae54f7-dc9b-454a-8116-41b3ce654823",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "apikey",
+													"apikey": {
+														"key": "Authorization",
+														"value": "{{apiKey}}",
+														"in": "header"
+													}
+												},
+												"method": "DELETE",
+												"header": [
+													{
+														"description": "Company UUID of the user (Used for x509 authorization)",
+														"key": "company-uuid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"list",
+														"v4",
+														"categories",
+														":categoryId"
+													],
+													"variable": [
+														{
+															"id": "294c4539-bd97-477b-8ec9-65c330f71458",
+															"key": "categoryId",
+															"value": "<uuid>"
+														}
+													]
+												},
+												"description": "Deletes list category"
+											},
+											"response": [
+												{
+													"id": "5f37fed4-cb63-411f-ba10-b3e76f8a5513",
+													"name": "Successfully deleted list category",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"description": "Company UUID of the user (Used for x509 authorization)",
+																"key": "company-uuid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"list",
+																"v4",
+																"categories",
+																":categoryId"
+															],
+															"variable": [
+																{
+																	"key": "categoryId"
+																}
+															]
+														}
+													},
+													"status": "No Content",
+													"code": 204,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"responseTime": null,
+													"body": ""
+												},
+												{
+													"id": "77e3a234-efa2-4434-95cd-df1612fbf273",
+													"name": "There are list associated with the list category",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"description": "Company UUID of the user (Used for x509 authorization)",
+																"key": "company-uuid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"list",
+																"v4",
+																"categories",
+																":categoryId"
+															],
+															"variable": [
+																{
+																	"key": "categoryId"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+												},
+												{
+													"id": "801e49c9-d396-420a-92d0-45506e377e21",
+													"name": "Access Denied",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"description": "Company UUID of the user (Used for x509 authorization)",
+																"key": "company-uuid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"list",
+																"v4",
+																"categories",
+																":categoryId"
+															],
+															"variable": [
+																{
+																	"key": "categoryId"
+																}
+															]
+														}
+													},
+													"status": "Unauthorized",
+													"code": 401,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+												},
+												{
+													"id": "43a54cdc-0872-4f21-8bd1-b6c6f1d7dbeb",
+													"name": "Forbidden",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"description": "Company UUID of the user (Used for x509 authorization)",
+																"key": "company-uuid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"list",
+																"v4",
+																"categories",
+																":categoryId"
+															],
+															"variable": [
+																{
+																	"key": "categoryId"
+																}
+															]
+														}
+													},
+													"status": "Forbidden",
+													"code": 403,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+												},
+												{
+													"id": "c71d56e7-1ff0-4fb9-9259-4c5d7c7f8fef",
+													"name": "Internal server error",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"description": "Company UUID of the user (Used for x509 authorization)",
+																"key": "company-uuid",
+																"value": "<string>"
+															},
+															{
+																"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+																"key": "concur-correlationid",
+																"value": "<string>"
+															},
+															{
+																"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+																"key": "concur-uid",
+																"value": "<string>"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"list",
+																"v4",
+																"categories",
+																":categoryId"
+															],
+															"variable": [
+																{
+																	"key": "categoryId"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+												}
+											]
+										}
+									],
+									"id": "64211141-8263-481a-a5ce-2768d37c96c2"
+								},
+								{
+									"name": "Gets all categories for the given company.",
+									"id": "c5bd8e71-f59e-43cb-89a4-ebf24af5cd0c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": {
+												"key": "Authorization",
+												"value": "{{apiKey}}",
+												"in": "header"
+											}
+										},
+										"method": "GET",
+										"header": [
+											{
+												"description": "Language code",
+												"key": "Accept-Language",
+												"value": "en"
+											},
+											{
+												"description": "Company UUID of the user (Used for x509 authorization)",
+												"key": "company-uuid",
+												"value": "<string>"
+											},
+											{
+												"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+												"key": "concur-uid",
+												"value": "<string>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/list/v4/categories?page=1&type=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"list",
+												"v4",
+												"categories"
+											],
+											"query": [
+												{
+													"description": "Page number starting from 1",
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"description": "Filter capabilities for List Category type",
+													"key": "type",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Returns all categories"
+									},
+									"response": [
+										{
+											"id": "314a914f-027e-4216-a376-008d5976dc8a",
+											"name": "Successfully get all categories",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Language code",
+														"key": "Accept-Language",
+														"value": "en"
+													},
+													{
+														"description": "Company UUID of the user (Used for x509 authorization)",
+														"key": "company-uuid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/list/v4/categories?page=1&type=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"list",
+														"v4",
+														"categories"
+													],
+													"query": [
+														{
+															"description": "Page number starting from 1",
+															"key": "page",
+															"value": "1"
+														},
+														{
+															"description": "Filter capabilities for List Category type",
+															"key": "type",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"content\": [\n    {\n      \"id\": \"<uuid>\",\n      \"value\": \"<string>\",\n      \"type\": \"<string>\",\n      \"isSystemRecord\": \"<boolean>\",\n      \"isDeleted\": \"<boolean>\",\n      \"isReadOnly\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"value\": \"<string>\",\n      \"type\": \"<string>\",\n      \"isSystemRecord\": \"<boolean>\",\n      \"isDeleted\": \"<boolean>\",\n      \"isReadOnly\": \"<boolean>\"\n    }\n  ],\n  \"links\": [\n    {\n      \"deprecation\": \"<string>\",\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"media\": \"<string>\",\n      \"rel\": \"<string>\",\n      \"templated\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"deprecation\": \"<string>\",\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"media\": \"<string>\",\n      \"rel\": \"<string>\",\n      \"templated\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"page\": {\n    \"number\": \"<long>\",\n    \"size\": \"<long>\",\n    \"totalElements\": \"<long>\",\n    \"totalPages\": \"<long>\"\n  }\n}"
+										},
+										{
+											"id": "c7033cda-a636-46d9-9b5b-adfaebf1894c",
+											"name": "Entity does not exist",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Language code",
+														"key": "Accept-Language",
+														"value": "en"
+													},
+													{
+														"description": "Company UUID of the user (Used for x509 authorization)",
+														"key": "company-uuid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/list/v4/categories?page=1&type=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"list",
+														"v4",
+														"categories"
+													],
+													"query": [
+														{
+															"description": "Page number starting from 1",
+															"key": "page",
+															"value": "1"
+														},
+														{
+															"description": "Filter capabilities for List Category type",
+															"key": "type",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"id": "46992a61-1a46-424a-bacc-794c7a9c86eb",
+											"name": "Access Denied",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Language code",
+														"key": "Accept-Language",
+														"value": "en"
+													},
+													{
+														"description": "Company UUID of the user (Used for x509 authorization)",
+														"key": "company-uuid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/list/v4/categories?page=1&type=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"list",
+														"v4",
+														"categories"
+													],
+													"query": [
+														{
+															"description": "Page number starting from 1",
+															"key": "page",
+															"value": "1"
+														},
+														{
+															"description": "Filter capabilities for List Category type",
+															"key": "type",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"id": "f15b672b-5aa1-4566-97ee-0723655be5dd",
+											"name": "List category not found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Language code",
+														"key": "Accept-Language",
+														"value": "en"
+													},
+													{
+														"description": "Company UUID of the user (Used for x509 authorization)",
+														"key": "company-uuid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/list/v4/categories?page=1&type=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"list",
+														"v4",
+														"categories"
+													],
+													"query": [
+														{
+															"description": "Page number starting from 1",
+															"key": "page",
+															"value": "1"
+														},
+														{
+															"description": "Filter capabilities for List Category type",
+															"key": "type",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"id": "9213d65a-8a78-4e07-96c2-f24748d6cbf7",
+											"name": "Internal server error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Language code",
+														"key": "Accept-Language",
+														"value": "en"
+													},
+													{
+														"description": "Company UUID of the user (Used for x509 authorization)",
+														"key": "company-uuid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/list/v4/categories?page=1&type=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"list",
+														"v4",
+														"categories"
+													],
+													"query": [
+														{
+															"description": "Page number starting from 1",
+															"key": "page",
+															"value": "1"
+														},
+														{
+															"description": "Filter capabilities for List Category type",
+															"key": "type",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Create a category with provided request body",
+									"id": "184053bd-5c50-4b27-9ad1-152facec3ebf",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": {
+												"key": "Authorization",
+												"value": "{{apiKey}}",
+												"in": "header"
+											}
+										},
+										"method": "POST",
+										"header": [
+											{
+												"description": "Company UUID of the user (Used for x509 authorization)",
+												"key": "company-uuid",
+												"value": "<string>"
+											},
+											{
+												"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+												"key": "concur-uid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"value\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/list/v4/categories",
+										"description": "Returns a new category"
+									},
+									"response": [
+										{
+											"id": "ca7bc9d5-d323-4b9a-9b9f-85544e6ae27c",
+											"name": "Successfully created a category",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "Company UUID of the user (Used for x509 authorization)",
+														"key": "company-uuid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"value\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{baseUrl}}/list/v4/categories"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"id\": \"<uuid>\",\n  \"value\": \"<string>\",\n  \"type\": \"<string>\",\n  \"isSystemRecord\": \"<boolean>\",\n  \"isDeleted\": \"<boolean>\",\n  \"isReadOnly\": \"<boolean>\"\n}"
+										},
+										{
+											"id": "8da91507-ad1b-45dc-bc22-df592ca81698",
+											"name": "Entity does not exist",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "Company UUID of the user (Used for x509 authorization)",
+														"key": "company-uuid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"value\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{baseUrl}}/list/v4/categories"
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"id": "efc8e28e-1785-49a3-b65c-d7d3c6e2e522",
+											"name": "Access Denied",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "Company UUID of the user (Used for x509 authorization)",
+														"key": "company-uuid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"value\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{baseUrl}}/list/v4/categories"
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"id": "41a21908-cc5f-40ce-a2cf-ede781d1158b",
+											"name": "Forbidden",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "Company UUID of the user (Used for x509 authorization)",
+														"key": "company-uuid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"value\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{baseUrl}}/list/v4/categories"
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"id": "9897935f-f936-4db9-94e6-32118a0484a3",
+											"name": "The specified media type is not supported",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "Company UUID of the user (Used for x509 authorization)",
+														"key": "company-uuid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"value\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{baseUrl}}/list/v4/categories"
+											},
+											"status": "Unsupported Media Type",
+											"code": 415,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"id": "544a4f9a-3c09-475d-9cf4-52c1ed95feb7",
+											"name": "The list category could not be created",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "Company UUID of the user (Used for x509 authorization)",
+														"key": "company-uuid",
+														"value": "<string>"
+													},
+													{
+														"description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"description": "Concur Employee UUID of the caller (Used for x509 authorization)",
+														"key": "concur-uid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"value\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{baseUrl}}/list/v4/categories"
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"error\": {\n    \"id\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"validationErrors\": [\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}"
+										}
+									]
+								}
+							],
+							"id": "1da851cf-c7b4-4b85-9e4d-492cdbf87b1d"
+						}
+					],
+					"id": "3c99ec4a-c896-4954-91ca-eb2ccfa2c6fd"
+				}
+			],
+			"id": "b81267fd-c239-4945-9bb3-b7d27b418fa3"
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/v4.0"
+		}
+	]
+}
