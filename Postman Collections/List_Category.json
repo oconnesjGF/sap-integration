@@ -53,11 +53,14 @@
 													}
 												],
 												"url": {
-													"raw": "{{baseUrl}}/list/v4/categories/:categoryId",
+													"raw": "https://{{dataCenterURI}}/api/v4.0/list/v4/categories/:categoryId",
+													"protocol": "https",
 													"host": [
-														"{{baseUrl}}"
+														"{{dataCenterURI}}"
 													],
 													"path": [
+														"api",
+														"v4.0",
 														"list",
 														"v4",
 														"categories",
@@ -65,9 +68,8 @@
 													],
 													"variable": [
 														{
-															"id": "1dd6687d-136d-4822-aca7-7b291b94100b",
 															"key": "categoryId",
-															"value": "<uuid>"
+															"value": ""
 														}
 													]
 												},
@@ -2285,7 +2287,7 @@
 	],
 	"variable": [
 		{
-			"id": "afd355f4-d455-4dc4-b8e6-19fc82086a7b",
+			"id": "9f6f67b9-f39f-4255-8bd9-1a905717aac4",
 			"key": "baseUrl",
 			"value": "https://www-us2.api.concursolutions.com/api/v4.0"
 		}
