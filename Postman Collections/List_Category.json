@@ -25,14 +25,6 @@
 												"disableBodyPruning": true
 											},
 											"request": {
-												"auth": {
-													"type": "apikey",
-													"apikey": {
-														"key": "Authorization",
-														"value": "{{apiKey}}",
-														"in": "header"
-													}
-												},
 												"method": "GET",
 												"header": [
 													{
@@ -2295,6 +2287,7 @@
 	],
 	"variable": [
 		{
+			"id": "9aa4cce8-baaa-4a5e-b160-a9b7b1bcbce5",
 			"key": "baseUrl",
 			"value": "https://www.concursolutions.com/api/v4.0"
 		}
