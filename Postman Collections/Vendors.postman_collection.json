@@ -1,0 +1,937 @@
+{
+	"info": {
+		"_postman_id": "146a3c00-6a55-4ec7-a3e4-edfa08f2c682",
+		"name": "Vendors",
+		"description": "An invoice is a bill of sale for goods or services provided by a vendor. This API provides methods to create, update, or delete invoice vendors.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "invoice",
+			"item": [
+				{
+					"name": "vendors",
+					"item": [
+						{
+							"name": "Retrieves an existing vendor.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/invoice/vendors?limit=<integer>&offset=<string>&sortDirection=<string>&sortBy=<string>&searchType=<string>&vendorCode=<string>&vendorName=<string>&taxID=<string>&buyerAccountNumber=<string>&addressCode=<string>&paymentMethodType=<string>&address1=<string>&address2=<string>&address3=<string>&city=<string>&state=<string>&postalCode=<string>&approved=<string>&country=<string>&custom1=<string>&custom2=<string>&custom3=<string>&custom4=<string>&custom5=<string>&custom6=<string>&custom7=<string>&custom8=<string>&custom9=<string>&custom10=<string>&custom11=<string>&custom12=<string>&custom13=<string>&custom14=<string>&custom15=<string>&custom16=<string>&custom17=<string>&custom18=<string>&custom19=<string>&custom20=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"invoice",
+										"vendors"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The maximum number of items to be returned in a  response. The default is 25 and cannot exceed 1000."
+										},
+										{
+											"key": "offset",
+											"value": "<string>",
+											"description": "Specifies the starting point for the next query when iterating through the collection response.  Use with paged collections of resources."
+										},
+										{
+											"key": "sortDirection",
+											"value": "<string>",
+											"description": "ascending or descending, The default value will be ascending."
+										},
+										{
+											"key": "sortBy",
+											"value": "<string>",
+											"description": "Field you need to the results to be sorted by. Vendor Name will be made default if no value is sent. Only fields that are added to the vendor form can be used here. Fields have to be specified by name as specified in Doc."
+										},
+										{
+											"key": "searchType",
+											"value": "<string>",
+											"description": "Applies for the entire given search parameters. The default value is exact. Supported values: exact, begins, contains, ends"
+										},
+										{
+											"key": "vendorCode",
+											"value": "<string>",
+											"description": "Vendor Code to be searched"
+										},
+										{
+											"key": "vendorName",
+											"value": "<string>",
+											"description": "Vendor Name to be searched"
+										},
+										{
+											"key": "taxID",
+											"value": "<string>",
+											"description": "Tax ID to be searched"
+										},
+										{
+											"key": "buyerAccountNumber",
+											"value": "<string>",
+											"description": "Buyer Account Number to be searched"
+										},
+										{
+											"key": "addressCode",
+											"value": "<string>",
+											"description": "Address Code to be searched"
+										},
+										{
+											"key": "paymentMethodType",
+											"value": "<string>",
+											"description": "Payment Method Type to be searched. Valid values are ACH, CARD, CHECK, CLIENT, PAYPVD, VCHER, WIRE"
+										},
+										{
+											"key": "address1",
+											"value": "<string>",
+											"description": "Address 1 to be searched"
+										},
+										{
+											"key": "address2",
+											"value": "<string>",
+											"description": "Address 2 to be searched"
+										},
+										{
+											"key": "address3",
+											"value": "<string>",
+											"description": "Address 3 to be searched"
+										},
+										{
+											"key": "city",
+											"value": "<string>",
+											"description": "City to be searched"
+										},
+										{
+											"key": "state",
+											"value": "<string>",
+											"description": "State to be searched"
+										},
+										{
+											"key": "postalCode",
+											"value": "<string>",
+											"description": "Postal Code to be searched"
+										},
+										{
+											"key": "approved",
+											"value": "<string>",
+											"description": "Find Approved/Un Approved Vendors , True/False"
+										},
+										{
+											"key": "country",
+											"value": "<string>",
+											"description": "Country to be searched"
+										},
+										{
+											"key": "custom1",
+											"value": "<string>",
+											"description": "Custom 1 to be searched"
+										},
+										{
+											"key": "custom2",
+											"value": "<string>",
+											"description": "Custom 2 to be searched"
+										},
+										{
+											"key": "custom3",
+											"value": "<string>",
+											"description": "Custom 3 to be searched"
+										},
+										{
+											"key": "custom4",
+											"value": "<string>",
+											"description": "Custom 4 to be searched"
+										},
+										{
+											"key": "custom5",
+											"value": "<string>",
+											"description": "Custom 5 to be searched"
+										},
+										{
+											"key": "custom6",
+											"value": "<string>",
+											"description": "Custom 6 to be searched"
+										},
+										{
+											"key": "custom7",
+											"value": "<string>",
+											"description": "Custom 7 to be searched"
+										},
+										{
+											"key": "custom8",
+											"value": "<string>",
+											"description": "Custom 8 to be searched"
+										},
+										{
+											"key": "custom9",
+											"value": "<string>",
+											"description": "Custom 9 to be searched"
+										},
+										{
+											"key": "custom10",
+											"value": "<string>",
+											"description": "Custom 10 to be searched"
+										},
+										{
+											"key": "custom11",
+											"value": "<string>",
+											"description": "Custom 11 to be searched"
+										},
+										{
+											"key": "custom12",
+											"value": "<string>",
+											"description": "Custom 12 to be searched"
+										},
+										{
+											"key": "custom13",
+											"value": "<string>",
+											"description": "Custom 13 to be searched"
+										},
+										{
+											"key": "custom14",
+											"value": "<string>",
+											"description": "Custom 14 to be searched"
+										},
+										{
+											"key": "custom15",
+											"value": "<string>",
+											"description": "Custom 15 to be searched"
+										},
+										{
+											"key": "custom16",
+											"value": "<string>",
+											"description": "Custom 16 to be searched"
+										},
+										{
+											"key": "custom17",
+											"value": "<string>",
+											"description": "Custom 17 to be searched"
+										},
+										{
+											"key": "custom18",
+											"value": "<string>",
+											"description": "Custom 18 to be searched"
+										},
+										{
+											"key": "custom19",
+											"value": "<string>",
+											"description": "Custom 19 to be searched"
+										},
+										{
+											"key": "custom20",
+											"value": "<string>",
+											"description": "Custom 20 to be searched"
+										}
+									]
+								},
+								"description": "Gets an existing vendor. Note: If authenticating with a Company access token the API will return all vendors associated with a specific entity."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/invoice/vendors?limit=<integer>&offset=<string>&sortDirection=<string>&sortBy=<string>&searchType=<string>&vendorCode=<string>&vendorName=<string>&taxID=<string>&buyerAccountNumber=<string>&addressCode=<string>&paymentMethodType=<string>&address1=<string>&address2=<string>&address3=<string>&city=<string>&state=<string>&postalCode=<string>&approved=<string>&country=<string>&custom1=<string>&custom2=<string>&custom3=<string>&custom4=<string>&custom5=<string>&custom6=<string>&custom7=<string>&custom8=<string>&custom9=<string>&custom10=<string>&custom11=<string>&custom12=<string>&custom13=<string>&custom14=<string>&custom15=<string>&custom16=<string>&custom17=<string>&custom18=<string>&custom19=<string>&custom20=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"vendors"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "The maximum number of items to be returned in a  response. The default is 25 and cannot exceed 1000."
+												},
+												{
+													"key": "offset",
+													"value": "<string>",
+													"description": "Specifies the starting point for the next query when iterating through the collection response.  Use with paged collections of resources."
+												},
+												{
+													"key": "sortDirection",
+													"value": "<string>",
+													"description": "ascending or descending, The default value will be ascending."
+												},
+												{
+													"key": "sortBy",
+													"value": "<string>",
+													"description": "Field you need to the results to be sorted by. Vendor Name will be made default if no value is sent. Only fields that are added to the vendor form can be used here. Fields have to be specified by name as specified in Doc."
+												},
+												{
+													"key": "searchType",
+													"value": "<string>",
+													"description": "Applies for the entire given search parameters. The default value is exact. Supported values: exact, begins, contains, ends"
+												},
+												{
+													"key": "vendorCode",
+													"value": "<string>",
+													"description": "Vendor Code to be searched"
+												},
+												{
+													"key": "vendorName",
+													"value": "<string>",
+													"description": "Vendor Name to be searched"
+												},
+												{
+													"key": "taxID",
+													"value": "<string>",
+													"description": "Tax ID to be searched"
+												},
+												{
+													"key": "buyerAccountNumber",
+													"value": "<string>",
+													"description": "Buyer Account Number to be searched"
+												},
+												{
+													"key": "addressCode",
+													"value": "<string>",
+													"description": "Address Code to be searched"
+												},
+												{
+													"key": "paymentMethodType",
+													"value": "<string>",
+													"description": "Payment Method Type to be searched. Valid values are ACH, CARD, CHECK, CLIENT, PAYPVD, VCHER, WIRE"
+												},
+												{
+													"key": "address1",
+													"value": "<string>",
+													"description": "Address 1 to be searched"
+												},
+												{
+													"key": "address2",
+													"value": "<string>",
+													"description": "Address 2 to be searched"
+												},
+												{
+													"key": "address3",
+													"value": "<string>",
+													"description": "Address 3 to be searched"
+												},
+												{
+													"key": "city",
+													"value": "<string>",
+													"description": "City to be searched"
+												},
+												{
+													"key": "state",
+													"value": "<string>",
+													"description": "State to be searched"
+												},
+												{
+													"key": "postalCode",
+													"value": "<string>",
+													"description": "Postal Code to be searched"
+												},
+												{
+													"key": "approved",
+													"value": "<string>",
+													"description": "Find Approved/Un Approved Vendors , True/False"
+												},
+												{
+													"key": "country",
+													"value": "<string>",
+													"description": "Country to be searched"
+												},
+												{
+													"key": "custom1",
+													"value": "<string>",
+													"description": "Custom 1 to be searched"
+												},
+												{
+													"key": "custom2",
+													"value": "<string>",
+													"description": "Custom 2 to be searched"
+												},
+												{
+													"key": "custom3",
+													"value": "<string>",
+													"description": "Custom 3 to be searched"
+												},
+												{
+													"key": "custom4",
+													"value": "<string>",
+													"description": "Custom 4 to be searched"
+												},
+												{
+													"key": "custom5",
+													"value": "<string>",
+													"description": "Custom 5 to be searched"
+												},
+												{
+													"key": "custom6",
+													"value": "<string>",
+													"description": "Custom 6 to be searched"
+												},
+												{
+													"key": "custom7",
+													"value": "<string>",
+													"description": "Custom 7 to be searched"
+												},
+												{
+													"key": "custom8",
+													"value": "<string>",
+													"description": "Custom 8 to be searched"
+												},
+												{
+													"key": "custom9",
+													"value": "<string>",
+													"description": "Custom 9 to be searched"
+												},
+												{
+													"key": "custom10",
+													"value": "<string>",
+													"description": "Custom 10 to be searched"
+												},
+												{
+													"key": "custom11",
+													"value": "<string>",
+													"description": "Custom 11 to be searched"
+												},
+												{
+													"key": "custom12",
+													"value": "<string>",
+													"description": "Custom 12 to be searched"
+												},
+												{
+													"key": "custom13",
+													"value": "<string>",
+													"description": "Custom 13 to be searched"
+												},
+												{
+													"key": "custom14",
+													"value": "<string>",
+													"description": "Custom 14 to be searched"
+												},
+												{
+													"key": "custom15",
+													"value": "<string>",
+													"description": "Custom 15 to be searched"
+												},
+												{
+													"key": "custom16",
+													"value": "<string>",
+													"description": "Custom 16 to be searched"
+												},
+												{
+													"key": "custom17",
+													"value": "<string>",
+													"description": "Custom 17 to be searched"
+												},
+												{
+													"key": "custom18",
+													"value": "<string>",
+													"description": "Custom 18 to be searched"
+												},
+												{
+													"key": "custom19",
+													"value": "<string>",
+													"description": "Custom 19 to be searched"
+												},
+												{
+													"key": "custom20",
+													"value": "<string>",
+													"description": "Custom 20 to be searched"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Vendor\": {\n    \"AddressCode\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"VendorCode\": \"<string>\",\n    \"AccountNumber\": \"<string>\",\n    \"Address1\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"AddressImportSyncID\": \"<string>\",\n    \"Approved\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ContactEmail\": \"<string>\",\n    \"ContactFirstName\": \"<string>\",\n    \"ContactLastName\": \"<string>\",\n    \"ContactPhoneNumber\": \"<string>\",\n    \"Country\": \"<string>\",\n    \"CurrencyCode\": \"<string>\",\n    \"Custom1\": \"<string>\",\n    \"Custom10\": \"<string>\",\n    \"Custom11\": \"<string>\",\n    \"Custom12\": \"<string>\",\n    \"Custom13\": \"<string>\",\n    \"Custom14\": \"<string>\",\n    \"Custom15\": \"<string>\",\n    \"Custom16\": \"<string>\",\n    \"Custom17\": \"<string>\",\n    \"Custom18\": \"<string>\",\n    \"Custom19\": \"<string>\",\n    \"Custom2\": \"<string>\",\n    \"Custom20\": \"<string>\",\n    \"Custom3\": \"<string>\",\n    \"Custom4\": \"<string>\",\n    \"Custom5\": \"<string>\",\n    \"Custom6\": \"<string>\",\n    \"Custom7\": \"<string>\",\n    \"Custom8\": \"<string>\",\n    \"Custom9\": \"<string>\",\n    \"DefaultEmployeeID\": \"<string>\",\n    \"DefaultExpenseTypeName\": \"<string>\",\n    \"DiscountPercentage\": \"<string>\",\n    \"DiscountTermsDays\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"IsLineItemVatIncld\": \"<string>\",\n    \"IsVisibleForContentExtraction\": \"<string>\",\n    \"PaymentMethodType\": \"<string>\",\n    \"PaymentTerms\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"ProvincialTaxID\": \"<string>\",\n    \"PurchaseOrderContactEmail\": \"<string>\",\n    \"PurchaseOrderContactFirstName\": \"<string>\",\n    \"PurchaseOrderContactLastName\": \"<string>\",\n    \"PurchaseOrderContactPhoneNumber\": \"<string>\",\n    \"ShippingMethod\": \"<string>\",\n    \"ShippingTerms\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StatusList\": {\n      \"Code\": \"<integer>\",\n      \"Message\": \"<string>\",\n      \"RecordNumber\": \"<integer>\",\n      \"Type\": \"<string>\"\n    },\n    \"TaxID\": \"<string>\",\n    \"TaxType\": \"<string>\",\n    \"URI\": \"<string>\",\n    \"VendorBankList\": {\n      \"AccountNumber\": \"<string>\",\n      \"AccountType\": \"<string>\",\n      \"AddressCode\": \"<string>\",\n      \"BankCode\": \"<string>\",\n      \"BankName\": \"<string>\",\n      \"BranchCode\": \"<string>\",\n      \"BranchLocation\": \"<string>\",\n      \"CountryCode\": \"<string>\",\n      \"CurrencyAlphaCode\": \"<string>\",\n      \"ID\": \"<string>\",\n      \"IsActive\": \"<string>\",\n      \"NameOnAccount\": \"<string>\",\n      \"RoutingNumber\": \"<string>\",\n      \"StatusList\": {\n        \"Code\": \"<integer>\",\n        \"Message\": \"<string>\",\n        \"RecordNumber\": \"<integer>\",\n        \"Type\": \"<string>\"\n      },\n      \"TransType\": \"<string>\",\n      \"URI\": \"<string>\",\n      \"VendorCode\": \"<string>\"\n    },\n    \"VendorFormName\": \"<string>\",\n    \"VendorGroupList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"VendorName\": \"<string>\",\n    \"VoucherNotes\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\",\n  \"RequestRunSummary\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"Items\": {}\n}"
+								}
+							]
+						},
+						{
+							"name": "Creates new vendors.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"Vendor\": {\n    \"AddressCode\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"VendorCode\": \"<string>\",\n    \"AccountNumber\": \"<string>\",\n    \"Address1\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"AddressImportSyncID\": \"<string>\",\n    \"Approved\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ContactEmail\": \"<string>\",\n    \"ContactFirstName\": \"<string>\",\n    \"ContactLastName\": \"<string>\",\n    \"ContactPhoneNumber\": \"<string>\",\n    \"Country\": \"<string>\",\n    \"CurrencyCode\": \"<string>\",\n    \"Custom1\": \"<string>\",\n    \"Custom10\": \"<string>\",\n    \"Custom11\": \"<string>\",\n    \"Custom12\": \"<string>\",\n    \"Custom13\": \"<string>\",\n    \"Custom14\": \"<string>\",\n    \"Custom15\": \"<string>\",\n    \"Custom16\": \"<string>\",\n    \"Custom17\": \"<string>\",\n    \"Custom18\": \"<string>\",\n    \"Custom19\": \"<string>\",\n    \"Custom2\": \"<string>\",\n    \"Custom20\": \"<string>\",\n    \"Custom3\": \"<string>\",\n    \"Custom4\": \"<string>\",\n    \"Custom5\": \"<string>\",\n    \"Custom6\": \"<string>\",\n    \"Custom7\": \"<string>\",\n    \"Custom8\": \"<string>\",\n    \"Custom9\": \"<string>\",\n    \"DefaultEmployeeID\": \"<string>\",\n    \"DefaultExpenseTypeName\": \"<string>\",\n    \"DiscountPercentage\": \"<string>\",\n    \"DiscountTermsDays\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"IsLineItemVatIncld\": \"<string>\",\n    \"IsVisibleForContentExtraction\": \"<string>\",\n    \"PaymentMethodType\": \"<string>\",\n    \"PaymentTerms\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"ProvincialTaxID\": \"<string>\",\n    \"PurchaseOrderContactEmail\": \"<string>\",\n    \"PurchaseOrderContactFirstName\": \"<string>\",\n    \"PurchaseOrderContactLastName\": \"<string>\",\n    \"PurchaseOrderContactPhoneNumber\": \"<string>\",\n    \"ShippingMethod\": \"<string>\",\n    \"ShippingTerms\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StatusList\": {\n      \"Code\": \"<integer>\",\n      \"Message\": \"<string>\",\n      \"RecordNumber\": \"<integer>\",\n      \"Type\": \"<string>\"\n    },\n    \"TaxID\": \"<string>\",\n    \"TaxType\": \"<string>\",\n    \"URI\": \"<string>\",\n    \"VendorBankList\": {\n      \"AccountNumber\": \"<string>\",\n      \"AccountType\": \"<string>\",\n      \"AddressCode\": \"<string>\",\n      \"BankCode\": \"<string>\",\n      \"BankName\": \"<string>\",\n      \"BranchCode\": \"<string>\",\n      \"BranchLocation\": \"<string>\",\n      \"CountryCode\": \"<string>\",\n      \"CurrencyAlphaCode\": \"<string>\",\n      \"ID\": \"<string>\",\n      \"IsActive\": \"<string>\",\n      \"NameOnAccount\": \"<string>\",\n      \"RoutingNumber\": \"<string>\",\n      \"StatusList\": {\n        \"Code\": \"<integer>\",\n        \"Message\": \"<string>\",\n        \"RecordNumber\": \"<integer>\",\n        \"Type\": \"<string>\"\n      },\n      \"TransType\": \"<string>\",\n      \"URI\": \"<string>\",\n      \"VendorCode\": \"<string>\"\n    },\n    \"VendorFormName\": \"<string>\",\n    \"VendorGroupList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"VendorName\": \"<string>\",\n    \"VoucherNotes\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\",\n  \"RequestRunSummary\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"Items\": {}\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/invoice/vendors",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"invoice",
+										"vendors"
+									]
+								},
+								"description": "Creates a new vendor and returns the status of creation."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Vendor\": {\n    \"AddressCode\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"VendorCode\": \"<string>\",\n    \"AccountNumber\": \"<string>\",\n    \"Address1\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"AddressImportSyncID\": \"<string>\",\n    \"Approved\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ContactEmail\": \"<string>\",\n    \"ContactFirstName\": \"<string>\",\n    \"ContactLastName\": \"<string>\",\n    \"ContactPhoneNumber\": \"<string>\",\n    \"Country\": \"<string>\",\n    \"CurrencyCode\": \"<string>\",\n    \"Custom1\": \"<string>\",\n    \"Custom10\": \"<string>\",\n    \"Custom11\": \"<string>\",\n    \"Custom12\": \"<string>\",\n    \"Custom13\": \"<string>\",\n    \"Custom14\": \"<string>\",\n    \"Custom15\": \"<string>\",\n    \"Custom16\": \"<string>\",\n    \"Custom17\": \"<string>\",\n    \"Custom18\": \"<string>\",\n    \"Custom19\": \"<string>\",\n    \"Custom2\": \"<string>\",\n    \"Custom20\": \"<string>\",\n    \"Custom3\": \"<string>\",\n    \"Custom4\": \"<string>\",\n    \"Custom5\": \"<string>\",\n    \"Custom6\": \"<string>\",\n    \"Custom7\": \"<string>\",\n    \"Custom8\": \"<string>\",\n    \"Custom9\": \"<string>\",\n    \"DefaultEmployeeID\": \"<string>\",\n    \"DefaultExpenseTypeName\": \"<string>\",\n    \"DiscountPercentage\": \"<string>\",\n    \"DiscountTermsDays\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"IsLineItemVatIncld\": \"<string>\",\n    \"IsVisibleForContentExtraction\": \"<string>\",\n    \"PaymentMethodType\": \"<string>\",\n    \"PaymentTerms\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"ProvincialTaxID\": \"<string>\",\n    \"PurchaseOrderContactEmail\": \"<string>\",\n    \"PurchaseOrderContactFirstName\": \"<string>\",\n    \"PurchaseOrderContactLastName\": \"<string>\",\n    \"PurchaseOrderContactPhoneNumber\": \"<string>\",\n    \"ShippingMethod\": \"<string>\",\n    \"ShippingTerms\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StatusList\": {\n      \"Code\": \"<integer>\",\n      \"Message\": \"<string>\",\n      \"RecordNumber\": \"<integer>\",\n      \"Type\": \"<string>\"\n    },\n    \"TaxID\": \"<string>\",\n    \"TaxType\": \"<string>\",\n    \"URI\": \"<string>\",\n    \"VendorBankList\": {\n      \"AccountNumber\": \"<string>\",\n      \"AccountType\": \"<string>\",\n      \"AddressCode\": \"<string>\",\n      \"BankCode\": \"<string>\",\n      \"BankName\": \"<string>\",\n      \"BranchCode\": \"<string>\",\n      \"BranchLocation\": \"<string>\",\n      \"CountryCode\": \"<string>\",\n      \"CurrencyAlphaCode\": \"<string>\",\n      \"ID\": \"<string>\",\n      \"IsActive\": \"<string>\",\n      \"NameOnAccount\": \"<string>\",\n      \"RoutingNumber\": \"<string>\",\n      \"StatusList\": {\n        \"Code\": \"<integer>\",\n        \"Message\": \"<string>\",\n        \"RecordNumber\": \"<integer>\",\n        \"Type\": \"<string>\"\n      },\n      \"TransType\": \"<string>\",\n      \"URI\": \"<string>\",\n      \"VendorCode\": \"<string>\"\n    },\n    \"VendorFormName\": \"<string>\",\n    \"VendorGroupList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"VendorName\": \"<string>\",\n    \"VoucherNotes\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\",\n  \"RequestRunSummary\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"Items\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/vendors",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"vendors"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Vendor\": {\n    \"AddressCode\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"VendorCode\": \"<string>\",\n    \"AccountNumber\": \"<string>\",\n    \"Address1\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"AddressImportSyncID\": \"<string>\",\n    \"Approved\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ContactEmail\": \"<string>\",\n    \"ContactFirstName\": \"<string>\",\n    \"ContactLastName\": \"<string>\",\n    \"ContactPhoneNumber\": \"<string>\",\n    \"Country\": \"<string>\",\n    \"CurrencyCode\": \"<string>\",\n    \"Custom1\": \"<string>\",\n    \"Custom10\": \"<string>\",\n    \"Custom11\": \"<string>\",\n    \"Custom12\": \"<string>\",\n    \"Custom13\": \"<string>\",\n    \"Custom14\": \"<string>\",\n    \"Custom15\": \"<string>\",\n    \"Custom16\": \"<string>\",\n    \"Custom17\": \"<string>\",\n    \"Custom18\": \"<string>\",\n    \"Custom19\": \"<string>\",\n    \"Custom2\": \"<string>\",\n    \"Custom20\": \"<string>\",\n    \"Custom3\": \"<string>\",\n    \"Custom4\": \"<string>\",\n    \"Custom5\": \"<string>\",\n    \"Custom6\": \"<string>\",\n    \"Custom7\": \"<string>\",\n    \"Custom8\": \"<string>\",\n    \"Custom9\": \"<string>\",\n    \"DefaultEmployeeID\": \"<string>\",\n    \"DefaultExpenseTypeName\": \"<string>\",\n    \"DiscountPercentage\": \"<string>\",\n    \"DiscountTermsDays\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"IsLineItemVatIncld\": \"<string>\",\n    \"IsVisibleForContentExtraction\": \"<string>\",\n    \"PaymentMethodType\": \"<string>\",\n    \"PaymentTerms\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"ProvincialTaxID\": \"<string>\",\n    \"PurchaseOrderContactEmail\": \"<string>\",\n    \"PurchaseOrderContactFirstName\": \"<string>\",\n    \"PurchaseOrderContactLastName\": \"<string>\",\n    \"PurchaseOrderContactPhoneNumber\": \"<string>\",\n    \"ShippingMethod\": \"<string>\",\n    \"ShippingTerms\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StatusList\": {\n      \"Code\": \"<integer>\",\n      \"Message\": \"<string>\",\n      \"RecordNumber\": \"<integer>\",\n      \"Type\": \"<string>\"\n    },\n    \"TaxID\": \"<string>\",\n    \"TaxType\": \"<string>\",\n    \"URI\": \"<string>\",\n    \"VendorBankList\": {\n      \"AccountNumber\": \"<string>\",\n      \"AccountType\": \"<string>\",\n      \"AddressCode\": \"<string>\",\n      \"BankCode\": \"<string>\",\n      \"BankName\": \"<string>\",\n      \"BranchCode\": \"<string>\",\n      \"BranchLocation\": \"<string>\",\n      \"CountryCode\": \"<string>\",\n      \"CurrencyAlphaCode\": \"<string>\",\n      \"ID\": \"<string>\",\n      \"IsActive\": \"<string>\",\n      \"NameOnAccount\": \"<string>\",\n      \"RoutingNumber\": \"<string>\",\n      \"StatusList\": {\n        \"Code\": \"<integer>\",\n        \"Message\": \"<string>\",\n        \"RecordNumber\": \"<integer>\",\n        \"Type\": \"<string>\"\n      },\n      \"TransType\": \"<string>\",\n      \"URI\": \"<string>\",\n      \"VendorCode\": \"<string>\"\n    },\n    \"VendorFormName\": \"<string>\",\n    \"VendorGroupList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"VendorName\": \"<string>\",\n    \"VoucherNotes\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\",\n  \"RequestRunSummary\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"Items\": {}\n}"
+								},
+								{
+									"name": "Bad request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Vendor\": {\n    \"AddressCode\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"VendorCode\": \"<string>\",\n    \"AccountNumber\": \"<string>\",\n    \"Address1\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"AddressImportSyncID\": \"<string>\",\n    \"Approved\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ContactEmail\": \"<string>\",\n    \"ContactFirstName\": \"<string>\",\n    \"ContactLastName\": \"<string>\",\n    \"ContactPhoneNumber\": \"<string>\",\n    \"Country\": \"<string>\",\n    \"CurrencyCode\": \"<string>\",\n    \"Custom1\": \"<string>\",\n    \"Custom10\": \"<string>\",\n    \"Custom11\": \"<string>\",\n    \"Custom12\": \"<string>\",\n    \"Custom13\": \"<string>\",\n    \"Custom14\": \"<string>\",\n    \"Custom15\": \"<string>\",\n    \"Custom16\": \"<string>\",\n    \"Custom17\": \"<string>\",\n    \"Custom18\": \"<string>\",\n    \"Custom19\": \"<string>\",\n    \"Custom2\": \"<string>\",\n    \"Custom20\": \"<string>\",\n    \"Custom3\": \"<string>\",\n    \"Custom4\": \"<string>\",\n    \"Custom5\": \"<string>\",\n    \"Custom6\": \"<string>\",\n    \"Custom7\": \"<string>\",\n    \"Custom8\": \"<string>\",\n    \"Custom9\": \"<string>\",\n    \"DefaultEmployeeID\": \"<string>\",\n    \"DefaultExpenseTypeName\": \"<string>\",\n    \"DiscountPercentage\": \"<string>\",\n    \"DiscountTermsDays\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"IsLineItemVatIncld\": \"<string>\",\n    \"IsVisibleForContentExtraction\": \"<string>\",\n    \"PaymentMethodType\": \"<string>\",\n    \"PaymentTerms\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"ProvincialTaxID\": \"<string>\",\n    \"PurchaseOrderContactEmail\": \"<string>\",\n    \"PurchaseOrderContactFirstName\": \"<string>\",\n    \"PurchaseOrderContactLastName\": \"<string>\",\n    \"PurchaseOrderContactPhoneNumber\": \"<string>\",\n    \"ShippingMethod\": \"<string>\",\n    \"ShippingTerms\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StatusList\": {\n      \"Code\": \"<integer>\",\n      \"Message\": \"<string>\",\n      \"RecordNumber\": \"<integer>\",\n      \"Type\": \"<string>\"\n    },\n    \"TaxID\": \"<string>\",\n    \"TaxType\": \"<string>\",\n    \"URI\": \"<string>\",\n    \"VendorBankList\": {\n      \"AccountNumber\": \"<string>\",\n      \"AccountType\": \"<string>\",\n      \"AddressCode\": \"<string>\",\n      \"BankCode\": \"<string>\",\n      \"BankName\": \"<string>\",\n      \"BranchCode\": \"<string>\",\n      \"BranchLocation\": \"<string>\",\n      \"CountryCode\": \"<string>\",\n      \"CurrencyAlphaCode\": \"<string>\",\n      \"ID\": \"<string>\",\n      \"IsActive\": \"<string>\",\n      \"NameOnAccount\": \"<string>\",\n      \"RoutingNumber\": \"<string>\",\n      \"StatusList\": {\n        \"Code\": \"<integer>\",\n        \"Message\": \"<string>\",\n        \"RecordNumber\": \"<integer>\",\n        \"Type\": \"<string>\"\n      },\n      \"TransType\": \"<string>\",\n      \"URI\": \"<string>\",\n      \"VendorCode\": \"<string>\"\n    },\n    \"VendorFormName\": \"<string>\",\n    \"VendorGroupList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"VendorName\": \"<string>\",\n    \"VoucherNotes\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\",\n  \"RequestRunSummary\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"Items\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/vendors",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"vendors"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Message\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Manages existing vendors.",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"Vendor\": {\n    \"AddressCode\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"VendorCode\": \"<string>\",\n    \"AccountNumber\": \"<string>\",\n    \"Address1\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"AddressImportSyncID\": \"<string>\",\n    \"Approved\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ContactEmail\": \"<string>\",\n    \"ContactFirstName\": \"<string>\",\n    \"ContactLastName\": \"<string>\",\n    \"ContactPhoneNumber\": \"<string>\",\n    \"Country\": \"<string>\",\n    \"CurrencyCode\": \"<string>\",\n    \"Custom1\": \"<string>\",\n    \"Custom10\": \"<string>\",\n    \"Custom11\": \"<string>\",\n    \"Custom12\": \"<string>\",\n    \"Custom13\": \"<string>\",\n    \"Custom14\": \"<string>\",\n    \"Custom15\": \"<string>\",\n    \"Custom16\": \"<string>\",\n    \"Custom17\": \"<string>\",\n    \"Custom18\": \"<string>\",\n    \"Custom19\": \"<string>\",\n    \"Custom2\": \"<string>\",\n    \"Custom20\": \"<string>\",\n    \"Custom3\": \"<string>\",\n    \"Custom4\": \"<string>\",\n    \"Custom5\": \"<string>\",\n    \"Custom6\": \"<string>\",\n    \"Custom7\": \"<string>\",\n    \"Custom8\": \"<string>\",\n    \"Custom9\": \"<string>\",\n    \"DefaultEmployeeID\": \"<string>\",\n    \"DefaultExpenseTypeName\": \"<string>\",\n    \"DiscountPercentage\": \"<string>\",\n    \"DiscountTermsDays\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"IsLineItemVatIncld\": \"<string>\",\n    \"IsVisibleForContentExtraction\": \"<string>\",\n    \"PaymentMethodType\": \"<string>\",\n    \"PaymentTerms\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"ProvincialTaxID\": \"<string>\",\n    \"PurchaseOrderContactEmail\": \"<string>\",\n    \"PurchaseOrderContactFirstName\": \"<string>\",\n    \"PurchaseOrderContactLastName\": \"<string>\",\n    \"PurchaseOrderContactPhoneNumber\": \"<string>\",\n    \"ShippingMethod\": \"<string>\",\n    \"ShippingTerms\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StatusList\": {\n      \"Code\": \"<integer>\",\n      \"Message\": \"<string>\",\n      \"RecordNumber\": \"<integer>\",\n      \"Type\": \"<string>\"\n    },\n    \"TaxID\": \"<string>\",\n    \"TaxType\": \"<string>\",\n    \"URI\": \"<string>\",\n    \"VendorBankList\": {\n      \"AccountNumber\": \"<string>\",\n      \"AccountType\": \"<string>\",\n      \"AddressCode\": \"<string>\",\n      \"BankCode\": \"<string>\",\n      \"BankName\": \"<string>\",\n      \"BranchCode\": \"<string>\",\n      \"BranchLocation\": \"<string>\",\n      \"CountryCode\": \"<string>\",\n      \"CurrencyAlphaCode\": \"<string>\",\n      \"ID\": \"<string>\",\n      \"IsActive\": \"<string>\",\n      \"NameOnAccount\": \"<string>\",\n      \"RoutingNumber\": \"<string>\",\n      \"StatusList\": {\n        \"Code\": \"<integer>\",\n        \"Message\": \"<string>\",\n        \"RecordNumber\": \"<integer>\",\n        \"Type\": \"<string>\"\n      },\n      \"TransType\": \"<string>\",\n      \"URI\": \"<string>\",\n      \"VendorCode\": \"<string>\"\n    },\n    \"VendorFormName\": \"<string>\",\n    \"VendorGroupList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"VendorName\": \"<string>\",\n    \"VoucherNotes\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\",\n  \"RequestRunSummary\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"Items\": {}\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/invoice/vendors",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"invoice",
+										"vendors"
+									]
+								},
+								"description": "Updates existing vendors and returns the update status."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Vendor\": {\n    \"AddressCode\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"VendorCode\": \"<string>\",\n    \"AccountNumber\": \"<string>\",\n    \"Address1\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"AddressImportSyncID\": \"<string>\",\n    \"Approved\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ContactEmail\": \"<string>\",\n    \"ContactFirstName\": \"<string>\",\n    \"ContactLastName\": \"<string>\",\n    \"ContactPhoneNumber\": \"<string>\",\n    \"Country\": \"<string>\",\n    \"CurrencyCode\": \"<string>\",\n    \"Custom1\": \"<string>\",\n    \"Custom10\": \"<string>\",\n    \"Custom11\": \"<string>\",\n    \"Custom12\": \"<string>\",\n    \"Custom13\": \"<string>\",\n    \"Custom14\": \"<string>\",\n    \"Custom15\": \"<string>\",\n    \"Custom16\": \"<string>\",\n    \"Custom17\": \"<string>\",\n    \"Custom18\": \"<string>\",\n    \"Custom19\": \"<string>\",\n    \"Custom2\": \"<string>\",\n    \"Custom20\": \"<string>\",\n    \"Custom3\": \"<string>\",\n    \"Custom4\": \"<string>\",\n    \"Custom5\": \"<string>\",\n    \"Custom6\": \"<string>\",\n    \"Custom7\": \"<string>\",\n    \"Custom8\": \"<string>\",\n    \"Custom9\": \"<string>\",\n    \"DefaultEmployeeID\": \"<string>\",\n    \"DefaultExpenseTypeName\": \"<string>\",\n    \"DiscountPercentage\": \"<string>\",\n    \"DiscountTermsDays\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"IsLineItemVatIncld\": \"<string>\",\n    \"IsVisibleForContentExtraction\": \"<string>\",\n    \"PaymentMethodType\": \"<string>\",\n    \"PaymentTerms\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"ProvincialTaxID\": \"<string>\",\n    \"PurchaseOrderContactEmail\": \"<string>\",\n    \"PurchaseOrderContactFirstName\": \"<string>\",\n    \"PurchaseOrderContactLastName\": \"<string>\",\n    \"PurchaseOrderContactPhoneNumber\": \"<string>\",\n    \"ShippingMethod\": \"<string>\",\n    \"ShippingTerms\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StatusList\": {\n      \"Code\": \"<integer>\",\n      \"Message\": \"<string>\",\n      \"RecordNumber\": \"<integer>\",\n      \"Type\": \"<string>\"\n    },\n    \"TaxID\": \"<string>\",\n    \"TaxType\": \"<string>\",\n    \"URI\": \"<string>\",\n    \"VendorBankList\": {\n      \"AccountNumber\": \"<string>\",\n      \"AccountType\": \"<string>\",\n      \"AddressCode\": \"<string>\",\n      \"BankCode\": \"<string>\",\n      \"BankName\": \"<string>\",\n      \"BranchCode\": \"<string>\",\n      \"BranchLocation\": \"<string>\",\n      \"CountryCode\": \"<string>\",\n      \"CurrencyAlphaCode\": \"<string>\",\n      \"ID\": \"<string>\",\n      \"IsActive\": \"<string>\",\n      \"NameOnAccount\": \"<string>\",\n      \"RoutingNumber\": \"<string>\",\n      \"StatusList\": {\n        \"Code\": \"<integer>\",\n        \"Message\": \"<string>\",\n        \"RecordNumber\": \"<integer>\",\n        \"Type\": \"<string>\"\n      },\n      \"TransType\": \"<string>\",\n      \"URI\": \"<string>\",\n      \"VendorCode\": \"<string>\"\n    },\n    \"VendorFormName\": \"<string>\",\n    \"VendorGroupList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"VendorName\": \"<string>\",\n    \"VoucherNotes\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\",\n  \"RequestRunSummary\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"Items\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/vendors",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"vendors"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Vendor\": {\n    \"AddressCode\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"VendorCode\": \"<string>\",\n    \"AccountNumber\": \"<string>\",\n    \"Address1\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"AddressImportSyncID\": \"<string>\",\n    \"Approved\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ContactEmail\": \"<string>\",\n    \"ContactFirstName\": \"<string>\",\n    \"ContactLastName\": \"<string>\",\n    \"ContactPhoneNumber\": \"<string>\",\n    \"Country\": \"<string>\",\n    \"CurrencyCode\": \"<string>\",\n    \"Custom1\": \"<string>\",\n    \"Custom10\": \"<string>\",\n    \"Custom11\": \"<string>\",\n    \"Custom12\": \"<string>\",\n    \"Custom13\": \"<string>\",\n    \"Custom14\": \"<string>\",\n    \"Custom15\": \"<string>\",\n    \"Custom16\": \"<string>\",\n    \"Custom17\": \"<string>\",\n    \"Custom18\": \"<string>\",\n    \"Custom19\": \"<string>\",\n    \"Custom2\": \"<string>\",\n    \"Custom20\": \"<string>\",\n    \"Custom3\": \"<string>\",\n    \"Custom4\": \"<string>\",\n    \"Custom5\": \"<string>\",\n    \"Custom6\": \"<string>\",\n    \"Custom7\": \"<string>\",\n    \"Custom8\": \"<string>\",\n    \"Custom9\": \"<string>\",\n    \"DefaultEmployeeID\": \"<string>\",\n    \"DefaultExpenseTypeName\": \"<string>\",\n    \"DiscountPercentage\": \"<string>\",\n    \"DiscountTermsDays\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"IsLineItemVatIncld\": \"<string>\",\n    \"IsVisibleForContentExtraction\": \"<string>\",\n    \"PaymentMethodType\": \"<string>\",\n    \"PaymentTerms\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"ProvincialTaxID\": \"<string>\",\n    \"PurchaseOrderContactEmail\": \"<string>\",\n    \"PurchaseOrderContactFirstName\": \"<string>\",\n    \"PurchaseOrderContactLastName\": \"<string>\",\n    \"PurchaseOrderContactPhoneNumber\": \"<string>\",\n    \"ShippingMethod\": \"<string>\",\n    \"ShippingTerms\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StatusList\": {\n      \"Code\": \"<integer>\",\n      \"Message\": \"<string>\",\n      \"RecordNumber\": \"<integer>\",\n      \"Type\": \"<string>\"\n    },\n    \"TaxID\": \"<string>\",\n    \"TaxType\": \"<string>\",\n    \"URI\": \"<string>\",\n    \"VendorBankList\": {\n      \"AccountNumber\": \"<string>\",\n      \"AccountType\": \"<string>\",\n      \"AddressCode\": \"<string>\",\n      \"BankCode\": \"<string>\",\n      \"BankName\": \"<string>\",\n      \"BranchCode\": \"<string>\",\n      \"BranchLocation\": \"<string>\",\n      \"CountryCode\": \"<string>\",\n      \"CurrencyAlphaCode\": \"<string>\",\n      \"ID\": \"<string>\",\n      \"IsActive\": \"<string>\",\n      \"NameOnAccount\": \"<string>\",\n      \"RoutingNumber\": \"<string>\",\n      \"StatusList\": {\n        \"Code\": \"<integer>\",\n        \"Message\": \"<string>\",\n        \"RecordNumber\": \"<integer>\",\n        \"Type\": \"<string>\"\n      },\n      \"TransType\": \"<string>\",\n      \"URI\": \"<string>\",\n      \"VendorCode\": \"<string>\"\n    },\n    \"VendorFormName\": \"<string>\",\n    \"VendorGroupList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"VendorName\": \"<string>\",\n    \"VoucherNotes\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\",\n  \"RequestRunSummary\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"Items\": {}\n}"
+								},
+								{
+									"name": "Bad request",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Vendor\": {\n    \"AddressCode\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"VendorCode\": \"<string>\",\n    \"AccountNumber\": \"<string>\",\n    \"Address1\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"AddressImportSyncID\": \"<string>\",\n    \"Approved\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ContactEmail\": \"<string>\",\n    \"ContactFirstName\": \"<string>\",\n    \"ContactLastName\": \"<string>\",\n    \"ContactPhoneNumber\": \"<string>\",\n    \"Country\": \"<string>\",\n    \"CurrencyCode\": \"<string>\",\n    \"Custom1\": \"<string>\",\n    \"Custom10\": \"<string>\",\n    \"Custom11\": \"<string>\",\n    \"Custom12\": \"<string>\",\n    \"Custom13\": \"<string>\",\n    \"Custom14\": \"<string>\",\n    \"Custom15\": \"<string>\",\n    \"Custom16\": \"<string>\",\n    \"Custom17\": \"<string>\",\n    \"Custom18\": \"<string>\",\n    \"Custom19\": \"<string>\",\n    \"Custom2\": \"<string>\",\n    \"Custom20\": \"<string>\",\n    \"Custom3\": \"<string>\",\n    \"Custom4\": \"<string>\",\n    \"Custom5\": \"<string>\",\n    \"Custom6\": \"<string>\",\n    \"Custom7\": \"<string>\",\n    \"Custom8\": \"<string>\",\n    \"Custom9\": \"<string>\",\n    \"DefaultEmployeeID\": \"<string>\",\n    \"DefaultExpenseTypeName\": \"<string>\",\n    \"DiscountPercentage\": \"<string>\",\n    \"DiscountTermsDays\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"IsLineItemVatIncld\": \"<string>\",\n    \"IsVisibleForContentExtraction\": \"<string>\",\n    \"PaymentMethodType\": \"<string>\",\n    \"PaymentTerms\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"ProvincialTaxID\": \"<string>\",\n    \"PurchaseOrderContactEmail\": \"<string>\",\n    \"PurchaseOrderContactFirstName\": \"<string>\",\n    \"PurchaseOrderContactLastName\": \"<string>\",\n    \"PurchaseOrderContactPhoneNumber\": \"<string>\",\n    \"ShippingMethod\": \"<string>\",\n    \"ShippingTerms\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StatusList\": {\n      \"Code\": \"<integer>\",\n      \"Message\": \"<string>\",\n      \"RecordNumber\": \"<integer>\",\n      \"Type\": \"<string>\"\n    },\n    \"TaxID\": \"<string>\",\n    \"TaxType\": \"<string>\",\n    \"URI\": \"<string>\",\n    \"VendorBankList\": {\n      \"AccountNumber\": \"<string>\",\n      \"AccountType\": \"<string>\",\n      \"AddressCode\": \"<string>\",\n      \"BankCode\": \"<string>\",\n      \"BankName\": \"<string>\",\n      \"BranchCode\": \"<string>\",\n      \"BranchLocation\": \"<string>\",\n      \"CountryCode\": \"<string>\",\n      \"CurrencyAlphaCode\": \"<string>\",\n      \"ID\": \"<string>\",\n      \"IsActive\": \"<string>\",\n      \"NameOnAccount\": \"<string>\",\n      \"RoutingNumber\": \"<string>\",\n      \"StatusList\": {\n        \"Code\": \"<integer>\",\n        \"Message\": \"<string>\",\n        \"RecordNumber\": \"<integer>\",\n        \"Type\": \"<string>\"\n      },\n      \"TransType\": \"<string>\",\n      \"URI\": \"<string>\",\n      \"VendorCode\": \"<string>\"\n    },\n    \"VendorFormName\": \"<string>\",\n    \"VendorGroupList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"VendorName\": \"<string>\",\n    \"VoucherNotes\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\",\n  \"RequestRunSummary\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"Items\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/vendors",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"vendors"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Message\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Deletes a vendor.",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/invoice/vendors?vendorCode=<string>&addressCode=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"invoice",
+										"vendors"
+									],
+									"query": [
+										{
+											"key": "vendorCode",
+											"value": "<string>",
+											"description": "(Required) Vendor Code to be deleted"
+										},
+										{
+											"key": "addressCode",
+											"value": "<string>",
+											"description": "(Required) Address Code to be deleted"
+										}
+									]
+								},
+								"description": "Deletes a vendor by Vendor Code and Address Code."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/invoice/vendors?vendorCode=<string>&addressCode=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"vendors"
+											],
+											"query": [
+												{
+													"key": "vendorCode",
+													"value": "<string>",
+													"description": "(Required) Vendor Code to be deleted"
+												},
+												{
+													"key": "addressCode",
+													"value": "<string>",
+													"description": "(Required) Address Code to be deleted"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Vendor\": {\n    \"AddressCode\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"VendorCode\": \"<string>\",\n    \"AccountNumber\": \"<string>\",\n    \"Address1\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"AddressImportSyncID\": \"<string>\",\n    \"Approved\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ContactEmail\": \"<string>\",\n    \"ContactFirstName\": \"<string>\",\n    \"ContactLastName\": \"<string>\",\n    \"ContactPhoneNumber\": \"<string>\",\n    \"Country\": \"<string>\",\n    \"CurrencyCode\": \"<string>\",\n    \"Custom1\": \"<string>\",\n    \"Custom10\": \"<string>\",\n    \"Custom11\": \"<string>\",\n    \"Custom12\": \"<string>\",\n    \"Custom13\": \"<string>\",\n    \"Custom14\": \"<string>\",\n    \"Custom15\": \"<string>\",\n    \"Custom16\": \"<string>\",\n    \"Custom17\": \"<string>\",\n    \"Custom18\": \"<string>\",\n    \"Custom19\": \"<string>\",\n    \"Custom2\": \"<string>\",\n    \"Custom20\": \"<string>\",\n    \"Custom3\": \"<string>\",\n    \"Custom4\": \"<string>\",\n    \"Custom5\": \"<string>\",\n    \"Custom6\": \"<string>\",\n    \"Custom7\": \"<string>\",\n    \"Custom8\": \"<string>\",\n    \"Custom9\": \"<string>\",\n    \"DefaultEmployeeID\": \"<string>\",\n    \"DefaultExpenseTypeName\": \"<string>\",\n    \"DiscountPercentage\": \"<string>\",\n    \"DiscountTermsDays\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"IsLineItemVatIncld\": \"<string>\",\n    \"IsVisibleForContentExtraction\": \"<string>\",\n    \"PaymentMethodType\": \"<string>\",\n    \"PaymentTerms\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"ProvincialTaxID\": \"<string>\",\n    \"PurchaseOrderContactEmail\": \"<string>\",\n    \"PurchaseOrderContactFirstName\": \"<string>\",\n    \"PurchaseOrderContactLastName\": \"<string>\",\n    \"PurchaseOrderContactPhoneNumber\": \"<string>\",\n    \"ShippingMethod\": \"<string>\",\n    \"ShippingTerms\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StatusList\": {\n      \"Code\": \"<integer>\",\n      \"Message\": \"<string>\",\n      \"RecordNumber\": \"<integer>\",\n      \"Type\": \"<string>\"\n    },\n    \"TaxID\": \"<string>\",\n    \"TaxType\": \"<string>\",\n    \"URI\": \"<string>\",\n    \"VendorBankList\": {\n      \"AccountNumber\": \"<string>\",\n      \"AccountType\": \"<string>\",\n      \"AddressCode\": \"<string>\",\n      \"BankCode\": \"<string>\",\n      \"BankName\": \"<string>\",\n      \"BranchCode\": \"<string>\",\n      \"BranchLocation\": \"<string>\",\n      \"CountryCode\": \"<string>\",\n      \"CurrencyAlphaCode\": \"<string>\",\n      \"ID\": \"<string>\",\n      \"IsActive\": \"<string>\",\n      \"NameOnAccount\": \"<string>\",\n      \"RoutingNumber\": \"<string>\",\n      \"StatusList\": {\n        \"Code\": \"<integer>\",\n        \"Message\": \"<string>\",\n        \"RecordNumber\": \"<integer>\",\n        \"Type\": \"<string>\"\n      },\n      \"TransType\": \"<string>\",\n      \"URI\": \"<string>\",\n      \"VendorCode\": \"<string>\"\n    },\n    \"VendorFormName\": \"<string>\",\n    \"VendorGroupList\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"VendorName\": \"<string>\",\n    \"VoucherNotes\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\",\n  \"RequestRunSummary\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"Items\": {}\n}"
+								},
+								{
+									"name": "Bad request",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/invoice/vendors?vendorCode=<string>&addressCode=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"vendors"
+											],
+											"query": [
+												{
+													"key": "vendorCode",
+													"value": "<string>",
+													"description": "(Required) Vendor Code to be deleted"
+												},
+												{
+													"key": "addressCode",
+													"value": "<string>",
+													"description": "(Required) Address Code to be deleted"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Message\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/v3.1"
+		}
+	]
+}

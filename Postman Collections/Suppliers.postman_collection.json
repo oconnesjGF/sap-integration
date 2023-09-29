@@ -1,0 +1,335 @@
+{
+	"info": {
+		"_postman_id": "2df3d280-0bcd-4994-a444-4edf2916085c",
+		"name": "Suppliers",
+		"description": "TripLink supplier information.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "common",
+			"item": [
+				{
+					"name": "suppliers",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Get a single Supplier by ID",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/common/suppliers/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"suppliers",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Returns a single Supplier ID"
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/common/suppliers/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"common",
+														"suppliers",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"AmadeusId\": \"<string>\",\n  \"AustinTetra\": \"<string>\",\n  \"BusinessName\": \"<string>\",\n  \"ChainCode\": \"<string>\",\n  \"ChainName\": \"<string>\",\n  \"City\": \"<string>\",\n  \"CountryCode\": \"<string>\",\n  \"CreditCardVendorId\": \"<string>\",\n  \"DunsNumber\": \"<string>\",\n  \"Email\": \"<string>\",\n  \"Fax\": \"<string>\",\n  \"GalileoId\": \"<string>\",\n  \"ID\": \"<string>\",\n  \"MccCode\": \"<string>\",\n  \"NorthstarId\": \"<string>\",\n  \"PegasusId\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"PrimaryNaics\": \"<string>\",\n  \"PrimarySic\": \"<string>\",\n  \"PropertyCode\": \"<string>\",\n  \"SabreId\": \"<string>\",\n  \"SecondaryNaics\": \"<string>\",\n  \"SecondarySic\": \"<string>\",\n  \"State\": \"<string>\",\n  \"StreetAddress\": \"<string>\",\n  \"StreetAddress2\": \"<string>\",\n  \"TaxId\": \"<string>\",\n  \"TollFree\": \"<string>\",\n  \"URI\": \"<string>\",\n  \"WebUrl\": \"<string>\",\n  \"WorldspanId\": \"<string>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Gets All Suppliers by Search Criteria",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/common/suppliers?name=<string>&address=<string>&address2=<string>&city=<string>&state=<string>&zip=<string>&country=<string>&phone=<string>&mcCode=<string>&taxId=<string>&merchantType=<string>&merchantID=<string>&iataCode=<string>&relevance=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"common",
+										"suppliers"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "<string>",
+											"description": "Name"
+										},
+										{
+											"key": "address",
+											"value": "<string>",
+											"description": "Address"
+										},
+										{
+											"key": "address2",
+											"value": "<string>",
+											"description": "Address"
+										},
+										{
+											"key": "city",
+											"value": "<string>",
+											"description": "City"
+										},
+										{
+											"key": "state",
+											"value": "<string>",
+											"description": "State"
+										},
+										{
+											"key": "zip",
+											"value": "<string>",
+											"description": "Zip"
+										},
+										{
+											"key": "country",
+											"value": "<string>",
+											"description": "Country Code"
+										},
+										{
+											"key": "phone",
+											"value": "<string>",
+											"description": "Phone"
+										},
+										{
+											"key": "mcCode",
+											"value": "<string>",
+											"description": "MCC Code (Ex: Delta Airline - 3058)"
+										},
+										{
+											"key": "taxId",
+											"value": "<string>",
+											"description": "Tax Id"
+										},
+										{
+											"key": "merchantType",
+											"value": "<string>",
+											"description": "Merchant Type Code(Ex: Visa - VI, Amex - AX) "
+										},
+										{
+											"key": "merchantID",
+											"value": "<string>",
+											"description": "Merchant Id"
+										},
+										{
+											"key": "iataCode",
+											"value": "<string>",
+											"description": "IATA Code"
+										},
+										{
+											"key": "relevance",
+											"value": "<integer>",
+											"description": "Relevance of the Search results"
+										}
+									]
+								},
+								"description": "Returns all Suppliers based on the search criteria."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/common/suppliers?name=<string>&address=<string>&address2=<string>&city=<string>&state=<string>&zip=<string>&country=<string>&phone=<string>&mcCode=<string>&taxId=<string>&merchantType=<string>&merchantID=<string>&iataCode=<string>&relevance=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"suppliers"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "<string>",
+													"description": "Name"
+												},
+												{
+													"key": "address",
+													"value": "<string>",
+													"description": "Address"
+												},
+												{
+													"key": "address2",
+													"value": "<string>",
+													"description": "Address"
+												},
+												{
+													"key": "city",
+													"value": "<string>",
+													"description": "City"
+												},
+												{
+													"key": "state",
+													"value": "<string>",
+													"description": "State"
+												},
+												{
+													"key": "zip",
+													"value": "<string>",
+													"description": "Zip"
+												},
+												{
+													"key": "country",
+													"value": "<string>",
+													"description": "Country Code"
+												},
+												{
+													"key": "phone",
+													"value": "<string>",
+													"description": "Phone"
+												},
+												{
+													"key": "mcCode",
+													"value": "<string>",
+													"description": "MCC Code (Ex: Delta Airline - 3058)"
+												},
+												{
+													"key": "taxId",
+													"value": "<string>",
+													"description": "Tax Id"
+												},
+												{
+													"key": "merchantType",
+													"value": "<string>",
+													"description": "Merchant Type Code(Ex: Visa - VI, Amex - AX) "
+												},
+												{
+													"key": "merchantID",
+													"value": "<string>",
+													"description": "Merchant Id"
+												},
+												{
+													"key": "iataCode",
+													"value": "<string>",
+													"description": "IATA Code"
+												},
+												{
+													"key": "relevance",
+													"value": "<integer>",
+													"description": "Relevance of the Search results"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Items\": {\n    \"BusinessName\": \"<string>\",\n    \"City\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StreetAddress\": \"<string>\",\n    \"StreetAddress2\": \"<string>\",\n    \"URI\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/v3.0"
+		}
+	]
+}

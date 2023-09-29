@@ -1,0 +1,940 @@
+{
+	"info": {
+		"_postman_id": "549d5800-981b-44a9-9a25-79c55228fb3c",
+		"name": "Quick Expenses",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "quickexpense",
+			"item": [
+				{
+					"name": "v4",
+					"item": [
+						{
+							"name": "users",
+							"item": [
+								{
+									"name": "{userID}",
+									"item": [
+										{
+											"name": "context",
+											"item": [
+												{
+													"name": "{contextType}",
+													"item": [
+														{
+															"name": "quickexpenses",
+															"item": [
+																{
+																	"name": "image",
+																	"item": [
+																		{
+																			"name": "This API is used to create a quick expense with image. An image is required. This API accepts multipart/form-data request.",
+																			"request": {
+																				"method": "POST",
+																				"header": [
+																					{
+																						"description": "A SAP Concur specific custom header used for technical support.",
+																						"key": "concur-correlationid",
+																						"value": "<string>"
+																					},
+																					{
+																						"description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated.",
+																						"key": "accept-language",
+																						"value": "<string>"
+																					},
+																					{
+																						"key": "Content-Type",
+																						"value": "multipart/form-data"
+																					},
+																					{
+																						"key": "Accept",
+																						"value": "application/json"
+																					}
+																				],
+																				"body": {
+																					"mode": "formdata",
+																					"formdata": [
+																						{
+																							"key": "fileContent",
+																							"value": "<string>",
+																							"description": "(Required) Image file. <br>Supported image file type ['PNG','GIF','PDF','TIFF','JPEG']. Max image size supported - 5MB",
+																							"type": "text"
+																						},
+																						{
+																							"key": "quickExpenseRequest",
+																							"value": "<string>",
+																							"description": "<b>QuickExpenseRequest</b> {<br><b>comment</b> (string, optional): This is a comment attached to the quick expense. ,<br><b>entryDetails</b> (string, optional): The quick expense entry details. ,<br><b>expenseTypeId</b> (string, optional): This is the expense type id of the quick expense. ,<br><b>location</b> (Location): The location where the quick expense occurred. ,<br><b>paymentTypeId</b> (string, optional): This is the payment type id of the quick expense. , <br><b>transactionAmount</b> (Amount): The amount of the quick expense. ,<br><b>transactionDate</b> (string): This is the transaction date of the quick expense. Format: YYYY-MM-DD ,<br><b>vendor</b> (string, optional): The name of the vendor. ,<br><b>Location</b> {<br><b>city</b> (string, optional): The location city. ,<br><b>countryCode</b> (string, optional): The location country ISO 3166-1 code. ,<br><b>countrySubDivisionCode</b> (string, optional): The location country sub division ISO 3166-2 code. ,<br><b>id</b> (string, optional): The unique identifier of the location. ,<br><b>name</b> (string, optional): The location name.<br>}<br><b>Amount</b> {<br><b>currencyCode</b> (string): The 3-letter ISO 4217 currency code for the amount. ,<br><b>value</b> (number): The amount value.<br>}",
+																							"type": "text"
+																						}
+																					]
+																				},
+																				"url": {
+																					"raw": "{{baseUrl}}/quickexpense/v4/users/:userID/context/:contextType/quickexpenses/image",
+																					"host": [
+																						"{{baseUrl}}"
+																					],
+																					"path": [
+																						"quickexpense",
+																						"v4",
+																						"users",
+																						":userID",
+																						"context",
+																						":contextType",
+																						"quickexpenses",
+																						"image"
+																					],
+																					"variable": [
+																						{
+																							"key": "userID"
+																						},
+																						{
+																							"key": "contextType",
+																							"value": "TRAVELER"
+																						},
+																						{
+																							"key": "userId",
+																							"value": "<string>",
+																							"description": "(Required) The unique identifier of the SAP Concur user."
+																						}
+																					]
+																				},
+																				"description": "This API creates a new quick expense and attaches an image to it, which is provided with multipart/form-data request."
+																			},
+																			"response": [
+																				{
+																					"name": "OK",
+																					"originalRequest": {
+																						"method": "POST",
+																						"header": [
+																							{
+																								"description": "A SAP Concur specific custom header used for technical support.",
+																								"key": "concur-correlationid",
+																								"value": "<string>"
+																							},
+																							{
+																								"description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated.",
+																								"key": "accept-language",
+																								"value": "<string>"
+																							},
+																							{
+																								"key": "Content-Type",
+																								"value": "multipart/form-data"
+																							},
+																							{
+																								"key": "Accept",
+																								"value": "application/json"
+																							}
+																						],
+																						"body": {
+																							"mode": "formdata",
+																							"formdata": [
+																								{
+																									"key": "fileContent",
+																									"value": "<string>",
+																									"description": "(Required) Image file. <br>Supported image file type ['PNG','GIF','PDF','TIFF','JPEG']. Max image size supported - 5MB",
+																									"type": "text"
+																								},
+																								{
+																									"key": "quickExpenseRequest",
+																									"value": "<string>",
+																									"description": "<b>QuickExpenseRequest</b> {<br><b>comment</b> (string, optional): This is a comment attached to the quick expense. ,<br><b>entryDetails</b> (string, optional): The quick expense entry details. ,<br><b>expenseTypeId</b> (string, optional): This is the expense type id of the quick expense. ,<br><b>location</b> (Location): The location where the quick expense occurred. ,<br><b>paymentTypeId</b> (string, optional): This is the payment type id of the quick expense. , <br><b>transactionAmount</b> (Amount): The amount of the quick expense. ,<br><b>transactionDate</b> (string): This is the transaction date of the quick expense. Format: YYYY-MM-DD ,<br><b>vendor</b> (string, optional): The name of the vendor. ,<br><b>Location</b> {<br><b>city</b> (string, optional): The location city. ,<br><b>countryCode</b> (string, optional): The location country ISO 3166-1 code. ,<br><b>countrySubDivisionCode</b> (string, optional): The location country sub division ISO 3166-2 code. ,<br><b>id</b> (string, optional): The unique identifier of the location. ,<br><b>name</b> (string, optional): The location name.<br>}<br><b>Amount</b> {<br><b>currencyCode</b> (string): The 3-letter ISO 4217 currency code for the amount. ,<br><b>value</b> (number): The amount value.<br>}",
+																									"type": "text"
+																								}
+																							]
+																						},
+																						"url": {
+																							"raw": "{{baseUrl}}/quickexpense/v4/users/:userID/context/:contextType/quickexpenses/image",
+																							"host": [
+																								"{{baseUrl}}"
+																							],
+																							"path": [
+																								"quickexpense",
+																								"v4",
+																								"users",
+																								":userID",
+																								"context",
+																								":contextType",
+																								"quickexpenses",
+																								"image"
+																							],
+																							"variable": [
+																								{
+																									"key": "userID"
+																								},
+																								{
+																									"key": "contextType"
+																								}
+																							]
+																						}
+																					},
+																					"status": "OK",
+																					"code": 200,
+																					"_postman_previewlanguage": "json",
+																					"header": [
+																						{
+																							"key": "Content-Type",
+																							"value": "application/json"
+																						}
+																					],
+																					"cookie": [],
+																					"body": "{\n  \"quickExpenseIdUri\": \"<string>\"\n}"
+																				},
+																				{
+																					"name": "Sucessfully created new quick expense",
+																					"originalRequest": {
+																						"method": "POST",
+																						"header": [
+																							{
+																								"description": "A SAP Concur specific custom header used for technical support.",
+																								"key": "concur-correlationid",
+																								"value": "<string>"
+																							},
+																							{
+																								"description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated.",
+																								"key": "accept-language",
+																								"value": "<string>"
+																							},
+																							{
+																								"key": "Content-Type",
+																								"value": "multipart/form-data"
+																							},
+																							{
+																								"key": "Accept",
+																								"value": "application/json"
+																							}
+																						],
+																						"body": {
+																							"mode": "formdata",
+																							"formdata": [
+																								{
+																									"key": "fileContent",
+																									"value": "<string>",
+																									"description": "(Required) Image file. <br>Supported image file type ['PNG','GIF','PDF','TIFF','JPEG']. Max image size supported - 5MB",
+																									"type": "text"
+																								},
+																								{
+																									"key": "quickExpenseRequest",
+																									"value": "<string>",
+																									"description": "<b>QuickExpenseRequest</b> {<br><b>comment</b> (string, optional): This is a comment attached to the quick expense. ,<br><b>entryDetails</b> (string, optional): The quick expense entry details. ,<br><b>expenseTypeId</b> (string, optional): This is the expense type id of the quick expense. ,<br><b>location</b> (Location): The location where the quick expense occurred. ,<br><b>paymentTypeId</b> (string, optional): This is the payment type id of the quick expense. , <br><b>transactionAmount</b> (Amount): The amount of the quick expense. ,<br><b>transactionDate</b> (string): This is the transaction date of the quick expense. Format: YYYY-MM-DD ,<br><b>vendor</b> (string, optional): The name of the vendor. ,<br><b>Location</b> {<br><b>city</b> (string, optional): The location city. ,<br><b>countryCode</b> (string, optional): The location country ISO 3166-1 code. ,<br><b>countrySubDivisionCode</b> (string, optional): The location country sub division ISO 3166-2 code. ,<br><b>id</b> (string, optional): The unique identifier of the location. ,<br><b>name</b> (string, optional): The location name.<br>}<br><b>Amount</b> {<br><b>currencyCode</b> (string): The 3-letter ISO 4217 currency code for the amount. ,<br><b>value</b> (number): The amount value.<br>}",
+																									"type": "text"
+																								}
+																							]
+																						},
+																						"url": {
+																							"raw": "{{baseUrl}}/quickexpense/v4/users/:userID/context/:contextType/quickexpenses/image",
+																							"host": [
+																								"{{baseUrl}}"
+																							],
+																							"path": [
+																								"quickexpense",
+																								"v4",
+																								"users",
+																								":userID",
+																								"context",
+																								":contextType",
+																								"quickexpenses",
+																								"image"
+																							],
+																							"variable": [
+																								{
+																									"key": "userID"
+																								},
+																								{
+																									"key": "contextType"
+																								}
+																							]
+																						}
+																					},
+																					"status": "Created",
+																					"code": 201,
+																					"_postman_previewlanguage": "json",
+																					"header": [
+																						{
+																							"key": "Content-Type",
+																							"value": "application/json"
+																						}
+																					],
+																					"cookie": [],
+																					"body": "{\n  \"quickExpenseIdUri\": \"<string>\"\n}"
+																				},
+																				{
+																					"name": "Bad Request",
+																					"originalRequest": {
+																						"method": "POST",
+																						"header": [
+																							{
+																								"description": "A SAP Concur specific custom header used for technical support.",
+																								"key": "concur-correlationid",
+																								"value": "<string>"
+																							},
+																							{
+																								"description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated.",
+																								"key": "accept-language",
+																								"value": "<string>"
+																							},
+																							{
+																								"key": "Content-Type",
+																								"value": "multipart/form-data"
+																							},
+																							{
+																								"key": "Accept",
+																								"value": "application/json"
+																							}
+																						],
+																						"body": {
+																							"mode": "formdata",
+																							"formdata": [
+																								{
+																									"key": "fileContent",
+																									"value": "<string>",
+																									"description": "(Required) Image file. <br>Supported image file type ['PNG','GIF','PDF','TIFF','JPEG']. Max image size supported - 5MB",
+																									"type": "text"
+																								},
+																								{
+																									"key": "quickExpenseRequest",
+																									"value": "<string>",
+																									"description": "<b>QuickExpenseRequest</b> {<br><b>comment</b> (string, optional): This is a comment attached to the quick expense. ,<br><b>entryDetails</b> (string, optional): The quick expense entry details. ,<br><b>expenseTypeId</b> (string, optional): This is the expense type id of the quick expense. ,<br><b>location</b> (Location): The location where the quick expense occurred. ,<br><b>paymentTypeId</b> (string, optional): This is the payment type id of the quick expense. , <br><b>transactionAmount</b> (Amount): The amount of the quick expense. ,<br><b>transactionDate</b> (string): This is the transaction date of the quick expense. Format: YYYY-MM-DD ,<br><b>vendor</b> (string, optional): The name of the vendor. ,<br><b>Location</b> {<br><b>city</b> (string, optional): The location city. ,<br><b>countryCode</b> (string, optional): The location country ISO 3166-1 code. ,<br><b>countrySubDivisionCode</b> (string, optional): The location country sub division ISO 3166-2 code. ,<br><b>id</b> (string, optional): The unique identifier of the location. ,<br><b>name</b> (string, optional): The location name.<br>}<br><b>Amount</b> {<br><b>currencyCode</b> (string): The 3-letter ISO 4217 currency code for the amount. ,<br><b>value</b> (number): The amount value.<br>}",
+																									"type": "text"
+																								}
+																							]
+																						},
+																						"url": {
+																							"raw": "{{baseUrl}}/quickexpense/v4/users/:userID/context/:contextType/quickexpenses/image",
+																							"host": [
+																								"{{baseUrl}}"
+																							],
+																							"path": [
+																								"quickexpense",
+																								"v4",
+																								"users",
+																								":userID",
+																								"context",
+																								":contextType",
+																								"quickexpenses",
+																								"image"
+																							],
+																							"variable": [
+																								{
+																									"key": "userID"
+																								},
+																								{
+																									"key": "contextType"
+																								}
+																							]
+																						}
+																					},
+																					"status": "Bad Request",
+																					"code": 400,
+																					"_postman_previewlanguage": "json",
+																					"header": [
+																						{
+																							"key": "Content-Type",
+																							"value": "application/json"
+																						}
+																					],
+																					"cookie": [],
+																					"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"value\": \"reference #/components/schemas/ValidationError not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/ValidationError not found in the OpenAPI spec\"\n    }\n  ]\n}"
+																				},
+																				{
+																					"name": "User doesn't have appropriate roles to create quick expense",
+																					"originalRequest": {
+																						"method": "POST",
+																						"header": [
+																							{
+																								"description": "A SAP Concur specific custom header used for technical support.",
+																								"key": "concur-correlationid",
+																								"value": "<string>"
+																							},
+																							{
+																								"description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated.",
+																								"key": "accept-language",
+																								"value": "<string>"
+																							},
+																							{
+																								"key": "Content-Type",
+																								"value": "multipart/form-data"
+																							},
+																							{
+																								"key": "Accept",
+																								"value": "application/json"
+																							}
+																						],
+																						"body": {
+																							"mode": "formdata",
+																							"formdata": [
+																								{
+																									"key": "fileContent",
+																									"value": "<string>",
+																									"description": "(Required) Image file. <br>Supported image file type ['PNG','GIF','PDF','TIFF','JPEG']. Max image size supported - 5MB",
+																									"type": "text"
+																								},
+																								{
+																									"key": "quickExpenseRequest",
+																									"value": "<string>",
+																									"description": "<b>QuickExpenseRequest</b> {<br><b>comment</b> (string, optional): This is a comment attached to the quick expense. ,<br><b>entryDetails</b> (string, optional): The quick expense entry details. ,<br><b>expenseTypeId</b> (string, optional): This is the expense type id of the quick expense. ,<br><b>location</b> (Location): The location where the quick expense occurred. ,<br><b>paymentTypeId</b> (string, optional): This is the payment type id of the quick expense. , <br><b>transactionAmount</b> (Amount): The amount of the quick expense. ,<br><b>transactionDate</b> (string): This is the transaction date of the quick expense. Format: YYYY-MM-DD ,<br><b>vendor</b> (string, optional): The name of the vendor. ,<br><b>Location</b> {<br><b>city</b> (string, optional): The location city. ,<br><b>countryCode</b> (string, optional): The location country ISO 3166-1 code. ,<br><b>countrySubDivisionCode</b> (string, optional): The location country sub division ISO 3166-2 code. ,<br><b>id</b> (string, optional): The unique identifier of the location. ,<br><b>name</b> (string, optional): The location name.<br>}<br><b>Amount</b> {<br><b>currencyCode</b> (string): The 3-letter ISO 4217 currency code for the amount. ,<br><b>value</b> (number): The amount value.<br>}",
+																									"type": "text"
+																								}
+																							]
+																						},
+																						"url": {
+																							"raw": "{{baseUrl}}/quickexpense/v4/users/:userID/context/:contextType/quickexpenses/image",
+																							"host": [
+																								"{{baseUrl}}"
+																							],
+																							"path": [
+																								"quickexpense",
+																								"v4",
+																								"users",
+																								":userID",
+																								"context",
+																								":contextType",
+																								"quickexpenses",
+																								"image"
+																							],
+																							"variable": [
+																								{
+																									"key": "userID"
+																								},
+																								{
+																									"key": "contextType"
+																								}
+																							]
+																						}
+																					},
+																					"status": "Forbidden",
+																					"code": 403,
+																					"_postman_previewlanguage": "json",
+																					"header": [
+																						{
+																							"key": "Content-Type",
+																							"value": "application/json"
+																						}
+																					],
+																					"cookie": [],
+																					"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"value\": \"reference #/components/schemas/ValidationError not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/ValidationError not found in the OpenAPI spec\"\n    }\n  ]\n}"
+																				},
+																				{
+																					"name": "Internal Server Error",
+																					"originalRequest": {
+																						"method": "POST",
+																						"header": [
+																							{
+																								"description": "A SAP Concur specific custom header used for technical support.",
+																								"key": "concur-correlationid",
+																								"value": "<string>"
+																							},
+																							{
+																								"description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated.",
+																								"key": "accept-language",
+																								"value": "<string>"
+																							},
+																							{
+																								"key": "Content-Type",
+																								"value": "multipart/form-data"
+																							},
+																							{
+																								"key": "Accept",
+																								"value": "application/json"
+																							}
+																						],
+																						"body": {
+																							"mode": "formdata",
+																							"formdata": [
+																								{
+																									"key": "fileContent",
+																									"value": "<string>",
+																									"description": "(Required) Image file. <br>Supported image file type ['PNG','GIF','PDF','TIFF','JPEG']. Max image size supported - 5MB",
+																									"type": "text"
+																								},
+																								{
+																									"key": "quickExpenseRequest",
+																									"value": "<string>",
+																									"description": "<b>QuickExpenseRequest</b> {<br><b>comment</b> (string, optional): This is a comment attached to the quick expense. ,<br><b>entryDetails</b> (string, optional): The quick expense entry details. ,<br><b>expenseTypeId</b> (string, optional): This is the expense type id of the quick expense. ,<br><b>location</b> (Location): The location where the quick expense occurred. ,<br><b>paymentTypeId</b> (string, optional): This is the payment type id of the quick expense. , <br><b>transactionAmount</b> (Amount): The amount of the quick expense. ,<br><b>transactionDate</b> (string): This is the transaction date of the quick expense. Format: YYYY-MM-DD ,<br><b>vendor</b> (string, optional): The name of the vendor. ,<br><b>Location</b> {<br><b>city</b> (string, optional): The location city. ,<br><b>countryCode</b> (string, optional): The location country ISO 3166-1 code. ,<br><b>countrySubDivisionCode</b> (string, optional): The location country sub division ISO 3166-2 code. ,<br><b>id</b> (string, optional): The unique identifier of the location. ,<br><b>name</b> (string, optional): The location name.<br>}<br><b>Amount</b> {<br><b>currencyCode</b> (string): The 3-letter ISO 4217 currency code for the amount. ,<br><b>value</b> (number): The amount value.<br>}",
+																									"type": "text"
+																								}
+																							]
+																						},
+																						"url": {
+																							"raw": "{{baseUrl}}/quickexpense/v4/users/:userID/context/:contextType/quickexpenses/image",
+																							"host": [
+																								"{{baseUrl}}"
+																							],
+																							"path": [
+																								"quickexpense",
+																								"v4",
+																								"users",
+																								":userID",
+																								"context",
+																								":contextType",
+																								"quickexpenses",
+																								"image"
+																							],
+																							"variable": [
+																								{
+																									"key": "userID"
+																								},
+																								{
+																									"key": "contextType"
+																								}
+																							]
+																						}
+																					},
+																					"status": "Internal Server Error",
+																					"code": 500,
+																					"_postman_previewlanguage": "json",
+																					"header": [
+																						{
+																							"key": "Content-Type",
+																							"value": "application/json"
+																						}
+																					],
+																					"cookie": [],
+																					"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"value\": \"reference #/components/schemas/ValidationError not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/ValidationError not found in the OpenAPI spec\"\n    }\n  ]\n}"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"name": "This API is used to create a quick expense. This API does not support image creation.",
+																	"request": {
+																		"method": "POST",
+																		"header": [
+																			{
+																				"description": "A SAP Concur specific custom header used for technical support.",
+																				"key": "concur-correlationid",
+																				"value": "<string>"
+																			},
+																			{
+																				"description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated.",
+																				"key": "accept-language",
+																				"value": "<string>"
+																			},
+																			{
+																				"key": "Content-Type",
+																				"value": "application/json"
+																			},
+																			{
+																				"key": "Accept",
+																				"value": "application/json"
+																			}
+																		],
+																		"body": {
+																			"mode": "raw",
+																			"raw": "{\n  \"location\": {\n    \"city\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"countrySubDivisionCode\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"transactionAmount\": {\n    \"currencyCode\": \"<string>\",\n    \"value\": \"<double>\"\n  },\n  \"transactionDate\": \"<date>\",\n  \"comment\": \"<string>\",\n  \"entryDetails\": \"<string>\",\n  \"expenseTypeId\": \"<string>\",\n  \"paymentTypeId\": \"PENDC\",\n  \"vendor\": \"<string>\"\n}",
+																			"options": {
+																				"raw": {
+																					"headerFamily": "json",
+																					"language": "json"
+																				}
+																			}
+																		},
+																		"url": {
+																			"raw": "{{baseUrl}}/quickexpense/v4/users/:userID/context/:contextType/quickexpenses",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"quickexpense",
+																				"v4",
+																				"users",
+																				":userID",
+																				"context",
+																				":contextType",
+																				"quickexpenses"
+																			],
+																			"variable": [
+																				{
+																					"key": "userID"
+																				},
+																				{
+																					"key": "contextType",
+																					"value": "TRAVELER"
+																				},
+																				{
+																					"key": "userId",
+																					"value": "<string>",
+																					"description": "(Required) The unique identifier of the SAP Concur user."
+																				}
+																			]
+																		},
+																		"description": "This API creates a basic expense with minimal fields. Can be added to expense reports from within SAP Concur."
+																	},
+																	"response": [
+																		{
+																			"name": "OK",
+																			"originalRequest": {
+																				"method": "POST",
+																				"header": [
+																					{
+																						"description": "A SAP Concur specific custom header used for technical support.",
+																						"key": "concur-correlationid",
+																						"value": "<string>"
+																					},
+																					{
+																						"description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated.",
+																						"key": "accept-language",
+																						"value": "<string>"
+																					},
+																					{
+																						"key": "Content-Type",
+																						"value": "application/json"
+																					},
+																					{
+																						"key": "Accept",
+																						"value": "application/json"
+																					}
+																				],
+																				"body": {
+																					"mode": "raw",
+																					"raw": "{\n  \"location\": {\n    \"city\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"countrySubDivisionCode\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"transactionAmount\": {\n    \"currencyCode\": \"<string>\",\n    \"value\": \"<double>\"\n  },\n  \"transactionDate\": \"<date>\",\n  \"comment\": \"<string>\",\n  \"entryDetails\": \"<string>\",\n  \"expenseTypeId\": \"<string>\",\n  \"paymentTypeId\": \"PENDC\",\n  \"vendor\": \"<string>\"\n}",
+																					"options": {
+																						"raw": {
+																							"headerFamily": "json",
+																							"language": "json"
+																						}
+																					}
+																				},
+																				"url": {
+																					"raw": "{{baseUrl}}/quickexpense/v4/users/:userID/context/:contextType/quickexpenses",
+																					"host": [
+																						"{{baseUrl}}"
+																					],
+																					"path": [
+																						"quickexpense",
+																						"v4",
+																						"users",
+																						":userID",
+																						"context",
+																						":contextType",
+																						"quickexpenses"
+																					],
+																					"variable": [
+																						{
+																							"key": "userID"
+																						},
+																						{
+																							"key": "contextType"
+																						}
+																					]
+																				}
+																			},
+																			"status": "OK",
+																			"code": 200,
+																			"_postman_previewlanguage": "json",
+																			"header": [
+																				{
+																					"key": "Content-Type",
+																					"value": "application/json"
+																				}
+																			],
+																			"cookie": [],
+																			"body": "{\n  \"quickExpenseIdUri\": \"<string>\"\n}"
+																		},
+																		{
+																			"name": "Sucessfully created new quick expense",
+																			"originalRequest": {
+																				"method": "POST",
+																				"header": [
+																					{
+																						"description": "A SAP Concur specific custom header used for technical support.",
+																						"key": "concur-correlationid",
+																						"value": "<string>"
+																					},
+																					{
+																						"description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated.",
+																						"key": "accept-language",
+																						"value": "<string>"
+																					},
+																					{
+																						"key": "Content-Type",
+																						"value": "application/json"
+																					},
+																					{
+																						"key": "Accept",
+																						"value": "application/json"
+																					}
+																				],
+																				"body": {
+																					"mode": "raw",
+																					"raw": "{\n  \"location\": {\n    \"city\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"countrySubDivisionCode\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"transactionAmount\": {\n    \"currencyCode\": \"<string>\",\n    \"value\": \"<double>\"\n  },\n  \"transactionDate\": \"<date>\",\n  \"comment\": \"<string>\",\n  \"entryDetails\": \"<string>\",\n  \"expenseTypeId\": \"<string>\",\n  \"paymentTypeId\": \"PENDC\",\n  \"vendor\": \"<string>\"\n}",
+																					"options": {
+																						"raw": {
+																							"headerFamily": "json",
+																							"language": "json"
+																						}
+																					}
+																				},
+																				"url": {
+																					"raw": "{{baseUrl}}/quickexpense/v4/users/:userID/context/:contextType/quickexpenses",
+																					"host": [
+																						"{{baseUrl}}"
+																					],
+																					"path": [
+																						"quickexpense",
+																						"v4",
+																						"users",
+																						":userID",
+																						"context",
+																						":contextType",
+																						"quickexpenses"
+																					],
+																					"variable": [
+																						{
+																							"key": "userID"
+																						},
+																						{
+																							"key": "contextType"
+																						}
+																					]
+																				}
+																			},
+																			"status": "Created",
+																			"code": 201,
+																			"_postman_previewlanguage": "json",
+																			"header": [
+																				{
+																					"key": "Content-Type",
+																					"value": "application/json"
+																				}
+																			],
+																			"cookie": [],
+																			"body": "{\n  \"quickExpenseIdUri\": \"<string>\"\n}"
+																		},
+																		{
+																			"name": "Bad Request",
+																			"originalRequest": {
+																				"method": "POST",
+																				"header": [
+																					{
+																						"description": "A SAP Concur specific custom header used for technical support.",
+																						"key": "concur-correlationid",
+																						"value": "<string>"
+																					},
+																					{
+																						"description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated.",
+																						"key": "accept-language",
+																						"value": "<string>"
+																					},
+																					{
+																						"key": "Content-Type",
+																						"value": "application/json"
+																					},
+																					{
+																						"key": "Accept",
+																						"value": "application/json"
+																					}
+																				],
+																				"body": {
+																					"mode": "raw",
+																					"raw": "{\n  \"location\": {\n    \"city\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"countrySubDivisionCode\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"transactionAmount\": {\n    \"currencyCode\": \"<string>\",\n    \"value\": \"<double>\"\n  },\n  \"transactionDate\": \"<date>\",\n  \"comment\": \"<string>\",\n  \"entryDetails\": \"<string>\",\n  \"expenseTypeId\": \"<string>\",\n  \"paymentTypeId\": \"PENDC\",\n  \"vendor\": \"<string>\"\n}",
+																					"options": {
+																						"raw": {
+																							"headerFamily": "json",
+																							"language": "json"
+																						}
+																					}
+																				},
+																				"url": {
+																					"raw": "{{baseUrl}}/quickexpense/v4/users/:userID/context/:contextType/quickexpenses",
+																					"host": [
+																						"{{baseUrl}}"
+																					],
+																					"path": [
+																						"quickexpense",
+																						"v4",
+																						"users",
+																						":userID",
+																						"context",
+																						":contextType",
+																						"quickexpenses"
+																					],
+																					"variable": [
+																						{
+																							"key": "userID"
+																						},
+																						{
+																							"key": "contextType"
+																						}
+																					]
+																				}
+																			},
+																			"status": "Bad Request",
+																			"code": 400,
+																			"_postman_previewlanguage": "json",
+																			"header": [
+																				{
+																					"key": "Content-Type",
+																					"value": "application/json"
+																				}
+																			],
+																			"cookie": [],
+																			"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"value\": \"reference #/components/schemas/ValidationError not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/ValidationError not found in the OpenAPI spec\"\n    }\n  ]\n}"
+																		},
+																		{
+																			"name": "User doesn't have appropriate roles to create quick expense",
+																			"originalRequest": {
+																				"method": "POST",
+																				"header": [
+																					{
+																						"description": "A SAP Concur specific custom header used for technical support.",
+																						"key": "concur-correlationid",
+																						"value": "<string>"
+																					},
+																					{
+																						"description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated.",
+																						"key": "accept-language",
+																						"value": "<string>"
+																					},
+																					{
+																						"key": "Content-Type",
+																						"value": "application/json"
+																					},
+																					{
+																						"key": "Accept",
+																						"value": "application/json"
+																					}
+																				],
+																				"body": {
+																					"mode": "raw",
+																					"raw": "{\n  \"location\": {\n    \"city\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"countrySubDivisionCode\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"transactionAmount\": {\n    \"currencyCode\": \"<string>\",\n    \"value\": \"<double>\"\n  },\n  \"transactionDate\": \"<date>\",\n  \"comment\": \"<string>\",\n  \"entryDetails\": \"<string>\",\n  \"expenseTypeId\": \"<string>\",\n  \"paymentTypeId\": \"PENDC\",\n  \"vendor\": \"<string>\"\n}",
+																					"options": {
+																						"raw": {
+																							"headerFamily": "json",
+																							"language": "json"
+																						}
+																					}
+																				},
+																				"url": {
+																					"raw": "{{baseUrl}}/quickexpense/v4/users/:userID/context/:contextType/quickexpenses",
+																					"host": [
+																						"{{baseUrl}}"
+																					],
+																					"path": [
+																						"quickexpense",
+																						"v4",
+																						"users",
+																						":userID",
+																						"context",
+																						":contextType",
+																						"quickexpenses"
+																					],
+																					"variable": [
+																						{
+																							"key": "userID"
+																						},
+																						{
+																							"key": "contextType"
+																						}
+																					]
+																				}
+																			},
+																			"status": "Forbidden",
+																			"code": 403,
+																			"_postman_previewlanguage": "json",
+																			"header": [
+																				{
+																					"key": "Content-Type",
+																					"value": "application/json"
+																				}
+																			],
+																			"cookie": [],
+																			"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"value\": \"reference #/components/schemas/ValidationError not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/ValidationError not found in the OpenAPI spec\"\n    }\n  ]\n}"
+																		},
+																		{
+																			"name": "Internal Server Error",
+																			"originalRequest": {
+																				"method": "POST",
+																				"header": [
+																					{
+																						"description": "A SAP Concur specific custom header used for technical support.",
+																						"key": "concur-correlationid",
+																						"value": "<string>"
+																					},
+																					{
+																						"description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated.",
+																						"key": "accept-language",
+																						"value": "<string>"
+																					},
+																					{
+																						"key": "Content-Type",
+																						"value": "application/json"
+																					},
+																					{
+																						"key": "Accept",
+																						"value": "application/json"
+																					}
+																				],
+																				"body": {
+																					"mode": "raw",
+																					"raw": "{\n  \"location\": {\n    \"city\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"countrySubDivisionCode\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"transactionAmount\": {\n    \"currencyCode\": \"<string>\",\n    \"value\": \"<double>\"\n  },\n  \"transactionDate\": \"<date>\",\n  \"comment\": \"<string>\",\n  \"entryDetails\": \"<string>\",\n  \"expenseTypeId\": \"<string>\",\n  \"paymentTypeId\": \"PENDC\",\n  \"vendor\": \"<string>\"\n}",
+																					"options": {
+																						"raw": {
+																							"headerFamily": "json",
+																							"language": "json"
+																						}
+																					}
+																				},
+																				"url": {
+																					"raw": "{{baseUrl}}/quickexpense/v4/users/:userID/context/:contextType/quickexpenses",
+																					"host": [
+																						"{{baseUrl}}"
+																					],
+																					"path": [
+																						"quickexpense",
+																						"v4",
+																						"users",
+																						":userID",
+																						"context",
+																						":contextType",
+																						"quickexpenses"
+																					],
+																					"variable": [
+																						{
+																							"key": "userID"
+																						},
+																						{
+																							"key": "contextType"
+																						}
+																					]
+																				}
+																			},
+																			"status": "Internal Server Error",
+																			"code": 500,
+																			"_postman_previewlanguage": "json",
+																			"header": [
+																				{
+																					"key": "Content-Type",
+																					"value": "application/json"
+																				}
+																			],
+																			"cookie": [],
+																			"body": "{\n  \"errorMessage\": \"<string>\",\n  \"httpStatus\": \"<string>\",\n  \"path\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"errorId\": \"<string>\",\n  \"validationErrors\": [\n    {\n      \"value\": \"reference #/components/schemas/ValidationError not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/ValidationError not found in the OpenAPI spec\"\n    }\n  ]\n}"
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://us.api.concursolutions.com"
+		}
+	]
+}

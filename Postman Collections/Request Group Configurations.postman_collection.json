@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "5d7e6625-a1e6-42e8-b752-22f5406205f2",
+		"name": "Request Group Configurations",
+		"description": "Requests allow travelers to submit travel plans, expected expenses, and expected cash advance needs prior to spending funds. Request policies define the required information and workflow for the requests. This API provides the details of the Request policies for the supplied user ID.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "travelrequest",
+			"item": [
+				{
+					"name": "requestgroupconfigurations",
+					"item": [
+						{
+							"name": "Get Request group configuration.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/travelrequest/requestgroupconfigurations",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"travelrequest",
+										"requestgroupconfigurations"
+									],
+									"query": [
+										{
+											"key": "user",
+											"value": "<string>",
+											"description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+											"disabled": true
+										},
+										{
+											"key": "offset",
+											"value": "<string>",
+											"description": "Starting page offset",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "Determines the number of records to return (default 10)",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Get the Request group configuration owned by the specified user, or all Request group configurations for the company."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/travelrequest/requestgroupconfigurations?user=<string>&offset=<string>&limit=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"travelrequest",
+												"requestgroupconfigurations"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter."
+												},
+												{
+													"key": "offset",
+													"value": "<string>",
+													"description": "Starting page offset"
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "Determines the number of records to return (default 10)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Items\": {\n    \"AgencyOffices\": {\n      \"ID\": \"<string>\",\n      \"Name\": \"<string>\"\n    },\n    \"DefaultPolicyID\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"Policies\": {\n      \"HeaderFormID\": \"<string>\",\n      \"ID\": \"<string>\",\n      \"IsDefault\": \"<boolean>\",\n      \"Name\": \"<string>\",\n      \"NoCreation\": \"<boolean>\",\n      \"SegmentTypes\": {\n        \"DisplayOrder\": \"<integer>\",\n        \"IconCode\": \"<string>\",\n        \"ID\": \"<string>\",\n        \"Name\": \"<string>\",\n        \"SegmentCustomFormID\": \"<string>\",\n        \"SegmentFormID\": \"<string>\",\n        \"SegmentTypeCode\": \"<string>\"\n      }\n    },\n    \"RequestTypes\": {\n      \"Code\": \"<string>\",\n      \"Name\": \"<string>\"\n    },\n    \"URI\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://us.api.concursolutions.com/api/v3.1"
+		}
+	]
+}

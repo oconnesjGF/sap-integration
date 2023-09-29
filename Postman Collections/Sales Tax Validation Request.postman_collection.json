@@ -1,0 +1,282 @@
+{
+	"info": {
+		"_postman_id": "c364529f-c270-4a8c-955d-00ac1e6057c3",
+		"name": "Sales Tax Validation Request",
+		"description": "An invoice is a bill of sale for goods or services. This API provides invoice information so that clients can calculate appropriate sales tax for invoice items. It also allows clients to update the invoice with the calculated sales tax.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "invoice",
+			"item": [
+				{
+					"name": "salestaxvalidationrequest",
+					"item": [
+						{
+							"name": "Get invoices",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/invoice/salestaxvalidationrequest?offset=<string>&limit=<integer>&modifiedafter=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"invoice",
+										"salestaxvalidationrequest"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<string>",
+											"description": "The starting point of the next set of results, after the limit specified in the limit field has been reached."
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The number of invoices to retrieve. Maximum value: 1000"
+										},
+										{
+											"key": "modifiedafter",
+											"value": "<string>",
+											"description": "A parameter that can be used to limit the results to invoices modified after the specified date."
+										}
+									]
+								},
+								"description": "Gets invoices for the purpose of calculating sales tax."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/invoice/salestaxvalidationrequest?offset=<string>&limit=<integer>&modifiedafter=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"salestaxvalidationrequest"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "<string>",
+													"description": "The starting point of the next set of results, after the limit specified in the limit field has been reached."
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "The number of invoices to retrieve. Maximum value: 1000"
+												},
+												{
+													"key": "modifiedafter",
+													"value": "<string>",
+													"description": "A parameter that can be used to limit the results to invoices modified after the specified date."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Items\": {\n    \"BillToAddress\": {\n      \"Address1\": \"<string>\",\n      \"Address2\": \"<string>\",\n      \"Address3\": \"<string>\",\n      \"City\": \"<string>\",\n      \"CountryCode\": \"<string>\",\n      \"ExternalID\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"PostalCode\": \"<string>\",\n      \"State\": \"<string>\",\n      \"StateProvince\": \"<string>\"\n    },\n    \"CalculatedTaxAmount\": \"<string>\",\n    \"CalculatedTaxRate\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"CurrencyCode\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"InvoiceAmount\": \"<string>\",\n    \"InvoiceDate\": \"<string>\",\n    \"LineItem\": {\n      \"CalculatedTaxAmount\": \"<string>\",\n      \"CalculatedTaxRate\": \"<string>\",\n      \"CommodityCode\": \"<string>\",\n      \"CountryCode\": \"<string>\",\n      \"CurrencyCode\": \"<string>\",\n      \"LineItemKey\": \"<string>\",\n      \"Quantity\": \"<string>\",\n      \"Total\": \"<string>\",\n      \"UnitPrice\": \"<string>\",\n      \"Vendor\": {\n        \"Address1\": \"<string>\",\n        \"Address2\": \"<string>\",\n        \"Address3\": \"<string>\",\n        \"City\": \"<string>\",\n        \"CountryCode\": \"<string>\",\n        \"PostalCode\": \"<string>\",\n        \"State\": \"<string>\",\n        \"VendorAddressName\": \"<string>\",\n        \"VendorName\": \"<string>\"\n      }\n    },\n    \"PurchaseOrderNumber\": \"<string>\",\n    \"RequestID\": \"<string>\",\n    \"ShippingAmount\": \"<string>\",\n    \"ShipToAddress\": {\n      \"Address1\": \"<string>\",\n      \"Address2\": \"<string>\",\n      \"Address3\": \"<string>\",\n      \"City\": \"<string>\",\n      \"CountryCode\": \"<string>\",\n      \"ExternalID\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"PostalCode\": \"<string>\",\n      \"State\": \"<string>\",\n      \"StateProvince\": \"<string>\"\n    },\n    \"Status\": \"<string>\",\n    \"StatusCode\": \"<string>\",\n    \"Tax\": \"<string>\",\n    \"TaxReferenceID\": \"<string>\",\n    \"Title\": \"<string>\",\n    \"Total\": \"<string>\",\n    \"URI\": \"<string>\",\n    \"VendorInvoiceNumber\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\",\n  \"TotalCount\": \"<integer>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update invoices with the calculated tax information",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"CalculatedTaxAmount\": \"<string>\",\n  \"CalculatedTaxRate\": \"<string>\",\n  \"Comments\": \"<string>\",\n  \"ID\": \"<string>\",\n  \"LineItem\": {\n    \"CalculatedTaxAmount\": \"<string>\",\n    \"CalculatedTaxRate\": \"<string>\",\n    \"LineItemKey\": \"<string>\"\n  },\n  \"Status\": \"<string>\",\n  \"StatusCode\": \"<string>\",\n  \"TaxReferenceID\": \"<string>\",\n  \"URI\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/invoice/salestaxvalidationrequest",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"invoice",
+										"salestaxvalidationrequest"
+									]
+								},
+								"description": "Updates the specified invoices with the calculated tax amount and tax rate."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"CalculatedTaxAmount\": \"<string>\",\n  \"CalculatedTaxRate\": \"<string>\",\n  \"Comments\": \"<string>\",\n  \"ID\": \"<string>\",\n  \"LineItem\": {\n    \"CalculatedTaxAmount\": \"<string>\",\n    \"CalculatedTaxRate\": \"<string>\",\n    \"LineItemKey\": \"<string>\"\n  },\n  \"Status\": \"<string>\",\n  \"StatusCode\": \"<string>\",\n  \"TaxReferenceID\": \"<string>\",\n  \"URI\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/salestaxvalidationrequest",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"salestaxvalidationrequest"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Code\": \"<integer>\",\n  \"Comments\": \"<string>\",\n  \"Message\": \"<string>\",\n  \"RecordNumber\": \"<integer>\",\n  \"Status\": \"<string>\",\n  \"TaxReferenceID\": \"<string>\",\n  \"Type\": \"<string>\"\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"CalculatedTaxAmount\": \"<string>\",\n  \"CalculatedTaxRate\": \"<string>\",\n  \"Comments\": \"<string>\",\n  \"ID\": \"<string>\",\n  \"LineItem\": {\n    \"CalculatedTaxAmount\": \"<string>\",\n    \"CalculatedTaxRate\": \"<string>\",\n    \"LineItemKey\": \"<string>\"\n  },\n  \"Status\": \"<string>\",\n  \"StatusCode\": \"<string>\",\n  \"TaxReferenceID\": \"<string>\",\n  \"URI\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/salestaxvalidationrequest",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"salestaxvalidationrequest"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessTokenUrl",
+				"value": "https://us.api.concursolutions.com/oauth2/v0",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/v3.0"
+		}
+	]
+}

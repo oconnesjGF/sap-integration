@@ -1,0 +1,891 @@
+{
+	"info": {
+		"_postman_id": "d1d4ee62-6e89-4ae1-8bcc-4591007398d5",
+		"name": "Reports",
+		"description": "Get expense reports for a user or company, and update existing reports or create new reports.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "expense",
+			"item": [
+				{
+					"name": "reports",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Gets a single report",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/expense/reports/:id?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"reports",
+												":id"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "Optional. The login ID of the report owner(s) to use when searching for reports. If the value is set to LoginID, reports for the report owner with this login ID value are returned. If the value is set to ALL, reports for all report owners are returned. If this parameter is not specified, reports for the OAuth Consumer are returned. The access token owner (OAuth Consumer) must have the Web Services Admin role to use this parameter."
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Returns the specified report."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/expense/reports/:id?user=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"expense",
+														"reports",
+														":id"
+													],
+													"query": [
+														{
+															"key": "user",
+															"value": "<string>",
+															"description": "Optional. The login ID of the report owner(s) to use when searching for reports. If the value is set to LoginID, reports for the report owner with this login ID value are returned. If the value is set to ALL, reports for all report owners are returned. If this parameter is not specified, reports for the OAuth Consumer are returned. The access token owner (OAuth Consumer) must have the Web Services Admin role to use this parameter."
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"AmountDueCompanyCard\": \"<double>\",\n  \"AmountDueEmployee\": \"<double>\",\n  \"ApprovalStatusCode\": \"<string>\",\n  \"ApprovalStatusName\": \"<string>\",\n  \"ApproverLoginID\": \"<string>\",\n  \"ApproverName\": \"<string>\",\n  \"Country\": \"<string>\",\n  \"CountrySubdivision\": \"<string>\",\n  \"CreateDate\": \"<dateTime>\",\n  \"CurrencyCode\": \"<string>\",\n  \"Custom1\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom10\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom11\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom12\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom13\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom14\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom15\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom16\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom17\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom18\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom19\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom2\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom20\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom3\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom4\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom5\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom6\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom7\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom8\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom9\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"EverSentBack\": \"<boolean>\",\n  \"HasException\": \"<boolean>\",\n  \"ID\": \"<string>\",\n  \"LastComment\": \"<string>\",\n  \"LastModifiedDate\": \"<dateTime>\",\n  \"LedgerName\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"OrgUnit1\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"OrgUnit2\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"OrgUnit3\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"OrgUnit4\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"OrgUnit5\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"OrgUnit6\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"OwnerLoginID\": \"<string>\",\n  \"OwnerName\": \"<string>\",\n  \"PaidDate\": \"<dateTime>\",\n  \"PaymentStatusCode\": \"<string>\",\n  \"PaymentStatusName\": \"<string>\",\n  \"PersonalAmount\": \"<double>\",\n  \"PolicyID\": \"<string>\",\n  \"ProcessingPaymentDate\": \"<dateTime>\",\n  \"ReceiptsReceived\": \"<boolean>\",\n  \"SubmitDate\": \"<dateTime>\",\n  \"Total\": \"<double>\",\n  \"TotalApprovedAmount\": \"<double>\",\n  \"TotalClaimedAmount\": \"<double>\",\n  \"URI\": \"<string>\",\n  \"UserDefinedDate\": \"<dateTime>\",\n  \"WorkflowActionUrl\": \"<string>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Update report",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Comment\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom11\": \"<string>\",\n  \"Custom12\": \"<string>\",\n  \"Custom13\": \"<string>\",\n  \"Custom14\": \"<string>\",\n  \"Custom15\": \"<string>\",\n  \"Custom16\": \"<string>\",\n  \"Custom17\": \"<string>\",\n  \"Custom18\": \"<string>\",\n  \"Custom19\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom20\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"OrgUnit1\": \"<string>\",\n  \"OrgUnit2\": \"<string>\",\n  \"OrgUnit3\": \"<string>\",\n  \"OrgUnit4\": \"<string>\",\n  \"OrgUnit5\": \"<string>\",\n  \"OrgUnit6\": \"<string>\",\n  \"PolicyID\": \"<string>\",\n  \"Purpose\": \"<string>\",\n  \"UserDefinedDate\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/expense/reports/:id?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"reports",
+												":id"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "Optional. The login ID for the Report Owner."
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Updates the report specified in the URL. Only the provided fields will be updated, missing fields will not be altered."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"Comment\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom11\": \"<string>\",\n  \"Custom12\": \"<string>\",\n  \"Custom13\": \"<string>\",\n  \"Custom14\": \"<string>\",\n  \"Custom15\": \"<string>\",\n  \"Custom16\": \"<string>\",\n  \"Custom17\": \"<string>\",\n  \"Custom18\": \"<string>\",\n  \"Custom19\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom20\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"OrgUnit1\": \"<string>\",\n  \"OrgUnit2\": \"<string>\",\n  \"OrgUnit3\": \"<string>\",\n  \"OrgUnit4\": \"<string>\",\n  \"OrgUnit5\": \"<string>\",\n  \"OrgUnit6\": \"<string>\",\n  \"PolicyID\": \"<string>\",\n  \"Purpose\": \"<string>\",\n  \"UserDefinedDate\": \"<dateTime>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/expense/reports/:id?user=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"expense",
+														"reports",
+														":id"
+													],
+													"query": [
+														{
+															"key": "user",
+															"value": "<string>",
+															"description": "Optional. The login ID for the Report Owner."
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"Comment\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom11\": \"<string>\",\n  \"Custom12\": \"<string>\",\n  \"Custom13\": \"<string>\",\n  \"Custom14\": \"<string>\",\n  \"Custom15\": \"<string>\",\n  \"Custom16\": \"<string>\",\n  \"Custom17\": \"<string>\",\n  \"Custom18\": \"<string>\",\n  \"Custom19\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom20\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"OrgUnit1\": \"<string>\",\n  \"OrgUnit2\": \"<string>\",\n  \"OrgUnit3\": \"<string>\",\n  \"OrgUnit4\": \"<string>\",\n  \"OrgUnit5\": \"<string>\",\n  \"OrgUnit6\": \"<string>\",\n  \"PolicyID\": \"<string>\",\n  \"Purpose\": \"<string>\",\n  \"UserDefinedDate\": \"<dateTime>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/expense/reports/:id?user=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"expense",
+														"reports",
+														":id"
+													],
+													"query": [
+														{
+															"key": "user",
+															"value": "<string>",
+															"description": "Optional. The login ID for the Report Owner."
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Gets all reports",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/expense/reports?offset=<string>&limit=<integer>&user=<string>&approvalStatusCode=<string>&paymentStatusCode=<string>&currencyCode=<string>&paymentType=<string>&reimbursementMethod=<string>&approverLoginID=<string>&expenseTypeCode=<string>&attendeeTypeCode=<string>&countryCode=<string>&batchID=<string>&vendorName=<string>&hasVAT=<boolean>&hasImages=<boolean>&hasAttendees=<boolean>&hasBillableExpenses=<boolean>&isTestUser=<boolean>&expenseGroupConfigID=<string>&entryTransactionDateBefore=<dateTime>&entryTransactionDateAfter=<dateTime>&createDateBefore=<dateTime>&createDateAfter=<dateTime>&userDefinedDateBefore=<dateTime>&userDefinedDateAfter=<dateTime>&submitDateBefore=<dateTime>&submitDateAfter=<dateTime>&processingPaymentDateBefore=<dateTime>&processingPaymentDateAfter=<dateTime>&paidDateBefore=<dateTime>&paidDateAfter=<dateTime>&modifiedDateBefore=<dateTime>&modifiedDateAfter=<dateTime>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"expense",
+										"reports"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<string>",
+											"description": "Starting page offset"
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "Number of records to return (default 25)"
+										},
+										{
+											"key": "user",
+											"value": "<string>",
+											"description": "Optional. The login ID of the report owner(s) to use when searching for reports. If the value is set to LoginID, reports for the report owner with this login ID value are returned. If the value is set to ALL, reports for all report owners are returned. If this parameter is not specified, reports for the OAuth Consumer are returned. The access token owner (OAuth Consumer) must have the Web Services Admin role to use this parameter."
+										},
+										{
+											"key": "approvalStatusCode",
+											"value": "<string>",
+											"description": "The status code for the Approval Status. The values can include Concur Expense standard codes or custom codes. The Concur Expense standard code values are: A_AAFH - Report submission triggered an anomaly and fraud check; A_ACCO - Report is pending reviews; A_APPR - Report has been approved; A_EXTV - Report is pending external validation; A_FILE - Report has been submitted; A_NOTF - Report has not been submitted; A_PBDG - Report approval is pending Budget approval; A_PECO - Report approval is pending Cost object approval; A_PEND - Report is pending manager approval; A_PVAL - Report is pending prepayment validation; A_RESU - Report needs to be resubmitted; A_RHLD - Report submission is pending receipt images; A_TEXP - Report expired in approval queue. For custom codes, contact Concur Developer Support."
+										},
+										{
+											"key": "paymentStatusCode",
+											"value": "<string>",
+											"description": "The payment status code for the report. The values can include Concur Expense standard codes or custom codes. The Concur Expense standard code values are: P_HOLD - Report payment is on hold; P_NOTP - Report has not been paid; P_PAID - Report has been paid; P_PAYC - Payment is confirmed. Some or all of the report expenses have been paid; P_PROC - Report is in process to be paid. For custom codes, contact Concur Developer Support."
+										},
+										{
+											"key": "currencyCode",
+											"value": "<string>",
+											"description": "The 3-letter ISO 4217 currency code for the report currency. Example: USD."
+										},
+										{
+											"key": "paymentType",
+											"value": "<string>",
+											"description": "The unique identifier for the payment type that is the payment type for at least one expense entry in the report. Use PaymentTypeID from the \"GET Expense Group Configurations\" function."
+										},
+										{
+											"key": "reimbursementMethod",
+											"value": "<string>",
+											"description": "The method the report owner will be reimbursed. VALUES: ADPPAYR - ADP Payroll; APCHECK - AP (Company Check); CNQRPAY - Expense Pay; PMTSERV - Other Payment Service. NOTE: PAY_PAL is NOT supported."
+										},
+										{
+											"key": "approverLoginID",
+											"value": "<string>",
+											"description": "The login ID for the report approver that is the current approver assigned to the report."
+										},
+										{
+											"key": "expenseTypeCode",
+											"value": "<string>",
+											"description": "The expense type code that is the expense type for at least one expense entry in the report. Use ExpenseTypeCode from the \"GET Expense Group Configurations\" function."
+										},
+										{
+											"key": "attendeeTypeCode",
+											"value": "<string>",
+											"description": "The report contains expense entries that have attendees of the specified type."
+										},
+										{
+											"key": "countryCode",
+											"value": "<string>",
+											"description": "The report country. Maximum 2 characters. Format: The ISO 3166-1 alpha-2 country code. Example: United States is US."
+										},
+										{
+											"key": "batchID",
+											"value": "<string>",
+											"description": "The unique identifier for a payment batch where there is at least one report payee within the report. Use the BatchID from the \"GET Payment Batch List\" function."
+										},
+										{
+											"key": "vendorName",
+											"value": "<string>",
+											"description": "The Vendor Description that is the vendor for at least one expense entry in the report."
+										},
+										{
+											"key": "hasVAT",
+											"value": "<boolean>",
+											"description": "Determines if the report has at least one expense entry with VAT details. Format: true or false."
+										},
+										{
+											"key": "hasImages",
+											"value": "<boolean>",
+											"description": "Determines if the report has at least one expense entry with an entry image or if there is a report image for this report. Format: true or false."
+										},
+										{
+											"key": "hasAttendees",
+											"value": "<boolean>",
+											"description": "Determines if the report has at least one expense entry with an attendee. Format: true or false."
+										},
+										{
+											"key": "hasBillableExpenses",
+											"value": "<boolean>",
+											"description": "The IsBillable flag for at least one expense entry in the report. Format: true or false."
+										},
+										{
+											"key": "isTestUser",
+											"value": "<boolean>",
+											"description": "The report owner is a test user using the report for testing purposes in a non-production envirnment. format: true or false."
+										},
+										{
+											"key": "expenseGroupConfigID",
+											"value": "<string>",
+											"description": "The unique identifier for the expense group configuration associated to the report's expense group. Use the ID from the \"GET Expense Group Configurations\" function."
+										},
+										{
+											"key": "entryTransactionDateBefore",
+											"value": "<dateTime>",
+											"description": "The entry transaction date for at least one expense entry in the report is before this date.Format: YYYY-MM-DD"
+										},
+										{
+											"key": "entryTransactionDateAfter",
+											"value": "<dateTime>",
+											"description": "The entry transaction date for at least one expense entry in the report is after this date.Format: YYYY-MM-DD"
+										},
+										{
+											"key": "createDateBefore",
+											"value": "<dateTime>",
+											"description": "The report create date is before this date.Format: YYYY-MM-DD"
+										},
+										{
+											"key": "createDateAfter",
+											"value": "<dateTime>",
+											"description": "The report create date is after this date.Format: YYYY-MM-DD"
+										},
+										{
+											"key": "userDefinedDateBefore",
+											"value": "<dateTime>",
+											"description": "The report user defined date is before this date.Format: YYYY-MM-DD"
+										},
+										{
+											"key": "userDefinedDateAfter",
+											"value": "<dateTime>",
+											"description": "The report user defined date is after this date.Format: YYYY-MM-DD"
+										},
+										{
+											"key": "submitDateBefore",
+											"value": "<dateTime>",
+											"description": "The report submit date is before this date.Format: YYYY-MM-DD"
+										},
+										{
+											"key": "submitDateAfter",
+											"value": "<dateTime>",
+											"description": "The report submit date is after this date.Format: YYYY-MM-DD"
+										},
+										{
+											"key": "processingPaymentDateBefore",
+											"value": "<dateTime>",
+											"description": "The report processing payment date is before this date.Format: YYYY-MM-DD"
+										},
+										{
+											"key": "processingPaymentDateAfter",
+											"value": "<dateTime>",
+											"description": "The report processing payment date is after this date. Format: YYYY-MM-DD"
+										},
+										{
+											"key": "paidDateBefore",
+											"value": "<dateTime>",
+											"description": "The report paid date is before this date.Format: YYYY-MM-DD"
+										},
+										{
+											"key": "paidDateAfter",
+											"value": "<dateTime>",
+											"description": "The report paid date is after this date.Format: YYYY-MM-DD"
+										},
+										{
+											"key": "modifiedDateBefore",
+											"value": "<dateTime>",
+											"description": "The report modified date is before this date.Format: YYYY-MM-DD"
+										},
+										{
+											"key": "modifiedDateAfter",
+											"value": "<dateTime>",
+											"description": "The report modified date is after this date.Format: YYYY-MM-DD"
+										}
+									]
+								},
+								"description": "Returns all reports owned by the user based on the search criteria."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/expense/reports?offset=<string>&limit=<integer>&user=<string>&approvalStatusCode=<string>&paymentStatusCode=<string>&currencyCode=<string>&paymentType=<string>&reimbursementMethod=<string>&approverLoginID=<string>&expenseTypeCode=<string>&attendeeTypeCode=<string>&countryCode=<string>&batchID=<string>&vendorName=<string>&hasVAT=<boolean>&hasImages=<boolean>&hasAttendees=<boolean>&hasBillableExpenses=<boolean>&isTestUser=<boolean>&expenseGroupConfigID=<string>&entryTransactionDateBefore=<dateTime>&entryTransactionDateAfter=<dateTime>&createDateBefore=<dateTime>&createDateAfter=<dateTime>&userDefinedDateBefore=<dateTime>&userDefinedDateAfter=<dateTime>&submitDateBefore=<dateTime>&submitDateAfter=<dateTime>&processingPaymentDateBefore=<dateTime>&processingPaymentDateAfter=<dateTime>&paidDateBefore=<dateTime>&paidDateAfter=<dateTime>&modifiedDateBefore=<dateTime>&modifiedDateAfter=<dateTime>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"reports"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "<string>",
+													"description": "Starting page offset"
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "Number of records to return (default 25)"
+												},
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "Optional. The login ID of the report owner(s) to use when searching for reports. If the value is set to LoginID, reports for the report owner with this login ID value are returned. If the value is set to ALL, reports for all report owners are returned. If this parameter is not specified, reports for the OAuth Consumer are returned. The access token owner (OAuth Consumer) must have the Web Services Admin role to use this parameter."
+												},
+												{
+													"key": "approvalStatusCode",
+													"value": "<string>",
+													"description": "The status code for the Approval Status. The values can include Concur Expense standard codes or custom codes. The Concur Expense standard code values are: A_AAFH - Report submission triggered an anomaly and fraud check; A_ACCO - Report is pending reviews; A_APPR - Report has been approved; A_EXTV - Report is pending external validation; A_FILE - Report has been submitted; A_NOTF - Report has not been submitted; A_PBDG - Report approval is pending Budget approval; A_PECO - Report approval is pending Cost object approval; A_PEND - Report is pending manager approval; A_PVAL - Report is pending prepayment validation; A_RESU - Report needs to be resubmitted; A_RHLD - Report submission is pending receipt images; A_TEXP - Report expired in approval queue. For custom codes, contact Concur Developer Support."
+												},
+												{
+													"key": "paymentStatusCode",
+													"value": "<string>",
+													"description": "The payment status code for the report. The values can include Concur Expense standard codes or custom codes. The Concur Expense standard code values are: P_HOLD - Report payment is on hold; P_NOTP - Report has not been paid; P_PAID - Report has been paid; P_PAYC - Payment is confirmed. Some or all of the report expenses have been paid; P_PROC - Report is in process to be paid. For custom codes, contact Concur Developer Support."
+												},
+												{
+													"key": "currencyCode",
+													"value": "<string>",
+													"description": "The 3-letter ISO 4217 currency code for the report currency. Example: USD."
+												},
+												{
+													"key": "paymentType",
+													"value": "<string>",
+													"description": "The unique identifier for the payment type that is the payment type for at least one expense entry in the report. Use PaymentTypeID from the \"GET Expense Group Configurations\" function."
+												},
+												{
+													"key": "reimbursementMethod",
+													"value": "<string>",
+													"description": "The method the report owner will be reimbursed. VALUES: ADPPAYR - ADP Payroll; APCHECK - AP (Company Check); CNQRPAY - Expense Pay; PMTSERV - Other Payment Service. NOTE: PAY_PAL is NOT supported."
+												},
+												{
+													"key": "approverLoginID",
+													"value": "<string>",
+													"description": "The login ID for the report approver that is the current approver assigned to the report."
+												},
+												{
+													"key": "expenseTypeCode",
+													"value": "<string>",
+													"description": "The expense type code that is the expense type for at least one expense entry in the report. Use ExpenseTypeCode from the \"GET Expense Group Configurations\" function."
+												},
+												{
+													"key": "attendeeTypeCode",
+													"value": "<string>",
+													"description": "The report contains expense entries that have attendees of the specified type."
+												},
+												{
+													"key": "countryCode",
+													"value": "<string>",
+													"description": "The report country. Maximum 2 characters. Format: The ISO 3166-1 alpha-2 country code. Example: United States is US."
+												},
+												{
+													"key": "batchID",
+													"value": "<string>",
+													"description": "The unique identifier for a payment batch where there is at least one report payee within the report. Use the BatchID from the \"GET Payment Batch List\" function."
+												},
+												{
+													"key": "vendorName",
+													"value": "<string>",
+													"description": "The Vendor Description that is the vendor for at least one expense entry in the report."
+												},
+												{
+													"key": "hasVAT",
+													"value": "<boolean>",
+													"description": "Determines if the report has at least one expense entry with VAT details. Format: true or false."
+												},
+												{
+													"key": "hasImages",
+													"value": "<boolean>",
+													"description": "Determines if the report has at least one expense entry with an entry image or if there is a report image for this report. Format: true or false."
+												},
+												{
+													"key": "hasAttendees",
+													"value": "<boolean>",
+													"description": "Determines if the report has at least one expense entry with an attendee. Format: true or false."
+												},
+												{
+													"key": "hasBillableExpenses",
+													"value": "<boolean>",
+													"description": "The IsBillable flag for at least one expense entry in the report. Format: true or false."
+												},
+												{
+													"key": "isTestUser",
+													"value": "<boolean>",
+													"description": "The report owner is a test user using the report for testing purposes in a non-production envirnment. format: true or false."
+												},
+												{
+													"key": "expenseGroupConfigID",
+													"value": "<string>",
+													"description": "The unique identifier for the expense group configuration associated to the report's expense group. Use the ID from the \"GET Expense Group Configurations\" function."
+												},
+												{
+													"key": "entryTransactionDateBefore",
+													"value": "<dateTime>",
+													"description": "The entry transaction date for at least one expense entry in the report is before this date.Format: YYYY-MM-DD"
+												},
+												{
+													"key": "entryTransactionDateAfter",
+													"value": "<dateTime>",
+													"description": "The entry transaction date for at least one expense entry in the report is after this date.Format: YYYY-MM-DD"
+												},
+												{
+													"key": "createDateBefore",
+													"value": "<dateTime>",
+													"description": "The report create date is before this date.Format: YYYY-MM-DD"
+												},
+												{
+													"key": "createDateAfter",
+													"value": "<dateTime>",
+													"description": "The report create date is after this date.Format: YYYY-MM-DD"
+												},
+												{
+													"key": "userDefinedDateBefore",
+													"value": "<dateTime>",
+													"description": "The report user defined date is before this date.Format: YYYY-MM-DD"
+												},
+												{
+													"key": "userDefinedDateAfter",
+													"value": "<dateTime>",
+													"description": "The report user defined date is after this date.Format: YYYY-MM-DD"
+												},
+												{
+													"key": "submitDateBefore",
+													"value": "<dateTime>",
+													"description": "The report submit date is before this date.Format: YYYY-MM-DD"
+												},
+												{
+													"key": "submitDateAfter",
+													"value": "<dateTime>",
+													"description": "The report submit date is after this date.Format: YYYY-MM-DD"
+												},
+												{
+													"key": "processingPaymentDateBefore",
+													"value": "<dateTime>",
+													"description": "The report processing payment date is before this date.Format: YYYY-MM-DD"
+												},
+												{
+													"key": "processingPaymentDateAfter",
+													"value": "<dateTime>",
+													"description": "The report processing payment date is after this date. Format: YYYY-MM-DD"
+												},
+												{
+													"key": "paidDateBefore",
+													"value": "<dateTime>",
+													"description": "The report paid date is before this date.Format: YYYY-MM-DD"
+												},
+												{
+													"key": "paidDateAfter",
+													"value": "<dateTime>",
+													"description": "The report paid date is after this date.Format: YYYY-MM-DD"
+												},
+												{
+													"key": "modifiedDateBefore",
+													"value": "<dateTime>",
+													"description": "The report modified date is before this date.Format: YYYY-MM-DD"
+												},
+												{
+													"key": "modifiedDateAfter",
+													"value": "<dateTime>",
+													"description": "The report modified date is after this date.Format: YYYY-MM-DD"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Items\": {\n    \"AmountDueCompanyCard\": \"<double>\",\n    \"AmountDueEmployee\": \"<double>\",\n    \"ApprovalStatusCode\": \"<string>\",\n    \"ApprovalStatusName\": \"<string>\",\n    \"ApproverLoginID\": \"<string>\",\n    \"ApproverName\": \"<string>\",\n    \"Country\": \"<string>\",\n    \"CountrySubdivision\": \"<string>\",\n    \"CreateDate\": \"<dateTime>\",\n    \"CurrencyCode\": \"<string>\",\n    \"Custom1\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom10\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom11\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom12\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom13\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom14\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom15\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom16\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom17\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom18\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom19\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom2\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom20\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom3\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom4\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom5\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom6\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom7\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom8\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom9\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"EverSentBack\": \"<boolean>\",\n    \"HasException\": \"<boolean>\",\n    \"ID\": \"<string>\",\n    \"LastComment\": \"<string>\",\n    \"LastModifiedDate\": \"<dateTime>\",\n    \"LedgerName\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"OrgUnit1\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"OrgUnit2\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"OrgUnit3\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"OrgUnit4\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"OrgUnit5\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"OrgUnit6\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"OwnerLoginID\": \"<string>\",\n    \"OwnerName\": \"<string>\",\n    \"PaidDate\": \"<dateTime>\",\n    \"PaymentStatusCode\": \"<string>\",\n    \"PaymentStatusName\": \"<string>\",\n    \"PersonalAmount\": \"<double>\",\n    \"PolicyID\": \"<string>\",\n    \"ProcessingPaymentDate\": \"<dateTime>\",\n    \"ReceiptsReceived\": \"<boolean>\",\n    \"SubmitDate\": \"<dateTime>\",\n    \"Total\": \"<double>\",\n    \"TotalApprovedAmount\": \"<double>\",\n    \"TotalClaimedAmount\": \"<double>\",\n    \"URI\": \"<string>\",\n    \"UserDefinedDate\": \"<dateTime>\",\n    \"WorkflowActionUrl\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Create a new report",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"Comment\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom11\": \"<string>\",\n  \"Custom12\": \"<string>\",\n  \"Custom13\": \"<string>\",\n  \"Custom14\": \"<string>\",\n  \"Custom15\": \"<string>\",\n  \"Custom16\": \"<string>\",\n  \"Custom17\": \"<string>\",\n  \"Custom18\": \"<string>\",\n  \"Custom19\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom20\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"OrgUnit1\": \"<string>\",\n  \"OrgUnit2\": \"<string>\",\n  \"OrgUnit3\": \"<string>\",\n  \"OrgUnit4\": \"<string>\",\n  \"OrgUnit5\": \"<string>\",\n  \"OrgUnit6\": \"<string>\",\n  \"PolicyID\": \"<string>\",\n  \"Purpose\": \"<string>\",\n  \"UserDefinedDate\": \"<dateTime>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/expense/reports?user=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"expense",
+										"reports"
+									],
+									"query": [
+										{
+											"key": "user",
+											"value": "<string>",
+											"description": "Optional. The login ID for the Report Owner."
+										}
+									]
+								},
+								"description": "Create an expense report with the supplied data."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Comment\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom11\": \"<string>\",\n  \"Custom12\": \"<string>\",\n  \"Custom13\": \"<string>\",\n  \"Custom14\": \"<string>\",\n  \"Custom15\": \"<string>\",\n  \"Custom16\": \"<string>\",\n  \"Custom17\": \"<string>\",\n  \"Custom18\": \"<string>\",\n  \"Custom19\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom20\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"OrgUnit1\": \"<string>\",\n  \"OrgUnit2\": \"<string>\",\n  \"OrgUnit3\": \"<string>\",\n  \"OrgUnit4\": \"<string>\",\n  \"OrgUnit5\": \"<string>\",\n  \"OrgUnit6\": \"<string>\",\n  \"PolicyID\": \"<string>\",\n  \"Purpose\": \"<string>\",\n  \"UserDefinedDate\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/expense/reports?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"reports"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "Optional. The login ID for the Report Owner."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"ID\": \"<string>\",\n  \"URI\": \"<string>\"\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Comment\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom11\": \"<string>\",\n  \"Custom12\": \"<string>\",\n  \"Custom13\": \"<string>\",\n  \"Custom14\": \"<string>\",\n  \"Custom15\": \"<string>\",\n  \"Custom16\": \"<string>\",\n  \"Custom17\": \"<string>\",\n  \"Custom18\": \"<string>\",\n  \"Custom19\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom20\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"OrgUnit1\": \"<string>\",\n  \"OrgUnit2\": \"<string>\",\n  \"OrgUnit3\": \"<string>\",\n  \"OrgUnit4\": \"<string>\",\n  \"OrgUnit5\": \"<string>\",\n  \"OrgUnit6\": \"<string>\",\n  \"PolicyID\": \"<string>\",\n  \"Purpose\": \"<string>\",\n  \"UserDefinedDate\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/expense/reports?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"reports"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "Optional. The login ID for the Report Owner."
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessTokenUrl",
+				"value": "https://us.api.concursolutions.com/oauth2/v0",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/v3.0"
+		}
+	]
+}

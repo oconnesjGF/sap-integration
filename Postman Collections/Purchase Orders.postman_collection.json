@@ -1,0 +1,409 @@
+{
+	"info": {
+		"_postman_id": "d94ae043-67f7-49cb-a75e-4d145e40f462",
+		"name": "Purchase Orders",
+		"description": "In Concur Invoice, purchase orders are requests for a vendor to supply goods or services. This API provides methods to create a new purchase order, or view or update an existing purchase order.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "invoice",
+			"item": [
+				{
+					"name": "purchaseorders",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Get a purchase order.",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/invoice/purchaseorders/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"purchaseorders",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Retrieves information about the specified purchase order."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/invoice/purchaseorders/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"invoice",
+														"purchaseorders",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"BillToAddress\": {\n    \"Address1\": \"<string>\",\n    \"City\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"ExternalID\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StateProvince\": \"<string>\"\n  },\n  \"LineItem\": [\n    {\n      \"LineNumber\": \"<string>\",\n      \"ExternalID\": \"<string>\",\n      \"Quantity\": \"<string>\",\n      \"UnitPrice\": \"<string>\",\n      \"AccountCode\": \"<string>\",\n      \"Allocation\": [\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        },\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        }\n      ],\n      \"AmountWithoutVat\": \"<string>\",\n      \"CreateDate\": \"<string>\",\n      \"Custom1\": \"<string>\",\n      \"Custom10\": \"<string>\",\n      \"Custom11\": \"<string>\",\n      \"Custom12\": \"<string>\",\n      \"Custom13\": \"<string>\",\n      \"Custom14\": \"<string>\",\n      \"Custom15\": \"<string>\",\n      \"Custom16\": \"<string>\",\n      \"Custom17\": \"<string>\",\n      \"Custom18\": \"<string>\",\n      \"Custom19\": \"<string>\",\n      \"Custom2\": \"<string>\",\n      \"Custom20\": \"<string>\",\n      \"Custom3\": \"<string>\",\n      \"Custom4\": \"<string>\",\n      \"Custom5\": \"<string>\",\n      \"Custom6\": \"<string>\",\n      \"Custom7\": \"<string>\",\n      \"Custom8\": \"<string>\",\n      \"Custom9\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"ExpenseType\": \"<string>\",\n      \"IsReceiptRequired\": \"<string>\",\n      \"PurchaseOrderReceiptType\": \"<string>\",\n      \"RequestedBy\": \"<string>\",\n      \"RequestedDeliveryDate\": \"<string>\",\n      \"SupplierPartID\": \"<string>\",\n      \"Tax\": \"<string>\",\n      \"UnitOfMeasureCode\": \"<string>\",\n      \"VatAmount\": \"<string>\",\n      \"VatRate\": \"<string>\"\n    },\n    {\n      \"LineNumber\": \"<string>\",\n      \"ExternalID\": \"<string>\",\n      \"Quantity\": \"<string>\",\n      \"UnitPrice\": \"<string>\",\n      \"AccountCode\": \"<string>\",\n      \"Allocation\": [\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        },\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        }\n      ],\n      \"AmountWithoutVat\": \"<string>\",\n      \"CreateDate\": \"<string>\",\n      \"Custom1\": \"<string>\",\n      \"Custom10\": \"<string>\",\n      \"Custom11\": \"<string>\",\n      \"Custom12\": \"<string>\",\n      \"Custom13\": \"<string>\",\n      \"Custom14\": \"<string>\",\n      \"Custom15\": \"<string>\",\n      \"Custom16\": \"<string>\",\n      \"Custom17\": \"<string>\",\n      \"Custom18\": \"<string>\",\n      \"Custom19\": \"<string>\",\n      \"Custom2\": \"<string>\",\n      \"Custom20\": \"<string>\",\n      \"Custom3\": \"<string>\",\n      \"Custom4\": \"<string>\",\n      \"Custom5\": \"<string>\",\n      \"Custom6\": \"<string>\",\n      \"Custom7\": \"<string>\",\n      \"Custom8\": \"<string>\",\n      \"Custom9\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"ExpenseType\": \"<string>\",\n      \"IsReceiptRequired\": \"<string>\",\n      \"PurchaseOrderReceiptType\": \"<string>\",\n      \"RequestedBy\": \"<string>\",\n      \"RequestedDeliveryDate\": \"<string>\",\n      \"SupplierPartID\": \"<string>\",\n      \"Tax\": \"<string>\",\n      \"UnitOfMeasureCode\": \"<string>\",\n      \"VatAmount\": \"<string>\",\n      \"VatRate\": \"<string>\"\n    }\n  ],\n  \"PolicyExternalID\": \"<string>\",\n  \"ShipToAddress\": {\n    \"Address1\": \"<string>\",\n    \"City\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"ExternalID\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StateProvince\": \"<string>\"\n  },\n  \"CurrencyCode\": \"<string>\",\n  \"OrderDate\": \"<string>\",\n  \"VendorAddressCode\": \"<string>\",\n  \"VendorCode\": \"<string>\",\n  \"AmountWithoutVat\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom11\": \"<string>\",\n  \"Custom12\": \"<string>\",\n  \"Custom13\": \"<string>\",\n  \"Custom14\": \"<string>\",\n  \"Custom15\": \"<string>\",\n  \"Custom16\": \"<string>\",\n  \"Custom17\": \"<string>\",\n  \"Custom18\": \"<string>\",\n  \"Custom19\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom20\": \"<string>\",\n  \"Custom21\": \"<string>\",\n  \"Custom22\": \"<string>\",\n  \"Custom23\": \"<string>\",\n  \"Custom24\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"DiscountPercentage\": \"<string>\",\n  \"DiscountTerms\": \"<string>\",\n  \"ID\": \"<string>\",\n  \"IsTest\": \"<boolean>\",\n  \"IsChangeOrder\": \"<boolean>\",\n  \"LedgerCode\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"NeededByDate\": \"<string>\",\n  \"PaymentTerms\": \"<string>\",\n  \"PoVendorTaxId\": \"<string>\",\n  \"ProvincialTaxId\": \"<string>\",\n  \"PurchaseOrderNumber\": \"<string>\",\n  \"PurchaseRequestNumber\": \"<string>\",\n  \"ReceiptType\": \"<string>\",\n  \"RequestedBy\": \"<string>\",\n  \"RequestedDeliveryDate\": \"<string>\",\n  \"Shipping\": \"<string>\",\n  \"ShippingDescription\": \"<string>\",\n  \"ShippingMethodKey\": \"<string>\",\n  \"ShippingTermsKey\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"Tax\": \"<string>\",\n  \"URI\": \"<string>\",\n  \"VatAmountOne\": \"<string>\",\n  \"VatAmountTwo\": \"<string>\",\n  \"VatRateOne\": \"<string>\",\n  \"VatRateTwo\": \"<string>\",\n  \"VendorAccountNumber\": \"<string>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Create a purchase order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"BillToAddress\": {\n    \"Address1\": \"<string>\",\n    \"City\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"ExternalID\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StateProvince\": \"<string>\"\n  },\n  \"LineItem\": [\n    {\n      \"LineNumber\": \"<string>\",\n      \"ExternalID\": \"<string>\",\n      \"Quantity\": \"<string>\",\n      \"UnitPrice\": \"<string>\",\n      \"AccountCode\": \"<string>\",\n      \"Allocation\": [\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        },\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        }\n      ],\n      \"AmountWithoutVat\": \"<string>\",\n      \"CreateDate\": \"<string>\",\n      \"Custom1\": \"<string>\",\n      \"Custom10\": \"<string>\",\n      \"Custom11\": \"<string>\",\n      \"Custom12\": \"<string>\",\n      \"Custom13\": \"<string>\",\n      \"Custom14\": \"<string>\",\n      \"Custom15\": \"<string>\",\n      \"Custom16\": \"<string>\",\n      \"Custom17\": \"<string>\",\n      \"Custom18\": \"<string>\",\n      \"Custom19\": \"<string>\",\n      \"Custom2\": \"<string>\",\n      \"Custom20\": \"<string>\",\n      \"Custom3\": \"<string>\",\n      \"Custom4\": \"<string>\",\n      \"Custom5\": \"<string>\",\n      \"Custom6\": \"<string>\",\n      \"Custom7\": \"<string>\",\n      \"Custom8\": \"<string>\",\n      \"Custom9\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"ExpenseType\": \"<string>\",\n      \"IsReceiptRequired\": \"<string>\",\n      \"PurchaseOrderReceiptType\": \"<string>\",\n      \"RequestedBy\": \"<string>\",\n      \"RequestedDeliveryDate\": \"<string>\",\n      \"SupplierPartID\": \"<string>\",\n      \"Tax\": \"<string>\",\n      \"UnitOfMeasureCode\": \"<string>\",\n      \"VatAmount\": \"<string>\",\n      \"VatRate\": \"<string>\"\n    },\n    {\n      \"LineNumber\": \"<string>\",\n      \"ExternalID\": \"<string>\",\n      \"Quantity\": \"<string>\",\n      \"UnitPrice\": \"<string>\",\n      \"AccountCode\": \"<string>\",\n      \"Allocation\": [\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        },\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        }\n      ],\n      \"AmountWithoutVat\": \"<string>\",\n      \"CreateDate\": \"<string>\",\n      \"Custom1\": \"<string>\",\n      \"Custom10\": \"<string>\",\n      \"Custom11\": \"<string>\",\n      \"Custom12\": \"<string>\",\n      \"Custom13\": \"<string>\",\n      \"Custom14\": \"<string>\",\n      \"Custom15\": \"<string>\",\n      \"Custom16\": \"<string>\",\n      \"Custom17\": \"<string>\",\n      \"Custom18\": \"<string>\",\n      \"Custom19\": \"<string>\",\n      \"Custom2\": \"<string>\",\n      \"Custom20\": \"<string>\",\n      \"Custom3\": \"<string>\",\n      \"Custom4\": \"<string>\",\n      \"Custom5\": \"<string>\",\n      \"Custom6\": \"<string>\",\n      \"Custom7\": \"<string>\",\n      \"Custom8\": \"<string>\",\n      \"Custom9\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"ExpenseType\": \"<string>\",\n      \"IsReceiptRequired\": \"<string>\",\n      \"PurchaseOrderReceiptType\": \"<string>\",\n      \"RequestedBy\": \"<string>\",\n      \"RequestedDeliveryDate\": \"<string>\",\n      \"SupplierPartID\": \"<string>\",\n      \"Tax\": \"<string>\",\n      \"UnitOfMeasureCode\": \"<string>\",\n      \"VatAmount\": \"<string>\",\n      \"VatRate\": \"<string>\"\n    }\n  ],\n  \"PolicyExternalID\": \"<string>\",\n  \"ShipToAddress\": {\n    \"Address1\": \"<string>\",\n    \"City\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"ExternalID\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StateProvince\": \"<string>\"\n  },\n  \"CurrencyCode\": \"<string>\",\n  \"OrderDate\": \"<string>\",\n  \"VendorAddressCode\": \"<string>\",\n  \"VendorCode\": \"<string>\",\n  \"AmountWithoutVat\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom11\": \"<string>\",\n  \"Custom12\": \"<string>\",\n  \"Custom13\": \"<string>\",\n  \"Custom14\": \"<string>\",\n  \"Custom15\": \"<string>\",\n  \"Custom16\": \"<string>\",\n  \"Custom17\": \"<string>\",\n  \"Custom18\": \"<string>\",\n  \"Custom19\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom20\": \"<string>\",\n  \"Custom21\": \"<string>\",\n  \"Custom22\": \"<string>\",\n  \"Custom23\": \"<string>\",\n  \"Custom24\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"DiscountPercentage\": \"<string>\",\n  \"DiscountTerms\": \"<string>\",\n  \"ID\": \"<string>\",\n  \"IsTest\": \"<boolean>\",\n  \"IsChangeOrder\": \"<boolean>\",\n  \"LedgerCode\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"NeededByDate\": \"<string>\",\n  \"PaymentTerms\": \"<string>\",\n  \"PoVendorTaxId\": \"<string>\",\n  \"ProvincialTaxId\": \"<string>\",\n  \"PurchaseOrderNumber\": \"<string>\",\n  \"PurchaseRequestNumber\": \"<string>\",\n  \"ReceiptType\": \"<string>\",\n  \"RequestedBy\": \"<string>\",\n  \"RequestedDeliveryDate\": \"<string>\",\n  \"Shipping\": \"<string>\",\n  \"ShippingDescription\": \"<string>\",\n  \"ShippingMethodKey\": \"<string>\",\n  \"ShippingTermsKey\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"Tax\": \"<string>\",\n  \"URI\": \"<string>\",\n  \"VatAmountOne\": \"<string>\",\n  \"VatAmountTwo\": \"<string>\",\n  \"VatRateOne\": \"<string>\",\n  \"VatRateTwo\": \"<string>\",\n  \"VendorAccountNumber\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/invoice/purchaseorders",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"invoice",
+										"purchaseorders"
+									]
+								},
+								"description": "Creates a purchase order and returns the status of the creation request."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"BillToAddress\": {\n    \"Address1\": \"<string>\",\n    \"City\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"ExternalID\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StateProvince\": \"<string>\"\n  },\n  \"LineItem\": [\n    {\n      \"LineNumber\": \"<string>\",\n      \"ExternalID\": \"<string>\",\n      \"Quantity\": \"<string>\",\n      \"UnitPrice\": \"<string>\",\n      \"AccountCode\": \"<string>\",\n      \"Allocation\": [\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        },\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        }\n      ],\n      \"AmountWithoutVat\": \"<string>\",\n      \"CreateDate\": \"<string>\",\n      \"Custom1\": \"<string>\",\n      \"Custom10\": \"<string>\",\n      \"Custom11\": \"<string>\",\n      \"Custom12\": \"<string>\",\n      \"Custom13\": \"<string>\",\n      \"Custom14\": \"<string>\",\n      \"Custom15\": \"<string>\",\n      \"Custom16\": \"<string>\",\n      \"Custom17\": \"<string>\",\n      \"Custom18\": \"<string>\",\n      \"Custom19\": \"<string>\",\n      \"Custom2\": \"<string>\",\n      \"Custom20\": \"<string>\",\n      \"Custom3\": \"<string>\",\n      \"Custom4\": \"<string>\",\n      \"Custom5\": \"<string>\",\n      \"Custom6\": \"<string>\",\n      \"Custom7\": \"<string>\",\n      \"Custom8\": \"<string>\",\n      \"Custom9\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"ExpenseType\": \"<string>\",\n      \"IsReceiptRequired\": \"<string>\",\n      \"PurchaseOrderReceiptType\": \"<string>\",\n      \"RequestedBy\": \"<string>\",\n      \"RequestedDeliveryDate\": \"<string>\",\n      \"SupplierPartID\": \"<string>\",\n      \"Tax\": \"<string>\",\n      \"UnitOfMeasureCode\": \"<string>\",\n      \"VatAmount\": \"<string>\",\n      \"VatRate\": \"<string>\"\n    },\n    {\n      \"LineNumber\": \"<string>\",\n      \"ExternalID\": \"<string>\",\n      \"Quantity\": \"<string>\",\n      \"UnitPrice\": \"<string>\",\n      \"AccountCode\": \"<string>\",\n      \"Allocation\": [\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        },\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        }\n      ],\n      \"AmountWithoutVat\": \"<string>\",\n      \"CreateDate\": \"<string>\",\n      \"Custom1\": \"<string>\",\n      \"Custom10\": \"<string>\",\n      \"Custom11\": \"<string>\",\n      \"Custom12\": \"<string>\",\n      \"Custom13\": \"<string>\",\n      \"Custom14\": \"<string>\",\n      \"Custom15\": \"<string>\",\n      \"Custom16\": \"<string>\",\n      \"Custom17\": \"<string>\",\n      \"Custom18\": \"<string>\",\n      \"Custom19\": \"<string>\",\n      \"Custom2\": \"<string>\",\n      \"Custom20\": \"<string>\",\n      \"Custom3\": \"<string>\",\n      \"Custom4\": \"<string>\",\n      \"Custom5\": \"<string>\",\n      \"Custom6\": \"<string>\",\n      \"Custom7\": \"<string>\",\n      \"Custom8\": \"<string>\",\n      \"Custom9\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"ExpenseType\": \"<string>\",\n      \"IsReceiptRequired\": \"<string>\",\n      \"PurchaseOrderReceiptType\": \"<string>\",\n      \"RequestedBy\": \"<string>\",\n      \"RequestedDeliveryDate\": \"<string>\",\n      \"SupplierPartID\": \"<string>\",\n      \"Tax\": \"<string>\",\n      \"UnitOfMeasureCode\": \"<string>\",\n      \"VatAmount\": \"<string>\",\n      \"VatRate\": \"<string>\"\n    }\n  ],\n  \"PolicyExternalID\": \"<string>\",\n  \"ShipToAddress\": {\n    \"Address1\": \"<string>\",\n    \"City\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"ExternalID\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StateProvince\": \"<string>\"\n  },\n  \"CurrencyCode\": \"<string>\",\n  \"OrderDate\": \"<string>\",\n  \"VendorAddressCode\": \"<string>\",\n  \"VendorCode\": \"<string>\",\n  \"AmountWithoutVat\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom11\": \"<string>\",\n  \"Custom12\": \"<string>\",\n  \"Custom13\": \"<string>\",\n  \"Custom14\": \"<string>\",\n  \"Custom15\": \"<string>\",\n  \"Custom16\": \"<string>\",\n  \"Custom17\": \"<string>\",\n  \"Custom18\": \"<string>\",\n  \"Custom19\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom20\": \"<string>\",\n  \"Custom21\": \"<string>\",\n  \"Custom22\": \"<string>\",\n  \"Custom23\": \"<string>\",\n  \"Custom24\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"DiscountPercentage\": \"<string>\",\n  \"DiscountTerms\": \"<string>\",\n  \"ID\": \"<string>\",\n  \"IsTest\": \"<boolean>\",\n  \"IsChangeOrder\": \"<boolean>\",\n  \"LedgerCode\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"NeededByDate\": \"<string>\",\n  \"PaymentTerms\": \"<string>\",\n  \"PoVendorTaxId\": \"<string>\",\n  \"ProvincialTaxId\": \"<string>\",\n  \"PurchaseOrderNumber\": \"<string>\",\n  \"PurchaseRequestNumber\": \"<string>\",\n  \"ReceiptType\": \"<string>\",\n  \"RequestedBy\": \"<string>\",\n  \"RequestedDeliveryDate\": \"<string>\",\n  \"Shipping\": \"<string>\",\n  \"ShippingDescription\": \"<string>\",\n  \"ShippingMethodKey\": \"<string>\",\n  \"ShippingTermsKey\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"Tax\": \"<string>\",\n  \"URI\": \"<string>\",\n  \"VatAmountOne\": \"<string>\",\n  \"VatAmountTwo\": \"<string>\",\n  \"VatRateOne\": \"<string>\",\n  \"VatRateTwo\": \"<string>\",\n  \"VendorAccountNumber\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/purchaseorders",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"purchaseorders"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"ErrorCode\": \"<string>\",\n  \"ErrorMessage\": \"<string>\",\n  \"FieldCode\": \"<string>\",\n  \"LineItemExternalID\": \"<string>\",\n  \"Message\": \"<string>\",\n  \"PurchaseOrderNumber\": \"<string>\",\n  \"Status\": \"<string>\"\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"BillToAddress\": {\n    \"Address1\": \"<string>\",\n    \"City\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"ExternalID\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StateProvince\": \"<string>\"\n  },\n  \"LineItem\": [\n    {\n      \"LineNumber\": \"<string>\",\n      \"ExternalID\": \"<string>\",\n      \"Quantity\": \"<string>\",\n      \"UnitPrice\": \"<string>\",\n      \"AccountCode\": \"<string>\",\n      \"Allocation\": [\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        },\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        }\n      ],\n      \"AmountWithoutVat\": \"<string>\",\n      \"CreateDate\": \"<string>\",\n      \"Custom1\": \"<string>\",\n      \"Custom10\": \"<string>\",\n      \"Custom11\": \"<string>\",\n      \"Custom12\": \"<string>\",\n      \"Custom13\": \"<string>\",\n      \"Custom14\": \"<string>\",\n      \"Custom15\": \"<string>\",\n      \"Custom16\": \"<string>\",\n      \"Custom17\": \"<string>\",\n      \"Custom18\": \"<string>\",\n      \"Custom19\": \"<string>\",\n      \"Custom2\": \"<string>\",\n      \"Custom20\": \"<string>\",\n      \"Custom3\": \"<string>\",\n      \"Custom4\": \"<string>\",\n      \"Custom5\": \"<string>\",\n      \"Custom6\": \"<string>\",\n      \"Custom7\": \"<string>\",\n      \"Custom8\": \"<string>\",\n      \"Custom9\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"ExpenseType\": \"<string>\",\n      \"IsReceiptRequired\": \"<string>\",\n      \"PurchaseOrderReceiptType\": \"<string>\",\n      \"RequestedBy\": \"<string>\",\n      \"RequestedDeliveryDate\": \"<string>\",\n      \"SupplierPartID\": \"<string>\",\n      \"Tax\": \"<string>\",\n      \"UnitOfMeasureCode\": \"<string>\",\n      \"VatAmount\": \"<string>\",\n      \"VatRate\": \"<string>\"\n    },\n    {\n      \"LineNumber\": \"<string>\",\n      \"ExternalID\": \"<string>\",\n      \"Quantity\": \"<string>\",\n      \"UnitPrice\": \"<string>\",\n      \"AccountCode\": \"<string>\",\n      \"Allocation\": [\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        },\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        }\n      ],\n      \"AmountWithoutVat\": \"<string>\",\n      \"CreateDate\": \"<string>\",\n      \"Custom1\": \"<string>\",\n      \"Custom10\": \"<string>\",\n      \"Custom11\": \"<string>\",\n      \"Custom12\": \"<string>\",\n      \"Custom13\": \"<string>\",\n      \"Custom14\": \"<string>\",\n      \"Custom15\": \"<string>\",\n      \"Custom16\": \"<string>\",\n      \"Custom17\": \"<string>\",\n      \"Custom18\": \"<string>\",\n      \"Custom19\": \"<string>\",\n      \"Custom2\": \"<string>\",\n      \"Custom20\": \"<string>\",\n      \"Custom3\": \"<string>\",\n      \"Custom4\": \"<string>\",\n      \"Custom5\": \"<string>\",\n      \"Custom6\": \"<string>\",\n      \"Custom7\": \"<string>\",\n      \"Custom8\": \"<string>\",\n      \"Custom9\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"ExpenseType\": \"<string>\",\n      \"IsReceiptRequired\": \"<string>\",\n      \"PurchaseOrderReceiptType\": \"<string>\",\n      \"RequestedBy\": \"<string>\",\n      \"RequestedDeliveryDate\": \"<string>\",\n      \"SupplierPartID\": \"<string>\",\n      \"Tax\": \"<string>\",\n      \"UnitOfMeasureCode\": \"<string>\",\n      \"VatAmount\": \"<string>\",\n      \"VatRate\": \"<string>\"\n    }\n  ],\n  \"PolicyExternalID\": \"<string>\",\n  \"ShipToAddress\": {\n    \"Address1\": \"<string>\",\n    \"City\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"ExternalID\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StateProvince\": \"<string>\"\n  },\n  \"CurrencyCode\": \"<string>\",\n  \"OrderDate\": \"<string>\",\n  \"VendorAddressCode\": \"<string>\",\n  \"VendorCode\": \"<string>\",\n  \"AmountWithoutVat\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom11\": \"<string>\",\n  \"Custom12\": \"<string>\",\n  \"Custom13\": \"<string>\",\n  \"Custom14\": \"<string>\",\n  \"Custom15\": \"<string>\",\n  \"Custom16\": \"<string>\",\n  \"Custom17\": \"<string>\",\n  \"Custom18\": \"<string>\",\n  \"Custom19\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom20\": \"<string>\",\n  \"Custom21\": \"<string>\",\n  \"Custom22\": \"<string>\",\n  \"Custom23\": \"<string>\",\n  \"Custom24\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"DiscountPercentage\": \"<string>\",\n  \"DiscountTerms\": \"<string>\",\n  \"ID\": \"<string>\",\n  \"IsTest\": \"<boolean>\",\n  \"IsChangeOrder\": \"<boolean>\",\n  \"LedgerCode\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"NeededByDate\": \"<string>\",\n  \"PaymentTerms\": \"<string>\",\n  \"PoVendorTaxId\": \"<string>\",\n  \"ProvincialTaxId\": \"<string>\",\n  \"PurchaseOrderNumber\": \"<string>\",\n  \"PurchaseRequestNumber\": \"<string>\",\n  \"ReceiptType\": \"<string>\",\n  \"RequestedBy\": \"<string>\",\n  \"RequestedDeliveryDate\": \"<string>\",\n  \"Shipping\": \"<string>\",\n  \"ShippingDescription\": \"<string>\",\n  \"ShippingMethodKey\": \"<string>\",\n  \"ShippingTermsKey\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"Tax\": \"<string>\",\n  \"URI\": \"<string>\",\n  \"VatAmountOne\": \"<string>\",\n  \"VatAmountTwo\": \"<string>\",\n  \"VatRateOne\": \"<string>\",\n  \"VatRateTwo\": \"<string>\",\n  \"VendorAccountNumber\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/purchaseorders",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"purchaseorders"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								}
+							]
+						},
+						{
+							"name": "Update a purchase order.",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"BillToAddress\": {\n    \"Address1\": \"<string>\",\n    \"City\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"ExternalID\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StateProvince\": \"<string>\"\n  },\n  \"LineItem\": [\n    {\n      \"LineNumber\": \"<string>\",\n      \"ExternalID\": \"<string>\",\n      \"Quantity\": \"<string>\",\n      \"UnitPrice\": \"<string>\",\n      \"AccountCode\": \"<string>\",\n      \"Allocation\": [\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        },\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        }\n      ],\n      \"AmountWithoutVat\": \"<string>\",\n      \"CreateDate\": \"<string>\",\n      \"Custom1\": \"<string>\",\n      \"Custom10\": \"<string>\",\n      \"Custom11\": \"<string>\",\n      \"Custom12\": \"<string>\",\n      \"Custom13\": \"<string>\",\n      \"Custom14\": \"<string>\",\n      \"Custom15\": \"<string>\",\n      \"Custom16\": \"<string>\",\n      \"Custom17\": \"<string>\",\n      \"Custom18\": \"<string>\",\n      \"Custom19\": \"<string>\",\n      \"Custom2\": \"<string>\",\n      \"Custom20\": \"<string>\",\n      \"Custom3\": \"<string>\",\n      \"Custom4\": \"<string>\",\n      \"Custom5\": \"<string>\",\n      \"Custom6\": \"<string>\",\n      \"Custom7\": \"<string>\",\n      \"Custom8\": \"<string>\",\n      \"Custom9\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"ExpenseType\": \"<string>\",\n      \"IsReceiptRequired\": \"<string>\",\n      \"PurchaseOrderReceiptType\": \"<string>\",\n      \"RequestedBy\": \"<string>\",\n      \"RequestedDeliveryDate\": \"<string>\",\n      \"SupplierPartID\": \"<string>\",\n      \"Tax\": \"<string>\",\n      \"UnitOfMeasureCode\": \"<string>\",\n      \"VatAmount\": \"<string>\",\n      \"VatRate\": \"<string>\"\n    },\n    {\n      \"LineNumber\": \"<string>\",\n      \"ExternalID\": \"<string>\",\n      \"Quantity\": \"<string>\",\n      \"UnitPrice\": \"<string>\",\n      \"AccountCode\": \"<string>\",\n      \"Allocation\": [\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        },\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        }\n      ],\n      \"AmountWithoutVat\": \"<string>\",\n      \"CreateDate\": \"<string>\",\n      \"Custom1\": \"<string>\",\n      \"Custom10\": \"<string>\",\n      \"Custom11\": \"<string>\",\n      \"Custom12\": \"<string>\",\n      \"Custom13\": \"<string>\",\n      \"Custom14\": \"<string>\",\n      \"Custom15\": \"<string>\",\n      \"Custom16\": \"<string>\",\n      \"Custom17\": \"<string>\",\n      \"Custom18\": \"<string>\",\n      \"Custom19\": \"<string>\",\n      \"Custom2\": \"<string>\",\n      \"Custom20\": \"<string>\",\n      \"Custom3\": \"<string>\",\n      \"Custom4\": \"<string>\",\n      \"Custom5\": \"<string>\",\n      \"Custom6\": \"<string>\",\n      \"Custom7\": \"<string>\",\n      \"Custom8\": \"<string>\",\n      \"Custom9\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"ExpenseType\": \"<string>\",\n      \"IsReceiptRequired\": \"<string>\",\n      \"PurchaseOrderReceiptType\": \"<string>\",\n      \"RequestedBy\": \"<string>\",\n      \"RequestedDeliveryDate\": \"<string>\",\n      \"SupplierPartID\": \"<string>\",\n      \"Tax\": \"<string>\",\n      \"UnitOfMeasureCode\": \"<string>\",\n      \"VatAmount\": \"<string>\",\n      \"VatRate\": \"<string>\"\n    }\n  ],\n  \"PolicyExternalID\": \"<string>\",\n  \"ShipToAddress\": {\n    \"Address1\": \"<string>\",\n    \"City\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"ExternalID\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StateProvince\": \"<string>\"\n  },\n  \"CurrencyCode\": \"<string>\",\n  \"OrderDate\": \"<string>\",\n  \"VendorAddressCode\": \"<string>\",\n  \"VendorCode\": \"<string>\",\n  \"AmountWithoutVat\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom11\": \"<string>\",\n  \"Custom12\": \"<string>\",\n  \"Custom13\": \"<string>\",\n  \"Custom14\": \"<string>\",\n  \"Custom15\": \"<string>\",\n  \"Custom16\": \"<string>\",\n  \"Custom17\": \"<string>\",\n  \"Custom18\": \"<string>\",\n  \"Custom19\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom20\": \"<string>\",\n  \"Custom21\": \"<string>\",\n  \"Custom22\": \"<string>\",\n  \"Custom23\": \"<string>\",\n  \"Custom24\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"DiscountPercentage\": \"<string>\",\n  \"DiscountTerms\": \"<string>\",\n  \"ID\": \"<string>\",\n  \"IsTest\": \"<boolean>\",\n  \"IsChangeOrder\": \"<boolean>\",\n  \"LedgerCode\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"NeededByDate\": \"<string>\",\n  \"PaymentTerms\": \"<string>\",\n  \"PoVendorTaxId\": \"<string>\",\n  \"ProvincialTaxId\": \"<string>\",\n  \"PurchaseOrderNumber\": \"<string>\",\n  \"PurchaseRequestNumber\": \"<string>\",\n  \"ReceiptType\": \"<string>\",\n  \"RequestedBy\": \"<string>\",\n  \"RequestedDeliveryDate\": \"<string>\",\n  \"Shipping\": \"<string>\",\n  \"ShippingDescription\": \"<string>\",\n  \"ShippingMethodKey\": \"<string>\",\n  \"ShippingTermsKey\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"Tax\": \"<string>\",\n  \"URI\": \"<string>\",\n  \"VatAmountOne\": \"<string>\",\n  \"VatAmountTwo\": \"<string>\",\n  \"VatRateOne\": \"<string>\",\n  \"VatRateTwo\": \"<string>\",\n  \"VendorAccountNumber\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/invoice/purchaseorders",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"invoice",
+										"purchaseorders"
+									]
+								},
+								"description": "Updates the specified purchase order and returns the status of the update request."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"BillToAddress\": {\n    \"Address1\": \"<string>\",\n    \"City\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"ExternalID\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StateProvince\": \"<string>\"\n  },\n  \"LineItem\": [\n    {\n      \"LineNumber\": \"<string>\",\n      \"ExternalID\": \"<string>\",\n      \"Quantity\": \"<string>\",\n      \"UnitPrice\": \"<string>\",\n      \"AccountCode\": \"<string>\",\n      \"Allocation\": [\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        },\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        }\n      ],\n      \"AmountWithoutVat\": \"<string>\",\n      \"CreateDate\": \"<string>\",\n      \"Custom1\": \"<string>\",\n      \"Custom10\": \"<string>\",\n      \"Custom11\": \"<string>\",\n      \"Custom12\": \"<string>\",\n      \"Custom13\": \"<string>\",\n      \"Custom14\": \"<string>\",\n      \"Custom15\": \"<string>\",\n      \"Custom16\": \"<string>\",\n      \"Custom17\": \"<string>\",\n      \"Custom18\": \"<string>\",\n      \"Custom19\": \"<string>\",\n      \"Custom2\": \"<string>\",\n      \"Custom20\": \"<string>\",\n      \"Custom3\": \"<string>\",\n      \"Custom4\": \"<string>\",\n      \"Custom5\": \"<string>\",\n      \"Custom6\": \"<string>\",\n      \"Custom7\": \"<string>\",\n      \"Custom8\": \"<string>\",\n      \"Custom9\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"ExpenseType\": \"<string>\",\n      \"IsReceiptRequired\": \"<string>\",\n      \"PurchaseOrderReceiptType\": \"<string>\",\n      \"RequestedBy\": \"<string>\",\n      \"RequestedDeliveryDate\": \"<string>\",\n      \"SupplierPartID\": \"<string>\",\n      \"Tax\": \"<string>\",\n      \"UnitOfMeasureCode\": \"<string>\",\n      \"VatAmount\": \"<string>\",\n      \"VatRate\": \"<string>\"\n    },\n    {\n      \"LineNumber\": \"<string>\",\n      \"ExternalID\": \"<string>\",\n      \"Quantity\": \"<string>\",\n      \"UnitPrice\": \"<string>\",\n      \"AccountCode\": \"<string>\",\n      \"Allocation\": [\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        },\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        }\n      ],\n      \"AmountWithoutVat\": \"<string>\",\n      \"CreateDate\": \"<string>\",\n      \"Custom1\": \"<string>\",\n      \"Custom10\": \"<string>\",\n      \"Custom11\": \"<string>\",\n      \"Custom12\": \"<string>\",\n      \"Custom13\": \"<string>\",\n      \"Custom14\": \"<string>\",\n      \"Custom15\": \"<string>\",\n      \"Custom16\": \"<string>\",\n      \"Custom17\": \"<string>\",\n      \"Custom18\": \"<string>\",\n      \"Custom19\": \"<string>\",\n      \"Custom2\": \"<string>\",\n      \"Custom20\": \"<string>\",\n      \"Custom3\": \"<string>\",\n      \"Custom4\": \"<string>\",\n      \"Custom5\": \"<string>\",\n      \"Custom6\": \"<string>\",\n      \"Custom7\": \"<string>\",\n      \"Custom8\": \"<string>\",\n      \"Custom9\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"ExpenseType\": \"<string>\",\n      \"IsReceiptRequired\": \"<string>\",\n      \"PurchaseOrderReceiptType\": \"<string>\",\n      \"RequestedBy\": \"<string>\",\n      \"RequestedDeliveryDate\": \"<string>\",\n      \"SupplierPartID\": \"<string>\",\n      \"Tax\": \"<string>\",\n      \"UnitOfMeasureCode\": \"<string>\",\n      \"VatAmount\": \"<string>\",\n      \"VatRate\": \"<string>\"\n    }\n  ],\n  \"PolicyExternalID\": \"<string>\",\n  \"ShipToAddress\": {\n    \"Address1\": \"<string>\",\n    \"City\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"ExternalID\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StateProvince\": \"<string>\"\n  },\n  \"CurrencyCode\": \"<string>\",\n  \"OrderDate\": \"<string>\",\n  \"VendorAddressCode\": \"<string>\",\n  \"VendorCode\": \"<string>\",\n  \"AmountWithoutVat\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom11\": \"<string>\",\n  \"Custom12\": \"<string>\",\n  \"Custom13\": \"<string>\",\n  \"Custom14\": \"<string>\",\n  \"Custom15\": \"<string>\",\n  \"Custom16\": \"<string>\",\n  \"Custom17\": \"<string>\",\n  \"Custom18\": \"<string>\",\n  \"Custom19\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom20\": \"<string>\",\n  \"Custom21\": \"<string>\",\n  \"Custom22\": \"<string>\",\n  \"Custom23\": \"<string>\",\n  \"Custom24\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"DiscountPercentage\": \"<string>\",\n  \"DiscountTerms\": \"<string>\",\n  \"ID\": \"<string>\",\n  \"IsTest\": \"<boolean>\",\n  \"IsChangeOrder\": \"<boolean>\",\n  \"LedgerCode\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"NeededByDate\": \"<string>\",\n  \"PaymentTerms\": \"<string>\",\n  \"PoVendorTaxId\": \"<string>\",\n  \"ProvincialTaxId\": \"<string>\",\n  \"PurchaseOrderNumber\": \"<string>\",\n  \"PurchaseRequestNumber\": \"<string>\",\n  \"ReceiptType\": \"<string>\",\n  \"RequestedBy\": \"<string>\",\n  \"RequestedDeliveryDate\": \"<string>\",\n  \"Shipping\": \"<string>\",\n  \"ShippingDescription\": \"<string>\",\n  \"ShippingMethodKey\": \"<string>\",\n  \"ShippingTermsKey\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"Tax\": \"<string>\",\n  \"URI\": \"<string>\",\n  \"VatAmountOne\": \"<string>\",\n  \"VatAmountTwo\": \"<string>\",\n  \"VatRateOne\": \"<string>\",\n  \"VatRateTwo\": \"<string>\",\n  \"VendorAccountNumber\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/purchaseorders",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"purchaseorders"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"ErrorCode\": \"<string>\",\n  \"ErrorMessage\": \"<string>\",\n  \"FieldCode\": \"<string>\",\n  \"LineItemExternalID\": \"<string>\",\n  \"Message\": \"<string>\",\n  \"PurchaseOrderNumber\": \"<string>\",\n  \"Status\": \"<string>\"\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"BillToAddress\": {\n    \"Address1\": \"<string>\",\n    \"City\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"ExternalID\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StateProvince\": \"<string>\"\n  },\n  \"LineItem\": [\n    {\n      \"LineNumber\": \"<string>\",\n      \"ExternalID\": \"<string>\",\n      \"Quantity\": \"<string>\",\n      \"UnitPrice\": \"<string>\",\n      \"AccountCode\": \"<string>\",\n      \"Allocation\": [\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        },\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        }\n      ],\n      \"AmountWithoutVat\": \"<string>\",\n      \"CreateDate\": \"<string>\",\n      \"Custom1\": \"<string>\",\n      \"Custom10\": \"<string>\",\n      \"Custom11\": \"<string>\",\n      \"Custom12\": \"<string>\",\n      \"Custom13\": \"<string>\",\n      \"Custom14\": \"<string>\",\n      \"Custom15\": \"<string>\",\n      \"Custom16\": \"<string>\",\n      \"Custom17\": \"<string>\",\n      \"Custom18\": \"<string>\",\n      \"Custom19\": \"<string>\",\n      \"Custom2\": \"<string>\",\n      \"Custom20\": \"<string>\",\n      \"Custom3\": \"<string>\",\n      \"Custom4\": \"<string>\",\n      \"Custom5\": \"<string>\",\n      \"Custom6\": \"<string>\",\n      \"Custom7\": \"<string>\",\n      \"Custom8\": \"<string>\",\n      \"Custom9\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"ExpenseType\": \"<string>\",\n      \"IsReceiptRequired\": \"<string>\",\n      \"PurchaseOrderReceiptType\": \"<string>\",\n      \"RequestedBy\": \"<string>\",\n      \"RequestedDeliveryDate\": \"<string>\",\n      \"SupplierPartID\": \"<string>\",\n      \"Tax\": \"<string>\",\n      \"UnitOfMeasureCode\": \"<string>\",\n      \"VatAmount\": \"<string>\",\n      \"VatRate\": \"<string>\"\n    },\n    {\n      \"LineNumber\": \"<string>\",\n      \"ExternalID\": \"<string>\",\n      \"Quantity\": \"<string>\",\n      \"UnitPrice\": \"<string>\",\n      \"AccountCode\": \"<string>\",\n      \"Allocation\": [\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        },\n        {\n          \"Amount\": \"<string>\",\n          \"Custom1\": \"<string>\",\n          \"Custom10\": \"<string>\",\n          \"Custom11\": \"<string>\",\n          \"Custom12\": \"<string>\",\n          \"Custom13\": \"<string>\",\n          \"Custom14\": \"<string>\",\n          \"Custom15\": \"<string>\",\n          \"Custom16\": \"<string>\",\n          \"Custom17\": \"<string>\",\n          \"Custom18\": \"<string>\",\n          \"Custom19\": \"<string>\",\n          \"Custom2\": \"<string>\",\n          \"Custom20\": \"<string>\",\n          \"Custom3\": \"<string>\",\n          \"Custom4\": \"<string>\",\n          \"Custom5\": \"<string>\",\n          \"Custom6\": \"<string>\",\n          \"Custom7\": \"<string>\",\n          \"Custom8\": \"<string>\",\n          \"Custom9\": \"<string>\",\n          \"GrossAmount\": \"<string>\",\n          \"Percentage\": \"<string>\"\n        }\n      ],\n      \"AmountWithoutVat\": \"<string>\",\n      \"CreateDate\": \"<string>\",\n      \"Custom1\": \"<string>\",\n      \"Custom10\": \"<string>\",\n      \"Custom11\": \"<string>\",\n      \"Custom12\": \"<string>\",\n      \"Custom13\": \"<string>\",\n      \"Custom14\": \"<string>\",\n      \"Custom15\": \"<string>\",\n      \"Custom16\": \"<string>\",\n      \"Custom17\": \"<string>\",\n      \"Custom18\": \"<string>\",\n      \"Custom19\": \"<string>\",\n      \"Custom2\": \"<string>\",\n      \"Custom20\": \"<string>\",\n      \"Custom3\": \"<string>\",\n      \"Custom4\": \"<string>\",\n      \"Custom5\": \"<string>\",\n      \"Custom6\": \"<string>\",\n      \"Custom7\": \"<string>\",\n      \"Custom8\": \"<string>\",\n      \"Custom9\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"ExpenseType\": \"<string>\",\n      \"IsReceiptRequired\": \"<string>\",\n      \"PurchaseOrderReceiptType\": \"<string>\",\n      \"RequestedBy\": \"<string>\",\n      \"RequestedDeliveryDate\": \"<string>\",\n      \"SupplierPartID\": \"<string>\",\n      \"Tax\": \"<string>\",\n      \"UnitOfMeasureCode\": \"<string>\",\n      \"VatAmount\": \"<string>\",\n      \"VatRate\": \"<string>\"\n    }\n  ],\n  \"PolicyExternalID\": \"<string>\",\n  \"ShipToAddress\": {\n    \"Address1\": \"<string>\",\n    \"City\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"ExternalID\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"Address3\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"State\": \"<string>\",\n    \"StateProvince\": \"<string>\"\n  },\n  \"CurrencyCode\": \"<string>\",\n  \"OrderDate\": \"<string>\",\n  \"VendorAddressCode\": \"<string>\",\n  \"VendorCode\": \"<string>\",\n  \"AmountWithoutVat\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom10\": \"<string>\",\n  \"Custom11\": \"<string>\",\n  \"Custom12\": \"<string>\",\n  \"Custom13\": \"<string>\",\n  \"Custom14\": \"<string>\",\n  \"Custom15\": \"<string>\",\n  \"Custom16\": \"<string>\",\n  \"Custom17\": \"<string>\",\n  \"Custom18\": \"<string>\",\n  \"Custom19\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom20\": \"<string>\",\n  \"Custom21\": \"<string>\",\n  \"Custom22\": \"<string>\",\n  \"Custom23\": \"<string>\",\n  \"Custom24\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"Custom6\": \"<string>\",\n  \"Custom7\": \"<string>\",\n  \"Custom8\": \"<string>\",\n  \"Custom9\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"DiscountPercentage\": \"<string>\",\n  \"DiscountTerms\": \"<string>\",\n  \"ID\": \"<string>\",\n  \"IsTest\": \"<boolean>\",\n  \"IsChangeOrder\": \"<boolean>\",\n  \"LedgerCode\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"NeededByDate\": \"<string>\",\n  \"PaymentTerms\": \"<string>\",\n  \"PoVendorTaxId\": \"<string>\",\n  \"ProvincialTaxId\": \"<string>\",\n  \"PurchaseOrderNumber\": \"<string>\",\n  \"PurchaseRequestNumber\": \"<string>\",\n  \"ReceiptType\": \"<string>\",\n  \"RequestedBy\": \"<string>\",\n  \"RequestedDeliveryDate\": \"<string>\",\n  \"Shipping\": \"<string>\",\n  \"ShippingDescription\": \"<string>\",\n  \"ShippingMethodKey\": \"<string>\",\n  \"ShippingTermsKey\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"Tax\": \"<string>\",\n  \"URI\": \"<string>\",\n  \"VatAmountOne\": \"<string>\",\n  \"VatAmountTwo\": \"<string>\",\n  \"VatRateOne\": \"<string>\",\n  \"VatRateTwo\": \"<string>\",\n  \"VendorAccountNumber\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/purchaseorders",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"purchaseorders"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessTokenUrl",
+				"value": "https://us.api.concursolutions.com/oauth2/v0",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/v3.0"
+		}
+	]
+}

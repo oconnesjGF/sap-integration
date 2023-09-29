@@ -1,0 +1,809 @@
+{
+	"info": {
+		"_postman_id": "71810825-f615-4fb9-a399-989443db7838",
+		"name": "Spend User Service",
+		"description": "Rest API for Spend User Service\n\nContact Support:\n Name: Team Up\n Email: Team_Up@sap.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "spend",
+			"item": [
+				{
+					"name": "v4",
+					"item": [
+						{
+							"name": "Users",
+							"item": [
+								{
+									"name": "{uuid}",
+									"item": [
+										{
+											"name": "get User",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "https://us.api.concursolutions.com/spend/v4/Users/:uuid",
+													"protocol": "https",
+													"host": [
+														"us",
+														"api",
+														"concursolutions",
+														"com"
+													],
+													"path": [
+														"spend",
+														"v4",
+														"Users",
+														":uuid"
+													],
+													"variable": [
+														{
+															"key": "uuid",
+															"value": "<uuid>"
+														}
+													]
+												},
+												"description": "Get the aggregated user."
+											},
+											"response": [
+												{
+													"name": "Success",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/spend/v4/Users/:uuid",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"spend",
+																"v4",
+																"Users",
+																":uuid"
+															],
+															"variable": [
+																{
+																	"key": "uuid"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"externalId\": \"<string>\",\n  \"meta\": {\n    \"resourceType\": \"<string>\",\n    \"created\": \"<dateTime>\",\n    \"lastModified\": \"<dateTime>\",\n    \"location\": \"<uri>\",\n    \"version\": \"<string>\"\n  },\n  \"urn:ietf:params:scim:schemas:extension:spend:2.0:User\": {\n    \"country\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"reimbursementCurrency\": \"<string>\",\n    \"reimbursementType\": \"ADP_PAYROLL\",\n    \"ledgerCode\": \"<string>\",\n    \"budgetCountryCode\": \"<string>\",\n    \"stateProvince\": \"<string>\",\n    \"cashAdvanceAccountCode\": \"<string>\",\n    \"testEmployee\": \"<boolean>\",\n    \"nonEmployee\": \"<boolean>\",\n    \"biManager\": {\n      \"value\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"employeeNumber\": \"<string>\",\n      \"$ref\": \"<uri>\"\n    },\n    \"customData\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  },\n  \"urn:ietf:params:scim:schemas:extension:spend:2.0:Approver\": {\n    \"report\": [\n      {\n        \"approver\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"primary\": \"<boolean>\"\n      },\n      {\n        \"approver\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"primary\": \"<boolean>\"\n      }\n    ],\n    \"cashAdvance\": [\n      {\n        \"approver\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"primary\": \"<boolean>\"\n      },\n      {\n        \"approver\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"primary\": \"<boolean>\"\n      }\n    ],\n    \"request\": [\n      {\n        \"approver\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"primary\": \"<boolean>\"\n      },\n      {\n        \"approver\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"primary\": \"<boolean>\"\n      }\n    ],\n    \"invoice\": [\n      {\n        \"approver\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"primary\": \"<boolean>\"\n      },\n      {\n        \"approver\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"primary\": \"<boolean>\"\n      }\n    ],\n    \"purchaseRequest\": [\n      {\n        \"approver\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"primary\": \"<boolean>\"\n      },\n      {\n        \"approver\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"primary\": \"<boolean>\"\n      }\n    ],\n    \"statement\": [\n      {\n        \"approver\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"primary\": \"<boolean>\"\n      },\n      {\n        \"approver\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"primary\": \"<boolean>\"\n      }\n    ],\n    \"budget\": [\n      {\n        \"approver\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"primary\": \"<boolean>\"\n      },\n      {\n        \"approver\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"primary\": \"<boolean>\"\n      }\n    ]\n  },\n  \"urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate\": {\n    \"expense\": [\n      {\n        \"canApprove\": \"<boolean>\",\n        \"canPrepare\": \"<boolean>\",\n        \"canPrepareForApproval\": \"<boolean>\",\n        \"canReceiveApprovalEmail\": \"<boolean>\",\n        \"canReceiveEmail\": \"<boolean>\",\n        \"canSubmit\": \"<boolean>\",\n        \"canSubmitTravelRequest\": \"<boolean>\",\n        \"canUseBi\": \"<boolean>\",\n        \"canViewReceipt\": \"<boolean>\",\n        \"delegate\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"temporaryDelegation\": {\n          \"temporaryDelegationFromDate\": \"<string>\",\n          \"temporaryDelegationToDate\": \"<string>\"\n        }\n      },\n      {\n        \"canApprove\": \"<boolean>\",\n        \"canPrepare\": \"<boolean>\",\n        \"canPrepareForApproval\": \"<boolean>\",\n        \"canReceiveApprovalEmail\": \"<boolean>\",\n        \"canReceiveEmail\": \"<boolean>\",\n        \"canSubmit\": \"<boolean>\",\n        \"canSubmitTravelRequest\": \"<boolean>\",\n        \"canUseBi\": \"<boolean>\",\n        \"canViewReceipt\": \"<boolean>\",\n        \"delegate\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"temporaryDelegation\": {\n          \"temporaryDelegationFromDate\": \"<string>\",\n          \"temporaryDelegationToDate\": \"<string>\"\n        }\n      }\n    ],\n    \"payment\": [\n      {\n        \"canApprove\": \"<boolean>\",\n        \"canPrepare\": \"<boolean>\",\n        \"canPrepareForApproval\": \"<boolean>\",\n        \"canReceiveApprovalEmail\": \"<boolean>\",\n        \"canReceiveEmail\": \"<boolean>\",\n        \"canSubmit\": \"<boolean>\",\n        \"canSubmitTravelRequest\": \"<boolean>\",\n        \"canUseBi\": \"<boolean>\",\n        \"canViewReceipt\": \"<boolean>\",\n        \"delegate\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"temporaryDelegation\": {\n          \"temporaryDelegationFromDate\": \"<string>\",\n          \"temporaryDelegationToDate\": \"<string>\"\n        }\n      },\n      {\n        \"canApprove\": \"<boolean>\",\n        \"canPrepare\": \"<boolean>\",\n        \"canPrepareForApproval\": \"<boolean>\",\n        \"canReceiveApprovalEmail\": \"<boolean>\",\n        \"canReceiveEmail\": \"<boolean>\",\n        \"canSubmit\": \"<boolean>\",\n        \"canSubmitTravelRequest\": \"<boolean>\",\n        \"canUseBi\": \"<boolean>\",\n        \"canViewReceipt\": \"<boolean>\",\n        \"delegate\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"temporaryDelegation\": {\n          \"temporaryDelegationFromDate\": \"<string>\",\n          \"temporaryDelegationToDate\": \"<string>\"\n        }\n      }\n    ],\n    \"purchaseRequest\": [\n      {\n        \"canApprove\": \"<boolean>\",\n        \"canPrepare\": \"<boolean>\",\n        \"canPrepareForApproval\": \"<boolean>\",\n        \"canReceiveApprovalEmail\": \"<boolean>\",\n        \"canReceiveEmail\": \"<boolean>\",\n        \"canSubmit\": \"<boolean>\",\n        \"canSubmitTravelRequest\": \"<boolean>\",\n        \"canUseBi\": \"<boolean>\",\n        \"canViewReceipt\": \"<boolean>\",\n        \"delegate\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"temporaryDelegation\": {\n          \"temporaryDelegationFromDate\": \"<string>\",\n          \"temporaryDelegationToDate\": \"<string>\"\n        }\n      },\n      {\n        \"canApprove\": \"<boolean>\",\n        \"canPrepare\": \"<boolean>\",\n        \"canPrepareForApproval\": \"<boolean>\",\n        \"canReceiveApprovalEmail\": \"<boolean>\",\n        \"canReceiveEmail\": \"<boolean>\",\n        \"canSubmit\": \"<boolean>\",\n        \"canSubmitTravelRequest\": \"<boolean>\",\n        \"canUseBi\": \"<boolean>\",\n        \"canViewReceipt\": \"<boolean>\",\n        \"delegate\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"temporaryDelegation\": {\n          \"temporaryDelegationFromDate\": \"<string>\",\n          \"temporaryDelegationToDate\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"urn:ietf:params:scim:schemas:extension:spend:2.0:Role\": {\n    \"roles\": [\n      {\n        \"roleName\": \"SHD_AUTHORIZED_APPROVER\",\n        \"roleGroups\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"roleName\": \"REPORTING_PRO_AUTHOR\",\n        \"roleGroups\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference\": {\n    \"showImagingIntro\": \"<boolean>\",\n    \"expenseAuditRequired\": \"<string>\",\n    \"allowCreditCardTransArrivalEmails\": \"<boolean>\",\n    \"allowReceiptImageAvailEmails\": \"<boolean>\",\n    \"promptForCardTransactionsOnReport\": \"<boolean>\",\n    \"autoAddTripCardTransOnReport\": \"<boolean>\",\n    \"promptForReportPrintFormat\": \"<boolean>\",\n    \"defaultReportPrintFormat\": \"<string>\",\n    \"showTotalOnReport\": \"<boolean>\",\n    \"showExpenseOnReport\": \"<string>\",\n    \"showInstructHelpPanel\": \"<boolean>\",\n    \"useQuickItinAsDefault\": \"<boolean>\",\n    \"allowAutoCreateTripReport\": \"<boolean>\"\n  },\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll\": {\n    \"adp\": {\n      \"companyCode\": \"<string>\",\n      \"deductionCode\": \"<string>\",\n      \"employeeFileNumber\": \"<string>\"\n    }\n  },\n  \"urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference\": {\n    \"emailStatusChangeOnCashAdvance\": \"<boolean>\",\n    \"emailAwaitApprovalOnCashAdvance\": \"<boolean>\",\n    \"emailStatusChangeOnReport\": \"<boolean>\",\n    \"emailAwaitApprovalOnReport\": \"<boolean>\",\n    \"promptForApproverOnReportSubmit\": \"<boolean>\",\n    \"emailStatusChangeOnTravelRequest\": \"<boolean>\",\n    \"emailAwaitApprovalOnTravelRequest\": \"<boolean>\",\n    \"promptForApproverOnTravelRequestSubmit\": \"<boolean>\",\n    \"emailStatusChangeOnPayment\": \"<boolean>\",\n    \"emailAwaitApprovalOnPayment\": \"<boolean>\",\n    \"promptForApproverOnPaymentSubmit\": \"<boolean>\"\n  }\n}"
+												},
+												{
+													"name": "Invalid Request",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/spend/v4/Users/:uuid",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"spend",
+																"v4",
+																"Users",
+																":uuid"
+															],
+															"variable": [
+																{
+																	"key": "uuid"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"meta\": {\n    \"resourceType\": \"<string>\",\n    \"created\": \"<dateTime>\",\n    \"lastModified\": \"<dateTime>\",\n    \"location\": \"<uri>\",\n    \"version\": \"<string>\"\n  },\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"status\": \"<integer>\"\n}"
+												},
+												{
+													"name": "UnAuthorized",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/spend/v4/Users/:uuid",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"spend",
+																"v4",
+																"Users",
+																":uuid"
+															],
+															"variable": [
+																{
+																	"key": "uuid"
+																}
+															]
+														}
+													},
+													"status": "Unauthorized",
+													"code": 401,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"meta\": {\n    \"resourceType\": \"<string>\",\n    \"created\": \"<dateTime>\",\n    \"lastModified\": \"<dateTime>\",\n    \"location\": \"<uri>\",\n    \"version\": \"<string>\"\n  },\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"status\": \"<integer>\"\n}"
+												},
+												{
+													"name": "Forbidden",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/spend/v4/Users/:uuid",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"spend",
+																"v4",
+																"Users",
+																":uuid"
+															],
+															"variable": [
+																{
+																	"key": "uuid"
+																}
+															]
+														}
+													},
+													"status": "Forbidden",
+													"code": 403,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"meta\": {\n    \"resourceType\": \"<string>\",\n    \"created\": \"<dateTime>\",\n    \"lastModified\": \"<dateTime>\",\n    \"location\": \"<uri>\",\n    \"version\": \"<string>\"\n  },\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"status\": \"<integer>\"\n}"
+												},
+												{
+													"name": "User Not Found",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/spend/v4/Users/:uuid",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"spend",
+																"v4",
+																"Users",
+																":uuid"
+															],
+															"variable": [
+																{
+																	"key": "uuid"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"meta\": {\n    \"resourceType\": \"<string>\",\n    \"created\": \"<dateTime>\",\n    \"lastModified\": \"<dateTime>\",\n    \"location\": \"<uri>\",\n    \"version\": \"<string>\"\n  },\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"status\": \"<integer>\"\n}"
+												},
+												{
+													"name": "Internal Error",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/spend/v4/Users/:uuid",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"spend",
+																"v4",
+																"Users",
+																":uuid"
+															],
+															"variable": [
+																{
+																	"key": "uuid"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"meta\": {\n    \"resourceType\": \"<string>\",\n    \"created\": \"<dateTime>\",\n    \"lastModified\": \"<dateTime>\",\n    \"location\": \"<uri>\",\n    \"version\": \"<string>\"\n  },\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"status\": \"<integer>\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "get Spend Users",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/spend/v4/Users?startIndex=<integer>&itemsPerPage=<integer>&filter=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"spend",
+												"v4",
+												"Users"
+											],
+											"query": [
+												{
+													"key": "startIndex",
+													"value": "<integer>",
+													"description": "(Required) "
+												},
+												{
+													"key": "itemsPerPage",
+													"value": "<integer>",
+													"description": "(Required) "
+												},
+												{
+													"key": "filter",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Get the filtered and paginated spend users from the specified company"
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/spend/v4/Users?startIndex=<integer>&itemsPerPage=<integer>&filter=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"spend",
+														"v4",
+														"Users"
+													],
+													"query": [
+														{
+															"key": "startIndex",
+															"value": "<integer>",
+															"description": "(Required) "
+														},
+														{
+															"key": "itemsPerPage",
+															"value": "<integer>",
+															"description": "(Required) "
+														},
+														{
+															"key": "filter",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"Resources\": [\n    {\n      \"schemas\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"externalId\": \"<string>\",\n      \"meta\": {\n        \"resourceType\": \"<string>\",\n        \"created\": \"<dateTime>\",\n        \"lastModified\": \"<dateTime>\",\n        \"location\": \"<uri>\",\n        \"version\": \"<string>\"\n      },\n      \"urn:ietf:params:scim:schemas:extension:spend:2.0:User\": {\n        \"country\": \"<string>\",\n        \"locale\": \"<string>\",\n        \"reimbursementCurrency\": \"<string>\",\n        \"reimbursementType\": \"CONCUR_PAY\",\n        \"ledgerCode\": \"<string>\",\n        \"budgetCountryCode\": \"<string>\",\n        \"stateProvince\": \"<string>\",\n        \"cashAdvanceAccountCode\": \"<string>\",\n        \"testEmployee\": \"<boolean>\",\n        \"nonEmployee\": \"<boolean>\",\n        \"biManager\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"customData\": [\n          {\n            \"id\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      },\n      \"urn:ietf:params:scim:schemas:extension:spend:2.0:Approver\": {\n        \"report\": [\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          },\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          }\n        ],\n        \"cashAdvance\": [\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          },\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          }\n        ],\n        \"request\": [\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          },\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          }\n        ],\n        \"invoice\": [\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          },\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          }\n        ],\n        \"purchaseRequest\": [\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          },\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          }\n        ],\n        \"statement\": [\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          },\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          }\n        ],\n        \"budget\": [\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          },\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          }\n        ]\n      },\n      \"urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate\": {\n        \"expense\": [\n          {\n            \"canApprove\": \"<boolean>\",\n            \"canPrepare\": \"<boolean>\",\n            \"canPrepareForApproval\": \"<boolean>\",\n            \"canReceiveApprovalEmail\": \"<boolean>\",\n            \"canReceiveEmail\": \"<boolean>\",\n            \"canSubmit\": \"<boolean>\",\n            \"canSubmitTravelRequest\": \"<boolean>\",\n            \"canUseBi\": \"<boolean>\",\n            \"canViewReceipt\": \"<boolean>\",\n            \"delegate\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"temporaryDelegation\": {\n              \"temporaryDelegationFromDate\": \"<string>\",\n              \"temporaryDelegationToDate\": \"<string>\"\n            }\n          },\n          {\n            \"canApprove\": \"<boolean>\",\n            \"canPrepare\": \"<boolean>\",\n            \"canPrepareForApproval\": \"<boolean>\",\n            \"canReceiveApprovalEmail\": \"<boolean>\",\n            \"canReceiveEmail\": \"<boolean>\",\n            \"canSubmit\": \"<boolean>\",\n            \"canSubmitTravelRequest\": \"<boolean>\",\n            \"canUseBi\": \"<boolean>\",\n            \"canViewReceipt\": \"<boolean>\",\n            \"delegate\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"temporaryDelegation\": {\n              \"temporaryDelegationFromDate\": \"<string>\",\n              \"temporaryDelegationToDate\": \"<string>\"\n            }\n          }\n        ],\n        \"payment\": [\n          {\n            \"canApprove\": \"<boolean>\",\n            \"canPrepare\": \"<boolean>\",\n            \"canPrepareForApproval\": \"<boolean>\",\n            \"canReceiveApprovalEmail\": \"<boolean>\",\n            \"canReceiveEmail\": \"<boolean>\",\n            \"canSubmit\": \"<boolean>\",\n            \"canSubmitTravelRequest\": \"<boolean>\",\n            \"canUseBi\": \"<boolean>\",\n            \"canViewReceipt\": \"<boolean>\",\n            \"delegate\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"temporaryDelegation\": {\n              \"temporaryDelegationFromDate\": \"<string>\",\n              \"temporaryDelegationToDate\": \"<string>\"\n            }\n          },\n          {\n            \"canApprove\": \"<boolean>\",\n            \"canPrepare\": \"<boolean>\",\n            \"canPrepareForApproval\": \"<boolean>\",\n            \"canReceiveApprovalEmail\": \"<boolean>\",\n            \"canReceiveEmail\": \"<boolean>\",\n            \"canSubmit\": \"<boolean>\",\n            \"canSubmitTravelRequest\": \"<boolean>\",\n            \"canUseBi\": \"<boolean>\",\n            \"canViewReceipt\": \"<boolean>\",\n            \"delegate\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"temporaryDelegation\": {\n              \"temporaryDelegationFromDate\": \"<string>\",\n              \"temporaryDelegationToDate\": \"<string>\"\n            }\n          }\n        ],\n        \"purchaseRequest\": [\n          {\n            \"canApprove\": \"<boolean>\",\n            \"canPrepare\": \"<boolean>\",\n            \"canPrepareForApproval\": \"<boolean>\",\n            \"canReceiveApprovalEmail\": \"<boolean>\",\n            \"canReceiveEmail\": \"<boolean>\",\n            \"canSubmit\": \"<boolean>\",\n            \"canSubmitTravelRequest\": \"<boolean>\",\n            \"canUseBi\": \"<boolean>\",\n            \"canViewReceipt\": \"<boolean>\",\n            \"delegate\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"temporaryDelegation\": {\n              \"temporaryDelegationFromDate\": \"<string>\",\n              \"temporaryDelegationToDate\": \"<string>\"\n            }\n          },\n          {\n            \"canApprove\": \"<boolean>\",\n            \"canPrepare\": \"<boolean>\",\n            \"canPrepareForApproval\": \"<boolean>\",\n            \"canReceiveApprovalEmail\": \"<boolean>\",\n            \"canReceiveEmail\": \"<boolean>\",\n            \"canSubmit\": \"<boolean>\",\n            \"canSubmitTravelRequest\": \"<boolean>\",\n            \"canUseBi\": \"<boolean>\",\n            \"canViewReceipt\": \"<boolean>\",\n            \"delegate\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"temporaryDelegation\": {\n              \"temporaryDelegationFromDate\": \"<string>\",\n              \"temporaryDelegationToDate\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"urn:ietf:params:scim:schemas:extension:spend:2.0:Role\": {\n        \"roles\": [\n          {\n            \"roleName\": \"EXP_CASHADVANCE_ADMIN\",\n            \"roleGroups\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"roleName\": \"REPORTING_CAS_ANALYST\",\n            \"roleGroups\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      },\n      \"urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference\": {\n        \"showImagingIntro\": \"<boolean>\",\n        \"expenseAuditRequired\": \"<string>\",\n        \"allowCreditCardTransArrivalEmails\": \"<boolean>\",\n        \"allowReceiptImageAvailEmails\": \"<boolean>\",\n        \"promptForCardTransactionsOnReport\": \"<boolean>\",\n        \"autoAddTripCardTransOnReport\": \"<boolean>\",\n        \"promptForReportPrintFormat\": \"<boolean>\",\n        \"defaultReportPrintFormat\": \"<string>\",\n        \"showTotalOnReport\": \"<boolean>\",\n        \"showExpenseOnReport\": \"<string>\",\n        \"showInstructHelpPanel\": \"<boolean>\",\n        \"useQuickItinAsDefault\": \"<boolean>\",\n        \"allowAutoCreateTripReport\": \"<boolean>\"\n      },\n      \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll\": {\n        \"adp\": {\n          \"companyCode\": \"<string>\",\n          \"deductionCode\": \"<string>\",\n          \"employeeFileNumber\": \"<string>\"\n        }\n      },\n      \"urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference\": {\n        \"emailStatusChangeOnCashAdvance\": \"<boolean>\",\n        \"emailAwaitApprovalOnCashAdvance\": \"<boolean>\",\n        \"emailStatusChangeOnReport\": \"<boolean>\",\n        \"emailAwaitApprovalOnReport\": \"<boolean>\",\n        \"promptForApproverOnReportSubmit\": \"<boolean>\",\n        \"emailStatusChangeOnTravelRequest\": \"<boolean>\",\n        \"emailAwaitApprovalOnTravelRequest\": \"<boolean>\",\n        \"promptForApproverOnTravelRequestSubmit\": \"<boolean>\",\n        \"emailStatusChangeOnPayment\": \"<boolean>\",\n        \"emailAwaitApprovalOnPayment\": \"<boolean>\",\n        \"promptForApproverOnPaymentSubmit\": \"<boolean>\"\n      }\n    },\n    {\n      \"schemas\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"externalId\": \"<string>\",\n      \"meta\": {\n        \"resourceType\": \"<string>\",\n        \"created\": \"<dateTime>\",\n        \"lastModified\": \"<dateTime>\",\n        \"location\": \"<uri>\",\n        \"version\": \"<string>\"\n      },\n      \"urn:ietf:params:scim:schemas:extension:spend:2.0:User\": {\n        \"country\": \"<string>\",\n        \"locale\": \"<string>\",\n        \"reimbursementCurrency\": \"<string>\",\n        \"reimbursementType\": \"ADP_PAYROLL\",\n        \"ledgerCode\": \"<string>\",\n        \"budgetCountryCode\": \"<string>\",\n        \"stateProvince\": \"<string>\",\n        \"cashAdvanceAccountCode\": \"<string>\",\n        \"testEmployee\": \"<boolean>\",\n        \"nonEmployee\": \"<boolean>\",\n        \"biManager\": {\n          \"value\": \"<uuid>\",\n          \"displayName\": \"<string>\",\n          \"employeeNumber\": \"<string>\",\n          \"$ref\": \"<uri>\"\n        },\n        \"customData\": [\n          {\n            \"id\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      },\n      \"urn:ietf:params:scim:schemas:extension:spend:2.0:Approver\": {\n        \"report\": [\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          },\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          }\n        ],\n        \"cashAdvance\": [\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          },\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          }\n        ],\n        \"request\": [\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          },\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          }\n        ],\n        \"invoice\": [\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          },\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          }\n        ],\n        \"purchaseRequest\": [\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          },\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          }\n        ],\n        \"statement\": [\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          },\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          }\n        ],\n        \"budget\": [\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          },\n          {\n            \"approver\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"primary\": \"<boolean>\"\n          }\n        ]\n      },\n      \"urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate\": {\n        \"expense\": [\n          {\n            \"canApprove\": \"<boolean>\",\n            \"canPrepare\": \"<boolean>\",\n            \"canPrepareForApproval\": \"<boolean>\",\n            \"canReceiveApprovalEmail\": \"<boolean>\",\n            \"canReceiveEmail\": \"<boolean>\",\n            \"canSubmit\": \"<boolean>\",\n            \"canSubmitTravelRequest\": \"<boolean>\",\n            \"canUseBi\": \"<boolean>\",\n            \"canViewReceipt\": \"<boolean>\",\n            \"delegate\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"temporaryDelegation\": {\n              \"temporaryDelegationFromDate\": \"<string>\",\n              \"temporaryDelegationToDate\": \"<string>\"\n            }\n          },\n          {\n            \"canApprove\": \"<boolean>\",\n            \"canPrepare\": \"<boolean>\",\n            \"canPrepareForApproval\": \"<boolean>\",\n            \"canReceiveApprovalEmail\": \"<boolean>\",\n            \"canReceiveEmail\": \"<boolean>\",\n            \"canSubmit\": \"<boolean>\",\n            \"canSubmitTravelRequest\": \"<boolean>\",\n            \"canUseBi\": \"<boolean>\",\n            \"canViewReceipt\": \"<boolean>\",\n            \"delegate\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"temporaryDelegation\": {\n              \"temporaryDelegationFromDate\": \"<string>\",\n              \"temporaryDelegationToDate\": \"<string>\"\n            }\n          }\n        ],\n        \"payment\": [\n          {\n            \"canApprove\": \"<boolean>\",\n            \"canPrepare\": \"<boolean>\",\n            \"canPrepareForApproval\": \"<boolean>\",\n            \"canReceiveApprovalEmail\": \"<boolean>\",\n            \"canReceiveEmail\": \"<boolean>\",\n            \"canSubmit\": \"<boolean>\",\n            \"canSubmitTravelRequest\": \"<boolean>\",\n            \"canUseBi\": \"<boolean>\",\n            \"canViewReceipt\": \"<boolean>\",\n            \"delegate\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"temporaryDelegation\": {\n              \"temporaryDelegationFromDate\": \"<string>\",\n              \"temporaryDelegationToDate\": \"<string>\"\n            }\n          },\n          {\n            \"canApprove\": \"<boolean>\",\n            \"canPrepare\": \"<boolean>\",\n            \"canPrepareForApproval\": \"<boolean>\",\n            \"canReceiveApprovalEmail\": \"<boolean>\",\n            \"canReceiveEmail\": \"<boolean>\",\n            \"canSubmit\": \"<boolean>\",\n            \"canSubmitTravelRequest\": \"<boolean>\",\n            \"canUseBi\": \"<boolean>\",\n            \"canViewReceipt\": \"<boolean>\",\n            \"delegate\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"temporaryDelegation\": {\n              \"temporaryDelegationFromDate\": \"<string>\",\n              \"temporaryDelegationToDate\": \"<string>\"\n            }\n          }\n        ],\n        \"purchaseRequest\": [\n          {\n            \"canApprove\": \"<boolean>\",\n            \"canPrepare\": \"<boolean>\",\n            \"canPrepareForApproval\": \"<boolean>\",\n            \"canReceiveApprovalEmail\": \"<boolean>\",\n            \"canReceiveEmail\": \"<boolean>\",\n            \"canSubmit\": \"<boolean>\",\n            \"canSubmitTravelRequest\": \"<boolean>\",\n            \"canUseBi\": \"<boolean>\",\n            \"canViewReceipt\": \"<boolean>\",\n            \"delegate\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"temporaryDelegation\": {\n              \"temporaryDelegationFromDate\": \"<string>\",\n              \"temporaryDelegationToDate\": \"<string>\"\n            }\n          },\n          {\n            \"canApprove\": \"<boolean>\",\n            \"canPrepare\": \"<boolean>\",\n            \"canPrepareForApproval\": \"<boolean>\",\n            \"canReceiveApprovalEmail\": \"<boolean>\",\n            \"canReceiveEmail\": \"<boolean>\",\n            \"canSubmit\": \"<boolean>\",\n            \"canSubmitTravelRequest\": \"<boolean>\",\n            \"canUseBi\": \"<boolean>\",\n            \"canViewReceipt\": \"<boolean>\",\n            \"delegate\": {\n              \"value\": \"<uuid>\",\n              \"displayName\": \"<string>\",\n              \"employeeNumber\": \"<string>\",\n              \"$ref\": \"<uri>\"\n            },\n            \"temporaryDelegation\": {\n              \"temporaryDelegationFromDate\": \"<string>\",\n              \"temporaryDelegationToDate\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"urn:ietf:params:scim:schemas:extension:spend:2.0:Role\": {\n        \"roles\": [\n          {\n            \"roleName\": \"REPORTING_HIST_DATA_USER\",\n            \"roleGroups\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"roleName\": \"EXP_PROCESSOR\",\n            \"roleGroups\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      },\n      \"urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference\": {\n        \"showImagingIntro\": \"<boolean>\",\n        \"expenseAuditRequired\": \"<string>\",\n        \"allowCreditCardTransArrivalEmails\": \"<boolean>\",\n        \"allowReceiptImageAvailEmails\": \"<boolean>\",\n        \"promptForCardTransactionsOnReport\": \"<boolean>\",\n        \"autoAddTripCardTransOnReport\": \"<boolean>\",\n        \"promptForReportPrintFormat\": \"<boolean>\",\n        \"defaultReportPrintFormat\": \"<string>\",\n        \"showTotalOnReport\": \"<boolean>\",\n        \"showExpenseOnReport\": \"<string>\",\n        \"showInstructHelpPanel\": \"<boolean>\",\n        \"useQuickItinAsDefault\": \"<boolean>\",\n        \"allowAutoCreateTripReport\": \"<boolean>\"\n      },\n      \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll\": {\n        \"adp\": {\n          \"companyCode\": \"<string>\",\n          \"deductionCode\": \"<string>\",\n          \"employeeFileNumber\": \"<string>\"\n        }\n      },\n      \"urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference\": {\n        \"emailStatusChangeOnCashAdvance\": \"<boolean>\",\n        \"emailAwaitApprovalOnCashAdvance\": \"<boolean>\",\n        \"emailStatusChangeOnReport\": \"<boolean>\",\n        \"emailAwaitApprovalOnReport\": \"<boolean>\",\n        \"promptForApproverOnReportSubmit\": \"<boolean>\",\n        \"emailStatusChangeOnTravelRequest\": \"<boolean>\",\n        \"emailAwaitApprovalOnTravelRequest\": \"<boolean>\",\n        \"promptForApproverOnTravelRequestSubmit\": \"<boolean>\",\n        \"emailStatusChangeOnPayment\": \"<boolean>\",\n        \"emailAwaitApprovalOnPayment\": \"<boolean>\",\n        \"promptForApproverOnPaymentSubmit\": \"<boolean>\"\n      }\n    }\n  ],\n  \"totalResults\": \"<integer>\",\n  \"id\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"meta\": {\n    \"resourceType\": \"<string>\",\n    \"created\": \"<dateTime>\",\n    \"lastModified\": \"<dateTime>\",\n    \"location\": \"<uri>\",\n    \"version\": \"<string>\"\n  },\n  \"startIndex\": \"<integer>\",\n  \"itemsPerPage\": \"<integer>\"\n}"
+										},
+										{
+											"name": "Invalid Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/spend/v4/Users?startIndex=<integer>&itemsPerPage=<integer>&filter=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"spend",
+														"v4",
+														"Users"
+													],
+													"query": [
+														{
+															"key": "startIndex",
+															"value": "<integer>",
+															"description": "(Required) "
+														},
+														{
+															"key": "itemsPerPage",
+															"value": "<integer>",
+															"description": "(Required) "
+														},
+														{
+															"key": "filter",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"meta\": {\n    \"resourceType\": \"<string>\",\n    \"created\": \"<dateTime>\",\n    \"lastModified\": \"<dateTime>\",\n    \"location\": \"<uri>\",\n    \"version\": \"<string>\"\n  },\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"status\": \"<integer>\"\n}"
+										},
+										{
+											"name": "UnAuthorized",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/spend/v4/Users?startIndex=<integer>&itemsPerPage=<integer>&filter=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"spend",
+														"v4",
+														"Users"
+													],
+													"query": [
+														{
+															"key": "startIndex",
+															"value": "<integer>",
+															"description": "(Required) "
+														},
+														{
+															"key": "itemsPerPage",
+															"value": "<integer>",
+															"description": "(Required) "
+														},
+														{
+															"key": "filter",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"meta\": {\n    \"resourceType\": \"<string>\",\n    \"created\": \"<dateTime>\",\n    \"lastModified\": \"<dateTime>\",\n    \"location\": \"<uri>\",\n    \"version\": \"<string>\"\n  },\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"status\": \"<integer>\"\n}"
+										},
+										{
+											"name": "Forbidden",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/spend/v4/Users?startIndex=<integer>&itemsPerPage=<integer>&filter=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"spend",
+														"v4",
+														"Users"
+													],
+													"query": [
+														{
+															"key": "startIndex",
+															"value": "<integer>",
+															"description": "(Required) "
+														},
+														{
+															"key": "itemsPerPage",
+															"value": "<integer>",
+															"description": "(Required) "
+														},
+														{
+															"key": "filter",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"meta\": {\n    \"resourceType\": \"<string>\",\n    \"created\": \"<dateTime>\",\n    \"lastModified\": \"<dateTime>\",\n    \"location\": \"<uri>\",\n    \"version\": \"<string>\"\n  },\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"status\": \"<integer>\"\n}"
+										},
+										{
+											"name": "User Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/spend/v4/Users?startIndex=<integer>&itemsPerPage=<integer>&filter=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"spend",
+														"v4",
+														"Users"
+													],
+													"query": [
+														{
+															"key": "startIndex",
+															"value": "<integer>",
+															"description": "(Required) "
+														},
+														{
+															"key": "itemsPerPage",
+															"value": "<integer>",
+															"description": "(Required) "
+														},
+														{
+															"key": "filter",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"meta\": {\n    \"resourceType\": \"<string>\",\n    \"created\": \"<dateTime>\",\n    \"lastModified\": \"<dateTime>\",\n    \"location\": \"<uri>\",\n    \"version\": \"<string>\"\n  },\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"status\": \"<integer>\"\n}"
+										},
+										{
+											"name": "Internal Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/spend/v4/Users?startIndex=<integer>&itemsPerPage=<integer>&filter=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"spend",
+														"v4",
+														"Users"
+													],
+													"query": [
+														{
+															"key": "startIndex",
+															"value": "<integer>",
+															"description": "(Required) "
+														},
+														{
+															"key": "itemsPerPage",
+															"value": "<integer>",
+															"description": "(Required) "
+														},
+														{
+															"key": "filter",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"meta\": {\n    \"resourceType\": \"<string>\",\n    \"created\": \"<dateTime>\",\n    \"lastModified\": \"<dateTime>\",\n    \"location\": \"<uri>\",\n    \"version\": \"<string>\"\n  },\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"status\": \"<integer>\"\n}"
+										},
+										{
+											"name": "Not Implemented",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/spend/v4/Users?startIndex=<integer>&itemsPerPage=<integer>&filter=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"spend",
+														"v4",
+														"Users"
+													],
+													"query": [
+														{
+															"key": "startIndex",
+															"value": "<integer>",
+															"description": "(Required) "
+														},
+														{
+															"key": "itemsPerPage",
+															"value": "<integer>",
+															"description": "(Required) "
+														},
+														{
+															"key": "filter",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Not Implemented",
+											"code": 501,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"meta\": {\n    \"resourceType\": \"<string>\",\n    \"created\": \"<dateTime>\",\n    \"lastModified\": \"<dateTime>\",\n    \"location\": \"<uri>\",\n    \"version\": \"<string>\"\n  },\n  \"scimType\": \"<string>\",\n  \"detail\": \"<string>\",\n  \"status\": \"<integer>\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://us.api.concursolutions.com"
+		}
+	]
+}

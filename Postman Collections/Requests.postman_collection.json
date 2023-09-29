@@ -1,0 +1,368 @@
+{
+	"info": {
+		"_postman_id": "31b3a267-3343-4f04-90e1-f4f6d42cbd8a",
+		"name": "Requests",
+		"description": "Requests allow travelers to submit travel plans, expected expenses, and expected cash advance needs prior to spending funds. This API provides methods to view, create, update, submit, or recall requests owned by",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "travelrequest",
+			"item": [
+				{
+					"name": "requests",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "submit",
+									"item": [
+										{
+											"name": "Submit a Request by ID",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/travelrequest/requests/:id/submit",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"travelrequest",
+														"requests",
+														":id",
+														"submit"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<string>"
+														}
+													]
+												},
+												"description": "Submit a Request by ID"
+											},
+											"response": [
+												{
+													"name": "Success",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/travelrequest/requests/:id/submit",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"travelrequest",
+																"requests",
+																":id",
+																"submit"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Get a Request by ID",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/travelrequest/requests/:id?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"travelrequest",
+												"requests",
+												":id"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter."
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Returns a Request by ID."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/travelrequest/requests/:id?user=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"travelrequest",
+														"requests",
+														":id"
+													],
+													"query": [
+														{
+															"key": "user",
+															"value": "<string>",
+															"description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter."
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"AgencyOfficeName\": \"<string>\",\n  \"AllocationFormID\": \"<string>\",\n  \"ApprovalLimitDate\": \"<dateTime>\",\n  \"ApprovalStatusCode\": \"<string>\",\n  \"ApprovalStatusName\": \"<string>\",\n  \"AuthorizedDate\": \"<dateTime>\",\n  \"CashAdvances\": {\n    \"AmountRequested\": \"<string>\",\n    \"ApprovalStatusName\": \"<string>\",\n    \"Comments\": {\n      \"AuthorFirstName\": \"<string>\",\n      \"AuthorLastName\": \"<string>\",\n      \"CommentDateTime\": \"<dateTime>\",\n      \"IsLatest\": \"<boolean>\",\n      \"Value\": \"<string>\"\n    },\n    \"CurrencyCode\": \"<string>\",\n    \"CurrencyName\": \"<string>\",\n    \"EmployeeCurrencyCode\": \"<string>\",\n    \"EmployeeCurrencyName\": \"<string>\",\n    \"ExchangeRate\": \"<string>\",\n    \"IssueDate\": \"<dateTime>\",\n    \"RequestDate\": \"<dateTime>\",\n    \"StartingBalance\": \"<string>\"\n  },\n  \"Comments\": {\n    \"AuthorFirstName\": \"<string>\",\n    \"AuthorLastName\": \"<string>\",\n    \"CommentDateTime\": \"<dateTime>\",\n    \"IsLatest\": \"<boolean>\",\n    \"Value\": \"<string>\"\n  },\n  \"CreationDate\": \"<dateTime>\",\n  \"CurrencyCode\": \"<string>\",\n  \"CurrencyName\": \"<string>\",\n  \"Custom1\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom10\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom11\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom12\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom13\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom14\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom15\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom16\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom17\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom18\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom19\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom2\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom20\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom3\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom4\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom5\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom6\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom7\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom8\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom9\": {\n    \"Code\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"EmployeeName\": \"<string>\",\n  \"EndDate\": \"<string>\",\n  \"EndTime\": \"<string>\",\n  \"Entries\": {\n    \"Allocations\": {\n      \"Custom1\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom10\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom11\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom12\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom13\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom14\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom15\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom16\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom17\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom18\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom19\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom2\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom20\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom3\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom4\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom5\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom6\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom7\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom8\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom9\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Percentage\": \"<string>\"\n    },\n    \"ApprovedAmount\": \"<string>\",\n    \"Comments\": {\n      \"AuthorFirstName\": \"<string>\",\n      \"AuthorLastName\": \"<string>\",\n      \"CommentDateTime\": \"<dateTime>\",\n      \"IsLatest\": \"<boolean>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom1\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom10\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom11\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom12\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom13\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom14\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom15\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom16\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom17\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom18\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom19\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom2\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom20\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom21\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom22\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom23\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom24\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom25\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom26\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom27\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom28\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom29\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom3\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom30\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom31\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom32\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom33\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom34\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom35\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom36\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom37\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom38\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom39\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom4\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom40\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom5\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom6\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom7\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom8\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom9\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"EntryDescription\": \"<string>\",\n    \"EntryFormID\": \"<string>\",\n    \"Exceptions\": {\n      \"Code\": \"<string>\",\n      \"Level\": \"<integer>\",\n      \"Message\": \"<string>\"\n    },\n    \"ExchangeRate\": \"<string>\",\n    \"ExpenseTypeName\": \"<string>\",\n    \"ForeignAmount\": \"<string>\",\n    \"ForeignCurrencyCode\": \"<string>\",\n    \"ForeignCurrencyName\": \"<string>\",\n    \"LastModifiedDate\": \"<dateTime>\",\n    \"OrgUnit1\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"OrgUnit2\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"OrgUnit3\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"OrgUnit4\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"OrgUnit5\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"OrgUnit6\": {\n      \"Code\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"PostedAmount\": \"<string>\",\n    \"RemainingAmount\": \"<string>\",\n    \"Segments\": {\n      \"ApprovedAmount\": \"<string>\",\n      \"ArrivalDate\": \"<string>\",\n      \"ArrivalTime\": \"<string>\",\n      \"Class\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"ClassOfServiceCode\": \"<string>\",\n      \"Comments\": {\n        \"AuthorFirstName\": \"<string>\",\n        \"AuthorLastName\": \"<string>\",\n        \"CommentDateTime\": \"<dateTime>\",\n        \"IsLatest\": \"<boolean>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom1\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom10\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom11\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom12\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom13\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom14\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom15\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom16\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom17\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom18\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom19\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom2\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom20\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom21\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom22\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom23\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom24\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom25\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom26\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom27\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom28\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom29\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom3\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom30\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom31\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom32\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom33\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom34\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom35\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom36\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom37\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom38\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom39\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom4\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom40\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom5\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom6\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom7\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom8\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"Custom9\": {\n        \"Code\": \"<string>\",\n        \"ListItemID\": \"<string>\",\n        \"Type\": \"<string>\",\n        \"Value\": \"<string>\"\n      },\n      \"DepartureDate\": \"<string>\",\n      \"DepartureTime\": \"<string>\",\n      \"Exceptions\": {\n        \"Code\": \"<string>\",\n        \"Level\": \"<integer>\",\n        \"Message\": \"<string>\"\n      },\n      \"ExchangeRate\": \"<string>\",\n      \"FlightNumber\": \"<string>\",\n      \"ForeignAmount\": \"<string>\",\n      \"ForeignCurrencyCode\": \"<string>\",\n      \"ForeignCurrencyName\": \"<string>\",\n      \"FormTypeCode\": \"<string>\",\n      \"FromLocationAirportName\": \"<string>\",\n      \"FromLocationCode\": \"<string>\",\n      \"FromLocationCountryCode\": \"<string>\",\n      \"FromLocationDetail\": \"<string>\",\n      \"FromLocationIataCode\": \"<string>\",\n      \"FromLocationID\": \"<string>\",\n      \"FromLocationIsAirport\": \"<boolean>\",\n      \"FromLocationName\": \"<string>\",\n      \"FromLocationSubCountryCode\": \"<string>\",\n      \"FromLocationVendor\": \"<string>\",\n      \"IsAgencyBooked\": \"<string>\",\n      \"IsSelfBooked\": \"<string>\",\n      \"LastModifiedDate\": \"<dateTime>\",\n      \"OutboundSegmentID\": \"<string>\",\n      \"PostedAmount\": \"<string>\",\n      \"RecordLocator\": \"<string>\",\n      \"RemainingAmount\": \"<string>\",\n      \"SegmentFormID\": \"<string>\",\n      \"SegmentLocator\": \"<string>\",\n      \"SegmentType\": \"<string>\",\n      \"SegmentTypeCode\": \"<string>\",\n      \"ToLocationAirportName\": \"<string>\",\n      \"ToLocationCode\": \"<string>\",\n      \"ToLocationCountryCode\": \"<string>\",\n      \"ToLocationDetail\": \"<string>\",\n      \"ToLocationIataCode\": \"<string>\",\n      \"ToLocationID\": \"<string>\",\n      \"ToLocationIsAirport\": \"<boolean>\",\n      \"ToLocationName\": \"<string>\",\n      \"ToLocationSubCountryCode\": \"<string>\",\n      \"ToLocationVendor\": \"<string>\",\n      \"TripLocator\": \"<string>\",\n      \"VendorName\": \"<string>\"\n    },\n    \"TransactionDate\": \"<dateTime>\",\n    \"TripType\": \"<triptype>\"\n  },\n  \"EverSentBack\": \"<string>\",\n  \"Exceptions\": {\n    \"Code\": \"<string>\",\n    \"Level\": \"<integer>\",\n    \"Message\": \"<string>\"\n  },\n  \"ExtensionOf\": \"<string>\",\n  \"HasException\": \"<string>\",\n  \"HeaderFormID\": \"<string>\",\n  \"LastModifiedDate\": \"<dateTime>\",\n  \"LoginID\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"PolicyID\": \"<string>\",\n  \"PolicyName\": \"<string>\",\n  \"Purpose\": \"<string>\",\n  \"RequestID\": \"<string>\",\n  \"StartDate\": \"<string>\",\n  \"StartTime\": \"<string>\",\n  \"SubmitDate\": \"<dateTime>\",\n  \"TotalApprovedAmount\": \"<string>\",\n  \"TotalPostedAmount\": \"<string>\",\n  \"TotalRemainingAmount\": \"<string>\",\n  \"UserPermissions\": {\n    \"Links\": {\n      \"Action\": \"<string>\",\n      \"Method\": \"<string>\",\n      \"Url\": \"<string>\"\n    }\n  }\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get all Requests",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://us.api.concursolutions.com/api/v3.0travelrequest/requests?limit=5",
+									"protocol": "https",
+									"host": [
+										"us",
+										"api",
+										"concursolutions",
+										"com"
+									],
+									"path": [
+										"api",
+										"v3.0travelrequest",
+										"requests"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<string>",
+											"description": "Starting page offset",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "5",
+											"description": "Number of records to return (default 100)"
+										},
+										{
+											"key": "user",
+											"value": "<string>",
+											"description": "The login ID of the user who owns this Request. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "<string>",
+											"description": "The Status search term specifies which travel request or approval status to return. If no Status value is sent, the default Status of Active will be used.",
+											"disabled": true
+										},
+										{
+											"key": "modifiedAfter",
+											"value": "<dateTime>",
+											"description": "This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.",
+											"disabled": true
+										},
+										{
+											"key": "modifiedBefore",
+											"value": "<dateTime>",
+											"description": "This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified before the specified date and time.This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.",
+											"disabled": true
+										},
+										{
+											"key": "withSegmentTypes",
+											"value": "<boolean>",
+											"description": "Pass true to populate the SegmentType field in the result.",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Returns all Requests owned by the user."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/travelrequest/requests?offset=<string>&limit=<integer>&user=<string>&status=<string>&modifiedAfter=<dateTime>&modifiedBefore=<dateTime>&withSegmentTypes=<boolean>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"travelrequest",
+												"requests"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "<string>",
+													"description": "Starting page offset"
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "Number of records to return (default 100)"
+												},
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "The login ID of the user who owns this Request. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter."
+												},
+												{
+													"key": "status",
+													"value": "<string>",
+													"description": "The Status search term specifies which travel request or approval status to return. If no Status value is sent, the default Status of Active will be used."
+												},
+												{
+													"key": "modifiedAfter",
+													"value": "<dateTime>",
+													"description": "This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss."
+												},
+												{
+													"key": "modifiedBefore",
+													"value": "<dateTime>",
+													"description": "This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified before the specified date and time.This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss."
+												},
+												{
+													"key": "withSegmentTypes",
+													"value": "<boolean>",
+													"description": "Pass true to populate the SegmentType field in the result."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Items\": {\n    \"ApprovalStatusCode\": \"<string>\",\n    \"ApprovalStatusName\": \"<string>\",\n    \"ApproverLoginID\": \"<string>\",\n    \"CreationDate\": \"<dateTime>\",\n    \"CurrencyCode\": \"<string>\",\n    \"EmployeeName\": \"<string>\",\n    \"EndDate\": \"<string>\",\n    \"HeaderFormID\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"LastComment\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"Purpose\": \"<string>\",\n    \"RequestDetailsUrl\": \"<string>\",\n    \"RequestID\": \"<string>\",\n    \"SegmentTypes\": \"<string>\",\n    \"StartDate\": \"<string>\",\n    \"TotalApprovedAmount\": \"<string>\",\n    \"TotalPostedAmount\": \"<string>\",\n    \"URI\": \"<string>\",\n    \"UserLoginID\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/v3.0"
+		}
+	]
+}

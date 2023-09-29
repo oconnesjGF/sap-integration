@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "f817f167-8e22-4f86-8b47-368c96829237",
+		"name": "VendorBank",
+		"description": "An invoice is a bill of sale for goods or services provided by a vendor. This API provides methods to create or update banking information for the specified invoice vendor.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "invoice",
+			"item": [
+				{
+					"name": "vendor",
+					"item": [
+						{
+							"name": "banks",
+							"item": [
+								{
+									"name": "Updates/creates vendor banking information.",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"VendorBank\": {\n    \"AccountNumber\": \"<string>\",\n    \"AccountType\": \"<string>\",\n    \"AddressCode\": \"<string>\",\n    \"BankCode\": \"<string>\",\n    \"BankName\": \"<string>\",\n    \"BranchCode\": \"<string>\",\n    \"BranchLocation\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"CurrencyAlphaCode\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"IsActive\": \"<string>\",\n    \"NameOnAccount\": \"<string>\",\n    \"RoutingNumber\": \"<string>\",\n    \"StatusList\": {\n      \"Code\": \"<integer>\",\n      \"Message\": \"<string>\",\n      \"RecordNumber\": \"<integer>\",\n      \"Type\": \"<string>\"\n    },\n    \"TransType\": \"<string>\",\n    \"URI\": \"<string>\",\n    \"VendorCode\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\",\n  \"RequestRunSummary\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"Items\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/vendor/banks",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"vendor",
+												"banks"
+											]
+										},
+										"description": "Updates/creates vendor banking information."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"VendorBank\": {\n    \"AccountNumber\": \"<string>\",\n    \"AccountType\": \"<string>\",\n    \"AddressCode\": \"<string>\",\n    \"BankCode\": \"<string>\",\n    \"BankName\": \"<string>\",\n    \"BranchCode\": \"<string>\",\n    \"BranchLocation\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"CurrencyAlphaCode\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"IsActive\": \"<string>\",\n    \"NameOnAccount\": \"<string>\",\n    \"RoutingNumber\": \"<string>\",\n    \"StatusList\": {\n      \"Code\": \"<integer>\",\n      \"Message\": \"<string>\",\n      \"RecordNumber\": \"<integer>\",\n      \"Type\": \"<string>\"\n    },\n    \"TransType\": \"<string>\",\n    \"URI\": \"<string>\",\n    \"VendorCode\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\",\n  \"RequestRunSummary\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"Items\": {}\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/invoice/vendor/banks",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"invoice",
+														"vendor",
+														"banks"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"VendorBank\": {\n    \"AccountNumber\": \"<string>\",\n    \"AccountType\": \"<string>\",\n    \"AddressCode\": \"<string>\",\n    \"BankCode\": \"<string>\",\n    \"BankName\": \"<string>\",\n    \"BranchCode\": \"<string>\",\n    \"BranchLocation\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"CurrencyAlphaCode\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"IsActive\": \"<string>\",\n    \"NameOnAccount\": \"<string>\",\n    \"RoutingNumber\": \"<string>\",\n    \"StatusList\": {\n      \"Code\": \"<integer>\",\n      \"Message\": \"<string>\",\n      \"RecordNumber\": \"<integer>\",\n      \"Type\": \"<string>\"\n    },\n    \"TransType\": \"<string>\",\n    \"URI\": \"<string>\",\n    \"VendorCode\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\",\n  \"RequestRunSummary\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"Items\": {}\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/v3.0"
+		}
+	]
+}

@@ -1,0 +1,238 @@
+{
+	"info": {
+		"_postman_id": "7cee81de-2490-45f0-9b13-c9f0a23d6470",
+		"name": "VendorGroup",
+		"description": "An invoice is a bill of sale for goods or services provided by a vendor. This API provides methods to create or delete invoice vendor groups that meet the search parameters.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "invoice",
+			"item": [
+				{
+					"name": "vendor",
+					"item": [
+						{
+							"name": "groups",
+							"item": [
+								{
+									"name": "Add vendor groups by Vendor Code, Address Code, and Vendor Group.",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"VendorGroup\": {\n    \"ID\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"URI\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\",\n  \"RequestRunSummary\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"Items\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoice/vendor/groups?vendorCode=<string>&addressCode=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"vendor",
+												"groups"
+											],
+											"query": [
+												{
+													"key": "vendorCode",
+													"value": "<string>",
+													"description": "(Required) The Vendor Code to be searched."
+												},
+												{
+													"key": "addressCode",
+													"value": "<string>",
+													"description": "(Required) Address Code to be searched."
+												}
+											]
+										},
+										"description": "Add vendor groups by Vendor Code, Address Code, and Vendor Group."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"VendorGroup\": {\n    \"ID\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"URI\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\",\n  \"RequestRunSummary\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"Items\": {}\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/invoice/vendor/groups?vendorCode=<string>&addressCode=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"invoice",
+														"vendor",
+														"groups"
+													],
+													"query": [
+														{
+															"key": "vendorCode",
+															"value": "<string>",
+															"description": "(Required) The Vendor Code to be searched."
+														},
+														{
+															"key": "addressCode",
+															"value": "<string>",
+															"description": "(Required) Address Code to be searched."
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"VendorGroup\": {\n    \"ID\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"URI\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\",\n  \"RequestRunSummary\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"Items\": {}\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete a vendor group by Vendor Code, Address Code, and Group Name.",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/invoice/vendor/groups?vendorCode=<string>&addressCode=<string>&groupName=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoice",
+												"vendor",
+												"groups"
+											],
+											"query": [
+												{
+													"key": "vendorCode",
+													"value": "<string>",
+													"description": "(Required) The Vendor Code to be deleted."
+												},
+												{
+													"key": "addressCode",
+													"value": "<string>",
+													"description": "(Required) Address Code to be deleted."
+												},
+												{
+													"key": "groupName",
+													"value": "<string>",
+													"description": "(Required) Group Name to be deleted."
+												}
+											]
+										},
+										"description": "Delete a vendor group by Vendor Code, Address Code, and Group Name."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/invoice/vendor/groups?vendorCode=<string>&addressCode=<string>&groupName=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"invoice",
+														"vendor",
+														"groups"
+													],
+													"query": [
+														{
+															"key": "vendorCode",
+															"value": "<string>",
+															"description": "(Required) The Vendor Code to be deleted."
+														},
+														{
+															"key": "addressCode",
+															"value": "<string>",
+															"description": "(Required) Address Code to be deleted."
+														},
+														{
+															"key": "groupName",
+															"value": "<string>",
+															"description": "(Required) Group Name to be deleted."
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"VendorGroup\": {\n    \"ID\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"URI\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\",\n  \"RequestRunSummary\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"Items\": {}\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/v3.0"
+		}
+	]
+}

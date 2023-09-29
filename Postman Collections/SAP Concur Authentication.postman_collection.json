@@ -1,0 +1,403 @@
+{
+	"info": {
+		"_postman_id": "cc3759f0-fec6-4089-aa54-a955fa8902c7",
+		"name": "SAP Concur Authentication",
+		"description": "This specification describes how the OAuth2/token endpoints are\nimplemented by the SAP Concur service provider.\n\nThe endpoint in this specification is derived from a number of RFCs and\nexternal documents:\n\n  * The OAuth2 framework - [RFC 6749][rfc6749]\n  * Proof of Key Code Exchange extension for OAuth2 - [RFC 7636][rfc7636]\n\nThe US production APIs can be found at `https://us.api.concursolutions.com/oauth2/token`.\n\n[rfc6749]: https://tools.ietf.org/html/rfc6749\n[rfc7636]: https://tools.ietf.org/html/rfc7636\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "token",
+			"item": [
+				{
+					"name": "Request a new access token.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Initialize\", function () {\r",
+									"\r",
+									"    pm.response.to.not.be.error;\r",
+									"    pm.response.to.not.have.jsonBody(\"error\");\r",
+									"\r",
+									"    var jsonData = pm.response.json();\r",
+									"    var refreshToken = jsonData.refresh_token;\r",
+									"    var idToken = jsonData.id_token;\r",
+									"    var accessToken = jsonData.access_token;\r",
+									"    pm.expect(refreshToken.length).to.be.above(0);\r",
+									"    pm.environment.set(\"accessToken\", accessToken);\r",
+									"\r",
+									"    pm.environment.set(\"refreshToken\", refreshToken);\r",
+									"   pm.environment.set(\"idToken\", idToken)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"description": "(Required) \n* <b>Password Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=password&username={name of user}&password={password of user}&credtype=password\n* <b>Client Credentials Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=client_credentials\n* <b>Token Refresh Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=refresh_token&refresh_token=333333333333333333333333333333333333\n* <b>One Time Password Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=otp&otp=222222222222222222222222222222222222&channel_handle={email address of user}&channel_type=email",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{clientSecret}}",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{clientId}}",
+									"type": "text"
+								},
+								{
+									"key": "refresh_token",
+									"value": "{{refreshToken}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/oauth2/v0/token",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"oauth2",
+								"v0",
+								"token"
+							]
+						},
+						"description": "\nThe token endpoint, as described in [RFC 6749 Â§3.2], used in four cases:\n * [Password Grant][RFC 6749 Â§4.3]\n   * The Password grant can be used when there is a trust relationship between the user and the application. There are two credential types allowed with Password Grant:\n     * <b>Password:</b> with this credential type, the application either already has the user’s credentials or can obtain the user’s credentials by directly interacting with the user.\n     * <b>AuthToken:</b> This credential type is used for connections from the App Center. For App Center partners and TripLink suppliers, please refer to the [certification documentation][Cert Docs] for more information.\n    * Properties:\n      * <b>client_id:</b> (Required) <i>String</i> - The client_id of the application.\n      * <b>client_secret:</b> (Required) <i>String</i> - The client_secret of the application.\n      * <b>grant_type:</b> (Required) <i>String</i> - The credential types allowed with Password Grant.\n      * <b>username:</b> (Required) <i>String</i> - The username of the user being authenticated.\n      * <b>password:</b> (Required) <i>String</i> - The password of the user being authenticated.\n      * <b>cred_type:</b> <i>String</i> - The credential set being submitted in the request, either <i>authtoken</i> or <i>password</i>. For password requests, use <i>password</i>. For connections with the App Center, use <i>authtoken</i>. If omitted, the default is <i>password</i>.\n      * <b>scope:</b> <i>String</i> - The scope of the requested access token. This can be used to restrict the new access token to a subset of the scope allowed to the client and token type.\n * [Client Credentials Grant][RFC 6749 Â§4.4]\n   * The Client Credentials grant enables an application to get an access token allowing only app-specific operations.\n   * Properties:\n      * <b>client_id:</b> (Required) <i>String</i> - The client_id of the application.\n      * <b>client_secret:</b> (Required) <i>String</i> - The client_secret of the application.\n      * <b>grant_type:</b> (Required) <i>String</i> - The credential types allowed with Password Grant.\n * [Token Refresh Grant][RFC 6749 Â§6]\n   * The refresh grant is used to refresh an access_token that has expired. This grant can be used anytime a refresh_token is returned in the response of another grant request. No user interaction is required.\n   * Properties:\n      * <b>client_id:</b> (Required) <i>String</i> - The client_id of the application.\n      * <b>client_secret:</b> (Required) <i>String</i> - The client_secret of the application.\n      * <b>grant_type:</b> (Required) <i>String</i> - The credential types allowed with Password Grant.\n      * <b>refresh_token:</b> (Required) <i>String</i> - An existing valid refresh token to be used to request a new access token.\n      * <b>scope:</b> <i>String</i> - The scope of the requested access token. This can be used to restrict the new access token to a subset of the scope allowed to the client and token type.\n * [One Time Password Grant][RFC 6749 Â§4.1]\n   * The One-time Password grant type leverages email, phone (text messaging), instant messaging and similar systems to provide per user access tokens to client applications. This grant type requires the following steps:\n     * The calling application calls the OAuth2 service specifying the otp grant type along with required parameters.\n     * The OAuth2 service generates a one time token which it sends through the messaging mechanism chosen by the application.\n     * The user retrieves the token and presents it to the application. The means of having this presented to the application is the responsibility of the application.\n     * The application presents this one-time token to the OAuth2 service via the token endpoint.  <b>It is only this step that is covered by this documentation.</b>\n    * Properties:\n      * <b>client_id:</b> (Required) <i>String</i> - The client_id of the application.\n      * <b>client_secret:</b> (Required) <i>String</i> - The client_secret of the application.\n      * <b>grant_type:</b> (Required) <i>String</i> - The credential types allowed with Password Grant.\n      * <b>channel_handle:</b> (Required) <i>String</i> - The location (email address, phone number) where the one time token should be sent.  Currently only email addresses are allowed.\n      * <b>channel_type:</b> (Required) <i>String</i> - The type of messaging system to use. Currently only <i>email</i> is allowed.\n      * <b>otp:</b> (Required) <i>String</i> - The one-time token.\n      * <b>scope:</b> <i>String</i> - The scope of the requested access token. This can be used to restrict the new access token to a subset of the scope allowed to the client and token type.\n\n\nAccess Tokens have a one hour lifetime.  If the access token expires, the client application must use a Refresh Grant to obtain a new access token.\n\nRefresh Tokens have a six month lifetime. If the refresh token expires, the client application must reinitiate the authorization process. When a refresh token is used to request a new access token, both a new access token as well as a new refresh token are returned in the response. This token can change even if most of the time, this value is the same. Client applications should treat all returned refresh tokens as new tokens and overwrite the stored tokens with the new token from the response.\n\n\n [RFC 6749 Â§3.2]: https://tools.ietf.org/html/rfc6749#section-3.2\n [RFC 6749 Â§4.1]: https://tools.ietf.org/html/rfc6749#section-4.1\n [RFC 6749 Â§4.3]: https://tools.ietf.org/html/rfc6749#section-4.3\n [RFC 6749 Â§4.4]: https://tools.ietf.org/html/rfc6749#section-4.4\n [RFC 7636 Â§4.5]: https://tools.ietf.org/html/rfc7636#section-4.3\n [RFC 6749 Â§6]: https://tools.ietf.org/html/rfc6749#section-6\n [Cert Docs]: https://developer.concur.com/manage-apps/app-certification.html\n"
+					},
+					"response": [
+						{
+							"name": "New access token generated successfully",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "body",
+											"value": "<string>",
+											"description": "(Required) \n* <b>Password Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=password&username={name of user}&password={password of user}&credtype=password\n* <b>Client Credentials Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=client_credentials\n* <b>Token Refresh Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=refresh_token&refresh_token=333333333333333333333333333333333333\n* <b>One Time Password Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=otp&otp=222222222222222222222222222222222222&channel_handle={email address of user}&channel_type=email"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/token",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"token"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"access_token\": \"<string>\",\n  \"token_type\": \"bearer\",\n  \"expires_in\": \"<string>\",\n  \"refresh_token\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"idtoken\": \"<string>\",\n  \"geolocation\": \"<string>\"\n}"
+						},
+						{
+							"name": "Bad request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "body",
+											"value": "<string>",
+											"description": "(Required) \n* <b>Password Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=password&username={name of user}&password={password of user}&credtype=password\n* <b>Client Credentials Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=client_credentials\n* <b>Token Refresh Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=refresh_token&refresh_token=333333333333333333333333333333333333\n* <b>One Time Password Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=otp&otp=222222222222222222222222222222222222&channel_handle={email address of user}&channel_type=email"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/token",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"token"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"error\": \"access_denied\",\n  \"code\": \"<number>\",\n  \"error_description\": \"<string>\",\n  \"geolocation\": \"<string>\"\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "body",
+											"value": "<string>",
+											"description": "(Required) \n* <b>Password Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=password&username={name of user}&password={password of user}&credtype=password\n* <b>Client Credentials Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=client_credentials\n* <b>Token Refresh Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=refresh_token&refresh_token=333333333333333333333333333333333333\n* <b>One Time Password Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=otp&otp=222222222222222222222222222222222222&channel_handle={email address of user}&channel_type=email"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/token",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"token"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"error\": \"access_denied\",\n  \"code\": \"<number>\",\n  \"error_description\": \"<string>\",\n  \"geolocation\": \"<string>\"\n}"
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "body",
+											"value": "<string>",
+											"description": "(Required) \n* <b>Password Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=password&username={name of user}&password={password of user}&credtype=password\n* <b>Client Credentials Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=client_credentials\n* <b>Token Refresh Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=refresh_token&refresh_token=333333333333333333333333333333333333\n* <b>One Time Password Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=otp&otp=222222222222222222222222222222222222&channel_handle={email address of user}&channel_type=email"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/token",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"token"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"error\": \"access_denied\",\n  \"code\": \"<number>\",\n  \"error_description\": \"<string>\",\n  \"geolocation\": \"<string>\"\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "body",
+											"value": "<string>",
+											"description": "(Required) \n* <b>Password Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=password&username={name of user}&password={password of user}&credtype=password\n* <b>Client Credentials Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=client_credentials\n* <b>Token Refresh Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=refresh_token&refresh_token=333333333333333333333333333333333333\n* <b>One Time Password Grant Example:</b>\nclient_id=000000000000000000000000000000000000&client_secret=111111111111111111111111111111111111&grant_type=otp&otp=222222222222222222222222222222222222&channel_handle={email address of user}&channel_type=email"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/token",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"token"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"error\": \"access_denied\",\n  \"code\": \"<number>\",\n  \"error_description\": \"<string>\",\n  \"geolocation\": \"<string>\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "clientSecret",
+				"value": "8cbfa9ce-2c04-4a52-9d3e-6a3e9122f8e0",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://www-us2.api.concursolutions.com",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www-us2.api.concursolutions.com"
+		}
+	]
+}
