@@ -1442,11 +1442,14 @@
 											}
 										],
 										"url": {
-											"raw": "{{dataCenterURI}}/list/v4/categories?page=1",
+											"raw": "https://{{dataCenterURI}}/api/v4.0/list/v4/categories",
+											"protocol": "https",
 											"host": [
 												"{{dataCenterURI}}"
 											],
 											"path": [
+												"api",
+												"v4.0",
 												"list",
 												"v4",
 												"categories"
@@ -1455,7 +1458,8 @@
 												{
 													"key": "page",
 													"value": "1",
-													"description": "Page number starting from 1"
+													"description": "Page number starting from 1",
+													"disabled": true
 												},
 												{
 													"key": "type",
@@ -2284,7 +2288,7 @@
 	],
 	"variable": [
 		{
-			"id": "30c68c56-af1c-4996-adc2-0f25fb846faf",
+			"id": "3c3506a6-049e-4cd4-8bd7-2feeb15c8752",
 			"key": "baseUrl",
 			"value": "https://www.concursolutions.com/api/v4.0"
 		}
