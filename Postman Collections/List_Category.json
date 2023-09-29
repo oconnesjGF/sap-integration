@@ -1442,9 +1442,9 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/list/v4/categories?page=1&type=<string>",
+											"raw": "{{dataCenterURI}}/list/v4/categories?page=1",
 											"host": [
-												"{{baseUrl}}"
+												"{{dataCenterURI}}"
 											],
 											"path": [
 												"list",
@@ -1460,7 +1460,8 @@
 												{
 													"key": "type",
 													"value": "<string>",
-													"description": "Filter capabilities for List Category type"
+													"description": "Filter capabilities for List Category type",
+													"disabled": true
 												}
 											]
 										},
@@ -2283,7 +2284,7 @@
 	],
 	"variable": [
 		{
-			"id": "f36b9104-925a-4925-ab1b-bc523439d851",
+			"id": "30c68c56-af1c-4996-adc2-0f25fb846faf",
 			"key": "baseUrl",
 			"value": "https://www.concursolutions.com/api/v4.0"
 		}
