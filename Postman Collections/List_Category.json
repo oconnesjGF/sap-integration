@@ -1442,10 +1442,9 @@
 											}
 										],
 										"url": {
-											"raw": "https://{{dataCenterURI}}/api/v4.0/list/v4/categories",
-											"protocol": "https",
+											"raw": "{{baseUrl}}/api/v4.0/list/v4/categories",
 											"host": [
-												"{{dataCenterURI}}"
+												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
@@ -2288,7 +2287,7 @@
 	],
 	"variable": [
 		{
-			"id": "05fd71b3-821a-4b0a-b4b2-3663dbd28177",
+			"id": "ec71ad3b-7f61-4fda-b6db-cd72c2478c13",
 			"key": "baseUrl",
 			"value": "https://www-us2.api.concursolutions.com/api/v4.0"
 		}
