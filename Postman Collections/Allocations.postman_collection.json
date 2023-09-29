@@ -1,0 +1,285 @@
+{
+	"info": {
+		"_postman_id": "352590d9-eec1-4637-8918-238e9e9c836f",
+		"name": "Allocations",
+		"description": "Allocations divide the responsibility for an expense. Allocation entries consist of a percentage of the original expense, and the configured custom fields. Allocation entries are children of the expense entry. This API provides methods to view all allocations for a user or report, or view an allocation by ID.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "expense",
+			"item": [
+				{
+					"name": "allocations",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Get a single allocation",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/expense/allocations/:id?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"allocations",
+												":id"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "The login ID of the user who owns the allocation. The user must have the Web Services Admin role to use this parameter."
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Gets the allocation for the supplied ID."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/expense/allocations/:id?user=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"expense",
+														"allocations",
+														":id"
+													],
+													"query": [
+														{
+															"key": "user",
+															"value": "<string>",
+															"description": "The login ID of the user who owns the allocation. The user must have the Web Services Admin role to use this parameter."
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"AccountCode1\": \"<string>\",\n  \"AccountCode2\": \"<string>\",\n  \"Custom1\": {\n    \"Code\": \"<string>\",\n    \"Label\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Sequence\": \"<integer>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom10\": {\n    \"Code\": \"<string>\",\n    \"Label\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Sequence\": \"<integer>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom11\": {\n    \"Code\": \"<string>\",\n    \"Label\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Sequence\": \"<integer>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom12\": {\n    \"Code\": \"<string>\",\n    \"Label\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Sequence\": \"<integer>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom13\": {\n    \"Code\": \"<string>\",\n    \"Label\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Sequence\": \"<integer>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom14\": {\n    \"Code\": \"<string>\",\n    \"Label\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Sequence\": \"<integer>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom15\": {\n    \"Code\": \"<string>\",\n    \"Label\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Sequence\": \"<integer>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom16\": {\n    \"Code\": \"<string>\",\n    \"Label\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Sequence\": \"<integer>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom17\": {\n    \"Code\": \"<string>\",\n    \"Label\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Sequence\": \"<integer>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom18\": {\n    \"Code\": \"<string>\",\n    \"Label\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Sequence\": \"<integer>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom19\": {\n    \"Code\": \"<string>\",\n    \"Label\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Sequence\": \"<integer>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom2\": {\n    \"Code\": \"<string>\",\n    \"Label\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Sequence\": \"<integer>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom20\": {\n    \"Code\": \"<string>\",\n    \"Label\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Sequence\": \"<integer>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom3\": {\n    \"Code\": \"<string>\",\n    \"Label\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Sequence\": \"<integer>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom4\": {\n    \"Code\": \"<string>\",\n    \"Label\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Sequence\": \"<integer>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom5\": {\n    \"Code\": \"<string>\",\n    \"Label\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Sequence\": \"<integer>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom6\": {\n    \"Code\": \"<string>\",\n    \"Label\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Sequence\": \"<integer>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom7\": {\n    \"Code\": \"<string>\",\n    \"Label\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Sequence\": \"<integer>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom8\": {\n    \"Code\": \"<string>\",\n    \"Label\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Sequence\": \"<integer>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"Custom9\": {\n    \"Code\": \"<string>\",\n    \"Label\": \"<string>\",\n    \"ListItemID\": \"<string>\",\n    \"Sequence\": \"<integer>\",\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n  },\n  \"EntryID\": \"<string>\",\n  \"ID\": \"<string>\",\n  \"IsHidden\": \"<boolean>\",\n  \"IsPercentEdited\": \"<boolean>\",\n  \"Percentage\": \"<string>\",\n  \"URI\": \"<string>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get allocations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/expense/allocations",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"expense",
+										"allocations"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The number of records to return. The default is 25 and the maximum is 100.",
+											"disabled": true
+										},
+										{
+											"key": "offset",
+											"value": "<string>",
+											"description": "The starting point of the next set of results, after the limit specified in the limit field has been reached.",
+											"disabled": true
+										},
+										{
+											"key": "reportID",
+											"value": "<string>",
+											"description": "The unique identifier for the report as it appears in Concur Expense. Format: A variable-length string. Maximum length: 32 characters.",
+											"disabled": true
+										},
+										{
+											"key": "entryID",
+											"value": "<string>",
+											"description": "The unique identifier for the expense entry.",
+											"disabled": true
+										},
+										{
+											"key": "itemizationID",
+											"value": "<string>",
+											"description": "The unique identifier for the expense itemization.",
+											"disabled": true
+										},
+										{
+											"key": "user",
+											"value": "<string>",
+											"description": "The login ID of the user who owns the allocation. The user must have the Web Services Admin role to use this parameter.",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Gets all allocations per entry or report."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/expense/allocations?limit=<integer>&offset=<string>&reportID=<string>&entryID=<string>&itemizationID=<string>&user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"allocations"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "The number of records to return. The default is 25 and the maximum is 100."
+												},
+												{
+													"key": "offset",
+													"value": "<string>",
+													"description": "The starting point of the next set of results, after the limit specified in the limit field has been reached."
+												},
+												{
+													"key": "reportID",
+													"value": "<string>",
+													"description": "The unique identifier for the report as it appears in Concur Expense. Format: A variable-length string. Maximum length: 32 characters."
+												},
+												{
+													"key": "entryID",
+													"value": "<string>",
+													"description": "The unique identifier for the expense entry."
+												},
+												{
+													"key": "itemizationID",
+													"value": "<string>",
+													"description": "The unique identifier for the expense itemization."
+												},
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "The login ID of the user who owns the allocation. The user must have the Web Services Admin role to use this parameter."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Items\": {\n    \"AccountCode1\": \"<string>\",\n    \"AccountCode2\": \"<string>\",\n    \"Custom1\": {\n      \"Code\": \"<string>\",\n      \"Label\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Sequence\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom10\": {\n      \"Code\": \"<string>\",\n      \"Label\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Sequence\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom11\": {\n      \"Code\": \"<string>\",\n      \"Label\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Sequence\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom12\": {\n      \"Code\": \"<string>\",\n      \"Label\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Sequence\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom13\": {\n      \"Code\": \"<string>\",\n      \"Label\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Sequence\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom14\": {\n      \"Code\": \"<string>\",\n      \"Label\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Sequence\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom15\": {\n      \"Code\": \"<string>\",\n      \"Label\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Sequence\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom16\": {\n      \"Code\": \"<string>\",\n      \"Label\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Sequence\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom17\": {\n      \"Code\": \"<string>\",\n      \"Label\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Sequence\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom18\": {\n      \"Code\": \"<string>\",\n      \"Label\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Sequence\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom19\": {\n      \"Code\": \"<string>\",\n      \"Label\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Sequence\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom2\": {\n      \"Code\": \"<string>\",\n      \"Label\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Sequence\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom20\": {\n      \"Code\": \"<string>\",\n      \"Label\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Sequence\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom3\": {\n      \"Code\": \"<string>\",\n      \"Label\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Sequence\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom4\": {\n      \"Code\": \"<string>\",\n      \"Label\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Sequence\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom5\": {\n      \"Code\": \"<string>\",\n      \"Label\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Sequence\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom6\": {\n      \"Code\": \"<string>\",\n      \"Label\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Sequence\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom7\": {\n      \"Code\": \"<string>\",\n      \"Label\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Sequence\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom8\": {\n      \"Code\": \"<string>\",\n      \"Label\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Sequence\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"Custom9\": {\n      \"Code\": \"<string>\",\n      \"Label\": \"<string>\",\n      \"ListItemID\": \"<string>\",\n      \"Sequence\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    \"EntryID\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"IsHidden\": \"<boolean>\",\n    \"IsPercentEdited\": \"<boolean>\",\n    \"Percentage\": \"<string>\",\n    \"URI\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/v3.0"
+		}
+	]
+}

@@ -1,0 +1,1552 @@
+{
+	"info": {
+		"_postman_id": "71a293c6-7961-4583-85c2-eb18333353cb",
+		"name": "Document Compliance Gateway API Documentation",
+		"description": "Gateway to allow tax validators to get and update digital tax documents",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "v4",
+			"item": [
+				{
+					"name": "tax-documents",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Get a single digital tax document",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v4/tax-documents/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v4",
+												"tax-documents",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Gets the specified digital tax document by documentId."
+									},
+									"response": [
+										{
+											"name": "Document Retrieved",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v4/tax-documents/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"tax-documents",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "<string>"
+										},
+										{
+											"name": "Invalid request body",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v4/tax-documents/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"tax-documents",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"Description\": \"<string>\",\n  \"DebugInfo\": {\n    \"in_11\": {},\n    \"anim_ff\": {},\n    \"enim7b\": {},\n    \"velit_ae6\": {}\n  }\n}"
+										},
+										{
+											"name": "Invalid or nonexistent authorization HTTP header",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v4/tax-documents/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"tax-documents",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"Description\": \"<string>\",\n  \"DebugInfo\": {\n    \"in_11\": {},\n    \"anim_ff\": {},\n    \"enim7b\": {},\n    \"velit_ae6\": {}\n  }\n}"
+										},
+										{
+											"name": "Permission Denied",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v4/tax-documents/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"tax-documents",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"Description\": \"<string>\",\n  \"DebugInfo\": {\n    \"in_11\": {},\n    \"anim_ff\": {},\n    \"enim7b\": {},\n    \"velit_ae6\": {}\n  }\n}"
+										},
+										{
+											"name": "Unable to find the requested resource",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v4/tax-documents/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"tax-documents",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"Description\": \"<string>\",\n  \"DebugInfo\": {\n    \"in_11\": {},\n    \"anim_ff\": {},\n    \"enim7b\": {},\n    \"velit_ae6\": {}\n  }\n}"
+										},
+										{
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v4/tax-documents/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"tax-documents",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"Description\": \"<string>\",\n  \"DebugInfo\": {\n    \"in_11\": {},\n    \"anim_ff\": {},\n    \"enim7b\": {},\n    \"velit_ae6\": {}\n  }\n}"
+										},
+										{
+											"name": "The service is currently unavailable",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v4/tax-documents/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"tax-documents",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Service Unavailable",
+											"code": 503,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"Description\": \"<string>\",\n  \"DebugInfo\": {\n    \"in_11\": {},\n    \"anim_ff\": {},\n    \"enim7b\": {},\n    \"velit_ae6\": {}\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "Validate and upload digital tax document",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "digitalTaxDocument",
+													"value": "[object Object]",
+													"description": "(Required) Digital Tax Document",
+													"type": "text"
+												},
+												{
+													"key": "displayedVersion",
+													"value": "<string>",
+													"description": "PDF Displayed version",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v4/tax-documents/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v4",
+												"tax-documents",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "API for uploading digital tax document and upload displayed version of document"
+									},
+									"response": [
+										{
+											"name": "Tax document uploaded",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "multipart/form-data"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "digitalTaxDocument",
+															"value": "[object Object]",
+															"description": "(Required) Digital Tax Document",
+															"type": "text"
+														},
+														{
+															"key": "displayedVersion",
+															"value": "<string>",
+															"description": "PDF Displayed version",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v4/tax-documents/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"tax-documents",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"DocumentId\": \"<string>\",\n  \"Description\": \"<string>\"\n}"
+										},
+										{
+											"name": "Invalid request body",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "multipart/form-data"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "digitalTaxDocument",
+															"value": "[object Object]",
+															"description": "(Required) Digital Tax Document",
+															"type": "text"
+														},
+														{
+															"key": "displayedVersion",
+															"value": "<string>",
+															"description": "PDF Displayed version",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v4/tax-documents/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"tax-documents",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"Description\": \"<string>\",\n  \"DebugInfo\": {\n    \"in_11\": {},\n    \"anim_ff\": {},\n    \"enim7b\": {},\n    \"velit_ae6\": {}\n  }\n}"
+										},
+										{
+											"name": "Invalid or nonexistent authorization HTTP header",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "multipart/form-data"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "digitalTaxDocument",
+															"value": "[object Object]",
+															"description": "(Required) Digital Tax Document",
+															"type": "text"
+														},
+														{
+															"key": "displayedVersion",
+															"value": "<string>",
+															"description": "PDF Displayed version",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v4/tax-documents/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"tax-documents",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"Description\": \"<string>\",\n  \"DebugInfo\": {\n    \"in_11\": {},\n    \"anim_ff\": {},\n    \"enim7b\": {},\n    \"velit_ae6\": {}\n  }\n}"
+										},
+										{
+											"name": "Permission Denied",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "multipart/form-data"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "digitalTaxDocument",
+															"value": "[object Object]",
+															"description": "(Required) Digital Tax Document",
+															"type": "text"
+														},
+														{
+															"key": "displayedVersion",
+															"value": "<string>",
+															"description": "PDF Displayed version",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v4/tax-documents/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"tax-documents",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"Description\": \"<string>\",\n  \"DebugInfo\": {\n    \"in_11\": {},\n    \"anim_ff\": {},\n    \"enim7b\": {},\n    \"velit_ae6\": {}\n  }\n}"
+										},
+										{
+											"name": "Unable to find the requested resource",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "multipart/form-data"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "digitalTaxDocument",
+															"value": "[object Object]",
+															"description": "(Required) Digital Tax Document",
+															"type": "text"
+														},
+														{
+															"key": "displayedVersion",
+															"value": "<string>",
+															"description": "PDF Displayed version",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v4/tax-documents/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"tax-documents",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"Description\": \"<string>\",\n  \"DebugInfo\": {\n    \"in_11\": {},\n    \"anim_ff\": {},\n    \"enim7b\": {},\n    \"velit_ae6\": {}\n  }\n}"
+										},
+										{
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "multipart/form-data"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "digitalTaxDocument",
+															"value": "[object Object]",
+															"description": "(Required) Digital Tax Document",
+															"type": "text"
+														},
+														{
+															"key": "displayedVersion",
+															"value": "<string>",
+															"description": "PDF Displayed version",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v4/tax-documents/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"tax-documents",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"Description\": \"<string>\",\n  \"DebugInfo\": {\n    \"in_11\": {},\n    \"anim_ff\": {},\n    \"enim7b\": {},\n    \"velit_ae6\": {}\n  }\n}"
+										},
+										{
+											"name": "The service is currently unavailable",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "multipart/form-data"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "digitalTaxDocument",
+															"value": "[object Object]",
+															"description": "(Required) Digital Tax Document",
+															"type": "text"
+														},
+														{
+															"key": "displayedVersion",
+															"value": "<string>",
+															"description": "PDF Displayed version",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v4/tax-documents/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"tax-documents",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Service Unavailable",
+											"code": 503,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"Description\": \"<string>\",\n  \"DebugInfo\": {\n    \"in_11\": {},\n    \"anim_ff\": {},\n    \"enim7b\": {},\n    \"velit_ae6\": {}\n  }\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "peppol",
+					"item": [
+						{
+							"name": "invoice",
+							"item": [
+								{
+									"name": "Send Peppol Invoice Document",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"processType\": \"<string>\",\n  \"country\": \"<string>\",\n  \"action\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"sender\": \"<string>\",\n  \"receiver\": \"<string>\",\n  \"document\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\",\n    \"attachments\": [\n      {\n        \"type\": \"<string>\",\n        \"fileName\": \"<string>\",\n        \"contentType\": \"<string>\",\n        \"content\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"fileName\": \"<string>\",\n        \"contentType\": \"<string>\",\n        \"content\": \"<string>\"\n      }\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v4/peppol/invoice",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v4",
+												"peppol",
+												"invoice"
+											]
+										},
+										"description": "DRC calls this API to send Peppol invoice to Concur"
+									},
+									"response": [
+										{
+											"name": "Invoice validated",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"processType\": \"<string>\",\n  \"country\": \"<string>\",\n  \"action\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"sender\": \"<string>\",\n  \"receiver\": \"<string>\",\n  \"document\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\",\n    \"attachments\": [\n      {\n        \"type\": \"<string>\",\n        \"fileName\": \"<string>\",\n        \"contentType\": \"<string>\",\n        \"content\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"fileName\": \"<string>\",\n        \"contentType\": \"<string>\",\n        \"content\": \"<string>\"\n      }\n    ]\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v4/peppol/invoice",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"peppol",
+														"invoice"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"invoiceNumber\": \"<string>\",\n  \"message\": \"<string>\",\n  \"participantId\": \"<string>\",\n  \"status\": \"<string>\"\n}"
+										},
+										{
+											"name": "Mandatory fields missing in invoice JSON",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"processType\": \"<string>\",\n  \"country\": \"<string>\",\n  \"action\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"sender\": \"<string>\",\n  \"receiver\": \"<string>\",\n  \"document\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\",\n    \"attachments\": [\n      {\n        \"type\": \"<string>\",\n        \"fileName\": \"<string>\",\n        \"contentType\": \"<string>\",\n        \"content\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"fileName\": \"<string>\",\n        \"contentType\": \"<string>\",\n        \"content\": \"<string>\"\n      }\n    ]\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v4/peppol/invoice",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"peppol",
+														"invoice"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"invoiceNumber\": \"<string>\",\n  \"message\": \"<string>\",\n  \"participantId\": \"<string>\",\n  \"status\": \"<string>\"\n}"
+										},
+										{
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"processType\": \"<string>\",\n  \"country\": \"<string>\",\n  \"action\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"sender\": \"<string>\",\n  \"receiver\": \"<string>\",\n  \"document\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\",\n    \"attachments\": [\n      {\n        \"type\": \"<string>\",\n        \"fileName\": \"<string>\",\n        \"contentType\": \"<string>\",\n        \"content\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"fileName\": \"<string>\",\n        \"contentType\": \"<string>\",\n        \"content\": \"<string>\"\n      }\n    ]\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v4/peppol/invoice",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"peppol",
+														"invoice"
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "<string>"
+										},
+										{
+											"name": "Access is forbidden",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"processType\": \"<string>\",\n  \"country\": \"<string>\",\n  \"action\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"sender\": \"<string>\",\n  \"receiver\": \"<string>\",\n  \"document\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\",\n    \"attachments\": [\n      {\n        \"type\": \"<string>\",\n        \"fileName\": \"<string>\",\n        \"contentType\": \"<string>\",\n        \"content\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"fileName\": \"<string>\",\n        \"contentType\": \"<string>\",\n        \"content\": \"<string>\"\n      }\n    ]\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v4/peppol/invoice",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"peppol",
+														"invoice"
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"invoiceNumber\": \"<string>\",\n  \"message\": \"<string>\",\n  \"participantId\": \"<string>\",\n  \"status\": \"<string>\"\n}"
+										},
+										{
+											"name": "Unable to find the Participant",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"processType\": \"<string>\",\n  \"country\": \"<string>\",\n  \"action\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"sender\": \"<string>\",\n  \"receiver\": \"<string>\",\n  \"document\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\",\n    \"attachments\": [\n      {\n        \"type\": \"<string>\",\n        \"fileName\": \"<string>\",\n        \"contentType\": \"<string>\",\n        \"content\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"fileName\": \"<string>\",\n        \"contentType\": \"<string>\",\n        \"content\": \"<string>\"\n      }\n    ]\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v4/peppol/invoice",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"peppol",
+														"invoice"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"invoiceNumber\": \"<string>\",\n  \"message\": \"<string>\",\n  \"participantId\": \"<string>\",\n  \"status\": \"<string>\"\n}"
+										},
+										{
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"processType\": \"<string>\",\n  \"country\": \"<string>\",\n  \"action\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"sender\": \"<string>\",\n  \"receiver\": \"<string>\",\n  \"document\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\",\n    \"attachments\": [\n      {\n        \"type\": \"<string>\",\n        \"fileName\": \"<string>\",\n        \"contentType\": \"<string>\",\n        \"content\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"fileName\": \"<string>\",\n        \"contentType\": \"<string>\",\n        \"content\": \"<string>\"\n      }\n    ]\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v4/peppol/invoice",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"peppol",
+														"invoice"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"invoiceNumber\": \"<string>\",\n  \"message\": \"<string>\",\n  \"participantId\": \"<string>\",\n  \"status\": \"<string>\"\n}"
+										},
+										{
+											"name": "Invoice Service Unavailable",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+														"key": "concur-correlationid",
+														"value": "<string>"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"processType\": \"<string>\",\n  \"country\": \"<string>\",\n  \"action\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"sender\": \"<string>\",\n  \"receiver\": \"<string>\",\n  \"document\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\",\n    \"attachments\": [\n      {\n        \"type\": \"<string>\",\n        \"fileName\": \"<string>\",\n        \"contentType\": \"<string>\",\n        \"content\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"fileName\": \"<string>\",\n        \"contentType\": \"<string>\",\n        \"content\": \"<string>\"\n      }\n    ]\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v4/peppol/invoice",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v4",
+														"peppol",
+														"invoice"
+													]
+												}
+											},
+											"status": "Service Unavailable",
+											"code": 503,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"invoiceNumber\": \"<string>\",\n  \"message\": \"<string>\",\n  \"participantId\": \"<string>\",\n  \"status\": \"<string>\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "health",
+					"item": [
+						{
+							"name": "Check DCG health status",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+										"key": "concur-correlationid",
+										"value": "<string>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v4/health",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v4",
+										"health"
+									]
+								},
+								"description": "DRC calls this API to check for health status"
+							},
+							"response": [
+								{
+									"name": "Service is UP",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v4/health",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v4",
+												"health"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"ad__6a\": \"<string>\"\n}"
+								},
+								{
+									"name": "Service is DOWN",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "The unique identifier can be used during troubleshooting as it identifies the API call in the log files.",
+												"key": "concur-correlationid",
+												"value": "<string>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v4/health",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v4",
+												"health"
+											]
+										}
+									},
+									"status": "Service Unavailable",
+									"code": 503,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"ad__6a\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{bearerToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://us2.api.concursolutions.com/document-compliance-gateway"
+		}
+	]
+}

@@ -1,0 +1,878 @@
+{
+	"info": {
+		"_postman_id": "d3115dce-4f5d-4ad0-9b89-e9d2c3d9c9d5",
+		"name": "Connection Requests",
+		"description": "A Connection Request is an object representing the willingness of an SAP Concur user to connect with a specific TripLink partner.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "common",
+			"item": [
+				{
+					"name": "connectionrequests",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Get a connection request by ID",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/common/connectionrequests/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"connectionrequests",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Gets a connection request by ID."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/common/connectionrequests/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"common",
+														"connectionrequests",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"firstName\": \"<string>\",\n  \"ID\": \"<string>\",\n  \"lastModified\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"loyaltyNumber\": \"<string>\",\n  \"middleName\": \"<string>\",\n  \"requestToken\": \"<string>\",\n  \"status\": \"<string>\",\n  \"URI\": \"<string>\",\n  \"userId\": \"<string>\",\n  \"emailAddresses\": {\n    \"email1\": \"<string>\",\n    \"email2\": \"<string>\",\n    \"email3\": \"<string>\",\n    \"email4\": \"<string>\",\n    \"email5\": \"<string>\"\n  }\n}"
+										},
+										{
+											"name": "Forbidden",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/common/connectionrequests/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"common",
+														"connectionrequests",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/common/connectionrequests/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"common",
+														"connectionrequests",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										}
+									]
+								},
+								{
+									"name": "Update a connection request by ID",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"status\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/common/connectionrequests/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"connectionrequests",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Updates the specified connection request. Only the fields provided in the supplied object are updated. Missing fields will not be altered."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"status\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/common/connectionrequests/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"common",
+														"connectionrequests",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"status\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/common/connectionrequests/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"common",
+														"connectionrequests",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										},
+										{
+											"name": "Forbidden",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"status\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/common/connectionrequests/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"common",
+														"connectionrequests",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"status\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/common/connectionrequests/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"common",
+														"connectionrequests",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get all connection requests",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/common/connectionrequests?limit=<integer>&offset=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"common",
+										"connectionrequests"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The number of records to return. The default is 5 and the maximum is 10."
+										},
+										{
+											"key": "offset",
+											"value": "<integer>",
+											"description": "The starting point of the set of results. The default is the first page, which is equivalent to the value 0."
+										}
+									]
+								},
+								"description": "Gets all connection requests that match the TripLink supplier ID."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/common/connectionrequests?limit=<integer>&offset=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"connectionrequests"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "The number of records to return. The default is 5 and the maximum is 10."
+												},
+												{
+													"key": "offset",
+													"value": "<integer>",
+													"description": "The starting point of the set of results. The default is the first page, which is equivalent to the value 0."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Items\": {\n    \"firstName\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"lastModified\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"loyaltyNumber\": \"<string>\",\n    \"middleName\": \"<string>\",\n    \"requestToken\": \"<string>\",\n    \"status\": \"<string>\",\n    \"URI\": \"<string>\",\n    \"userId\": \"<string>\",\n    \"emailAddresses\": {\n      \"email1\": \"<string>\",\n      \"email2\": \"<string>\",\n      \"email3\": \"<string>\",\n      \"email4\": \"<string>\",\n      \"email5\": \"<string>\"\n    }\n  },\n  \"NextPage\": \"<string>\"\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/common/connectionrequests?limit=<integer>&offset=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"connectionrequests"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "The number of records to return. The default is 5 and the maximum is 10."
+												},
+												{
+													"key": "offset",
+													"value": "<integer>",
+													"description": "The starting point of the set of results. The default is the first page, which is equivalent to the value 0."
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/common/connectionrequests?limit=<integer>&offset=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"connectionrequests"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "The number of records to return. The default is 5 and the maximum is 10."
+												},
+												{
+													"key": "offset",
+													"value": "<integer>",
+													"description": "The starting point of the set of results. The default is the first page, which is equivalent to the value 0."
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/common/connectionrequests?limit=<integer>&offset=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"connectionrequests"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "The number of records to return. The default is 5 and the maximum is 10."
+												},
+												{
+													"key": "offset",
+													"value": "<integer>",
+													"description": "The starting point of the set of results. The default is the first page, which is equivalent to the value 0."
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								}
+							]
+						},
+						{
+							"name": "Create a connection request",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/common/connectionrequests?user=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"common",
+										"connectionrequests"
+									],
+									"query": [
+										{
+											"key": "user",
+											"value": "<string>",
+											"description": "(Required) The login ID of the user for whom to create the connection request."
+										}
+									]
+								},
+								"description": "Creates a connection request on behalf of the specified user."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/common/connectionrequests?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"connectionrequests"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "(Required) The login ID of the user for whom to create the connection request."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"ID\": \"<string>\",\n  \"URI\": \"<string>\"\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/common/connectionrequests?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"connectionrequests"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "(Required) The login ID of the user for whom to create the connection request."
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/common/connectionrequests?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"connectionrequests"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "(Required) The login ID of the user for whom to create the connection request."
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								},
+								{
+									"name": "Conflict",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/common/connectionrequests?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"common",
+												"connectionrequests"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "(Required) The login ID of the user for whom to create the connection request."
+												}
+											]
+										}
+									},
+									"status": "Conflict",
+									"code": 409,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://us.api.concursolutions.com/api/v3.2"
+		}
+	]
+}

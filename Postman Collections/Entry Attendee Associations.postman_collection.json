@@ -1,0 +1,751 @@
+{
+	"info": {
+		"_postman_id": "f3b39848-b23f-4691-a14c-e0b899f5d606",
+		"name": "Entry Attendee Associations",
+		"description": "Manage the relationship between the attendees and the expense report and entry, for the specified expense entry. This resource does not include the full attendee information, which can be accessed using the Attendees resource. This API provides methods to view, create, update, and delete entry attendee associations.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "expense",
+			"item": [
+				{
+					"name": "entryattendeeassociations",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Get a single entry-attendee association",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/expense/entryattendeeassociations/:id?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"entryattendeeassociations",
+												":id"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter."
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Gets the specified entry-attendee association."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/expense/entryattendeeassociations/:id?user=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"expense",
+														"entryattendeeassociations",
+														":id"
+													],
+													"query": [
+														{
+															"key": "user",
+															"value": "<string>",
+															"description": "The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter."
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"Amount\": \"<double>\",\n  \"AssociatedAttendeeCount\": \"<integer>\",\n  \"AttendeeID\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"EntryID\": \"<string>\",\n  \"ID\": \"<string>\",\n  \"URI\": \"<string>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Update an entry-attendee association",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Amount\": \"<double>\",\n  \"AssociatedAttendeeCount\": \"<integer>\",\n  \"Custom1\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/expense/entryattendeeassociations/:id?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"entryattendeeassociations",
+												":id"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter."
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Updates the specified entry-attendee association. Only the fields provided in the supplied object will be updated. Missing fields will not be altered."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"Amount\": \"<double>\",\n  \"AssociatedAttendeeCount\": \"<integer>\",\n  \"Custom1\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/expense/entryattendeeassociations/:id?user=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"expense",
+														"entryattendeeassociations",
+														":id"
+													],
+													"query": [
+														{
+															"key": "user",
+															"value": "<string>",
+															"description": "The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter."
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"Amount\": \"<double>\",\n  \"AssociatedAttendeeCount\": \"<integer>\",\n  \"Custom1\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/expense/entryattendeeassociations/:id?user=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"expense",
+														"entryattendeeassociations",
+														":id"
+													],
+													"query": [
+														{
+															"key": "user",
+															"value": "<string>",
+															"description": "The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter."
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										}
+									]
+								},
+								{
+									"name": "Delete an entry-attendee association",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/expense/entryattendeeassociations/:id?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"entryattendeeassociations",
+												":id"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter."
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Deletes the specified entry-attendee association."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/expense/entryattendeeassociations/:id?user=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"expense",
+														"entryattendeeassociations",
+														":id"
+													],
+													"query": [
+														{
+															"key": "user",
+															"value": "<string>",
+															"description": "The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter."
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"description": "Added as a part of security scheme: oauth2",
+														"key": "Authorization",
+														"value": "<token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/expense/entryattendeeassociations/:id?user=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"expense",
+														"entryattendeeassociations",
+														":id"
+													],
+													"query": [
+														{
+															"key": "user",
+															"value": "<string>",
+															"description": "The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter."
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get all entry-attendee associations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/expense/entryattendeeassociations",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"expense",
+										"entryattendeeassociations"
+									],
+									"query": [
+										{
+											"key": "entryID",
+											"value": "<string>",
+											"description": "The ID of the entry for which to retrieve entry-attendee associations.",
+											"disabled": true
+										},
+										{
+											"key": "offset",
+											"value": "<string>",
+											"description": "The starting point of the next set of results, after the limit specified in the limit field has been reached.",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The number of records to return. Default value: 25",
+											"disabled": true
+										},
+										{
+											"key": "user",
+											"value": "<string>",
+											"description": "The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter.",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Gets all entry-attendee associations owned by the user. These are the associations between an expense entry and an attendee."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/expense/entryattendeeassociations?entryID=<string>&offset=<string>&limit=<integer>&user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"entryattendeeassociations"
+											],
+											"query": [
+												{
+													"key": "entryID",
+													"value": "<string>",
+													"description": "The ID of the entry for which to retrieve entry-attendee associations."
+												},
+												{
+													"key": "offset",
+													"value": "<string>",
+													"description": "The starting point of the next set of results, after the limit specified in the limit field has been reached."
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "The number of records to return. Default value: 25"
+												},
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Items\": {\n    \"Amount\": \"<double>\",\n    \"AssociatedAttendeeCount\": \"<integer>\",\n    \"AttendeeID\": \"<string>\",\n    \"Custom1\": \"<string>\",\n    \"Custom2\": \"<string>\",\n    \"Custom3\": \"<string>\",\n    \"Custom4\": \"<string>\",\n    \"Custom5\": \"<string>\",\n    \"EntryID\": \"<string>\",\n    \"ID\": \"<string>\",\n    \"URI\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Create entry-attendee association",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"Amount\": \"<double>\",\n  \"AssociatedAttendeeCount\": \"<integer>\",\n  \"AttendeeID\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"EntryID\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/expense/entryattendeeassociations?user=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"expense",
+										"entryattendeeassociations"
+									],
+									"query": [
+										{
+											"key": "user",
+											"value": "<string>",
+											"description": "The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter."
+										}
+									]
+								},
+								"description": "Creates a new association between an expense entry and an attendee."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Amount\": \"<double>\",\n  \"AssociatedAttendeeCount\": \"<integer>\",\n  \"AttendeeID\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"EntryID\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/expense/entryattendeeassociations?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"entryattendeeassociations"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"ID\": \"<string>\",\n  \"URI\": \"<string>\"\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: oauth2",
+												"key": "Authorization",
+												"value": "<token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Amount\": \"<double>\",\n  \"AssociatedAttendeeCount\": \"<integer>\",\n  \"AttendeeID\": \"<string>\",\n  \"Custom1\": \"<string>\",\n  \"Custom2\": \"<string>\",\n  \"Custom3\": \"<string>\",\n  \"Custom4\": \"<string>\",\n  \"Custom5\": \"<string>\",\n  \"EntryID\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/expense/entryattendeeassociations?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"entryattendeeassociations"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter."
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/v3.0"
+		}
+	]
+}

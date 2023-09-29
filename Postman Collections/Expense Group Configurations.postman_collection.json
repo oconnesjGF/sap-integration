@@ -1,0 +1,239 @@
+{
+	"info": {
+		"_postman_id": "e62fedcd-b5b7-4ba6-958b-66dd6452100b",
+		"name": "Expense Group Configurations",
+		"description": "Expense Group Configurations specify the allowed expense types, policies, payment types, and expense settings allowed for the expense group. This API provides methods to view the expense group details by user or by expense group ID.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "expense",
+			"item": [
+				{
+					"name": "expensegroupconfigurations",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Get an expense group configuration by ID",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/expense/expensegroupconfigurations/:id?user=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"expensegroupconfigurations",
+												":id"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "The login ID of the user associated with this expense group configuration. The user must have the Web Services Admin role to use this parameter."
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>"
+												}
+											]
+										},
+										"description": "Gets an expense group configuration by ID."
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/expense/expensegroupconfigurations/:id?user=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"expense",
+														"expensegroupconfigurations",
+														":id"
+													],
+													"query": [
+														{
+															"key": "user",
+															"value": "<string>",
+															"description": "The login ID of the user associated with this expense group configuration. The user must have the Web Services Admin role to use this parameter."
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"AllowUserDigitalTaxInvoice\": \"<boolean>\",\n  \"AllowUserRegisterYodlee\": \"<boolean>\",\n  \"AttendeeListFormID\": \"<string>\",\n  \"AttendeeListFormName\": \"<string>\",\n  \"AttendeeTypes\": {\n    \"Code\": \"<string>\",\n    \"Name\": \"<string>\"\n  },\n  \"CashAdvance\": {\n    \"AllowUserCarryBalance\": \"<boolean>\",\n    \"AllowUserLinkMultiple\": \"<boolean>\",\n    \"AllowUserUpdateExchangeRate\": \"<boolean>\",\n    \"Name\": \"<string>\",\n    \"WorkflowID\": \"<string>\"\n  },\n  \"ID\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"PaymentTypes\": {\n    \"ID\": \"<string>\",\n    \"IsDefault\": \"<boolean>\",\n    \"Name\": \"<string>\"\n  },\n  \"Policies\": {\n    \"ExpenseTypes\": {\n      \"Code\": \"<string>\",\n      \"ExpenseCode\": \"<string>\",\n      \"Name\": \"<string>\"\n    },\n    \"ID\": \"<string>\",\n    \"IsDefault\": \"<boolean>\",\n    \"IsInheritable\": \"<boolean>\",\n    \"Name\": \"<string>\"\n  },\n  \"URI\": \"<string>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get an expense group configuration",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/expense/expensegroupconfigurations?user=<string>&offset=<string>&limit=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"expense",
+										"expensegroupconfigurations"
+									],
+									"query": [
+										{
+											"key": "user",
+											"value": "<string>",
+											"description": "The login ID of the user associated with this expense group configuration. The user must have the Web Services Admin role to use this parameter."
+										},
+										{
+											"key": "offset",
+											"value": "<string>",
+											"description": "The starting point of the next set of results, after the limit specified in the limit field has been reached."
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The number of records to return Default value: 10"
+										}
+									]
+								},
+								"description": "Gets the configuration of an expense group."
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/expense/expensegroupconfigurations?user=<string>&offset=<string>&limit=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"expense",
+												"expensegroupconfigurations"
+											],
+											"query": [
+												{
+													"key": "user",
+													"value": "<string>",
+													"description": "The login ID of the user associated with this expense group configuration. The user must have the Web Services Admin role to use this parameter."
+												},
+												{
+													"key": "offset",
+													"value": "<string>",
+													"description": "The starting point of the next set of results, after the limit specified in the limit field has been reached."
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "The number of records to return Default value: 10"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"Items\": {\n    \"AllowUserDigitalTaxInvoice\": \"<boolean>\",\n    \"AllowUserRegisterYodlee\": \"<boolean>\",\n    \"AttendeeListFormID\": \"<string>\",\n    \"AttendeeListFormName\": \"<string>\",\n    \"AttendeeTypes\": {\n      \"Code\": \"<string>\",\n      \"Name\": \"<string>\"\n    },\n    \"CashAdvance\": {\n      \"AllowUserCarryBalance\": \"<boolean>\",\n      \"AllowUserLinkMultiple\": \"<boolean>\",\n      \"AllowUserUpdateExchangeRate\": \"<boolean>\",\n      \"Name\": \"<string>\",\n      \"WorkflowID\": \"<string>\"\n    },\n    \"ID\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"PaymentTypes\": {\n      \"ID\": \"<string>\",\n      \"IsDefault\": \"<boolean>\",\n      \"Name\": \"<string>\"\n    },\n    \"Policies\": {\n      \"ExpenseTypes\": {\n        \"Code\": \"<string>\",\n        \"ExpenseCode\": \"<string>\",\n        \"Name\": \"<string>\"\n      },\n      \"ID\": \"<string>\",\n      \"IsDefault\": \"<boolean>\",\n      \"IsInheritable\": \"<boolean>\",\n      \"Name\": \"<string>\"\n    },\n    \"URI\": \"<string>\"\n  },\n  \"NextPage\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://www.concursolutions.com/api/v3.0"
+		}
+	]
+}

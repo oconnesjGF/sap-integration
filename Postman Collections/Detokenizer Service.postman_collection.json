@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "89b6ce71-0793-4aa3-829e-489d0f8c8d09",
+		"name": "Detokenizer Service",
+		"description": "The Detokenizer Service allows clients to retrieve the user's credit card number from Concur Expense in a secure way. The Detokenizer service returns the user's credit card number encrypted with a public key that the client provides in the request. The client will be able to decrypt the user's credit card number using their private key.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24069078"
+	},
+	"item": [
+		{
+			"name": "company",
+			"item": [
+				{
+					"name": "{companyUUID}",
+					"item": [
+						{
+							"name": "creditcard",
+							"item": [
+								{
+									"name": "{creditcardGUID}",
+									"item": [
+										{
+											"name": "Get credit card account details",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/company/:companyUUID/creditcard/:creditcardGUID?pubkeyAlgorithm=<string>&pubkeyFormat=<string>&pubkey=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"company",
+														":companyUUID",
+														"creditcard",
+														":creditcardGUID"
+													],
+													"query": [
+														{
+															"key": "pubkeyAlgorithm",
+															"value": "<string>",
+															"description": "(Required) The RSA Algorithm used by the PublicKey for credit card number encryption."
+														},
+														{
+															"key": "pubkeyFormat",
+															"value": "<string>",
+															"description": "(Required) Public key format"
+														},
+														{
+															"key": "pubkey",
+															"value": "<string>",
+															"description": "(Required) Public Key"
+														}
+													],
+													"variable": [
+														{
+															"key": "companyUUID",
+															"value": "<string>"
+														},
+														{
+															"key": "creditcardGUID",
+															"value": "<string>"
+														}
+													]
+												},
+												"description": "Returns the credit card number encrypted with the public key provided in the request."
+											},
+											"response": [
+												{
+													"name": "Success",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/company/:companyUUID/creditcard/:creditcardGUID?pubkeyAlgorithm=<string>&pubkeyFormat=<string>&pubkey=<string>",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"company",
+																":companyUUID",
+																"creditcard",
+																":creditcardGUID"
+															],
+															"query": [
+																{
+																	"key": "pubkeyAlgorithm",
+																	"value": "<string>",
+																	"description": "(Required) The RSA Algorithm used by the PublicKey for credit card number encryption."
+																},
+																{
+																	"key": "pubkeyFormat",
+																	"value": "<string>",
+																	"description": "(Required) Public key format"
+																},
+																{
+																	"key": "pubkey",
+																	"value": "<string>",
+																	"description": "(Required) Public Key"
+																}
+															],
+															"variable": [
+																{
+																	"key": "companyUUID"
+																},
+																{
+																	"key": "creditcardGUID"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"accountNumber \": \"<string>\"\n}"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://us.api.concursolutions.com/detokenizer/v4"
+		}
+	]
+}
