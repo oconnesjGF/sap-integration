@@ -1414,14 +1414,6 @@
 										"disableBodyPruning": true
 									},
 									"request": {
-										"auth": {
-											"type": "apikey",
-											"apikey": {
-												"key": "Authorization",
-												"value": "{{apiKey}}",
-												"in": "header"
-											}
-										},
 										"method": "GET",
 										"header": [
 											{
@@ -1461,14 +1453,14 @@
 											],
 											"query": [
 												{
-													"description": "Page number starting from 1",
 													"key": "page",
-													"value": "1"
+													"value": "1",
+													"description": "Page number starting from 1"
 												},
 												{
-													"description": "Filter capabilities for List Category type",
 													"key": "type",
-													"value": "<string>"
+													"value": "<string>",
+													"description": "Filter capabilities for List Category type"
 												}
 											]
 										},
@@ -2299,7 +2291,7 @@
 	],
 	"variable": [
 		{
-			"id": "8138ec7d-404f-4e07-bdec-d9bdf4a21d79",
+			"id": "ad1d7c17-0675-4003-8684-f22dded76a15",
 			"key": "baseUrl",
 			"value": "https://www.concursolutions.com/api/v4.0"
 		}
