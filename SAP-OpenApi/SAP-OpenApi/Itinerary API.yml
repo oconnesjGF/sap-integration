@@ -1,0 +1,1983 @@
+openapi: 3.0.0
+info:
+  title: Itinerary API
+  description: >
+    This is the api specification for the Itinerary API.
+
+
+    Introduction
+
+    The Itinerary API provides clients and authorized partners access to travel
+    itinerary data. They can now subscribe to events and fetch trips by ID.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: trips
+  - name: trips > {tripID}
+paths:
+  /trips/{tripID}:
+    get:
+      tags:
+        - trips > {tripID}
+      summary: v4 - Get Trip record
+      description: Gets the trip record
+      parameters:
+        - name: Accept-Encoding
+          in: header
+          schema:
+            type: string
+          description: (Required) Accepts gzip
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: tripID
+          in: path
+          schema:
+            type: string
+          required: true
+          example: 057a920a-9eb3-5e01-8782-fd1904e00347
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                BookedByFirstName: <string>
+                BookedByLastName: <string>
+                BookedVia: <string>
+                Bookings:
+                  - AgencyName: <string>
+                    AgencyPCC: <string>
+                    AirfareQuotes:
+                      - AirlineCharges:
+                          Fixed:
+                            - Amount: <number>
+                              Currency: <string>
+                              Description: <string>
+                              IsPaid: <boolean>
+                              IsPrimary: <boolean>
+                              SemanticsCode: <string>
+                              SemanticsVendorType: <string>
+                              StartDateLocal: <string>
+                              Vendor: <string>
+                              VendorChargeCode: <string>
+                          Percent:
+                            - Amount: <number>
+                              Currency: <string>
+                              Description: <string>
+                              IsPaid: <boolean>
+                              IsPrimary: <boolean>
+                              SemanticsCode: <string>
+                              SemanticsVendorType: <string>
+                              StartDateLocal: <string>
+                              Vendor: <string>
+                              VendorChargeCode: <string>
+                          Rate:
+                            - Amount: <number>
+                              Currency: <string>
+                              Description: <string>
+                              IsPaid: <boolean>
+                              IsPrimary: <boolean>
+                              NumUnits: <number>
+                              PerUnit: <string>
+                              SemanticsCode: <string>
+                              SemanticsVendorType: <string>
+                              StartDateLocal: <string>
+                              Vendor: <string>
+                              VendorChargeCode: <string>
+                          RateWithAllowance:
+                            - AllowanceAmount: <number>
+                              AllowanceIsUnlimited: <boolean>
+                              AllowanceNumUnits: <number>
+                              AllowanceUnit: <string>
+                              Amount: <number>
+                              Currency: <string>
+                              Description: <string>
+                              IsPaid: <boolean>
+                              IsPrimary: <boolean>
+                              NumUnits: <number>
+                              PerUnit: <string>
+                              SemanticsCode: <string>
+                              SemanticsVendorType: <string>
+                              StartDateLocal: <string>
+                              Vendor: <string>
+                              VendorChargeCode: <string>
+                        BaseFare: <number>
+                        BaseFareCurrency: <string>
+                        BaseFareNuc: <number>
+                        BaseFareNucCurrency: <string>
+                        DateCreatedUtc: <string>
+                        DateModifiedUtc: <string>
+                        Endorsements: <string>
+                        IssueByDate: <string>
+                        TotalFare: <number>
+                        TotalFareCurrency: <string>
+                    AirlineTickets:
+                      AirlineAdjustment:
+                        - AddCollectAmount: <number>
+                          AdjustmentDateTime: <string>
+                          AdjustmentDateTimeUTC: <string>
+                          AdjustmentType: <string>
+                          AirlineCharges:
+                            Fixed:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Percent:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Rate:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            RateWithAllowance:
+                              - AllowanceAmount: <number>
+                                AllowanceIsUnlimited: <boolean>
+                                AllowanceNumUnits: <number>
+                                AllowanceUnit: <string>
+                                Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                          DateCreatedUtc: <string>
+                          DateModifiedUtc: <string>
+                          PassengerName: <string>
+                          PlatingCarrierNumericCode: <string>
+                          PlatingControlNumber: <string>
+                          RecordLocator: <string>
+                          Taxes:
+                            - TaxAmount: <number>
+                              TaxAuthority: <string>
+                              TaxName: <string>
+                              TaxRate: <number>
+                              TaxType: <string>
+                          TotalAdjustment: <number>
+                          TotalAdjustmentCurrency: <string>
+                      AirlineTicket:
+                        - AccountingLine:
+                            AirlineCode: <string>
+                            AmountPaid: <string>
+                            AmountPaidCurrency: <string>
+                            CCNumber: <string>
+                            Comment: <string>
+                            Commission: <string>
+                            CommissionCurrency: <string>
+                            ExchangedTicketNumber: <string>
+                            FOPMethod: <string>
+                            Fare: <string>
+                            FareCurrency: <string>
+                            IssueDate: <string>
+                            MCOType: <string>
+                            Tax: <string>
+                            TaxCurrency: <string>
+                            TranControlNbr: <string>
+                            TranPlatingNbr: <string>
+                          AddCollectAmount: <number>
+                          AirlineCharges:
+                            Fixed:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Percent:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Rate:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            RateWithAllowance:
+                              - AllowanceAmount: <number>
+                                AllowanceIsUnlimited: <boolean>
+                                AllowanceNumUnits: <number>
+                                AllowanceUnit: <string>
+                                Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                          AirlineTicketCoupons:
+                            - ClassOfService: <string>
+                              CouponNumber: <integer>
+                              CouponStatus: <string>
+                              EndCityCode: <string>
+                              FlightNumber: <string>
+                              NotValidAfterDate: <string>
+                              NotValidBeforeDate: <string>
+                              RateCode: <string>
+                              StartCityCode: <string>
+                              StartDateLocal: <string>
+                              Status: <string>
+                              TicketDesignator: <string>
+                              Vendor: <string>
+                          AirlineTicketExchanges:
+                            - Amount: <number>
+                              AppliedSegment1: <integer>
+                              AppliedSegment10: <integer>
+                              AppliedSegment2: <integer>
+                              AppliedSegment3: <integer>
+                              AppliedSegment4: <integer>
+                              AppliedSegment5: <integer>
+                              AppliedSegment6: <integer>
+                              AppliedSegment7: <integer>
+                              AppliedSegment8: <integer>
+                              AppliedSegment9: <integer>
+                              Currency: <string>
+                              DateModifiedUtc: <string>
+                              OldRecordLocator: <string>
+                              PlatingCarrierNumericCode: <string>
+                              PlatingControlNumber: <string>
+                          AirlineTicketFareBreakups:
+                            - BaseFare: <number>
+                              ClassOfService: <string>
+                              Currency: <string>
+                              EndCityCode: <string>
+                              IsRefundable: <boolean>
+                              StartCityCode: <string>
+                              TotalFare: <number>
+                              Vendor: <string>
+                          BaseFare: <number>
+                          BaseFareCurrency: <string>
+                          BaseFareNuc: <number>
+                          BaseFareNucCurrency: <string>
+                          ComparisonFare: <number>
+                          ComparisonFareCurrency: <string>
+                          DateCreatedUtc: <string>
+                          DateModifiedUtc: <string>
+                          Endorsements: <string>
+                          InvoiceNumber: <string>
+                          IssueDateTime: <string>
+                          IssueDateTimeUTC: <string>
+                          IssuingIataAgencyNumber: <integer>
+                          IssuingPseudoCity: <string>
+                          LinearFareConstructor: <string>
+                          MasterTicketNumber: <string>
+                          NameReference: <string>
+                          PassengerName: <string>
+                          PlatingCarrierNumericCode: <string>
+                          PlatingControlNumber: <string>
+                          ProgramCarrierCode: <string>
+                          ProgramMembershipNumber: <string>
+                          RecordLocator: <string>
+                          SabreDkNumber: <string>
+                          Taxes:
+                            - TaxAmount: <number>
+                              TaxAuthority: <string>
+                              TaxName: <string>
+                              TaxRate: <number>
+                              TaxType: <string>
+                          TicketType: <string>
+                          Ticketless: <boolean>
+                          TotalFare: <number>
+                          TotalFareCurrency: <string>
+                          TourIdentifier: <string>
+                      ManualAirlineTicket:
+                        - AirlineCharges:
+                            Fixed:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Percent:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Rate:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            RateWithAllowance:
+                              - AllowanceAmount: <number>
+                                AllowanceIsUnlimited: <boolean>
+                                AllowanceNumUnits: <number>
+                                AllowanceUnit: <string>
+                                Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                          BaseFare: <number>
+                          BaseFareCurrency: <string>
+                          DateCreatedUtc: <string>
+                          DateModifiedUtc: <string>
+                          Taxes:
+                            - TaxAmount: <number>
+                              TaxAuthority: <string>
+                              TaxName: <string>
+                              TaxRate: <number>
+                              TaxType: <string>
+                          TotalFare: <number>
+                          TotalFareCurrency: <string>
+                    BookingOwner: <string>
+                    BookingSource: <string>
+                    Charges:
+                      Fixed:
+                        - Amount: <number>
+                          Currency: <string>
+                          Description: <string>
+                          IsPaid: <boolean>
+                          IsPrimary: <boolean>
+                          SemanticsCode: <string>
+                          SemanticsVendorType: <string>
+                          StartDateLocal: <string>
+                          Vendor: <string>
+                          VendorChargeCode: <string>
+                      Percent:
+                        - Amount: <number>
+                          Currency: <string>
+                          Description: <string>
+                          IsPaid: <boolean>
+                          IsPrimary: <boolean>
+                          SemanticsCode: <string>
+                          SemanticsVendorType: <string>
+                          StartDateLocal: <string>
+                          Vendor: <string>
+                          VendorChargeCode: <string>
+                      Rate:
+                        - Amount: <number>
+                          Currency: <string>
+                          Description: <string>
+                          IsPaid: <boolean>
+                          IsPrimary: <boolean>
+                          NumUnits: <number>
+                          PerUnit: <string>
+                          SemanticsCode: <string>
+                          SemanticsVendorType: <string>
+                          StartDateLocal: <string>
+                          Vendor: <string>
+                          VendorChargeCode: <string>
+                      RateWithAllowance:
+                        - AllowanceAmount: <number>
+                          AllowanceIsUnlimited: <boolean>
+                          AllowanceNumUnits: <number>
+                          AllowanceUnit: <string>
+                          Amount: <number>
+                          Currency: <string>
+                          Description: <string>
+                          IsPaid: <boolean>
+                          IsPrimary: <boolean>
+                          NumUnits: <number>
+                          PerUnit: <string>
+                          SemanticsCode: <string>
+                          SemanticsVendorType: <string>
+                          StartDateLocal: <string>
+                          Vendor: <string>
+                          VendorChargeCode: <string>
+                    DateBookedLocal: <string>
+                    DateCreatedUtc: <string>
+                    DateModifiedUtc: <string>
+                    Delivery:
+                      Type: <string>
+                      AddressLine1: <string>
+                      AddressLine2: <string>
+                      City: <string>
+                      Country: <string>
+                      Email: <string>
+                      Latitude: <number>
+                      LocationAdditionalDetails: <string>
+                      LocationDesc: <string>
+                      LocationName: <string>
+                      Longitude: <number>
+                      PhoneNumber: <string>
+                      ReferenceNumber: <string>
+                      State: <string>
+                      Zip: <string>
+                    FormOfPaymentName: <string>
+                    FormOfPaymentType: <string>
+                    IsGhostCard: <boolean>
+                    ItinSourceName: <string>
+                    LastTicketDateUtc: <string>
+                    MiscChargeOrders:
+                      - PlatingCarrierNumericCode: <string>
+                        PlatingControlNumber: <string>
+                        TotalAmount: <number>
+                        TotalAmountCurrency: <string>
+                        DateCreatedUtc: <string>
+                        DateModifiedUtc: <string>
+                        IssueDate: <string>
+                    PassPrograms:
+                      - Amount: <number>
+                        Name: <string>
+                        Type: <string>
+                        UserFirstName: <string>
+                        UserLastName: <string>
+                    Passengers:
+                      - City: <string>
+                        Country: <string>
+                        FirstNameNumber: <integer>
+                        FrequentTravelerPrograms:
+                          FrequentFlyer:
+                            - AirlineVendor: <string>
+                              Description: <string>
+                              DiscountProgramExpirationDate: <string>
+                              DiscountProgramType: <string>
+                              FrequentFlyerNumber: <string>
+                              Status: <string>
+                              StatusExpirationDate: <string>
+                          RailProgram:
+                            - Description: <string>
+                              DiscountProgramExpirationDate: <string>
+                              DiscountProgramType: <string>
+                              ProgramNumber: <string>
+                              Status: <string>
+                              StatusExpirationDate: <string>
+                        LastNameNumber: <integer>
+                        NameFirst: <string>
+                        NameLast: <string>
+                        NameMiddle: <string>
+                        NamePrefix: <string>
+                        NameRemark: <string>
+                        NameSuffix: <string>
+                        NameTitle: <string>
+                        PostalCode: <string>
+                        State: <string>
+                        StreetAddress: <string>
+                        StreetAddress2: <string>
+                        TextName: <string>
+                    PhoneNumbers:
+                      - Description: <string>
+                        PassengerRPH: <integer>
+                        PhoneNumber: <string>
+                        Type: <string>
+                    RailPayments:
+                      RailAdjustment:
+                        - AdjustmentDateTime: <string>
+                          AdjustmentDateTimeUTC: <string>
+                          AdjustmentType: <string>
+                          DateCreatedUtc: <string>
+                          DateModifiedUtc: <string>
+                          RailCharges:
+                            Fixed:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Percent:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Rate:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            RateWithAllowance:
+                              - AllowanceAmount: <number>
+                                AllowanceIsUnlimited: <boolean>
+                                AllowanceNumUnits: <number>
+                                AllowanceUnit: <string>
+                                Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                          Taxes:
+                            - TaxAmount: <number>
+                              TaxAuthority: <string>
+                              TaxName: <string>
+                              TaxRate: <number>
+                              TaxType: <string>
+                          TicketDocumentIdentifier: <string>
+                          TotalAdjustment: <number>
+                          TotalAdjustmentCurrency: <string>
+                      RailPayment:
+                        - BaseFare: <number>
+                          BaseFareCurrency: <string>
+                          DateCreatedUtc: <string>
+                          DateModifiedUtc: <string>
+                          IncludesVAT: <boolean>
+                          IssueByDate: <string>
+                          IssueDateTime: <string>
+                          IssueDateTimeUTC: <string>
+                          RailCharges:
+                            Fixed:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Percent:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Rate:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            RateWithAllowance:
+                              - AllowanceAmount: <number>
+                                AllowanceIsUnlimited: <boolean>
+                                AllowanceNumUnits: <number>
+                                AllowanceUnit: <string>
+                                Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                          TaxInvoice: <boolean>
+                          Taxes:
+                            - TaxAmount: <number>
+                              TaxAuthority: <string>
+                              TaxName: <string>
+                              TaxRate: <number>
+                              TaxType: <string>
+                          TicketDocumentIdentifier: <string>
+                          TicketType: <string>
+                          TotalFare: <number>
+                          TotalFareCurrency: <string>
+                          vatApplicable: <boolean>
+                    RecordLocator: <string>
+                    Remarks:
+                      TripLinkRemarks:
+                        - TripLinkRemark:
+                            - Text: <string>
+                    Segments:
+                      Air:
+                        - AircraftCode: <string>
+                          Bags: <string>
+                          Cabin: <string>
+                          CancellationNumber: <string>
+                          CancellationPolicy: <string>
+                          CarbonEmissionLbs: <number>
+                          CarbonModel: <integer>
+                          Charges:
+                            Fixed:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Percent:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Rate:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            RateWithAllowance:
+                              - AllowanceAmount: <number>
+                                AllowanceIsUnlimited: <boolean>
+                                AllowanceNumUnits: <number>
+                                AllowanceUnit: <string>
+                                Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                          CheckedBaggage: <string>
+                          ClassOfService: <string>
+                          ConfirmationNumber: <string>
+                          DateCancelledUtc: <string>
+                          DateCreatedUtc: <string>
+                          DateModifiedUtc: <string>
+                          Duration: <integer>
+                          ETicket: <string>
+                          EndCityCode: <string>
+                          EndDateLocal: <string>
+                          EndDateUtc: <string>
+                          EndGate: <string>
+                          EndTerminal: <string>
+                          FlightNumber: <string>
+                          FrequentTravelerId: <string>
+                          IsOpenSegment: <boolean>
+                          IsPreferredVendor: <integer>
+                          IsUpgradeAllowed: <boolean>
+                          LegId: <integer>
+                          Meals: <string>
+                          Miles: <integer>
+                          Notes: <string>
+                          NumStops: <integer>
+                          OpenSegment: <string>
+                          OperatedByFlightNumber: <string>
+                          OperatedByVendor: <string>
+                          OperatedByVendorName: <string>
+                          Remarks:
+                            TripLinkRemarks:
+                              - TripLinkRemark:
+                                  - Text: <string>
+                          RuleViolations:
+                            - CompanyReasonCode: <string>
+                              CompanyRuleText: <string>
+                              ViolationReasonCode: <integer>
+                          Seats:
+                            - PassengerRph: <integer>
+                              SeatNumber: <string>
+                              Status: <string>
+                          Services: <string>
+                          SpecialInstructions: <string>
+                          StartCityCode: <string>
+                          StartDateLocal: <string>
+                          StartDateUtc: <string>
+                          StartGate: <string>
+                          StartTerminal: <string>
+                          Status: <string>
+                          TimeZone: <string>
+                          TimeZoneId: <integer>
+                          UpgradedDateTime: <string>
+                          Vendor: <string>
+                          VendorFlags: <string>
+                          VendorName: <string>
+                      Car:
+                        - AirCondition: <string>
+                          Body: <string>
+                          CancellationNumber: <string>
+                          Charges:
+                            Fixed:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Percent:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Rate:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            RateWithAllowance:
+                              - AllowanceAmount: <number>
+                                AllowanceIsUnlimited: <boolean>
+                                AllowanceNumUnits: <number>
+                                AllowanceUnit: <string>
+                                Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                          Class: <string>
+                          ConfirmationNumber: <string>
+                          Currency: <string>
+                          DailyRate: <number>
+                          DateCancelledUtc: <string>
+                          DateCreatedUtc: <string>
+                          DateModifiedUtc: <string>
+                          DiscountCode: <string>
+                          DropoffCollectionAddress1: <string>
+                          DropoffCollectionAddressType: <string>
+                          DropoffCollectionCategory: <string>
+                          DropoffCollectionCity: <string>
+                          DropoffCollectionCityCode: <string>
+                          DropoffCollectionCountry: <string>
+                          DropoffCollectionLatitude: <string>
+                          DropoffCollectionLongitude: <string>
+                          DropoffCollectionNumber: <string>
+                          DropoffCollectionPhoneNumber: <string>
+                          DropoffCollectionPostalCode: <string>
+                          DropoffCollectionState: <string>
+                          EndAddress: <string>
+                          EndAddress2: <string>
+                          EndCity: <string>
+                          EndCityCode: <string>
+                          EndCloseTime: <string>
+                          EndCountry: <string>
+                          EndDateLocal: <string>
+                          EndDateUtc: <string>
+                          EndLatitude: <number>
+                          EndLongitude: <number>
+                          EndOpenTime: <string>
+                          EndPhoneNumber: <string>
+                          EndPostalCode: <string>
+                          EndState: <string>
+                          IsGhostCard: <boolean>
+                          IsPreferredVendor: <integer>
+                          IsUpgradeAllowed: <boolean>
+                          Notes: <string>
+                          NumCars: <integer>
+                          NumPersons: <integer>
+                          PhoneNumber: <string>
+                          PickupDeliveryAddress1: <string>
+                          PickupDeliveryAddressType: <string>
+                          PickupDeliveryCategory: <string>
+                          PickupDeliveryCity: <string>
+                          PickupDeliveryCityCode: <string>
+                          PickupDeliveryCountry: <string>
+                          PickupDeliveryLatitude: <string>
+                          PickupDeliveryLongitude: <string>
+                          PickupDeliveryNumber: <string>
+                          PickupDeliveryPhoneNumber: <string>
+                          PickupDeliveryPostalCode: <string>
+                          PickupDeliveryState: <string>
+                          RateCode: <string>
+                          RateType: <string>
+                          Remarks:
+                            TripLinkRemarks:
+                              - TripLinkRemark:
+                                  - Text: <string>
+                          SpecialEquipment: <string>
+                          SpecialInstructions: <string>
+                          StartAddress: <string>
+                          StartAddress2: <string>
+                          StartCity: <string>
+                          StartCityCode: <string>
+                          StartCloseTime: <string>
+                          StartCountry: <string>
+                          StartDateLocal: <string>
+                          StartDateUtc: <string>
+                          StartLatitude: <number>
+                          StartLocation: <string>
+                          StartLongitude: <number>
+                          StartOpenTime: <string>
+                          StartPostalCode: <string>
+                          StartState: <string>
+                          Status: <string>
+                          TimeZone: <string>
+                          TimeZoneId: <integer>
+                          TotalRate: <number>
+                          Transmission: <string>
+                          UpgradedDateTime: <string>
+                          Vendor: <string>
+                          VendorFlags: <string>
+                          VendorName: <string>
+                      Dining:
+                        - CancellationNumber: <string>
+                          Charges:
+                            Fixed:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Percent:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Rate:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            RateWithAllowance:
+                              - AllowanceAmount: <number>
+                                AllowanceIsUnlimited: <boolean>
+                                AllowanceNumUnits: <number>
+                                AllowanceUnit: <string>
+                                Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                          ConfirmationNumber: <string>
+                          DateCancelledUtc: <string>
+                          DateCreatedUtc: <string>
+                          DateModifiedUtc: <string>
+                          EndDateLocal: <string>
+                          EndDateUtc: <string>
+                          FrequentTravelerId: <string>
+                          IsPreferredVendor: <integer>
+                          IsUpgradeAllowed: <boolean>
+                          Name: <string>
+                          Notes: <string>
+                          NumPersons: <integer>
+                          PhoneNumber: <string>
+                          Remarks:
+                            TripLinkRemarks:
+                              - TripLinkRemark:
+                                  - Text: <string>
+                          ReservationId: <string>
+                          StartAddress: <string>
+                          StartAddress2: <string>
+                          StartCity: <string>
+                          StartCountry: <string>
+                          StartDateLocal: <string>
+                          StartDateUtc: <string>
+                          StartLatitude: <number>
+                          StartLongitude: <number>
+                          StartPostalCode: <string>
+                          StartState: <string>
+                          Status: <string>
+                          TimeZone: <string>
+                          TimeZoneId: <integer>
+                          UpgradedDateTime: <string>
+                          Vendor: <string>
+                          VendorFlags: <string>
+                          VendorName: <string>
+                      Hotel:
+                        - Breakfast: <boolean>
+                          CancellationNumber: <string>
+                          CancellationPolicy: <string>
+                          Charges:
+                            Fixed:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Percent:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Rate:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            RateWithAllowance:
+                              - AllowanceAmount: <number>
+                                AllowanceIsUnlimited: <boolean>
+                                AllowanceNumUnits: <number>
+                                AllowanceUnit: <string>
+                                Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                          CheckinTime: <string>
+                          CheckoutTime: <string>
+                          ConfirmationNumber: <string>
+                          Currency: <string>
+                          DailyRate: <number>
+                          DateCancelledUtc: <string>
+                          DateCreatedUtc: <string>
+                          DateModifiedUtc: <string>
+                          DirectBill: <boolean>
+                          DiscountCode: <string>
+                          Email: <string>
+                          EndDateLocal: <string>
+                          EndDateUtc: <string>
+                          EquipmentCode: <string>
+                          FaxNumber: <string>
+                          FrequentTravelerId: <string>
+                          HotelPropertyId: <string>
+                          IncludedCustomAmenities: <string>
+                          IsGhostCard: <boolean>
+                          IsPreferredVendor: <integer>
+                          IsUpgradeAllowed: <boolean>
+                          ModificationCode: <string>
+                          Name: <string>
+                          Notes: <string>
+                          NumPersons: <integer>
+                          NumRooms: <integer>
+                          Parking: <boolean>
+                          PartnerMembershipId: <string>
+                          PassiveType: <string>
+                          PhoneNumber: <string>
+                          RateAccess: <string>
+                          RateCode: <string>
+                          RateType: <string>
+                          Remarks:
+                            TripLinkRemarks:
+                              - TripLinkRemark:
+                                  - Text: <string>
+                          RoomDescription: <string>
+                          RoomType: <string>
+                          SpecialInstructions: <string>
+                          StartAddress: <string>
+                          StartAddress2: <string>
+                          StartCity: <string>
+                          StartCityCode: <string>
+                          StartCountry: <string>
+                          StartDateLocal: <string>
+                          StartDateUtc: <string>
+                          StartLatitude: <number>
+                          StartLongitude: <number>
+                          StartPostalCode: <string>
+                          StartState: <string>
+                          Status: <string>
+                          TimeZone: <string>
+                          TimeZoneId: <integer>
+                          TotalRate: <number>
+                          UpgradedDateTime: <string>
+                          Vendor: <string>
+                          VendorFlags: <string>
+                          VendorName: <string>
+                          Wifi: <boolean>
+                      Parking:
+                        - StartDateLocal: <string>
+                          CancellationNumber: <string>
+                          Charges:
+                            Fixed:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Percent:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Rate:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            RateWithAllowance:
+                              - AllowanceAmount: <number>
+                                AllowanceIsUnlimited: <boolean>
+                                AllowanceNumUnits: <number>
+                                AllowanceUnit: <string>
+                                Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                          ClassOfService: <string>
+                          ConfirmationNumber: <string>
+                          Currency: <string>
+                          DateCancelledUtc: <string>
+                          DateCreatedUtc: <string>
+                          DateModifiedUtc: <string>
+                          EndDateLocal: <string>
+                          EndDateUtc: <string>
+                          FrequentTravelerId: <string>
+                          IsPreferredVendor: <integer>
+                          IsUpgradeAllowed: <boolean>
+                          Name: <string>
+                          Notes: <string>
+                          OperatedByVendor: <string>
+                          ParkingLocationId: <string>
+                          PhoneNumber: <string>
+                          Pin: <string>
+                          RateCode: <string>
+                          Remarks:
+                            TripLinkRemarks:
+                              - TripLinkRemark:
+                                  - Text: <string>
+                          StartAddress: <string>
+                          StartAddress2: <string>
+                          StartCity: <string>
+                          StartCityCode: <string>
+                          StartCountry: <string>
+                          StartDateUtc: <string>
+                          StartLocation: <string>
+                          StartPostalCode: <string>
+                          StartState: <string>
+                          Status: <string>
+                          TimeZone: <string>
+                          TimeZoneId: <integer>
+                          TotalRate: <number>
+                          UpgradedDateTime: <string>
+                          Vendor: <string>
+                          VendorFlags: <string>
+                          VendorName: <string>
+                      Rail:
+                        - StartDateLocal: <string>
+                          Amenities: <string>
+                          Cabin: <string>
+                          CancellationNumber: <string>
+                          CarbonEmissionLbs: <number>
+                          CarbonModel: <integer>
+                          Charges:
+                            Fixed:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Percent:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Rate:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            RateWithAllowance:
+                              - AllowanceAmount: <number>
+                                AllowanceIsUnlimited: <boolean>
+                                AllowanceNumUnits: <number>
+                                AllowanceUnit: <string>
+                                Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                          ClassOfService: <string>
+                          ConfirmationNumber: <string>
+                          Currency: <string>
+                          DateCancelledUtc: <string>
+                          DateCreatedUtc: <string>
+                          DateModifiedUtc: <string>
+                          DiscountCode: <string>
+                          Duration: <integer>
+                          ETicket: <string>
+                          EndCity: <string>
+                          EndCityCode: <string>
+                          EndCountry: <string>
+                          EndDateLocal: <string>
+                          EndDateUtc: <string>
+                          EndLatitude: <number>
+                          EndLongitude: <number>
+                          EndPlatform: <string>
+                          EndRailStation: <string>
+                          EndRailStationName: <string>
+                          EndState: <string>
+                          FrequentTravelerId: <string>
+                          IsPreferredVendor: <integer>
+                          IsUpgradeAllowed: <boolean>
+                          LegId: <integer>
+                          Meals: <string>
+                          Miles: <integer>
+                          Notes: <string>
+                          NumPersons: <integer>
+                          NumStops: <integer>
+                          OperatedByTrainNumber: <string>
+                          OperatedByVendor: <string>
+                          RateCode: <string>
+                          Remarks:
+                            TripLinkRemarks:
+                              - TripLinkRemark:
+                                  - Text: <string>
+                          RouteRestrictCode: <string>
+                          Seats:
+                            - Amenities: <string>
+                              BerthPosition: <string>
+                              Deck: <string>
+                              FacingForward: <string>
+                              FareSpaceComfort: <string>
+                              PassengerRph: <integer>
+                              SeatNumber: <string>
+                              SeatPosition: <string>
+                              SeatType: <string>
+                              SpaceType: <string>
+                              Status: <string>
+                              WagonNumber: <string>
+                              WagonType: <string>
+                          SpecialInstructions: <string>
+                          StartCity: <string>
+                          StartCityCode: <string>
+                          StartCountry: <string>
+                          StartDateUtc: <string>
+                          StartLatitude: <number>
+                          StartLongitude: <number>
+                          StartPlatform: <string>
+                          StartRailStation: <string>
+                          StartRailStationName: <string>
+                          StartState: <string>
+                          Status: <string>
+                          TimeZone: <string>
+                          TimeZoneId: <integer>
+                          TotalRate: <number>
+                          TrainNumber: <string>
+                          TrainTypeCode: <string>
+                          TrainTypeName: <string>
+                          TransportMode: <string>
+                          UpgradedDateTime: <string>
+                          Vendor: <string>
+                          VendorFlags: <string>
+                          VendorName: <string>
+                          WagonNumber: <string>
+                      Ride:
+                        - CancellationNumber: <string>
+                          CancellationPolicy: <string>
+                          Charges:
+                            Fixed:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Percent:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Rate:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            RateWithAllowance:
+                              - AllowanceAmount: <number>
+                                AllowanceIsUnlimited: <boolean>
+                                AllowanceNumUnits: <number>
+                                AllowanceUnit: <string>
+                                Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                          ConfirmationNumber: <string>
+                          Currency: <string>
+                          DateCancelledUtc: <string>
+                          DateCreatedUtc: <string>
+                          DateModifiedUtc: <string>
+                          DropoffInstructions: <string>
+                          Duration: <integer>
+                          EndAddress: <string>
+                          EndAddress2: <string>
+                          EndCity: <string>
+                          EndCityCode: <string>
+                          EndCountry: <string>
+                          EndDateLocal: <string>
+                          EndDateUtc: <string>
+                          EndLatitude: <number>
+                          EndLocationCode: <string>
+                          EndLongitude: <number>
+                          EndPostalCode: <string>
+                          EndState: <string>
+                          IsGhostCard: <boolean>
+                          IsPreferredVendor: <integer>
+                          IsUpgradeAllowed: <boolean>
+                          MeetingInstructions: <string>
+                          Miles: <integer>
+                          Name: <string>
+                          Notes: <string>
+                          NumPersons: <integer>
+                          NumberOfHours: <number>
+                          OperatedByVendorName: <string>
+                          PassiveCityCode: <string>
+                          PhoneNumber: <string>
+                          PickupInstructions: <string>
+                          ProviderFeedback: <string>
+                          Rate: <number>
+                          RateDescription: <string>
+                          RateNotes: <string>
+                          RateType: <string>
+                          Remarks:
+                            TripLinkRemarks:
+                              - TripLinkRemark:
+                                  - Text: <string>
+                          ReservationId: <string>
+                          SpecialInstructions: <string>
+                          StartAddress: <string>
+                          StartAddress2: <string>
+                          StartCity: <string>
+                          StartCityCode: <string>
+                          StartCountry: <string>
+                          StartDateLocal: <string>
+                          StartDateUtc: <string>
+                          StartLatitude: <number>
+                          StartLocation: <string>
+                          StartLocationCode: <string>
+                          StartLocationName: <string>
+                          StartLongitude: <number>
+                          StartPostalCode: <string>
+                          StartState: <string>
+                          TimeZone: <string>
+                          TimeZoneId: <integer>
+                          TotalRate: <number>
+                          UpgradedDateTime: <string>
+                          Vendor: <string>
+                          VendorFlags: <string>
+                          VendorName: <string>
+                      Travel:
+                        - StartDateLocal: <string>
+                          CancellationNumber: <string>
+                          Charges:
+                            Fixed:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Percent:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            Rate:
+                              - Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                            RateWithAllowance:
+                              - AllowanceAmount: <number>
+                                AllowanceIsUnlimited: <boolean>
+                                AllowanceNumUnits: <number>
+                                AllowanceUnit: <string>
+                                Amount: <number>
+                                Currency: <string>
+                                Description: <string>
+                                IsPaid: <boolean>
+                                IsPrimary: <boolean>
+                                NumUnits: <number>
+                                PerUnit: <string>
+                                SemanticsCode: <string>
+                                SemanticsVendorType: <string>
+                                StartDateLocal: <string>
+                                Vendor: <string>
+                                VendorChargeCode: <string>
+                          ConfirmationNumber: <string>
+                          Currency: <string>
+                          DailyRate: <number>
+                          DateCancelledUtc: <string>
+                          DateCreatedUtc: <string>
+                          DateModifiedUtc: <string>
+                          EndAddress: <string>
+                          EndAddress2: <string>
+                          EndCity: <string>
+                          EndCityCode: <string>
+                          EndCountry: <string>
+                          EndDateLocal: <string>
+                          EndDateUtc: <string>
+                          EndLatitude: <number>
+                          EndLocation: <string>
+                          EndLongitude: <number>
+                          EndPostalCode: <string>
+                          EndState: <string>
+                          IsGhostCard: <boolean>
+                          Notes: <string>
+                          NumPersons: <integer>
+                          PhoneNumber: <string>
+                          Remarks:
+                            TripLinkRemarks:
+                              - TripLinkRemark:
+                                  - Text: <string>
+                          SpecialInstructions: <string>
+                          StartAddress: <string>
+                          StartAddress2: <string>
+                          StartCity: <string>
+                          StartCityCode: <string>
+                          StartCountry: <string>
+                          StartDateUtc: <string>
+                          StartLatitude: <number>
+                          StartLocation: <string>
+                          StartLongitude: <number>
+                          StartPostalCode: <string>
+                          StartState: <string>
+                          Status: <string>
+                          TimeZone: <string>
+                          TimeZoneId: <integer>
+                          TotalRate: <number>
+                          TransportMode: <string>
+                          Vendor: <string>
+                          VendorName: <string>
+                    TicketMailingAddress: <string>
+                    TicketPickupLocation: <string>
+                    TicketPickupNumber: <string>
+                    WaitListSegments:
+                      SegmentOption:
+                        - Flight:
+                            - ArrAirp: <string>
+                              Cabin: <string>
+                              Carrier: <string>
+                              DepAirp: <string>
+                              FlightNum: <string>
+                          SegmentIndex: <string>
+                          StatusCode: <string>
+                          TimeStamp: <string>
+                    Warnings:
+                      - Code:
+                          - <string>
+                        Text:
+                          - <string>
+                        Type:
+                          - <string>
+                    WebAddresses:
+                      - Description: <string>
+                        Format: <string>
+                        PassengerRPH: <integer>
+                        Type: <string>
+                        WebAddress: <string>
+                CancelComments: <string>
+                ClientLocator: <string>
+                Comments: <string>
+                CustomAttributes:
+                  - Data: <string>
+                    DataType: <string>
+                    DisplayOnItinerary: <boolean>
+                    DisplayTitle: <string>
+                    ExternalId: <integer>
+                    Name: <string>
+                DateBookedLocal: <string>
+                DateCreatedUtc: <string>
+                DateModifiedUtc: <string>
+                Description: <string>
+                EndDateLocal: <string>
+                EndDateUtc: <string>
+                HasOpenBookingPassive: <boolean>
+                IsPersonal: <boolean>
+                ItinLocator: <string>
+                ProjectName: <string>
+                StartDateLocal: <string>
+                StartDateUtc: <string>
+                TravelRequestId: <string>
+                TripLinkLocator: <string>
+                TripName: <string>
+                TripStatus: <integer>
+                UserLoginId: <string>
+                id: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <string>
+                    errorMessage: <string>
+                    errors:
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                  - errorCode: <string>
+                    errorMessage: <string>
+                    errors:
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <string>
+                    errorMessage: <string>
+                    errors:
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                  - errorCode: <string>
+                    errorMessage: <string>
+                    errors:
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <string>
+                    errorMessage: <string>
+                    errors:
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                  - errorCode: <string>
+                    errorMessage: <string>
+                    errors:
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <string>
+                    errorMessage: <string>
+                    errors:
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                  - errorCode: <string>
+                    errorMessage: <string>
+                    errors:
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+        '503':
+          description: Service Unavailable
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /trips:
+    get:
+      tags:
+        - trips
+      summary: v4 - Get Trip Ids by Company
+      description: >-
+        Gets the upcoming trips for the given company. Company JWT is required
+        as part of the authorization.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: schema
+          in: query
+          schema:
+            type: string
+          description: Output schema type. Supported value is id
+          example: id
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                data:
+                  - id: <string>
+                    href: <string>
+                  - id: <string>
+                    href: <string>
+                operations:
+                  - rel: <string>
+                    href: <string>
+                  - rel: <string>
+                    href: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <string>
+                    errorMessage: <string>
+                    errors:
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                  - errorCode: <string>
+                    errorMessage: <string>
+                    errors:
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <string>
+                    errorMessage: <string>
+                    errors:
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                  - errorCode: <string>
+                    errorMessage: <string>
+                    errors:
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <string>
+                    errorMessage: <string>
+                    errors:
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                  - errorCode: <string>
+                    errorMessage: <string>
+                    errors:
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+                      - value: >-
+                          <Circular reference to
+                          #/components/schemas/model.ExternalErrorObject
+                          detected>
+        '503':
+          description: Service Unavailable
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''

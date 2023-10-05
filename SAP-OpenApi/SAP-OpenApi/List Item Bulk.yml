@@ -1,0 +1,521 @@
+openapi: 3.0.0
+info:
+  title: List Item Bulk
+  description: >-
+    Provides an automated solution to clients who would like to manage list
+    items. This API provides methods to add, update or delete list items owned
+    by the specified lists.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    apikeyAuth:
+      type: http
+      scheme: apikey
+security:
+  - apikeyAuth: []
+tags:
+  - name: list
+  - name: list > v4
+  - name: list > v4 > lists
+  - name: list > v4 > lists > {listId}
+  - name: list > v4 > lists > {listId} > bulk
+paths:
+  /list/v4/lists/{listId}/bulk:
+    post:
+      tags:
+        - list > v4 > lists > {listId} > bulk
+      summary: Create list items for a specific list with provided request body
+      description: Returns the status of the bulk request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                requests:
+                  - shortCode: <string>
+                    value: <string>
+                    parentCode: <string>
+                  - shortCode: <string>
+                    value: <string>
+                    parentCode: <string>
+      parameters:
+        - name: Accept-Language
+          in: header
+          schema:
+            type: string
+          description: Language code
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: listId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <uuid>
+      responses:
+        '201':
+          description: Created
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                recordsSucceeded: <integer>
+                recordsFailed: <integer>
+                errors:
+                  - id: <string>
+                    message: <string>
+                    listItem: {}
+                  - id: <string>
+                    message: <string>
+                    listItem: {}
+        '206':
+          description: Partial Content
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                recordsSucceeded: <integer>
+                recordsFailed: <integer>
+                errors:
+                  - id: <string>
+                    message: <string>
+                    listItem: {}
+                  - id: <string>
+                    message: <string>
+                    listItem: {}
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  message: <string>
+                  id: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                  - source: <string>
+                    message: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  message: <string>
+                  id: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                  - source: <string>
+                    message: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  message: <string>
+                  id: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                  - source: <string>
+                    message: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  message: <string>
+                  id: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                  - source: <string>
+                    message: <string>
+        '415':
+          description: Unsupported Media Type
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  message: <string>
+                  id: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                  - source: <string>
+                    message: <string>
+        '429':
+          description: Too Many Requests
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  message: <string>
+                  id: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                  - source: <string>
+                    message: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  message: <string>
+                  id: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                  - source: <string>
+                    message: <string>
+    patch:
+      tags:
+        - list > v4 > lists > {listId} > bulk
+      summary: >-
+        Update or delete list items by long code for a specific list with
+        provided request body
+      description: Returns the status of the bulk request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                requests:
+                  - code: <string>
+                    value: <string>
+                    deleted: <boolean>
+                  - code: <string>
+                    value: <string>
+                    deleted: <boolean>
+      parameters:
+        - name: Accept-Language
+          in: header
+          schema:
+            type: string
+          description: Language code
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: listId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <uuid>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                recordsSucceeded: <integer>
+                recordsFailed: <integer>
+                errors:
+                  - id: <string>
+                    message: <string>
+                    listItem: {}
+                  - id: <string>
+                    message: <string>
+                    listItem: {}
+        '206':
+          description: Partial Content
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                recordsSucceeded: <integer>
+                recordsFailed: <integer>
+                errors:
+                  - id: <string>
+                    message: <string>
+                    listItem: {}
+                  - id: <string>
+                    message: <string>
+                    listItem: {}
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  message: <string>
+                  id: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                  - source: <string>
+                    message: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  message: <string>
+                  id: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                  - source: <string>
+                    message: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  message: <string>
+                  id: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                  - source: <string>
+                    message: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  message: <string>
+                  id: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                  - source: <string>
+                    message: <string>
+        '415':
+          description: Unsupported Media Type
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  message: <string>
+                  id: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                  - source: <string>
+                    message: <string>
+        '429':
+          description: Too Many Requests
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  message: <string>
+                  id: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                  - source: <string>
+                    message: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  message: <string>
+                  id: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                  - source: <string>
+                    message: <string>

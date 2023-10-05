@@ -1,0 +1,305 @@
+openapi: 3.0.0
+info:
+  title: Entry Attendee Associations
+  description: >-
+    Manage the relationship between the attendees and the expense report and
+    entry, for the specified expense entry. This resource does not include the
+    full attendee information, which can be accessed using the Attendees
+    resource. This API provides methods to view, create, update, and delete
+    entry attendee associations.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: expense
+  - name: expense > entryattendeeassociations
+  - name: expense > entryattendeeassociations > {id}
+paths:
+  /expense/entryattendeeassociations/{id}:
+    get:
+      tags:
+        - expense > entryattendeeassociations > {id}
+      summary: Get a single entry-attendee association
+      description: Gets the specified entry-attendee association.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: user
+          in: query
+          schema:
+            type: string
+          description: >-
+            The login ID of the user who owns this entry-attendee association.
+            The user must have the Web Services Admin role to use this
+            parameter.
+          example: <string>
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Amount: <double>
+                AssociatedAttendeeCount: <integer>
+                AttendeeID: <string>
+                Custom1: <string>
+                Custom2: <string>
+                Custom3: <string>
+                Custom4: <string>
+                Custom5: <string>
+                EntryID: <string>
+                ID: <string>
+                URI: <string>
+    put:
+      tags:
+        - expense > entryattendeeassociations > {id}
+      summary: Update an entry-attendee association
+      description: >-
+        Updates the specified entry-attendee association. Only the fields
+        provided in the supplied object will be updated. Missing fields will not
+        be altered.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                Amount: <double>
+                AssociatedAttendeeCount: <integer>
+                Custom1: <string>
+                Custom2: <string>
+                Custom3: <string>
+                Custom4: <string>
+                Custom5: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: user
+          in: query
+          schema:
+            type: string
+          description: >-
+            The login ID of the user who owns this entry-attendee association.
+            The user must have the Web Services Admin role to use this
+            parameter.
+          example: <string>
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+    delete:
+      tags:
+        - expense > entryattendeeassociations > {id}
+      summary: Delete an entry-attendee association
+      description: Deletes the specified entry-attendee association.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: user
+          in: query
+          schema:
+            type: string
+          description: >-
+            The login ID of the user who owns this entry-attendee association.
+            The user must have the Web Services Admin role to use this
+            parameter.
+          example: <string>
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+  /expense/entryattendeeassociations:
+    get:
+      tags:
+        - expense > entryattendeeassociations
+      summary: Get all entry-attendee associations
+      description: >-
+        Gets all entry-attendee associations owned by the user. These are the
+        associations between an expense entry and an attendee.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Items:
+                  Amount: <double>
+                  AssociatedAttendeeCount: <integer>
+                  AttendeeID: <string>
+                  Custom1: <string>
+                  Custom2: <string>
+                  Custom3: <string>
+                  Custom4: <string>
+                  Custom5: <string>
+                  EntryID: <string>
+                  ID: <string>
+                  URI: <string>
+                NextPage: <string>
+    post:
+      tags:
+        - expense > entryattendeeassociations
+      summary: Create entry-attendee association
+      description: Creates a new association between an expense entry and an attendee.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                Amount: <double>
+                AssociatedAttendeeCount: <integer>
+                AttendeeID: <string>
+                Custom1: <string>
+                Custom2: <string>
+                Custom3: <string>
+                Custom4: <string>
+                Custom5: <string>
+                EntryID: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: user
+          in: query
+          schema:
+            type: string
+          description: >-
+            The login ID of the user who owns this entry-attendee association.
+            The user must have the Web Services Admin role to use this
+            parameter.
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                ID: <string>
+                URI: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}

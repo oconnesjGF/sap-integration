@@ -1,0 +1,169 @@
+openapi: 3.0.0
+info:
+  title: Expense Report Form
+  description: >-
+    Returns the configured expense forms in SAP Concur. Clients can have
+    multiple forms configured for each form type.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: Forms
+  - name: Forms > {FormCode}
+paths:
+  /Forms/{FormCode}:
+    get:
+      tags:
+        - Forms > {FormCode}
+      summary: >-
+        Retrieves the list of configured forms for the specified form type. 
+        Note: The FormCode is returned in the FormCode element in the Get Form
+        Types response.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/xml
+        - name: FormCode
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/xml
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                <?xml version="1.0" encoding="UTF-8"?>
+                <element>
+                  <FormData>
+                    <Name>(string)</Name>
+                    <FormId>(string)</FormId>
+                  </FormData>
+                  <FormData>
+                    <Name>(string)</Name>
+                    <FormId>(string)</FormId>
+                  </FormData>
+                </element>
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /Forms/:
+    get:
+      tags:
+        - Forms
+      summary: Retrieves the list of configured form types.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/xml
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/xml
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                <?xml version="1.0" encoding="UTF-8"?>
+                <element>
+                  <FormType>
+                    <Name>(string)</Name>
+                    <FormCode>(string)</FormCode>
+                  </FormType>
+                  <FormType>
+                    <Name>(string)</Name>
+                    <FormCode>(string)</FormCode>
+                  </FormType>
+                </element>
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''

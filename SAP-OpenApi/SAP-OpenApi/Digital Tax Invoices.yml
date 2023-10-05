@@ -1,0 +1,174 @@
+openapi: 3.0.0
+info:
+  title: Digital Tax Invoices
+  description: >-
+    The regulations of some countries require that clients provide an electronic
+    receipt in digital XML format for each reimbursable expense. In addition,
+    the client must: Store the XML file in order to claim the expense for tax
+    purposes, be able to produce the original XML file in case of audit, and
+    validate the XML file with the government. To help meet this requirement,
+    Concur offers the Digital Tax Invoice feature. For Mexico, the official
+    digital XML file is called Comprobante Fiscal Digital, or CFDi. This API
+    provides methods to view and update digital tax invoices.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: expense
+  - name: expense > digitaltaxinvoices
+  - name: expense > digitaltaxinvoices > {id}
+paths:
+  /expense/digitaltaxinvoices/{id}:
+    get:
+      tags:
+        - expense > digitaltaxinvoices > {id}
+      summary: Get a single digital tax invoice
+      description: Gets the specified digital tax invoice.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                AccountID: <string>
+                ConcurReceiptID: <string>
+                DocumentID: <string>
+                ReceiptData: <string>
+    put:
+      tags:
+        - expense > digitaltaxinvoices > {id}
+      summary: Update a digital tax invoice
+      description: Updates the specified digital tax invoice.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                Comment: <string>
+                Status: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+  /expense/digitaltaxinvoices:
+    get:
+      tags:
+        - expense > digitaltaxinvoices
+      summary: Get digital tax invoices
+      description: >-
+        Gets all digital tax invoices that can be validated by the user based on
+        the search criteria.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: offset
+          in: query
+          schema:
+            type: string
+          description: >-
+            The starting point of the next set of results, after the limit
+            specified in the limit field has been reached.
+          example: <string>
+        - name: limit
+          in: query
+          schema:
+            type: string
+          description: 'The number of records to return. Default value: 25'
+          example: <integer>
+        - name: modifiedafter
+          in: query
+          schema:
+            type: string
+          description: >-
+            A modification date for the queue record; this parameter can be used
+            to limit the results of the GET request to the queue items that have
+            been added since the last time the validation company queried the
+            queue. The user must have the Web Services Admin role to use this
+            parameter.
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Items:
+                  ConcurReceiptID: <string>
+                  ID: <string>
+                  URI: <string>
+                NextPage: <string>

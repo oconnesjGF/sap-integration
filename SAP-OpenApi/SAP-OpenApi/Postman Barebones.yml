@@ -1,0 +1,18 @@
+openapi: 3.0.0
+info:
+  title: Postman Barebones
+  version: 1.0.0
+servers:
+  - url: https://msprqa3.concurtech.net
+paths:
+  /api/v3.0/common/receipts:
+    get:
+      tags:
+        - General
+      summary: Post_content
+      description: Create a new receipt entry
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

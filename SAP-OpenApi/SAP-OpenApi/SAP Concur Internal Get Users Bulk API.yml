@@ -1,0 +1,112 @@
+openapi: 3.0.0
+info:
+  title: SAP Concur Internal Get Users Bulk API
+  description: >-
+    Returns the list of users at the company specified in the access token that
+    match the search criteria.
+  version: 1.0.0
+servers:
+  - url: https://us.api.concursolutions.com
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: users
+paths:
+  /users/:
+    get:
+      tags:
+        - users
+      summary: /users/
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: '*/*'
+        - name: isactive
+          in: query
+          schema:
+            type: boolean
+          description: Whether the user is active
+          example: 'true'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "total": "<integer>",
+                  "offset": "<integer>",
+                  "limit": "<integer>",
+                  "company": {
+                    "name": "<string>",
+                    "address": "<string>",
+                    "city": "<string>",
+                    "state": "<string>",
+                    "zip": "<string>",
+                    "country": "<string>"
+                  },
+                  "Items": [
+                    {
+                      "ID": "<string>",
+                      "Active": "<boolean>",
+                      "CountryCode": "<string>",
+                      "CellPhoneNumber": "<string>",
+                      "PrimaryEmail": "<string>",
+                      "EmployeeID": "<string>",
+                      "OrganizationUnit": "<string>",
+                      "FirstName": "<string>",
+                      "MiddleName": "<string>",
+                      "LastName": "<string>",
+                      "LoginID": "<string>",
+                      "Emails": [
+                        "<string>",
+                        "<string>"
+                      ]
+                    },
+                    {
+                      "ID": "<string>",
+                      "Active": "<boolean>",
+                      "CountryCode": "<string>",
+                      "CellPhoneNumber": "<string>",
+                      "PrimaryEmail": "<string>",
+                      "EmployeeID": "<string>",
+                      "OrganizationUnit": "<string>",
+                      "FirstName": "<string>",
+                      "MiddleName": "<string>",
+                      "LastName": "<string>",
+                      "LoginID": "<string>",
+                      "Emails": [
+                        "<string>",
+                        "<string>"
+                      ]
+                    }
+                  ]
+                }
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''

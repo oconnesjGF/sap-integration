@@ -1,0 +1,160 @@
+openapi: 3.0.0
+info:
+  title: GET Users Bulk API
+  description: >
+    This API takes a company level token, and returns a list of users that match
+    the search criteria
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: users
+paths:
+  /users/:
+    get:
+      tags:
+        - users
+      summary: /users/
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: '*/*'
+        - name: offset
+          in: query
+          schema:
+            type: string
+          description: The number of items to skip before returning result set
+          example: <integer>
+        - name: limit
+          in: query
+          schema:
+            type: string
+          description: The numbers of items to return.
+          example: <integer>
+        - name: isactive
+          in: query
+          schema:
+            type: string
+          description: Whether the user is active
+          example: <string>
+        - name: loginid
+          in: query
+          schema:
+            type: string
+          description: login_id of the user
+          example: <string>
+        - name: lastname
+          in: query
+          schema:
+            type: string
+          description: last name of the user
+          example: <string>
+        - name: employeeid
+          in: query
+          schema:
+            type: string
+          description: Employee Id of the user
+          example: <string>
+        - name: primaryemail
+          in: query
+          schema:
+            type: string
+          description: Primary email of the user
+          example: <string>
+        - name: countrycode
+          in: query
+          schema:
+            type: string
+          description: Country Code of the user
+          example: <string>
+        - name: id
+          in: query
+          schema:
+            type: string
+          description: Id of the user
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "total": "<integer>",
+                  "offset": "<integer>",
+                  "limit": "<integer>",
+                  "company": {
+                    "name": "<string>",
+                    "address": "<string>",
+                    "city": "<string>",
+                    "state": "<string>",
+                    "zip": "<string>",
+                    "country": "<string>"
+                  },
+                  "Items": [
+                    {
+                      "ID": "<string>",
+                      "Active": "<boolean>",
+                      "CountryCode": "<string>",
+                      "CellPhoneNumber": "<string>",
+                      "PrimaryEmail": "<string>",
+                      "EmployeeID": "<string>",
+                      "OrganizationUnit": "<string>",
+                      "FirstName": "<string>",
+                      "MiddleName": "<string>",
+                      "LastName": "<string>",
+                      "LoginID": "<string>",
+                      "Emails": [
+                        "<string>",
+                        "<string>"
+                      ]
+                    },
+                    {
+                      "ID": "<string>",
+                      "Active": "<boolean>",
+                      "CountryCode": "<string>",
+                      "CellPhoneNumber": "<string>",
+                      "PrimaryEmail": "<string>",
+                      "EmployeeID": "<string>",
+                      "OrganizationUnit": "<string>",
+                      "FirstName": "<string>",
+                      "MiddleName": "<string>",
+                      "LastName": "<string>",
+                      "LoginID": "<string>",
+                      "Emails": [
+                        "<string>",
+                        "<string>"
+                      ]
+                    }
+                  ]
+                }
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''

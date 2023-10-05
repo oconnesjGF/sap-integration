@@ -1,0 +1,270 @@
+openapi: 3.0.0
+info:
+  title: Attendee Types
+  description: >-
+    Get the configured attendee types for the company or for a specified user.
+    You can also update attendee types by providing some or all of the attendee
+    type fields.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: expense
+  - name: expense > attendeetypes
+  - name: expense > attendeetypes > {id}
+paths:
+  /expense/attendeetypes/{id}:
+    get:
+      tags:
+        - expense > attendeetypes > {id}
+      summary: Get a single attendee type
+      description: Gets an attendee type for the specified ID.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                AllowAttendeeCountEditing: <boolean>
+                AllowManuallyEnteredAttendees: <boolean>
+                AttendeeFormID: <string>
+                Code: <string>
+                ConnectorID: <string>
+                DuplicateSearchFields:
+                  - <string>
+                  - <string>
+                ID: <string>
+                Name: <string>
+                URI: <string>
+    delete:
+      tags:
+        - expense > attendeetypes > {id}
+      summary: Delete an attendee type by ID
+      description: >-
+        DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016 Deletes the specified
+        attendee type.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+    put:
+      tags:
+        - expense > attendeetypes > {id}
+      summary: Update an attendee type by ID
+      description: >-
+        Updates the specified attendee type. Only the fields provided in the
+        supplied object will be updated. Missing fields will not be altered.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                AllowAttendeeCountEditing: <boolean>
+                AllowManuallyEnteredAttendees: <boolean>
+                AttendeeFormID: <string>
+                Code: <string>
+                ConnectorID: <string>
+                DuplicateSearchFields:
+                  - <string>
+                  - <string>
+                Name: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+  /expense/attendeetypes:
+    get:
+      tags:
+        - expense > attendeetypes
+      summary: Get all attendee types
+      description: Gets all active attendee types for the company.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Items:
+                  AllowAttendeeCountEditing: <boolean>
+                  AllowManuallyEnteredAttendees: <boolean>
+                  AttendeeFormID: <string>
+                  Code: <string>
+                  ConnectorID: <string>
+                  DuplicateSearchFields:
+                    - <string>
+                    - <string>
+                  ID: <string>
+                  Name: <string>
+                  URI: <string>
+                NextPage: <string>
+    post:
+      tags:
+        - expense > attendeetypes
+      summary: Create a new attendee type
+      description: >-
+        DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016 Creates a new attendee
+        type.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                AllowAttendeeCountEditing: <boolean>
+                AllowManuallyEnteredAttendees: <boolean>
+                AttendeeFormID: <string>
+                Code: <string>
+                ConnectorID: <string>
+                DuplicateSearchFields:
+                  - <string>
+                  - <string>
+                Name: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                ID: <string>
+                URI: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}

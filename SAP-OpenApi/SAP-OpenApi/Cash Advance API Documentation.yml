@@ -1,0 +1,547 @@
+openapi: 3.0.0
+info:
+  title: Cash Advance API Documentation
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: cashadvances
+  - name: cashadvances > {cashadvanceId}
+  - name: cashadvances > {cashadvanceId} > issue
+paths:
+  /cashadvances/{cashadvanceId}/issue:
+    post:
+      tags:
+        - cashadvances > {cashadvanceId} > issue
+      summary: Issue a Cash Advance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                accountCode: <string>
+                comment: <string>
+                exchangeRate: <number>
+      parameters:
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            (Required) The unique identifier of the consumer making the API
+            calls
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cashadvanceId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                issuedDate: <string>
+                status:
+                  code: <string>
+                  name: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>
+        '408':
+          description: Request Timeout
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>
+  /cashadvances/{cashadvanceId}:
+    get:
+      tags:
+        - cashadvances > {cashadvanceId}
+      summary: Get Details of a Cash Advance
+      parameters:
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            (Required) The unique identifier of the consumer making the API
+            calls
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cashadvanceId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                paymentType:
+                  description: <string>
+                  paymentCode: <string>
+                exchangeRate:
+                  operation: <string>
+                  value: <string>
+                amountRequested:
+                  amount: <number>
+                  currency: <string>
+                  value: <string>
+                availableBalance:
+                  amount: <string>
+                  currency: <string>
+                approvalStatus:
+                  code: <string>
+                  name: <string>
+                cashAdvanceId: <string>
+                requestDate: <string>
+                name: <string>
+                purpose: <string>
+                issuedDate: <string>
+                accountCode: <string>
+                comment: <string>
+                lastModifiedDate: <string>
+                hasReceipts: <boolean>
+                reimbursementCurrency: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>
+        '408':
+          description: Request Timeout
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>
+  /cashadvances:
+    post:
+      tags:
+        - cashadvances
+      summary: Create a Cash Advance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                accountCode: <string>
+                amountRequested:
+                  amount: <number>
+                  currency: <string>
+                comment: <string>
+                name: <string>
+                purpose: <string>
+                userId: <string>
+      parameters:
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            (Required) The unique identifier of the consumer making the API
+            calls
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '201':
+          description: Created
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                cashAdvanceId: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>
+        '408':
+          description: Request Timeout
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorCode: <integer>
+                    errorMessage: <string>
+                  - errorCode: <integer>
+                    errorMessage: <string>

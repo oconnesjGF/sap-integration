@@ -1,0 +1,658 @@
+openapi: 3.0.0
+info:
+  title: Image API Documentation
+  description: >-
+    The SAP Concur Imaging Web service allows clients to manage the receipt
+    images attached to expense reports and the images attached to invoices.
+    Clients can retrieve existing images by reportID, image ID, or invoiceID,
+    and upload new images to a user, expense entry, report, or invoice.<p>The
+    Imaging web service supports the following image
+    formats:</p><p><li>&nbsp;&nbsp;&nbsp;&nbsp;`application/pdf`<li>&nbsp;&nbsp;&nbsp;&nbsp;`image/jpg`<li>&nbsp;&nbsp;&nbsp;&nbsp;`image/jpeg`<li>&nbsp;&nbsp;&nbsp;&nbsp;`image/png`</p><p>The
+    maximum file size allowed is 10 MB.</p>
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: receipt
+  - name: receipt > {imageId}
+  - name: expenseentry
+  - name: expenseentry > {entryId}
+  - name: invoice
+  - name: invoice > {requestId}
+  - name: report
+  - name: report > {reportId}
+paths:
+  /receipt/{imageId}:
+    get:
+      tags:
+        - receipt > {imageId}
+      summary: Retrieve Report and Line Item Images.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/xml
+        - name: imageId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/xml
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                <?xml version="1.0" encoding="UTF-8"?>
+                <element>
+                  <Id>(string)</Id>
+                  <Url>(string)</Url>
+                </element>
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /receipt:
+    post:
+      tags:
+        - receipt
+      summary: Add Line Item Images.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                Image File:
+                  type: string
+                  description: (Required) Receipt Image to Upload
+                  example: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: multipart/form-data
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/xml
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/xml
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                <?xml version="1.0" encoding="UTF-8"?>
+                <element>(string)</element>
+        '201':
+          description: Created
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /expenseentry/{entryId}:
+    post:
+      tags:
+        - expenseentry > {entryId}
+      summary: Add Line Item Images.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                Image File:
+                  type: string
+                  description: (Required) Receipt Image to Upload
+                  example: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: multipart/form-data
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/xml
+        - name: entryId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/xml
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                <?xml version="1.0" encoding="UTF-8"?>
+                <element>(string)</element>
+        '201':
+          description: Created
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+    get:
+      tags:
+        - expenseentry > {entryId}
+      summary: Retrieve Report and Line Item Images.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/xml
+        - name: entryId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/xml
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                <?xml version="1.0" encoding="UTF-8"?>
+                <element>
+                  <Id>(string)</Id>
+                  <Url>(string)</Url>
+                </element>
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /invoice/{requestId}:
+    post:
+      tags:
+        - invoice > {requestId}
+      summary: Add Report Images.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                Image File:
+                  type: string
+                  description: (Required) Receipt Image to Upload
+                  example: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: multipart/form-data
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/xml
+        - name: requestId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/xml
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                <?xml version="1.0" encoding="UTF-8"?>
+                <element>(string)</element>
+        '201':
+          description: Created
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+    get:
+      tags:
+        - invoice > {requestId}
+      summary: Retrieve Report and Line Item Images.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/xml
+        - name: requestId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/xml
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                <?xml version="1.0" encoding="UTF-8"?>
+                <element>
+                  <Id>(string)</Id>
+                  <Url>(string)</Url>
+                </element>
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /report/{reportId}:
+    post:
+      tags:
+        - report > {reportId}
+      summary: Add Report Images.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                Image File:
+                  type: string
+                  description: (Required) Receipt Image to Upload
+                  example: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: multipart/form-data
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/xml
+        - name: reportId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/xml
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                <?xml version="1.0" encoding="UTF-8"?>
+                <element>(string)</element>
+        '201':
+          description: Created
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+    get:
+      tags:
+        - report > {reportId}
+      summary: Retrieve Report and Line Item Images.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/xml
+        - name: reportId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/xml
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                <?xml version="1.0" encoding="UTF-8"?>
+                <element>
+                  <Id>(string)</Id>
+                  <Url>(string)</Url>
+                </element>
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''

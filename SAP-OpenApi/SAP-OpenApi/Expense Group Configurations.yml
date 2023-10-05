@@ -1,0 +1,171 @@
+openapi: 3.0.0
+info:
+  title: Expense Group Configurations
+  description: >-
+    Expense Group Configurations specify the allowed expense types, policies,
+    payment types, and expense settings allowed for the expense group. This API
+    provides methods to view the expense group details by user or by expense
+    group ID.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: expense
+  - name: expense > expensegroupconfigurations
+  - name: expense > expensegroupconfigurations > {id}
+paths:
+  /expense/expensegroupconfigurations/{id}:
+    get:
+      tags:
+        - expense > expensegroupconfigurations > {id}
+      summary: Get an expense group configuration by ID
+      description: Gets an expense group configuration by ID.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: user
+          in: query
+          schema:
+            type: string
+          description: >-
+            The login ID of the user associated with this expense group
+            configuration. The user must have the Web Services Admin role to use
+            this parameter.
+          example: <string>
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                AllowUserDigitalTaxInvoice: <boolean>
+                AllowUserRegisterYodlee: <boolean>
+                AttendeeListFormID: <string>
+                AttendeeListFormName: <string>
+                AttendeeTypes:
+                  Code: <string>
+                  Name: <string>
+                CashAdvance:
+                  AllowUserCarryBalance: <boolean>
+                  AllowUserLinkMultiple: <boolean>
+                  AllowUserUpdateExchangeRate: <boolean>
+                  Name: <string>
+                  WorkflowID: <string>
+                ID: <string>
+                Name: <string>
+                PaymentTypes:
+                  ID: <string>
+                  IsDefault: <boolean>
+                  Name: <string>
+                Policies:
+                  ExpenseTypes:
+                    Code: <string>
+                    ExpenseCode: <string>
+                    Name: <string>
+                  ID: <string>
+                  IsDefault: <boolean>
+                  IsInheritable: <boolean>
+                  Name: <string>
+                URI: <string>
+  /expense/expensegroupconfigurations:
+    get:
+      tags:
+        - expense > expensegroupconfigurations
+      summary: Get an expense group configuration
+      description: Gets the configuration of an expense group.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: user
+          in: query
+          schema:
+            type: string
+          description: >-
+            The login ID of the user associated with this expense group
+            configuration. The user must have the Web Services Admin role to use
+            this parameter.
+          example: <string>
+        - name: offset
+          in: query
+          schema:
+            type: string
+          description: >-
+            The starting point of the next set of results, after the limit
+            specified in the limit field has been reached.
+          example: <string>
+        - name: limit
+          in: query
+          schema:
+            type: string
+          description: 'The number of records to return Default value: 10'
+          example: <integer>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Items:
+                  AllowUserDigitalTaxInvoice: <boolean>
+                  AllowUserRegisterYodlee: <boolean>
+                  AttendeeListFormID: <string>
+                  AttendeeListFormName: <string>
+                  AttendeeTypes:
+                    Code: <string>
+                    Name: <string>
+                  CashAdvance:
+                    AllowUserCarryBalance: <boolean>
+                    AllowUserLinkMultiple: <boolean>
+                    AllowUserUpdateExchangeRate: <boolean>
+                    Name: <string>
+                    WorkflowID: <string>
+                  ID: <string>
+                  Name: <string>
+                  PaymentTypes:
+                    ID: <string>
+                    IsDefault: <boolean>
+                    Name: <string>
+                  Policies:
+                    ExpenseTypes:
+                      Code: <string>
+                      ExpenseCode: <string>
+                      Name: <string>
+                    ID: <string>
+                    IsDefault: <boolean>
+                    IsInheritable: <boolean>
+                    Name: <string>
+                  URI: <string>
+                NextPage: <string>

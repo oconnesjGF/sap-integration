@@ -1,0 +1,1324 @@
+openapi: 3.0.0
+info:
+  title: Financial Integration Service
+  description: >-
+    Allows an external system to interact with financial documents generated
+    from SAP Concur, for financial posting into an ERP.  Provides an automated
+    solution to request available data objects such as approved expense reports,
+    cash advances, and invoices to import to the client internal system, with an
+    opportunity to send posting confirmation back into SAP Concur before the
+    object is locked down and cannot be altered in SAP Concur.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: fi
+  - name: fi > v4
+  - name: fi > v4 > companies
+  - name: fi > v4 > companies > transactiontypes
+  - name: fi > v4 > companies > transactiontypes > {docType}
+  - name: fi > v4 > companies > transactiontypes > {docType} > transactions
+  - name: >-
+      fi > v4 > companies > transactiontypes > {docType} > transactions >
+      postingconfirmations
+  - name: >-
+      fi > v4 > companies > transactiontypes > {docType} > transactions >
+      paymentconfirmations
+  - name: >-
+      fi > v4 > companies > transactiontypes > {docType} > transactions >
+      acknowledgements
+paths:
+  /fi/v4/companies/transactiontypes/{docType}/transactions/postingconfirmations:
+    post:
+      tags:
+        - >-
+          fi > v4 > companies > transactiontypes > {docType} > transactions >
+          postingconfirmations
+      summary: Confirms results of financial transactions posting.
+      description: This API allows financial posting results to be sent to Concur.
+      requestBody:
+        content: {}
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: concur-route
+          in: header
+          schema:
+            type: string
+          description: Concur Route
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cookies
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: '[object Object],[object Object]'
+        - name: session
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: '[object Object]'
+        - name: queryString
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <string>
+        - name: remoteUser
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <string>
+        - name: requestURI
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <string>
+        - name: userPrincipal
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: '[object Object]'
+        - name: contextPath
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <string>
+        - name: requestURL
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: '[object Object]'
+        - name: headerNames
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: '[object Object]'
+        - name: parts
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: '[object Object],[object Object]'
+        - name: servletPath
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <string>
+        - name: pathInfo
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <string>
+        - name: httpServletMapping
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: '[object Object]'
+        - name: trailerFieldsReady
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <boolean>
+        - name: authType
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <string>
+        - name: pathTranslated
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <string>
+        - name: requestedSessionId
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <string>
+        - name: requestedSessionIdValid
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <boolean>
+        - name: requestedSessionIdFromCookie
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <boolean>
+        - name: requestedSessionIdFromURL
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <boolean>
+        - name: requestedSessionIdFromUrl
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <boolean>
+        - name: trailerFields
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: '[object Object]'
+        - name: method
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <string>
+        - name: contentLengthLong
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <long>
+        - name: contentType
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <string>
+        - name: localPort
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <integer>
+        - name: localName
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <string>
+        - name: locale
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: '[object Object]'
+        - name: contentLength
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <integer>
+        - name: reader
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: '[object Object]'
+        - name: parameterNames
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: '[object Object]'
+        - name: serverName
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <string>
+        - name: attributeNames
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: '[object Object]'
+        - name: serverPort
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <integer>
+        - name: parameterMap
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: '[object Object]'
+        - name: asyncSupported
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <boolean>
+        - name: dispatcherType
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: REQUEST
+        - name: remotePort
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <integer>
+        - name: secure
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <boolean>
+        - name: servletContext
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: '[object Object]'
+        - name: characterEncoding
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <string>
+        - name: remoteAddr
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <string>
+        - name: remoteHost
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <string>
+        - name: locales
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: '[object Object]'
+        - name: localAddr
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <string>
+        - name: asyncStarted
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <boolean>
+        - name: asyncContext
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: '[object Object]'
+        - name: scheme
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <string>
+        - name: protocol
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: <string>
+        - name: inputStream
+          in: query
+          schema:
+            type: string
+          description: Posting Confirmation Request
+          example: '[object Object]'
+        - name: docType
+          in: path
+          schema:
+            type: string
+          required: true
+          example: payroll
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - docId: <string>
+                  postingConfirmationResult: SYSTEM_ERROR_OCCURRED
+                  systemId: <string>
+                  code: <integer>
+                  errorMessage: <string>
+                  detailMessage: <string>
+                - docId: <string>
+                  postingConfirmationResult: FAILURE
+                  systemId: <string>
+                  code: <integer>
+                  errorMessage: <string>
+                  detailMessage: <string>
+        '202':
+          description: Accepted
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "message": "<string>"
+                }
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "message": "<string>"
+                }
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "message": "<string>"
+                }
+        '405':
+          description: Method Not Allowed
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "message": "<string>",
+                  "fiReturnCode": "<integer>",
+                  "postingResultBlob": "<string>"
+                }
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /fi/v4/companies/transactiontypes/{docType}/transactions/paymentconfirmations:
+    post:
+      tags:
+        - >-
+          fi > v4 > companies > transactiontypes > {docType} > transactions >
+          paymentconfirmations
+      summary: Confirms results of financial transactions payment posting.
+      description: This API allows financial posting results to be sent to Concur.
+      requestBody:
+        content: {}
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: concur-route
+          in: header
+          schema:
+            type: string
+          description: Concur Route
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cookies
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: '[object Object],[object Object]'
+        - name: session
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: '[object Object]'
+        - name: queryString
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <string>
+        - name: remoteUser
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <string>
+        - name: requestURI
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <string>
+        - name: userPrincipal
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: '[object Object]'
+        - name: contextPath
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <string>
+        - name: requestURL
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: '[object Object]'
+        - name: headerNames
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: '[object Object]'
+        - name: parts
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: '[object Object],[object Object]'
+        - name: servletPath
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <string>
+        - name: pathInfo
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <string>
+        - name: httpServletMapping
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: '[object Object]'
+        - name: trailerFieldsReady
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <boolean>
+        - name: authType
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <string>
+        - name: pathTranslated
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <string>
+        - name: requestedSessionId
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <string>
+        - name: requestedSessionIdValid
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <boolean>
+        - name: requestedSessionIdFromCookie
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <boolean>
+        - name: requestedSessionIdFromURL
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <boolean>
+        - name: requestedSessionIdFromUrl
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <boolean>
+        - name: trailerFields
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: '[object Object]'
+        - name: method
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <string>
+        - name: contentLengthLong
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <long>
+        - name: contentType
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <string>
+        - name: localPort
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <integer>
+        - name: localName
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <string>
+        - name: locale
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: '[object Object]'
+        - name: contentLength
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <integer>
+        - name: reader
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: '[object Object]'
+        - name: parameterNames
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: '[object Object]'
+        - name: serverName
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <string>
+        - name: attributeNames
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: '[object Object]'
+        - name: serverPort
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <integer>
+        - name: parameterMap
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: '[object Object]'
+        - name: asyncSupported
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <boolean>
+        - name: dispatcherType
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: REQUEST
+        - name: remotePort
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <integer>
+        - name: secure
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <boolean>
+        - name: servletContext
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: '[object Object]'
+        - name: characterEncoding
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <string>
+        - name: remoteAddr
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <string>
+        - name: remoteHost
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <string>
+        - name: locales
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: '[object Object]'
+        - name: localAddr
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <string>
+        - name: asyncStarted
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <boolean>
+        - name: asyncContext
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: '[object Object]'
+        - name: scheme
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <string>
+        - name: protocol
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: <string>
+        - name: inputStream
+          in: query
+          schema:
+            type: string
+          description: Payment Confirmation Request
+          example: '[object Object]'
+        - name: docType
+          in: path
+          schema:
+            type: string
+          required: true
+          example: payroll
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - docId: <string>
+                  paymentConfirmationResult: NOT_POSTING_CONFIRMED
+                  systemId: <string>
+                  code: <integer>
+                  errorMessage: <string>
+                  paymentRef: <string>
+                  detailMessage: <string>
+                - docId: <string>
+                  paymentConfirmationResult: SUCCESS
+                  systemId: <string>
+                  code: <integer>
+                  errorMessage: <string>
+                  paymentRef: <string>
+                  detailMessage: <string>
+        '202':
+          description: Accepted
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "message": "<string>"
+                }
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "message": "<string>"
+                }
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "message": "<string>"
+                }
+        '405':
+          description: Method Not Allowed
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "message": "<string>",
+                  "fiReturnCode": "<integer>",
+                  "postingResultBlob": "<string>"
+                }
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /fi/v4/companies/transactiontypes/{docType}/transactions/acknowledgements:
+    post:
+      tags:
+        - >-
+          fi > v4 > companies > transactiontypes > {docType} > transactions >
+          acknowledgements
+      summary: Acknowledges successful retrieval of financial transaction(s).
+      description: >-
+        This API allows a financial system to acknowledge/confirm that it has
+        successfully retrieved one or more financial transactions and will begin
+        to process those transactions. These transactions are then taken out of
+        the ready queue.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ids:
+                  - <string>
+                  - <string>
+                systemId: <string>
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: concur-route
+          in: header
+          schema:
+            type: string
+          description: Concur Route
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: ids
+          in: query
+          schema:
+            type: string
+          description: (Required) Acknowledge Request
+          example: <string>,<string>
+        - name: systemId
+          in: query
+          schema:
+            type: string
+          description: (Required) Acknowledge Request
+          example: <string>
+        - name: docType
+          in: path
+          schema:
+            type: string
+          required: true
+          example: payroll
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - acknowledgeResult: SUCCESS
+                  docId: <string>
+                  systemId: <string>
+                  code: <integer>
+                  errorMessage: <string>
+                - acknowledgeResult: SUCCESS
+                  docId: <string>
+                  systemId: <string>
+                  code: <integer>
+                  errorMessage: <string>
+        '202':
+          description: Accepted
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "message": "<string>"
+                }
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "message": "<string>"
+                }
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "message": "<string>"
+                }
+        '405':
+          description: Method Not Allowed
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "message": "<string>",
+                  "fiReturnCode": "<integer>",
+                  "postingResultBlob": "<string>"
+                }
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /fi/v4/companies/transactiontypes/{docType}/transactions:
+    get:
+      tags:
+        - fi > v4 > companies > transactiontypes > {docType} > transactions
+      summary: Retrieves a list of financial transactions.
+      description: >-
+        If docId is not present, the results are paged, page size is 100 by
+        default if limit is not specified. Only one type of transaction can be
+        retrieved at a time - specified by the docType. <br>If paging is
+        occurring, each response contains a URI to retrieve the next page of
+        transactions (if more exist). <br>If systemId is specified, the returned
+        list of queued documents is filtered by systemId. Paging applies. <br>If
+        docId is specified, a single document which matches docId is returned.
+        Paging does not apply. <br>If docId and systemId are specified, a single
+        document whose docId AND systemId match the values is returned. Paging
+        does not apply. <br>If docId is specified and ignoreDocumentStatus is
+        no, a document which has not been retrieved by an ERP system is returned
+        only, i.e document status is READY. If ignoreDocumentStatus is yes, a
+        document is returned regardless of status.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: concur-route
+          in: header
+          schema:
+            type: string
+          description: Concur Route
+          example: <string>
+        - name: documentFormatAs
+          in: header
+          schema:
+            type: string
+          description: Document Format
+          example: json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: page
+          in: query
+          schema:
+            type: integer
+          description: Page
+          example: '0'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          description: limit
+          example: '25'
+        - name: docId
+          in: query
+          schema:
+            type: string
+          description: Doc  Id
+          example: <string>
+        - name: ignoreDocumentStatus
+          in: query
+          schema:
+            type: string
+          description: ignoreDocumentStatus
+          example: 'no'
+        - name: systemId
+          in: query
+          schema:
+            type: string
+          description: ERP System Id
+          example: <string>
+        - name: docType
+          in: path
+          schema:
+            type: string
+          required: true
+          example: payroll
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                links:
+                  - rel: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+                  - rel: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+                content:
+                  - id: <string>
+                    docType: expense
+                    companyId: <string>
+                    entityId: <string>
+                    companyUuid: <string>
+                    erpSystemId: <string>
+                    document: {}
+                    documentBlob:
+                      employee:
+                        id: <string>
+                        firstName: <string>
+                        lastName: <string>
+                      report:
+                        id: <string>
+                        name: <string>
+                        submitDate: <dateTime>
+                        totalApprovedAmount: <double>
+                        employeeCurrencyAlphaCode: <string>
+                    docStatus: PAYMENT_CONFIRMED_REVERSED
+                    links:
+                      - rel: <string>
+                        href: <string>
+                        hreflang: <string>
+                        media: <string>
+                        title: <string>
+                        type: <string>
+                        deprecation: <string>
+                        profile: <string>
+                        name: <string>
+                      - rel: <string>
+                        href: <string>
+                        hreflang: <string>
+                        media: <string>
+                        title: <string>
+                        type: <string>
+                        deprecation: <string>
+                        profile: <string>
+                        name: <string>
+                  - id: <string>
+                    docType: cashadvance
+                    companyId: <string>
+                    entityId: <string>
+                    companyUuid: <string>
+                    erpSystemId: <string>
+                    document: {}
+                    documentBlob:
+                      employee:
+                        id: <string>
+                        firstName: <string>
+                        lastName: <string>
+                      report:
+                        id: <string>
+                        name: <string>
+                        submitDate: <dateTime>
+                        totalApprovedAmount: <double>
+                        employeeCurrencyAlphaCode: <string>
+                    docStatus: DELAYED
+                    links:
+                      - rel: <string>
+                        href: <string>
+                        hreflang: <string>
+                        media: <string>
+                        title: <string>
+                        type: <string>
+                        deprecation: <string>
+                        profile: <string>
+                        name: <string>
+                      - rel: <string>
+                        href: <string>
+                        hreflang: <string>
+                        media: <string>
+                        title: <string>
+                        type: <string>
+                        deprecation: <string>
+                        profile: <string>
+                        name: <string>
+                page:
+                  size: <long>
+                  totalElements: <long>
+                  totalPages: <long>
+                  number: <long>
+        '202':
+          description: Accepted
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "message": "<string>"
+                }
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "message": "<string>"
+                }
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "message": "<string>"
+                }
+        '405':
+          description: Method Not Allowed
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "message": "<string>",
+                  "fiReturnCode": "<integer>",
+                  "postingResultBlob": "<string>"
+                }
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''

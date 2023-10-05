@@ -1,0 +1,133 @@
+openapi: 3.0.0
+info:
+  title: Travel Allowance Days
+  description: >-
+    The Travel Allowance API fetches all the fixed allowance days in the
+    specified expense report. Clients using this API can determine whether an
+    allowance is a full day or partial day allowance.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: api
+  - name: api > v4
+  - name: api > v4 > travelallowance
+  - name: api > v4 > travelallowance > allowancedays
+  - name: api > v4 > travelallowance > allowancedays > companyUUID
+  - name: api > v4 > travelallowance > allowancedays > companyUUID > {companyUUID}
+  - name: >-
+      api > v4 > travelallowance > allowancedays > companyUUID > {companyUUID} >
+      contexts
+  - name: >-
+      api > v4 > travelallowance > allowancedays > companyUUID > {companyUUID} >
+      contexts > {Context}
+  - name: >-
+      api > v4 > travelallowance > allowancedays > companyUUID > {companyUUID} >
+      contexts > {Context} > {ContextId}
+paths:
+  /api/v4/travelallowance/allowancedays/companyUUID/{companyUUID}/contexts/{Context}/{ContextId}:
+    get:
+      tags:
+        - >-
+          api > v4 > travelallowance > allowancedays > companyUUID >
+          {companyUUID} > contexts > {Context} > {ContextId}
+      summary: Get Details of Travel Allowance Days
+      description: Returns allowance days details along with any exceptions.
+      parameters:
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            Concur specific custom header used for technical support in the form
+            of a RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace.
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: companyUUID
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: Context
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: ContextId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                content:
+                  - allowanceDate: <date>
+                    currencyCode: <string>
+                    expenseTransactionAmount: <number>
+                    expenseTransactionDate: <date>
+                    expenseTypeCode: <string>
+                    fullAllowanceDay: <string>
+                  - allowanceDate: <date>
+                    currencyCode: <string>
+                    expenseTransactionAmount: <number>
+                    expenseTransactionDate: <date>
+                    expenseTypeCode: <string>
+                    fullAllowanceDay: <string>
+                links:
+                  - href: <string>
+                    rel: <string>
+                  - href: <string>
+                    rel: <string>
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '503':
+          description: Service Unavailable
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''

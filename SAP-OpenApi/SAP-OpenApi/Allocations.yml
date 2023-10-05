@@ -1,0 +1,386 @@
+openapi: 3.0.0
+info:
+  title: Allocations
+  description: >-
+    Allocations divide the responsibility for an expense. Allocation entries
+    consist of a percentage of the original expense, and the configured custom
+    fields. Allocation entries are children of the expense entry. This API
+    provides methods to view all allocations for a user or report, or view an
+    allocation by ID.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: expense
+  - name: expense > allocations
+  - name: expense > allocations > {id}
+paths:
+  /expense/allocations/{id}:
+    get:
+      tags:
+        - expense > allocations > {id}
+      summary: Get a single allocation
+      description: Gets the allocation for the supplied ID.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: user
+          in: query
+          schema:
+            type: string
+          description: >-
+            The login ID of the user who owns the allocation. The user must have
+            the Web Services Admin role to use this parameter.
+          example: <string>
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                AccountCode1: <string>
+                AccountCode2: <string>
+                Custom1:
+                  Code: <string>
+                  Label: <string>
+                  ListItemID: <string>
+                  Sequence: <integer>
+                  Type: <string>
+                  Value: <string>
+                Custom10:
+                  Code: <string>
+                  Label: <string>
+                  ListItemID: <string>
+                  Sequence: <integer>
+                  Type: <string>
+                  Value: <string>
+                Custom11:
+                  Code: <string>
+                  Label: <string>
+                  ListItemID: <string>
+                  Sequence: <integer>
+                  Type: <string>
+                  Value: <string>
+                Custom12:
+                  Code: <string>
+                  Label: <string>
+                  ListItemID: <string>
+                  Sequence: <integer>
+                  Type: <string>
+                  Value: <string>
+                Custom13:
+                  Code: <string>
+                  Label: <string>
+                  ListItemID: <string>
+                  Sequence: <integer>
+                  Type: <string>
+                  Value: <string>
+                Custom14:
+                  Code: <string>
+                  Label: <string>
+                  ListItemID: <string>
+                  Sequence: <integer>
+                  Type: <string>
+                  Value: <string>
+                Custom15:
+                  Code: <string>
+                  Label: <string>
+                  ListItemID: <string>
+                  Sequence: <integer>
+                  Type: <string>
+                  Value: <string>
+                Custom16:
+                  Code: <string>
+                  Label: <string>
+                  ListItemID: <string>
+                  Sequence: <integer>
+                  Type: <string>
+                  Value: <string>
+                Custom17:
+                  Code: <string>
+                  Label: <string>
+                  ListItemID: <string>
+                  Sequence: <integer>
+                  Type: <string>
+                  Value: <string>
+                Custom18:
+                  Code: <string>
+                  Label: <string>
+                  ListItemID: <string>
+                  Sequence: <integer>
+                  Type: <string>
+                  Value: <string>
+                Custom19:
+                  Code: <string>
+                  Label: <string>
+                  ListItemID: <string>
+                  Sequence: <integer>
+                  Type: <string>
+                  Value: <string>
+                Custom2:
+                  Code: <string>
+                  Label: <string>
+                  ListItemID: <string>
+                  Sequence: <integer>
+                  Type: <string>
+                  Value: <string>
+                Custom20:
+                  Code: <string>
+                  Label: <string>
+                  ListItemID: <string>
+                  Sequence: <integer>
+                  Type: <string>
+                  Value: <string>
+                Custom3:
+                  Code: <string>
+                  Label: <string>
+                  ListItemID: <string>
+                  Sequence: <integer>
+                  Type: <string>
+                  Value: <string>
+                Custom4:
+                  Code: <string>
+                  Label: <string>
+                  ListItemID: <string>
+                  Sequence: <integer>
+                  Type: <string>
+                  Value: <string>
+                Custom5:
+                  Code: <string>
+                  Label: <string>
+                  ListItemID: <string>
+                  Sequence: <integer>
+                  Type: <string>
+                  Value: <string>
+                Custom6:
+                  Code: <string>
+                  Label: <string>
+                  ListItemID: <string>
+                  Sequence: <integer>
+                  Type: <string>
+                  Value: <string>
+                Custom7:
+                  Code: <string>
+                  Label: <string>
+                  ListItemID: <string>
+                  Sequence: <integer>
+                  Type: <string>
+                  Value: <string>
+                Custom8:
+                  Code: <string>
+                  Label: <string>
+                  ListItemID: <string>
+                  Sequence: <integer>
+                  Type: <string>
+                  Value: <string>
+                Custom9:
+                  Code: <string>
+                  Label: <string>
+                  ListItemID: <string>
+                  Sequence: <integer>
+                  Type: <string>
+                  Value: <string>
+                EntryID: <string>
+                ID: <string>
+                IsHidden: <boolean>
+                IsPercentEdited: <boolean>
+                Percentage: <string>
+                URI: <string>
+  /expense/allocations:
+    get:
+      tags:
+        - expense > allocations
+      summary: Get allocations
+      description: Gets all allocations per entry or report.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Items:
+                  AccountCode1: <string>
+                  AccountCode2: <string>
+                  Custom1:
+                    Code: <string>
+                    Label: <string>
+                    ListItemID: <string>
+                    Sequence: <integer>
+                    Type: <string>
+                    Value: <string>
+                  Custom10:
+                    Code: <string>
+                    Label: <string>
+                    ListItemID: <string>
+                    Sequence: <integer>
+                    Type: <string>
+                    Value: <string>
+                  Custom11:
+                    Code: <string>
+                    Label: <string>
+                    ListItemID: <string>
+                    Sequence: <integer>
+                    Type: <string>
+                    Value: <string>
+                  Custom12:
+                    Code: <string>
+                    Label: <string>
+                    ListItemID: <string>
+                    Sequence: <integer>
+                    Type: <string>
+                    Value: <string>
+                  Custom13:
+                    Code: <string>
+                    Label: <string>
+                    ListItemID: <string>
+                    Sequence: <integer>
+                    Type: <string>
+                    Value: <string>
+                  Custom14:
+                    Code: <string>
+                    Label: <string>
+                    ListItemID: <string>
+                    Sequence: <integer>
+                    Type: <string>
+                    Value: <string>
+                  Custom15:
+                    Code: <string>
+                    Label: <string>
+                    ListItemID: <string>
+                    Sequence: <integer>
+                    Type: <string>
+                    Value: <string>
+                  Custom16:
+                    Code: <string>
+                    Label: <string>
+                    ListItemID: <string>
+                    Sequence: <integer>
+                    Type: <string>
+                    Value: <string>
+                  Custom17:
+                    Code: <string>
+                    Label: <string>
+                    ListItemID: <string>
+                    Sequence: <integer>
+                    Type: <string>
+                    Value: <string>
+                  Custom18:
+                    Code: <string>
+                    Label: <string>
+                    ListItemID: <string>
+                    Sequence: <integer>
+                    Type: <string>
+                    Value: <string>
+                  Custom19:
+                    Code: <string>
+                    Label: <string>
+                    ListItemID: <string>
+                    Sequence: <integer>
+                    Type: <string>
+                    Value: <string>
+                  Custom2:
+                    Code: <string>
+                    Label: <string>
+                    ListItemID: <string>
+                    Sequence: <integer>
+                    Type: <string>
+                    Value: <string>
+                  Custom20:
+                    Code: <string>
+                    Label: <string>
+                    ListItemID: <string>
+                    Sequence: <integer>
+                    Type: <string>
+                    Value: <string>
+                  Custom3:
+                    Code: <string>
+                    Label: <string>
+                    ListItemID: <string>
+                    Sequence: <integer>
+                    Type: <string>
+                    Value: <string>
+                  Custom4:
+                    Code: <string>
+                    Label: <string>
+                    ListItemID: <string>
+                    Sequence: <integer>
+                    Type: <string>
+                    Value: <string>
+                  Custom5:
+                    Code: <string>
+                    Label: <string>
+                    ListItemID: <string>
+                    Sequence: <integer>
+                    Type: <string>
+                    Value: <string>
+                  Custom6:
+                    Code: <string>
+                    Label: <string>
+                    ListItemID: <string>
+                    Sequence: <integer>
+                    Type: <string>
+                    Value: <string>
+                  Custom7:
+                    Code: <string>
+                    Label: <string>
+                    ListItemID: <string>
+                    Sequence: <integer>
+                    Type: <string>
+                    Value: <string>
+                  Custom8:
+                    Code: <string>
+                    Label: <string>
+                    ListItemID: <string>
+                    Sequence: <integer>
+                    Type: <string>
+                    Value: <string>
+                  Custom9:
+                    Code: <string>
+                    Label: <string>
+                    ListItemID: <string>
+                    Sequence: <integer>
+                    Type: <string>
+                    Value: <string>
+                  EntryID: <string>
+                  ID: <string>
+                  IsHidden: <boolean>
+                  IsPercentEdited: <boolean>
+                  Percentage: <string>
+                  URI: <string>
+                NextPage: <string>

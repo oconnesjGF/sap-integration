@@ -1,0 +1,400 @@
+openapi: 3.0.0
+info:
+  title: List Items
+  description: >-
+    Provides an automated solution to clients who would like to manage list
+    items. This API provides methods to view, add, update or delete list items
+    owned by the specified lists. This API supports Concur Expense, Concur
+    Invoice, and Concur Request.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    oauth2Auth:
+      type: http
+      scheme: oauth2
+security:
+  - oauth2Auth: []
+tags:
+  - name: common
+  - name: common > listitems
+  - name: common > listitems > {id}
+paths:
+  /common/listitems/{id}:
+    get:
+      tags:
+        - common > listitems > {id}
+      summary: Get a single list item by ID
+      description: Returns the specified list item.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: listId
+          in: query
+          schema:
+            type: string
+          description: The unique identifier for the list this item is a member.
+          example: <string>
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                ID: <string>
+                Level10Code: <string>
+                Level1Code: <string>
+                Level2Code: <string>
+                Level3Code: <string>
+                Level4Code: <string>
+                Level5Code: <string>
+                Level6Code: <string>
+                Level7Code: <string>
+                Level8Code: <string>
+                Level9Code: <string>
+                ListID: <string>
+                Name: <string>
+                ParentID: <string>
+                URI: <string>
+    put:
+      tags:
+        - common > listitems > {id}
+      summary: Update list item
+      description: >-
+        Updates the specified list item. Only the provided fields will be
+        updated, missing fields will not be altered.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                Code: <string>
+                ListID: <string>
+                Name: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+    delete:
+      tags:
+        - common > listitems > {id}
+      summary: Delete list item by ID
+      description: Deletes the specified list item.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: listId
+          in: query
+          schema:
+            type: string
+          description: >-
+            (Required) The unique identifier of the list associated with a list
+            item to be deleted
+          example: <string>
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+  /common/listitems:
+    get:
+      tags:
+        - common > listitems
+      summary: Get all list items
+      description: Returns all list items based on the search criteria.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: limit
+          in: query
+          schema:
+            type: string
+          description: >-
+            The number of records to return. The default is 25 and the maximum
+            is 100.
+          example: <integer>
+        - name: offset
+          in: query
+          schema:
+            type: string
+          description: The start of the page offset. The default is from the beginning.
+          example: <string>
+        - name: listId
+          in: query
+          schema:
+            type: string
+          description: The unique identifier for the list this item is a member of.
+          example: <string>
+        - name: name
+          in: query
+          schema:
+            type: string
+          description: 'The name of the list item. Maximum length: 64.'
+          example: <string>
+        - name: parentId
+          in: query
+          schema:
+            type: string
+          description: >-
+            The unique identifier of this item's parent. Empty when there is no
+            parent.
+          example: <string>
+        - name: level1Code
+          in: query
+          schema:
+            type: string
+          description: >-
+            The item code for the first level of the list. All lists have at
+            least a Level1Code. Maximum 32 characters
+          example: <string>
+        - name: level2Code
+          in: query
+          schema:
+            type: string
+          description: >-
+            The item code for the second level of the list. Empty when this
+            level doesn't exist in the list. Maximum 32 characters
+          example: <string>
+        - name: level3Code
+          in: query
+          schema:
+            type: string
+          description: >-
+            The item code for the third level of the list. Empty when this level
+            doesn't exist in the list. Maximum 32 characters
+          example: <string>
+        - name: level4Code
+          in: query
+          schema:
+            type: string
+          description: >-
+            The item code for the fourth level of the list. Empty when this
+            level doesn't exist in the list. Maximum 32 characters
+          example: <string>
+        - name: level5Code
+          in: query
+          schema:
+            type: string
+          description: >-
+            The item code for the fifth level of the list. Empty when this level
+            doesn't exist in the list. Maximum 32 characters
+          example: <string>
+        - name: level6Code
+          in: query
+          schema:
+            type: string
+          description: >-
+            The item code for the sixth level of the list. Empty when this level
+            doesn't exist in the list. Maximum 32 characters
+          example: <string>
+        - name: level7Code
+          in: query
+          schema:
+            type: string
+          description: >-
+            The item code for the seventh level of the list. Empty when this
+            level doesn't exist in the list. Maximum 32 characters
+          example: <string>
+        - name: level8Code
+          in: query
+          schema:
+            type: string
+          description: >-
+            The item code for the eighth level of the list. Empty when this
+            level doesn't exist in the list. Maximum 32 characters
+          example: <string>
+        - name: level9Code
+          in: query
+          schema:
+            type: string
+          description: >-
+            The item code for the ninth level of the list. Empty when this level
+            doesn't exist in the list. Maximum 32 characters
+          example: <string>
+        - name: level10Code
+          in: query
+          schema:
+            type: string
+          description: >-
+            The item code for the tenth level of the list. Empty when this level
+            doesn't exist in the list. Maximum 32 characters
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Items:
+                  ID: <string>
+                  Level10Code: <string>
+                  Level1Code: <string>
+                  Level2Code: <string>
+                  Level3Code: <string>
+                  Level4Code: <string>
+                  Level5Code: <string>
+                  Level6Code: <string>
+                  Level7Code: <string>
+                  Level8Code: <string>
+                  Level9Code: <string>
+                  ListID: <string>
+                  Name: <string>
+                  ParentID: <string>
+                  URI: <string>
+                NextPage: <string>
+    post:
+      tags:
+        - common > listitems
+      summary: Create a new list item
+      description: Creates a new item in the specified list.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                Level10Code: <string>
+                Level1Code: <string>
+                Level2Code: <string>
+                Level3Code: <string>
+                Level4Code: <string>
+                Level5Code: <string>
+                Level6Code: <string>
+                Level7Code: <string>
+                Level8Code: <string>
+                Level9Code: <string>
+                ListID: <string>
+                Name: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                ID: <string>
+                URI: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}

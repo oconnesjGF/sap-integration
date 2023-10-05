@@ -1,0 +1,200 @@
+openapi: 3.0.0
+info:
+  title: Sales Tax Validation Request
+  description: >-
+    An invoice is a bill of sale for goods or services. This API provides
+    invoice information so that clients can calculate appropriate sales tax for
+    invoice items. It also allows clients to update the invoice with the
+    calculated sales tax.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    oauth2Auth:
+      type: http
+      scheme: oauth2
+security:
+  - oauth2Auth: []
+tags:
+  - name: invoice
+  - name: invoice > salestaxvalidationrequest
+paths:
+  /invoice/salestaxvalidationrequest:
+    get:
+      tags:
+        - invoice > salestaxvalidationrequest
+      summary: Get invoices
+      description: Gets invoices for the purpose of calculating sales tax.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: offset
+          in: query
+          schema:
+            type: string
+          description: >-
+            The starting point of the next set of results, after the limit
+            specified in the limit field has been reached.
+          example: <string>
+        - name: limit
+          in: query
+          schema:
+            type: string
+          description: 'The number of invoices to retrieve. Maximum value: 1000'
+          example: <integer>
+        - name: modifiedafter
+          in: query
+          schema:
+            type: string
+          description: >-
+            A parameter that can be used to limit the results to invoices
+            modified after the specified date.
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Items:
+                  BillToAddress:
+                    Address1: <string>
+                    Address2: <string>
+                    Address3: <string>
+                    City: <string>
+                    CountryCode: <string>
+                    ExternalID: <string>
+                    Name: <string>
+                    PostalCode: <string>
+                    State: <string>
+                    StateProvince: <string>
+                  CalculatedTaxAmount: <string>
+                  CalculatedTaxRate: <string>
+                  CountryCode: <string>
+                  CurrencyCode: <string>
+                  ID: <string>
+                  InvoiceAmount: <string>
+                  InvoiceDate: <string>
+                  LineItem:
+                    CalculatedTaxAmount: <string>
+                    CalculatedTaxRate: <string>
+                    CommodityCode: <string>
+                    CountryCode: <string>
+                    CurrencyCode: <string>
+                    LineItemKey: <string>
+                    Quantity: <string>
+                    Total: <string>
+                    UnitPrice: <string>
+                    Vendor:
+                      Address1: <string>
+                      Address2: <string>
+                      Address3: <string>
+                      City: <string>
+                      CountryCode: <string>
+                      PostalCode: <string>
+                      State: <string>
+                      VendorAddressName: <string>
+                      VendorName: <string>
+                  PurchaseOrderNumber: <string>
+                  RequestID: <string>
+                  ShippingAmount: <string>
+                  ShipToAddress:
+                    Address1: <string>
+                    Address2: <string>
+                    Address3: <string>
+                    City: <string>
+                    CountryCode: <string>
+                    ExternalID: <string>
+                    Name: <string>
+                    PostalCode: <string>
+                    State: <string>
+                    StateProvince: <string>
+                  Status: <string>
+                  StatusCode: <string>
+                  Tax: <string>
+                  TaxReferenceID: <string>
+                  Title: <string>
+                  Total: <string>
+                  URI: <string>
+                  VendorInvoiceNumber: <string>
+                NextPage: <string>
+                TotalCount: <integer>
+    put:
+      tags:
+        - invoice > salestaxvalidationrequest
+      summary: Update invoices with the calculated tax information
+      description: >-
+        Updates the specified invoices with the calculated tax amount and tax
+        rate.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                CalculatedTaxAmount: <string>
+                CalculatedTaxRate: <string>
+                Comments: <string>
+                ID: <string>
+                LineItem:
+                  CalculatedTaxAmount: <string>
+                  CalculatedTaxRate: <string>
+                  LineItemKey: <string>
+                Status: <string>
+                StatusCode: <string>
+                TaxReferenceID: <string>
+                URI: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Code: <integer>
+                Comments: <string>
+                Message: <string>
+                RecordNumber: <integer>
+                Status: <string>
+                TaxReferenceID: <string>
+                Type: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}

@@ -1,0 +1,3810 @@
+openapi: 3.0.0
+info:
+  title: User Provisioning
+  description: >-
+    Create and update user's profile across Concur products. UPS allows
+    requestors to create or update user profiles in bulk or individually.
+
+
+    Contact Support:
+     Email: profile@concur.com
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: Users
+  - name: Users > {id}
+  - name: Schemas
+  - name: Schemas > {id}
+  - name: ResourceTypes
+  - name: ResourceTypes > {id}
+  - name: Bulk
+  - name: provisions
+  - name: provisions > {id}
+  - name: provisions > {id} > status
+  - name: ServiceProviderConfig
+paths:
+  /Users/{id}:
+    put:
+      tags:
+        - Users > {id}
+      summary: Replace User
+      description: Replace all user data of resource with id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                timezone: <string>
+                name:
+                  familyName: <string>
+                  givenName: <string>
+                  academicTitle: Professor Doctor
+                  familyNamePrefix: <string>
+                  formatted: <string>
+                  honorificPrefix: <string>
+                  honorificSuffix: <string>
+                  legalName: <string>
+                  middleInitial: <string>
+                  middleName: <string>
+                preferredLanguage: <string>
+                active: <boolean>
+                id: <string>
+                emails:
+                  - value: <string>
+                    type: work2
+                    notifications: <boolean>
+                    verified: <boolean>
+                  - value: <string>
+                    type: work2
+                    notifications: <boolean>
+                    verified: <boolean>
+                userName: <string>
+                addresses:
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: bank
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: bank
+                dateOfBirth: <string>
+                displayName: <string>
+                emergencyContacts:
+                  - name: <string>
+                    relationship: Other
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                  - name: <string>
+                    relationship: Brother
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                entitlements:
+                  - Unified Analytics
+                  - Invoice
+                externalId: <string>
+                localeOverrides:
+                  preferenceEndDayViewHour: <integer>
+                  preferenceFirstDayOfWeek: Friday
+                  preferenceDateFormat: dd/mm/yyyy
+                  preferenceCurrencySymbolLocation: AfterAmount
+                  preferenceHourMinuteSeparator: .
+                  preferenceDefaultCalView: day
+                  preference24Hour: H:mm AM/PM
+                  preferenceNumberFormat: 1'000.00
+                  preferenceStartDayViewHour: <integer>
+                  preferenceDistance: km
+                  preferenceNegativeCurrencyFormat: '-100'
+                  preferenceNegativeNumberFormat: '-100'
+                meta:
+                  created: <string>
+                  lastModified: <string>
+                  location: <string>
+                  resourceType: <string>
+                  version: <integer>
+                nickName: <string>
+                phoneNumbers:
+                  - value: <string>
+                    type: work
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                  - value: <string>
+                    type: fax
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                title: <string>
+                urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll:
+                  adp:
+                    companyCode: <string>
+                    deductionCode: <string>
+                    employeeFileNumber: <string>
+                urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                  companyId: <string>
+                  startDate: <string>
+                  costCenter: <string>
+                  department: <string>
+                  division: <string>
+                  employeeNumber: <string>
+                  legalEntity: <string>
+                  manager:
+                    value: <string>
+                    $ref: <string>
+                    displayName: <string>
+                    employeeNumber: <string>
+                  organization: <string>
+                  terminationDate: <string>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:Approver:
+                  approverType:
+                    - payment
+                    - budget
+                urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate:
+                  delegateProdCode:
+                    - purchaseRequest
+                    - expense
+                urn:ietf:params:scim:schemas:extension:spend:2.0:Role:
+                  roles:
+                    - roleName: {}
+                    - roleName: {}
+                urn:ietf:params:scim:schemas:extension:spend:2.0:User:
+                  cashAdvanceAccountCode: <string>
+                  country: <string>
+                  locale: <string>
+                  reimbursementCurrency: <string>
+                  biHierarchy:
+                    code: <string>
+                    href: <string>
+                    syncGuid: <string>
+                  biManager:
+                    employeeNumber: <string>
+                    $ref: <string>
+                    displayName: <string>
+                    value: {}
+                  budgetCountryCode: <string>
+                  ledgerCode: <string>
+                  nonEmployee: <boolean>
+                  reimbursementType: CONCUR_PAY
+                  schemaCustomData:
+                    - href: <string>
+                      id: <string>
+                      syncGuid: <string>
+                      value: <string>
+                    - href: <string>
+                      id: <string>
+                      syncGuid: <string>
+                      value: <string>
+                  stateProvince: <string>
+                  testEmployee: <boolean>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference:
+                  allowCreditCardTransArrivalEmails: <boolean>
+                  allowReceiptImageAvailEmails: <boolean>
+                  autoAddTripCardTransOnReport: <boolean>
+                  defaultReportPrintFormat: FAX
+                  expenseAuditRequired: REQUIRED
+                  processorReportAccess: All reports including returned
+                  promptForCardTransactionsOnReport: <boolean>
+                  promptForReportPrintFormat: <boolean>
+                  showExpenseOnReport: ALL
+                  showImagingIntro: <boolean>
+                  showInstructHelpPanel: <boolean>
+                  showTotalOnReport: <boolean>
+                  useQuickItinAsDefault: <boolean>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference:
+                  emailAwaitApprovalOnCashAdvance: <boolean>
+                  emailAwaitApprovalOnPayment: <boolean>
+                  emailAwaitApprovalOnReport: <boolean>
+                  emailAwaitApprovalOnTravelRequest: <boolean>
+                  emailStatusChangeOnCashAdvance: <boolean>
+                  emailStatusChangeOnPayment: <boolean>
+                  emailStatusChangeOnReport: <boolean>
+                  emailStatusChangeOnTravelRequest: <boolean>
+                  promptForApproverOnPaymentSubmit: <boolean>
+                  promptForApproverOnReportSubmit: <boolean>
+                  promptForApproverOnTravelRequestSubmit: <boolean>
+                urn:ietf:params:scim:schemas:extension:travel:2.0:User:
+                  ruleClass:
+                    id: <integer>
+                    name: <string>
+                  name:
+                    familyName: <string>
+                    givenName: <string>
+                    hasNoMiddleName: <boolean>
+                    honorificSuffix: <string>
+                    middleName: <string>
+                    namePrefix: <string>
+                  travelCrsName: <string>
+                  customFields:
+                    - name: <string>
+                      value: <string>
+                    - name: <string>
+                      value: <string>
+                  gender: <string>
+                  groups:
+                    - <integer>
+                    - <integer>
+                  manager:
+                    employeeNumber: <string>
+                    value: <string>
+                  orgUnit: <string>
+                  permissions:
+                    OpenBookingUser: <boolean>
+                    ProfileUser: <boolean>
+                    TravelUser: <boolean>
+                  travelNameRemark: <string>
+                  xmlProfileSyncId: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timezone: <string>
+                name:
+                  familyName: <string>
+                  givenName: <string>
+                  academicTitle: Professor Doctor
+                  familyNamePrefix: <string>
+                  formatted: <string>
+                  honorificPrefix: <string>
+                  honorificSuffix: <string>
+                  legalName: <string>
+                  middleInitial: <string>
+                  middleName: <string>
+                preferredLanguage: <string>
+                active: <boolean>
+                id: <string>
+                emails:
+                  - value: <string>
+                    type: work2
+                    notifications: <boolean>
+                    verified: <boolean>
+                  - value: <string>
+                    type: work2
+                    notifications: <boolean>
+                    verified: <boolean>
+                userName: <string>
+                addresses:
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: bank
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: bank
+                dateOfBirth: <string>
+                displayName: <string>
+                emergencyContacts:
+                  - name: <string>
+                    relationship: Other
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                  - name: <string>
+                    relationship: Brother
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                entitlements:
+                  - Unified Analytics
+                  - Invoice
+                externalId: <string>
+                localeOverrides:
+                  preferenceEndDayViewHour: <integer>
+                  preferenceFirstDayOfWeek: Friday
+                  preferenceDateFormat: dd/mm/yyyy
+                  preferenceCurrencySymbolLocation: AfterAmount
+                  preferenceHourMinuteSeparator: .
+                  preferenceDefaultCalView: day
+                  preference24Hour: H:mm AM/PM
+                  preferenceNumberFormat: 1'000.00
+                  preferenceStartDayViewHour: <integer>
+                  preferenceDistance: km
+                  preferenceNegativeCurrencyFormat: '-100'
+                  preferenceNegativeNumberFormat: '-100'
+                meta:
+                  created: <string>
+                  lastModified: <string>
+                  location: <string>
+                  resourceType: <string>
+                  version: <integer>
+                nickName: <string>
+                phoneNumbers:
+                  - value: <string>
+                    type: work
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                  - value: <string>
+                    type: fax
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                title: <string>
+                urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll:
+                  adp:
+                    companyCode: <string>
+                    deductionCode: <string>
+                    employeeFileNumber: <string>
+                urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                  companyId: <string>
+                  startDate: <string>
+                  costCenter: <string>
+                  department: <string>
+                  division: <string>
+                  employeeNumber: <string>
+                  legalEntity: <string>
+                  manager:
+                    value: <string>
+                    $ref: <string>
+                    displayName: <string>
+                    employeeNumber: <string>
+                  organization: <string>
+                  terminationDate: <string>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:Approver:
+                  approverType:
+                    - payment
+                    - budget
+                urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate:
+                  delegateProdCode:
+                    - purchaseRequest
+                    - expense
+                urn:ietf:params:scim:schemas:extension:spend:2.0:Role:
+                  roles:
+                    - roleName: {}
+                    - roleName: {}
+                urn:ietf:params:scim:schemas:extension:spend:2.0:User:
+                  cashAdvanceAccountCode: <string>
+                  country: <string>
+                  locale: <string>
+                  reimbursementCurrency: <string>
+                  biHierarchy:
+                    code: <string>
+                    href: <string>
+                    syncGuid: <string>
+                  biManager:
+                    employeeNumber: <string>
+                    $ref: <string>
+                    displayName: <string>
+                    value: {}
+                  budgetCountryCode: <string>
+                  ledgerCode: <string>
+                  nonEmployee: <boolean>
+                  reimbursementType: CONCUR_PAY
+                  schemaCustomData:
+                    - href: <string>
+                      id: <string>
+                      syncGuid: <string>
+                      value: <string>
+                    - href: <string>
+                      id: <string>
+                      syncGuid: <string>
+                      value: <string>
+                  stateProvince: <string>
+                  testEmployee: <boolean>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference:
+                  allowCreditCardTransArrivalEmails: <boolean>
+                  allowReceiptImageAvailEmails: <boolean>
+                  autoAddTripCardTransOnReport: <boolean>
+                  defaultReportPrintFormat: FAX
+                  expenseAuditRequired: REQUIRED
+                  processorReportAccess: All reports including returned
+                  promptForCardTransactionsOnReport: <boolean>
+                  promptForReportPrintFormat: <boolean>
+                  showExpenseOnReport: ALL
+                  showImagingIntro: <boolean>
+                  showInstructHelpPanel: <boolean>
+                  showTotalOnReport: <boolean>
+                  useQuickItinAsDefault: <boolean>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference:
+                  emailAwaitApprovalOnCashAdvance: <boolean>
+                  emailAwaitApprovalOnPayment: <boolean>
+                  emailAwaitApprovalOnReport: <boolean>
+                  emailAwaitApprovalOnTravelRequest: <boolean>
+                  emailStatusChangeOnCashAdvance: <boolean>
+                  emailStatusChangeOnPayment: <boolean>
+                  emailStatusChangeOnReport: <boolean>
+                  emailStatusChangeOnTravelRequest: <boolean>
+                  promptForApproverOnPaymentSubmit: <boolean>
+                  promptForApproverOnReportSubmit: <boolean>
+                  promptForApproverOnTravelRequestSubmit: <boolean>
+                urn:ietf:params:scim:schemas:extension:travel:2.0:User:
+                  ruleClass:
+                    id: <integer>
+                    name: <string>
+                  name:
+                    familyName: <string>
+                    givenName: <string>
+                    hasNoMiddleName: <boolean>
+                    honorificSuffix: <string>
+                    middleName: <string>
+                    namePrefix: <string>
+                  travelCrsName: <string>
+                  customFields:
+                    - name: <string>
+                      value: <string>
+                    - name: <string>
+                      value: <string>
+                  gender: <string>
+                  groups:
+                    - <integer>
+                    - <integer>
+                  manager:
+                    employeeNumber: <string>
+                    value: <string>
+                  orgUnit: <string>
+                  permissions:
+                    OpenBookingUser: <boolean>
+                    ProfileUser: <boolean>
+                    TravelUser: <boolean>
+                  travelNameRemark: <string>
+                  xmlProfileSyncId: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '400'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '401'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '404'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '500'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '503'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+    patch:
+      tags:
+        - Users > {id}
+      summary: Patch User
+      description: Update existing user data of resource with id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:PatchOp
+                  - urn:ietf:params:scim:api:messages:2.0:PatchOp
+                Operations:
+                  op: add
+                  path: <string>
+                  value: {}
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timezone: <string>
+                name:
+                  familyName: <string>
+                  givenName: <string>
+                  academicTitle: Professor Doctor
+                  familyNamePrefix: <string>
+                  formatted: <string>
+                  honorificPrefix: <string>
+                  honorificSuffix: <string>
+                  legalName: <string>
+                  middleInitial: <string>
+                  middleName: <string>
+                preferredLanguage: <string>
+                active: <boolean>
+                id: <string>
+                emails:
+                  - value: <string>
+                    type: work2
+                    notifications: <boolean>
+                    verified: <boolean>
+                  - value: <string>
+                    type: work2
+                    notifications: <boolean>
+                    verified: <boolean>
+                userName: <string>
+                addresses:
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: bank
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: bank
+                dateOfBirth: <string>
+                displayName: <string>
+                emergencyContacts:
+                  - name: <string>
+                    relationship: Other
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                  - name: <string>
+                    relationship: Brother
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                entitlements:
+                  - Unified Analytics
+                  - Invoice
+                externalId: <string>
+                localeOverrides:
+                  preferenceEndDayViewHour: <integer>
+                  preferenceFirstDayOfWeek: Friday
+                  preferenceDateFormat: dd/mm/yyyy
+                  preferenceCurrencySymbolLocation: AfterAmount
+                  preferenceHourMinuteSeparator: .
+                  preferenceDefaultCalView: day
+                  preference24Hour: H:mm AM/PM
+                  preferenceNumberFormat: 1'000.00
+                  preferenceStartDayViewHour: <integer>
+                  preferenceDistance: km
+                  preferenceNegativeCurrencyFormat: '-100'
+                  preferenceNegativeNumberFormat: '-100'
+                meta:
+                  created: <string>
+                  lastModified: <string>
+                  location: <string>
+                  resourceType: <string>
+                  version: <integer>
+                nickName: <string>
+                phoneNumbers:
+                  - value: <string>
+                    type: work
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                  - value: <string>
+                    type: fax
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                title: <string>
+                urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll:
+                  adp:
+                    companyCode: <string>
+                    deductionCode: <string>
+                    employeeFileNumber: <string>
+                urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                  companyId: <string>
+                  startDate: <string>
+                  costCenter: <string>
+                  department: <string>
+                  division: <string>
+                  employeeNumber: <string>
+                  legalEntity: <string>
+                  manager:
+                    value: <string>
+                    $ref: <string>
+                    displayName: <string>
+                    employeeNumber: <string>
+                  organization: <string>
+                  terminationDate: <string>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:Approver:
+                  approverType:
+                    - payment
+                    - budget
+                urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate:
+                  delegateProdCode:
+                    - purchaseRequest
+                    - expense
+                urn:ietf:params:scim:schemas:extension:spend:2.0:Role:
+                  roles:
+                    - roleName: {}
+                    - roleName: {}
+                urn:ietf:params:scim:schemas:extension:spend:2.0:User:
+                  cashAdvanceAccountCode: <string>
+                  country: <string>
+                  locale: <string>
+                  reimbursementCurrency: <string>
+                  biHierarchy:
+                    code: <string>
+                    href: <string>
+                    syncGuid: <string>
+                  biManager:
+                    employeeNumber: <string>
+                    $ref: <string>
+                    displayName: <string>
+                    value: {}
+                  budgetCountryCode: <string>
+                  ledgerCode: <string>
+                  nonEmployee: <boolean>
+                  reimbursementType: CONCUR_PAY
+                  schemaCustomData:
+                    - href: <string>
+                      id: <string>
+                      syncGuid: <string>
+                      value: <string>
+                    - href: <string>
+                      id: <string>
+                      syncGuid: <string>
+                      value: <string>
+                  stateProvince: <string>
+                  testEmployee: <boolean>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference:
+                  allowCreditCardTransArrivalEmails: <boolean>
+                  allowReceiptImageAvailEmails: <boolean>
+                  autoAddTripCardTransOnReport: <boolean>
+                  defaultReportPrintFormat: FAX
+                  expenseAuditRequired: REQUIRED
+                  processorReportAccess: All reports including returned
+                  promptForCardTransactionsOnReport: <boolean>
+                  promptForReportPrintFormat: <boolean>
+                  showExpenseOnReport: ALL
+                  showImagingIntro: <boolean>
+                  showInstructHelpPanel: <boolean>
+                  showTotalOnReport: <boolean>
+                  useQuickItinAsDefault: <boolean>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference:
+                  emailAwaitApprovalOnCashAdvance: <boolean>
+                  emailAwaitApprovalOnPayment: <boolean>
+                  emailAwaitApprovalOnReport: <boolean>
+                  emailAwaitApprovalOnTravelRequest: <boolean>
+                  emailStatusChangeOnCashAdvance: <boolean>
+                  emailStatusChangeOnPayment: <boolean>
+                  emailStatusChangeOnReport: <boolean>
+                  emailStatusChangeOnTravelRequest: <boolean>
+                  promptForApproverOnPaymentSubmit: <boolean>
+                  promptForApproverOnReportSubmit: <boolean>
+                  promptForApproverOnTravelRequestSubmit: <boolean>
+                urn:ietf:params:scim:schemas:extension:travel:2.0:User:
+                  ruleClass:
+                    id: <integer>
+                    name: <string>
+                  name:
+                    familyName: <string>
+                    givenName: <string>
+                    hasNoMiddleName: <boolean>
+                    honorificSuffix: <string>
+                    middleName: <string>
+                    namePrefix: <string>
+                  travelCrsName: <string>
+                  customFields:
+                    - name: <string>
+                      value: <string>
+                    - name: <string>
+                      value: <string>
+                  gender: <string>
+                  groups:
+                    - <integer>
+                    - <integer>
+                  manager:
+                    employeeNumber: <string>
+                    value: <string>
+                  orgUnit: <string>
+                  permissions:
+                    OpenBookingUser: <boolean>
+                    ProfileUser: <boolean>
+                    TravelUser: <boolean>
+                  travelNameRemark: <string>
+                  xmlProfileSyncId: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '400'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '401'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '404'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '500'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '503'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+    delete:
+      tags:
+        - Users > {id}
+      summary: Delete User
+      description: Remove user data with id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '400'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '401'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '404'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '500'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '503'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+  /Users:
+    post:
+      tags:
+        - Users
+      summary: Create User
+      description: Populate new resource with user data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                timezone: <string>
+                name:
+                  familyName: <string>
+                  givenName: <string>
+                  academicTitle: Professor Doctor
+                  familyNamePrefix: <string>
+                  formatted: <string>
+                  honorificPrefix: <string>
+                  honorificSuffix: <string>
+                  legalName: <string>
+                  middleInitial: <string>
+                  middleName: <string>
+                preferredLanguage: <string>
+                active: <boolean>
+                id: <string>
+                emails:
+                  - value: <string>
+                    type: work2
+                    notifications: <boolean>
+                    verified: <boolean>
+                  - value: <string>
+                    type: work2
+                    notifications: <boolean>
+                    verified: <boolean>
+                userName: <string>
+                addresses:
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: bank
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: bank
+                dateOfBirth: <string>
+                displayName: <string>
+                emergencyContacts:
+                  - name: <string>
+                    relationship: Other
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                  - name: <string>
+                    relationship: Brother
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                entitlements:
+                  - Unified Analytics
+                  - Invoice
+                externalId: <string>
+                localeOverrides:
+                  preferenceEndDayViewHour: <integer>
+                  preferenceFirstDayOfWeek: Friday
+                  preferenceDateFormat: dd/mm/yyyy
+                  preferenceCurrencySymbolLocation: AfterAmount
+                  preferenceHourMinuteSeparator: .
+                  preferenceDefaultCalView: day
+                  preference24Hour: H:mm AM/PM
+                  preferenceNumberFormat: 1'000.00
+                  preferenceStartDayViewHour: <integer>
+                  preferenceDistance: km
+                  preferenceNegativeCurrencyFormat: '-100'
+                  preferenceNegativeNumberFormat: '-100'
+                meta:
+                  created: <string>
+                  lastModified: <string>
+                  location: <string>
+                  resourceType: <string>
+                  version: <integer>
+                nickName: <string>
+                phoneNumbers:
+                  - value: <string>
+                    type: work
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                  - value: <string>
+                    type: fax
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                title: <string>
+                urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll:
+                  adp:
+                    companyCode: <string>
+                    deductionCode: <string>
+                    employeeFileNumber: <string>
+                urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                  companyId: <string>
+                  startDate: <string>
+                  costCenter: <string>
+                  department: <string>
+                  division: <string>
+                  employeeNumber: <string>
+                  legalEntity: <string>
+                  manager:
+                    value: <string>
+                    $ref: <string>
+                    displayName: <string>
+                    employeeNumber: <string>
+                  organization: <string>
+                  terminationDate: <string>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:Approver:
+                  approverType:
+                    - payment
+                    - budget
+                urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate:
+                  delegateProdCode:
+                    - purchaseRequest
+                    - expense
+                urn:ietf:params:scim:schemas:extension:spend:2.0:Role:
+                  roles:
+                    - roleName: {}
+                    - roleName: {}
+                urn:ietf:params:scim:schemas:extension:spend:2.0:User:
+                  cashAdvanceAccountCode: <string>
+                  country: <string>
+                  locale: <string>
+                  reimbursementCurrency: <string>
+                  biHierarchy:
+                    code: <string>
+                    href: <string>
+                    syncGuid: <string>
+                  biManager:
+                    employeeNumber: <string>
+                    $ref: <string>
+                    displayName: <string>
+                    value: {}
+                  budgetCountryCode: <string>
+                  ledgerCode: <string>
+                  nonEmployee: <boolean>
+                  reimbursementType: CONCUR_PAY
+                  schemaCustomData:
+                    - href: <string>
+                      id: <string>
+                      syncGuid: <string>
+                      value: <string>
+                    - href: <string>
+                      id: <string>
+                      syncGuid: <string>
+                      value: <string>
+                  stateProvince: <string>
+                  testEmployee: <boolean>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference:
+                  allowCreditCardTransArrivalEmails: <boolean>
+                  allowReceiptImageAvailEmails: <boolean>
+                  autoAddTripCardTransOnReport: <boolean>
+                  defaultReportPrintFormat: FAX
+                  expenseAuditRequired: REQUIRED
+                  processorReportAccess: All reports including returned
+                  promptForCardTransactionsOnReport: <boolean>
+                  promptForReportPrintFormat: <boolean>
+                  showExpenseOnReport: ALL
+                  showImagingIntro: <boolean>
+                  showInstructHelpPanel: <boolean>
+                  showTotalOnReport: <boolean>
+                  useQuickItinAsDefault: <boolean>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference:
+                  emailAwaitApprovalOnCashAdvance: <boolean>
+                  emailAwaitApprovalOnPayment: <boolean>
+                  emailAwaitApprovalOnReport: <boolean>
+                  emailAwaitApprovalOnTravelRequest: <boolean>
+                  emailStatusChangeOnCashAdvance: <boolean>
+                  emailStatusChangeOnPayment: <boolean>
+                  emailStatusChangeOnReport: <boolean>
+                  emailStatusChangeOnTravelRequest: <boolean>
+                  promptForApproverOnPaymentSubmit: <boolean>
+                  promptForApproverOnReportSubmit: <boolean>
+                  promptForApproverOnTravelRequestSubmit: <boolean>
+                urn:ietf:params:scim:schemas:extension:travel:2.0:User:
+                  ruleClass:
+                    id: <integer>
+                    name: <string>
+                  name:
+                    familyName: <string>
+                    givenName: <string>
+                    hasNoMiddleName: <boolean>
+                    honorificSuffix: <string>
+                    middleName: <string>
+                    namePrefix: <string>
+                  travelCrsName: <string>
+                  customFields:
+                    - name: <string>
+                      value: <string>
+                    - name: <string>
+                      value: <string>
+                  gender: <string>
+                  groups:
+                    - <integer>
+                    - <integer>
+                  manager:
+                    employeeNumber: <string>
+                    value: <string>
+                  orgUnit: <string>
+                  permissions:
+                    OpenBookingUser: <boolean>
+                    ProfileUser: <boolean>
+                    TravelUser: <boolean>
+                  travelNameRemark: <string>
+                  xmlProfileSyncId: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '201':
+          description: Created
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timezone: <string>
+                name:
+                  familyName: <string>
+                  givenName: <string>
+                  academicTitle: Professor Doctor
+                  familyNamePrefix: <string>
+                  formatted: <string>
+                  honorificPrefix: <string>
+                  honorificSuffix: <string>
+                  legalName: <string>
+                  middleInitial: <string>
+                  middleName: <string>
+                preferredLanguage: <string>
+                active: <boolean>
+                id: <string>
+                emails:
+                  - value: <string>
+                    type: work2
+                    notifications: <boolean>
+                    verified: <boolean>
+                  - value: <string>
+                    type: work2
+                    notifications: <boolean>
+                    verified: <boolean>
+                userName: <string>
+                addresses:
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: bank
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: bank
+                dateOfBirth: <string>
+                displayName: <string>
+                emergencyContacts:
+                  - name: <string>
+                    relationship: Other
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                  - name: <string>
+                    relationship: Brother
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                entitlements:
+                  - Unified Analytics
+                  - Invoice
+                externalId: <string>
+                localeOverrides:
+                  preferenceEndDayViewHour: <integer>
+                  preferenceFirstDayOfWeek: Friday
+                  preferenceDateFormat: dd/mm/yyyy
+                  preferenceCurrencySymbolLocation: AfterAmount
+                  preferenceHourMinuteSeparator: .
+                  preferenceDefaultCalView: day
+                  preference24Hour: H:mm AM/PM
+                  preferenceNumberFormat: 1'000.00
+                  preferenceStartDayViewHour: <integer>
+                  preferenceDistance: km
+                  preferenceNegativeCurrencyFormat: '-100'
+                  preferenceNegativeNumberFormat: '-100'
+                meta:
+                  created: <string>
+                  lastModified: <string>
+                  location: <string>
+                  resourceType: <string>
+                  version: <integer>
+                nickName: <string>
+                phoneNumbers:
+                  - value: <string>
+                    type: work
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                  - value: <string>
+                    type: fax
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                title: <string>
+                urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll:
+                  adp:
+                    companyCode: <string>
+                    deductionCode: <string>
+                    employeeFileNumber: <string>
+                urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                  companyId: <string>
+                  startDate: <string>
+                  costCenter: <string>
+                  department: <string>
+                  division: <string>
+                  employeeNumber: <string>
+                  legalEntity: <string>
+                  manager:
+                    value: <string>
+                    $ref: <string>
+                    displayName: <string>
+                    employeeNumber: <string>
+                  organization: <string>
+                  terminationDate: <string>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:Approver:
+                  approverType:
+                    - payment
+                    - budget
+                urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate:
+                  delegateProdCode:
+                    - purchaseRequest
+                    - expense
+                urn:ietf:params:scim:schemas:extension:spend:2.0:Role:
+                  roles:
+                    - roleName: {}
+                    - roleName: {}
+                urn:ietf:params:scim:schemas:extension:spend:2.0:User:
+                  cashAdvanceAccountCode: <string>
+                  country: <string>
+                  locale: <string>
+                  reimbursementCurrency: <string>
+                  biHierarchy:
+                    code: <string>
+                    href: <string>
+                    syncGuid: <string>
+                  biManager:
+                    employeeNumber: <string>
+                    $ref: <string>
+                    displayName: <string>
+                    value: {}
+                  budgetCountryCode: <string>
+                  ledgerCode: <string>
+                  nonEmployee: <boolean>
+                  reimbursementType: CONCUR_PAY
+                  schemaCustomData:
+                    - href: <string>
+                      id: <string>
+                      syncGuid: <string>
+                      value: <string>
+                    - href: <string>
+                      id: <string>
+                      syncGuid: <string>
+                      value: <string>
+                  stateProvince: <string>
+                  testEmployee: <boolean>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference:
+                  allowCreditCardTransArrivalEmails: <boolean>
+                  allowReceiptImageAvailEmails: <boolean>
+                  autoAddTripCardTransOnReport: <boolean>
+                  defaultReportPrintFormat: FAX
+                  expenseAuditRequired: REQUIRED
+                  processorReportAccess: All reports including returned
+                  promptForCardTransactionsOnReport: <boolean>
+                  promptForReportPrintFormat: <boolean>
+                  showExpenseOnReport: ALL
+                  showImagingIntro: <boolean>
+                  showInstructHelpPanel: <boolean>
+                  showTotalOnReport: <boolean>
+                  useQuickItinAsDefault: <boolean>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference:
+                  emailAwaitApprovalOnCashAdvance: <boolean>
+                  emailAwaitApprovalOnPayment: <boolean>
+                  emailAwaitApprovalOnReport: <boolean>
+                  emailAwaitApprovalOnTravelRequest: <boolean>
+                  emailStatusChangeOnCashAdvance: <boolean>
+                  emailStatusChangeOnPayment: <boolean>
+                  emailStatusChangeOnReport: <boolean>
+                  emailStatusChangeOnTravelRequest: <boolean>
+                  promptForApproverOnPaymentSubmit: <boolean>
+                  promptForApproverOnReportSubmit: <boolean>
+                  promptForApproverOnTravelRequestSubmit: <boolean>
+                urn:ietf:params:scim:schemas:extension:travel:2.0:User:
+                  ruleClass:
+                    id: <integer>
+                    name: <string>
+                  name:
+                    familyName: <string>
+                    givenName: <string>
+                    hasNoMiddleName: <boolean>
+                    honorificSuffix: <string>
+                    middleName: <string>
+                    namePrefix: <string>
+                  travelCrsName: <string>
+                  customFields:
+                    - name: <string>
+                      value: <string>
+                    - name: <string>
+                      value: <string>
+                  gender: <string>
+                  groups:
+                    - <integer>
+                    - <integer>
+                  manager:
+                    employeeNumber: <string>
+                    value: <string>
+                  orgUnit: <string>
+                  permissions:
+                    OpenBookingUser: <boolean>
+                    ProfileUser: <boolean>
+                    TravelUser: <boolean>
+                  travelNameRemark: <string>
+                  xmlProfileSyncId: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '400'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '401'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '404'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '500'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '503'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+  /Schemas/{id}:
+    get:
+      tags:
+        - Schemas > {id}
+      summary: Get a schema.
+      description: Return schema resource by id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '400'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '401'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '404'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '500'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '503'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+  /Schemas:
+    get:
+      tags:
+        - Schemas
+      summary: Get all supported schemas.
+      description: Return all schemas associated with this service
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '400'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '401'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '404'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '500'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '503'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+  /ResourceTypes/{id}:
+    get:
+      tags:
+        - ResourceTypes > {id}
+      summary: Get Resource Type
+      description: Return resource type by id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '400'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '401'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '404'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '500'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '503'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+  /ResourceTypes:
+    get:
+      tags:
+        - ResourceTypes
+      summary: Get types of resources supported
+      description: Retrieve all resource types used by this service
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '400'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '401'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '404'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '500'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '503'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+  /Bulk:
+    post:
+      tags:
+        - Bulk
+      summary: Create a bulk provisioning request.
+      description: Create or update one or more users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:BulkRequest
+                  - urn:ietf:params:scim:api:messages:2.0:BulkRequest
+                Operations:
+                  - data:
+                      timezone: <string>
+                      name:
+                        familyName: <string>
+                        givenName: <string>
+                        academicTitle: Prof. Dr.
+                        familyNamePrefix: <string>
+                        formatted: <string>
+                        honorificPrefix: <string>
+                        honorificSuffix: <string>
+                        legalName: <string>
+                        middleInitial: <string>
+                        middleName: <string>
+                      preferredLanguage: <string>
+                      active: <boolean>
+                      id: <string>
+                      emails:
+                        - value: <string>
+                          type: other2
+                          notifications: <boolean>
+                          verified: <boolean>
+                        - value: <string>
+                          type: other2
+                          notifications: <boolean>
+                          verified: <boolean>
+                      userName: <string>
+                      addresses:
+                        - country: <string>
+                          locality: <string>
+                          postalCode: <string>
+                          region: <string>
+                          streetAddress: <string>
+                          type: work
+                        - country: <string>
+                          locality: <string>
+                          postalCode: <string>
+                          region: <string>
+                          streetAddress: <string>
+                          type: shipping
+                      dateOfBirth: <string>
+                      displayName: <string>
+                      emergencyContacts:
+                        - name: <string>
+                          relationship: Brother
+                          country: <string>
+                          emails:
+                            - <string>
+                            - <string>
+                          locality: <string>
+                          phones:
+                            - <string>
+                            - <string>
+                          postalCode: <string>
+                          region: <string>
+                          streetAddress: <string>
+                        - name: <string>
+                          relationship: Sister
+                          country: <string>
+                          emails:
+                            - <string>
+                            - <string>
+                          locality: <string>
+                          phones:
+                            - <string>
+                            - <string>
+                          postalCode: <string>
+                          region: <string>
+                          streetAddress: <string>
+                      entitlements:
+                        - Expense
+                        - Analytics
+                      externalId: <string>
+                      localeOverrides:
+                        preferenceEndDayViewHour: <integer>
+                        preferenceFirstDayOfWeek: Monday
+                        preferenceDateFormat: mm-dd-yyyy
+                        preferenceCurrencySymbolLocation: AfterAmount
+                        preferenceHourMinuteSeparator: .
+                        preferenceDefaultCalView: week
+                        preference24Hour: H:mm AM/PM
+                        preferenceNumberFormat: 1,000.00
+                        preferenceStartDayViewHour: <integer>
+                        preferenceDistance: km
+                        preferenceNegativeCurrencyFormat: '-100'
+                        preferenceNegativeNumberFormat: (100)
+                      meta:
+                        created: <string>
+                        lastModified: <string>
+                        location: <string>
+                        resourceType: <string>
+                        version: <integer>
+                      nickName: <string>
+                      phoneNumbers:
+                        - value: <string>
+                          type: work2
+                          display: <string>
+                          issuingCountry: <string>
+                          notifications: <boolean>
+                          primary: <boolean>
+                          workExtension: <string>
+                        - value: <string>
+                          type: mobile
+                          display: <string>
+                          issuingCountry: <string>
+                          notifications: <boolean>
+                          primary: <boolean>
+                          workExtension: <string>
+                      title: <string>
+                      urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll:
+                        adp:
+                          companyCode: <string>
+                          deductionCode: <string>
+                          employeeFileNumber: <string>
+                      urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                        companyId: <string>
+                        startDate: <string>
+                        costCenter: <string>
+                        department: <string>
+                        division: <string>
+                        employeeNumber: <string>
+                        legalEntity: <string>
+                        manager:
+                          value: <string>
+                          $ref: <string>
+                          displayName: <string>
+                          employeeNumber: <string>
+                        organization: <string>
+                        terminationDate: <string>
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:Approver:
+                        approverType:
+                          - purchaseRequest
+                          - budget
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate:
+                        delegateProdCode:
+                          - expense
+                          - payment
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:Role:
+                        roles:
+                          - roleName: {}
+                          - roleName: {}
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:User:
+                        cashAdvanceAccountCode: <string>
+                        country: <string>
+                        locale: <string>
+                        reimbursementCurrency: <string>
+                        biHierarchy:
+                          code: <string>
+                          href: <string>
+                          syncGuid: <string>
+                        biManager:
+                          employeeNumber: <string>
+                          $ref: <string>
+                          displayName: <string>
+                          value: {}
+                        budgetCountryCode: <string>
+                        ledgerCode: <string>
+                        nonEmployee: <boolean>
+                        reimbursementType: ADP_PAYROLL
+                        schemaCustomData:
+                          - href: <string>
+                            id: <string>
+                            syncGuid: <string>
+                            value: <string>
+                          - href: <string>
+                            id: <string>
+                            syncGuid: <string>
+                            value: <string>
+                        stateProvince: <string>
+                        testEmployee: <boolean>
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference:
+                        allowCreditCardTransArrivalEmails: <boolean>
+                        allowReceiptImageAvailEmails: <boolean>
+                        autoAddTripCardTransOnReport: <boolean>
+                        defaultReportPrintFormat: DETAILED
+                        expenseAuditRequired: ALWAYS
+                        processorReportAccess: All reports excluding returned
+                        promptForCardTransactionsOnReport: <boolean>
+                        promptForReportPrintFormat: <boolean>
+                        showExpenseOnReport: NOTHING
+                        showImagingIntro: <boolean>
+                        showInstructHelpPanel: <boolean>
+                        showTotalOnReport: <boolean>
+                        useQuickItinAsDefault: <boolean>
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference:
+                        emailAwaitApprovalOnCashAdvance: <boolean>
+                        emailAwaitApprovalOnPayment: <boolean>
+                        emailAwaitApprovalOnReport: <boolean>
+                        emailAwaitApprovalOnTravelRequest: <boolean>
+                        emailStatusChangeOnCashAdvance: <boolean>
+                        emailStatusChangeOnPayment: <boolean>
+                        emailStatusChangeOnReport: <boolean>
+                        emailStatusChangeOnTravelRequest: <boolean>
+                        promptForApproverOnPaymentSubmit: <boolean>
+                        promptForApproverOnReportSubmit: <boolean>
+                        promptForApproverOnTravelRequestSubmit: <boolean>
+                      urn:ietf:params:scim:schemas:extension:travel:2.0:User:
+                        ruleClass:
+                          id: <integer>
+                          name: <string>
+                        name:
+                          familyName: <string>
+                          givenName: <string>
+                          hasNoMiddleName: <boolean>
+                          honorificSuffix: <string>
+                          middleName: <string>
+                          namePrefix: <string>
+                        travelCrsName: <string>
+                        customFields:
+                          - name: <string>
+                            value: <string>
+                          - name: <string>
+                            value: <string>
+                        gender: <string>
+                        groups:
+                          - <integer>
+                          - <integer>
+                        manager:
+                          employeeNumber: <string>
+                          value: <string>
+                        orgUnit: <string>
+                        permissions:
+                          OpenBookingUser: <boolean>
+                          ProfileUser: <boolean>
+                          TravelUser: <boolean>
+                        travelNameRemark: <string>
+                        xmlProfileSyncId: <string>
+                    method: PUT
+                    bulkId: <string>
+                    path: /Users
+                  - data:
+                      timezone: <string>
+                      name:
+                        familyName: <string>
+                        givenName: <string>
+                        academicTitle: Professor Doctor
+                        familyNamePrefix: <string>
+                        formatted: <string>
+                        honorificPrefix: <string>
+                        honorificSuffix: <string>
+                        legalName: <string>
+                        middleInitial: <string>
+                        middleName: <string>
+                      preferredLanguage: <string>
+                      active: <boolean>
+                      id: <string>
+                      emails:
+                        - value: <string>
+                          type: home
+                          notifications: <boolean>
+                          verified: <boolean>
+                        - value: <string>
+                          type: home
+                          notifications: <boolean>
+                          verified: <boolean>
+                      userName: <string>
+                      addresses:
+                        - country: <string>
+                          locality: <string>
+                          postalCode: <string>
+                          region: <string>
+                          streetAddress: <string>
+                          type: billing
+                        - country: <string>
+                          locality: <string>
+                          postalCode: <string>
+                          region: <string>
+                          streetAddress: <string>
+                          type: work
+                      dateOfBirth: <string>
+                      displayName: <string>
+                      emergencyContacts:
+                        - name: <string>
+                          relationship: Parent
+                          country: <string>
+                          emails:
+                            - <string>
+                            - <string>
+                          locality: <string>
+                          phones:
+                            - <string>
+                            - <string>
+                          postalCode: <string>
+                          region: <string>
+                          streetAddress: <string>
+                        - name: <string>
+                          relationship: Other
+                          country: <string>
+                          emails:
+                            - <string>
+                            - <string>
+                          locality: <string>
+                          phones:
+                            - <string>
+                            - <string>
+                          postalCode: <string>
+                          region: <string>
+                          streetAddress: <string>
+                      entitlements:
+                        - Request
+                        - Request
+                      externalId: <string>
+                      localeOverrides:
+                        preferenceEndDayViewHour: <integer>
+                        preferenceFirstDayOfWeek: Thursday
+                        preferenceDateFormat: yyyy.mm.dd
+                        preferenceCurrencySymbolLocation: BeforeAmount
+                        preferenceHourMinuteSeparator: .
+                        preferenceDefaultCalView: week
+                        preference24Hour: H:mm AM/PM
+                        preferenceNumberFormat: 1 000,00
+                        preferenceStartDayViewHour: <integer>
+                        preferenceDistance: mile
+                        preferenceNegativeCurrencyFormat: (100)
+                        preferenceNegativeNumberFormat: (100)
+                      meta:
+                        created: <string>
+                        lastModified: <string>
+                        location: <string>
+                        resourceType: <string>
+                        version: <integer>
+                      nickName: <string>
+                      phoneNumbers:
+                        - value: <string>
+                          type: fax
+                          display: <string>
+                          issuingCountry: <string>
+                          notifications: <boolean>
+                          primary: <boolean>
+                          workExtension: <string>
+                        - value: <string>
+                          type: work2
+                          display: <string>
+                          issuingCountry: <string>
+                          notifications: <boolean>
+                          primary: <boolean>
+                          workExtension: <string>
+                      title: <string>
+                      urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll:
+                        adp:
+                          companyCode: <string>
+                          deductionCode: <string>
+                          employeeFileNumber: <string>
+                      urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                        companyId: <string>
+                        startDate: <string>
+                        costCenter: <string>
+                        department: <string>
+                        division: <string>
+                        employeeNumber: <string>
+                        legalEntity: <string>
+                        manager:
+                          value: <string>
+                          $ref: <string>
+                          displayName: <string>
+                          employeeNumber: <string>
+                        organization: <string>
+                        terminationDate: <string>
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:Approver:
+                        approverType:
+                          - purchaseRequest
+                          - report
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate:
+                        delegateProdCode:
+                          - payment
+                          - expense
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:Role:
+                        roles:
+                          - roleName: {}
+                          - roleName: {}
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:User:
+                        cashAdvanceAccountCode: <string>
+                        country: <string>
+                        locale: <string>
+                        reimbursementCurrency: <string>
+                        biHierarchy:
+                          code: <string>
+                          href: <string>
+                          syncGuid: <string>
+                        biManager:
+                          employeeNumber: <string>
+                          $ref: <string>
+                          displayName: <string>
+                          value: {}
+                        budgetCountryCode: <string>
+                        ledgerCode: <string>
+                        nonEmployee: <boolean>
+                        reimbursementType: ACCOUNTS_PAYABLE
+                        schemaCustomData:
+                          - href: <string>
+                            id: <string>
+                            syncGuid: <string>
+                            value: <string>
+                          - href: <string>
+                            id: <string>
+                            syncGuid: <string>
+                            value: <string>
+                        stateProvince: <string>
+                        testEmployee: <boolean>
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference:
+                        allowCreditCardTransArrivalEmails: <boolean>
+                        allowReceiptImageAvailEmails: <boolean>
+                        autoAddTripCardTransOnReport: <boolean>
+                        defaultReportPrintFormat: FAX
+                        expenseAuditRequired: ALWAYS
+                        processorReportAccess: All reports including returned
+                        promptForCardTransactionsOnReport: <boolean>
+                        promptForReportPrintFormat: <boolean>
+                        showExpenseOnReport: ALL
+                        showImagingIntro: <boolean>
+                        showInstructHelpPanel: <boolean>
+                        showTotalOnReport: <boolean>
+                        useQuickItinAsDefault: <boolean>
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference:
+                        emailAwaitApprovalOnCashAdvance: <boolean>
+                        emailAwaitApprovalOnPayment: <boolean>
+                        emailAwaitApprovalOnReport: <boolean>
+                        emailAwaitApprovalOnTravelRequest: <boolean>
+                        emailStatusChangeOnCashAdvance: <boolean>
+                        emailStatusChangeOnPayment: <boolean>
+                        emailStatusChangeOnReport: <boolean>
+                        emailStatusChangeOnTravelRequest: <boolean>
+                        promptForApproverOnPaymentSubmit: <boolean>
+                        promptForApproverOnReportSubmit: <boolean>
+                        promptForApproverOnTravelRequestSubmit: <boolean>
+                      urn:ietf:params:scim:schemas:extension:travel:2.0:User:
+                        ruleClass:
+                          id: <integer>
+                          name: <string>
+                        name:
+                          familyName: <string>
+                          givenName: <string>
+                          hasNoMiddleName: <boolean>
+                          honorificSuffix: <string>
+                          middleName: <string>
+                          namePrefix: <string>
+                        travelCrsName: <string>
+                        customFields:
+                          - name: <string>
+                            value: <string>
+                          - name: <string>
+                            value: <string>
+                        gender: <string>
+                        groups:
+                          - <integer>
+                          - <integer>
+                        manager:
+                          employeeNumber: <string>
+                          value: <string>
+                        orgUnit: <string>
+                        permissions:
+                          OpenBookingUser: <boolean>
+                          ProfileUser: <boolean>
+                          TravelUser: <boolean>
+                        travelNameRemark: <string>
+                        xmlProfileSyncId: <string>
+                    method: PATCH
+                    bulkId: <string>
+                    path: /Users
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: companyId
+          in: query
+          schema:
+            type: string
+          description: Company Id, optional for callers with bearer token
+          example: <string>
+      responses:
+        '202':
+          description: Accepted
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: <string>
+                status:
+                  completed: <boolean>
+                  success: <boolean>
+                operationsCount:
+                  total: <number>
+                  success: <number>
+                  failed: <number>
+                  pending: <number>
+                itemsPerPage: <integer>
+                operations:
+                  - id: <string>
+                    status:
+                      completed: <boolean>
+                      success: <boolean>
+                    bulkId: <string>
+                    extensions:
+                      - name: <string>
+                        status:
+                          completed: <boolean>
+                          code: <string>
+                          result: error
+                          success: <boolean>
+                        messages:
+                          code: <string>
+                          type: warning
+                          message: <string>
+                          schemaPath: <string>
+                      - name: <string>
+                        status:
+                          completed: <boolean>
+                          code: <string>
+                          result: success
+                          success: <boolean>
+                        messages:
+                          code: <string>
+                          type: warning
+                          message: <string>
+                          schemaPath: <string>
+                    resource:
+                      id: <string>
+                      type: User
+                  - id: <string>
+                    status:
+                      completed: <boolean>
+                      success: <boolean>
+                    bulkId: <string>
+                    extensions:
+                      - name: <string>
+                        status:
+                          completed: <boolean>
+                          code: <string>
+                          result: not-processed
+                          success: <boolean>
+                        messages:
+                          code: <string>
+                          type: error
+                          message: <string>
+                          schemaPath: <string>
+                      - name: <string>
+                        status:
+                          completed: <boolean>
+                          code: <string>
+                          result: error
+                          success: <boolean>
+                        messages:
+                          code: <string>
+                          type: error
+                          message: <string>
+                          schemaPath: <string>
+                    resource:
+                      id: <string>
+                      type: User
+                startIndex: <integer>
+                totalResults: <integer>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '400'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '401'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '404'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '500'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '503'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+  /provisions/{id}/status:
+    get:
+      tags:
+        - provisions > {id} > status
+      summary: Get the status of a provisioning request.
+      description: Return provisioning status associated with provisioning request.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: attributes
+          in: query
+          schema:
+            type: string
+          description: Additional attributes to include in response
+          example: operations
+        - name: startIndex
+          in: query
+          schema:
+            type: string
+          description: The 1-based index of the first operation in the set of operations
+          example: <integer>
+        - name: count
+          in: query
+          schema:
+            type: string
+          description: The number of operations to be returned in response
+          example: <integer>
+        - name: state
+          in: query
+          schema:
+            type: string
+          description: Filter operations to be returned in response based on status
+          example: success
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: <string>
+                status:
+                  completed: <boolean>
+                  success: <boolean>
+                operationsCount:
+                  total: <number>
+                  success: <number>
+                  failed: <number>
+                  pending: <number>
+                itemsPerPage: <integer>
+                operations:
+                  - id: <string>
+                    status:
+                      completed: <boolean>
+                      success: <boolean>
+                    bulkId: <string>
+                    extensions:
+                      - name: <string>
+                        status:
+                          completed: <boolean>
+                          code: <string>
+                          result: error
+                          success: <boolean>
+                        messages:
+                          code: <string>
+                          type: warning
+                          message: <string>
+                          schemaPath: <string>
+                      - name: <string>
+                        status:
+                          completed: <boolean>
+                          code: <string>
+                          result: success
+                          success: <boolean>
+                        messages:
+                          code: <string>
+                          type: warning
+                          message: <string>
+                          schemaPath: <string>
+                    resource:
+                      id: <string>
+                      type: User
+                  - id: <string>
+                    status:
+                      completed: <boolean>
+                      success: <boolean>
+                    bulkId: <string>
+                    extensions:
+                      - name: <string>
+                        status:
+                          completed: <boolean>
+                          code: <string>
+                          result: not-processed
+                          success: <boolean>
+                        messages:
+                          code: <string>
+                          type: error
+                          message: <string>
+                          schemaPath: <string>
+                      - name: <string>
+                        status:
+                          completed: <boolean>
+                          code: <string>
+                          result: error
+                          success: <boolean>
+                        messages:
+                          code: <string>
+                          type: error
+                          message: <string>
+                          schemaPath: <string>
+                    resource:
+                      id: <string>
+                      type: User
+                startIndex: <integer>
+                totalResults: <integer>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '400'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '401'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '404'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '500'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '503'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+  /ServiceProviderConfig:
+    get:
+      tags:
+        - ServiceProviderConfig
+      summary: Service provider's configuration details
+      description: Get the service provider's configuration details
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig
+                  - urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig
+                authenticationSchemes:
+                  name: <string>
+                  description: <string>
+                  specUri: <string>
+                  type: <string>
+                sort:
+                  supported: <boolean>
+                changePassword:
+                  supported: <boolean>
+                patch:
+                  supported: <boolean>
+                filter:
+                  supported: <boolean>
+                  maxResults: <integer>
+                etag:
+                  supported: <boolean>
+                meta:
+                  resourceType: ServiceProviderConfig
+                bulk:
+                  supported: <boolean>
+                  maxOperations: <integer>
+                  maxPayloadSize: <integer>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '400'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '401'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '404'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '500'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:Error
+                  - urn:ietf:params:scim:api:messages:concur:2.0:Error
+                status: '503'
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error
+                    - code: <string>
+                      message: <string>
+                      schemaPath: <string>
+                      type:
+                        - error
+                        - error

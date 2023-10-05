@@ -1,0 +1,643 @@
+openapi: 3.0.0
+info:
+  title: Launch External URL
+  description: Rest API for Launch External URL Service
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    apikeyAuth:
+      type: http
+      scheme: apikey
+tags:
+  - name: launchexternalurl
+  - name: launchexternalurl > v4
+  - name: launchexternalurl > v4 > leuconfig
+  - name: launchexternalurl > v4 > leuversion
+  - name: launchexternalurl > v4 > leuversion > {formFieldId}
+  - name: mgmt
+  - name: mgmt > version
+paths:
+  /launchexternalurl/v4/leuconfig:
+    post:
+      tags:
+        - launchexternalurl > v4 > leuconfig
+      summary: Launch external url configuration
+      description: returns the launch external url configuration for the form field
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                context_type: <string>
+                form_field_id: <string>
+                logged_in_user_id: <string>
+                report_id: <string>
+                report_owner_user_id: <string>
+                source: <string>
+                allocation_id: <string>
+                expense_ids:
+                  - <string>
+                  - <string>
+                is_mobile: <boolean>
+                logged_in_user_login_id: <string>
+                rpe_key: <string>
+                rpt_key: <string>
+      security:
+        - apikeyAuth: []
+      parameters:
+        - name: company-uid
+          in: header
+          schema:
+            type: string
+          description: (Required) The unique identifier of the company in question
+          example: <string>
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            (Required) The unique identifier of the consumer making the API
+            calls. Minimum length: 6 characters
+          example: <string>
+        - name: concur-uid
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the logged in user (required when using
+            user jwt)
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: '*/*'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "client_url": "<string>",
+                  "leu_version": "<string>",
+                  "popup_height": "<integer>",
+                  "popup_width": "<integer>"
+                }
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "errorMessage": "<string>",
+                  "httpStatus": "<string>",
+                  "path": "<string>",
+                  "timestamp": "<dateTime>",
+                  "errorId": "<string>",
+                  "validationErrors": [
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    },
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    }
+                  ]
+                }
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "errorMessage": "<string>",
+                  "httpStatus": "<string>",
+                  "path": "<string>",
+                  "timestamp": "<dateTime>",
+                  "errorId": "<string>",
+                  "validationErrors": [
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    },
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    }
+                  ]
+                }
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "errorMessage": "<string>",
+                  "httpStatus": "<string>",
+                  "path": "<string>",
+                  "timestamp": "<dateTime>",
+                  "errorId": "<string>",
+                  "validationErrors": [
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    },
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    }
+                  ]
+                }
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "errorMessage": "<string>",
+                  "httpStatus": "<string>",
+                  "path": "<string>",
+                  "timestamp": "<dateTime>",
+                  "errorId": "<string>",
+                  "validationErrors": [
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    },
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    }
+                  ]
+                }
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "errorMessage": "<string>",
+                  "httpStatus": "<string>",
+                  "path": "<string>",
+                  "timestamp": "<dateTime>",
+                  "errorId": "<string>",
+                  "validationErrors": [
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    },
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    }
+                  ]
+                }
+  /launchexternalurl/v4/leuversion/{formFieldId}:
+    get:
+      tags:
+        - launchexternalurl > v4 > leuversion > {formFieldId}
+      summary: Launch external url version
+      description: returns Launch external url version configured for the form field
+      security:
+        - apikeyAuth: []
+      parameters:
+        - name: company-uid
+          in: header
+          schema:
+            type: string
+          description: (Required) The unique identifier of the company in question
+          example: <string>
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            (Required) The unique identifier of the consumer making the API
+            calls. Minimum length: 6 characters
+          example: <string>
+        - name: concur-uid
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the logged in user (required when using
+            user jwt)
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: '*/*'
+        - name: formFieldId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "leu_version": "<string>"
+                }
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "errorMessage": "<string>",
+                  "httpStatus": "<string>",
+                  "path": "<string>",
+                  "timestamp": "<dateTime>",
+                  "errorId": "<string>",
+                  "validationErrors": [
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    },
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    }
+                  ]
+                }
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "errorMessage": "<string>",
+                  "httpStatus": "<string>",
+                  "path": "<string>",
+                  "timestamp": "<dateTime>",
+                  "errorId": "<string>",
+                  "validationErrors": [
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    },
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    }
+                  ]
+                }
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "errorMessage": "<string>",
+                  "httpStatus": "<string>",
+                  "path": "<string>",
+                  "timestamp": "<dateTime>",
+                  "errorId": "<string>",
+                  "validationErrors": [
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    },
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    }
+                  ]
+                }
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "errorMessage": "<string>",
+                  "httpStatus": "<string>",
+                  "path": "<string>",
+                  "timestamp": "<dateTime>",
+                  "errorId": "<string>",
+                  "validationErrors": [
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    },
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    }
+                  ]
+                }
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "errorMessage": "<string>",
+                  "httpStatus": "<string>",
+                  "path": "<string>",
+                  "timestamp": "<dateTime>",
+                  "errorId": "<string>",
+                  "validationErrors": [
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    },
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    }
+                  ]
+                }
+  /mgmt/version:
+    get:
+      tags:
+        - mgmt > version
+      summary: Get current server time and git commit sha of deployed LEU
+      description: /api based path requires authentication
+      security:
+        - apikeyAuth: []
+      parameters:
+        - name: company-uid
+          in: header
+          schema:
+            type: string
+          description: (Required) The unique identifier of the company in question
+          example: <string>
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            (Required) The unique identifier of the consumer making the API
+            calls. Minimum length: 6 characters
+          example: <string>
+        - name: concur-uid
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the logged in user (required when using
+            user jwt)
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: '*/*'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "errorMessage": "<string>",
+                  "httpStatus": "<string>",
+                  "path": "<string>",
+                  "timestamp": "<dateTime>",
+                  "errorId": "<string>",
+                  "validationErrors": [
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    },
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    }
+                  ]
+                }
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "errorMessage": "<string>",
+                  "httpStatus": "<string>",
+                  "path": "<string>",
+                  "timestamp": "<dateTime>",
+                  "errorId": "<string>",
+                  "validationErrors": [
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    },
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    }
+                  ]
+                }
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "errorMessage": "<string>",
+                  "httpStatus": "<string>",
+                  "path": "<string>",
+                  "timestamp": "<dateTime>",
+                  "errorId": "<string>",
+                  "validationErrors": [
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    },
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    }
+                  ]
+                }
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "errorMessage": "<string>",
+                  "httpStatus": "<string>",
+                  "path": "<string>",
+                  "timestamp": "<dateTime>",
+                  "errorId": "<string>",
+                  "validationErrors": [
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    },
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    }
+                  ]
+                }
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "errorMessage": "<string>",
+                  "httpStatus": "<string>",
+                  "path": "<string>",
+                  "timestamp": "<dateTime>",
+                  "errorId": "<string>",
+                  "validationErrors": [
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    },
+                    {
+                      "message": "<string>",
+                      "source": "<string>"
+                    }
+                  ]
+                }

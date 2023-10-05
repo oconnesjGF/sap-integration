@@ -1,0 +1,545 @@
+openapi: 3.0.0
+info:
+  title: Document Compliance Gateway API Documentation
+  description: Gateway to allow tax validators to get and update digital tax documents
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: v4
+  - name: v4 > tax-documents
+  - name: v4 > tax-documents > {id}
+  - name: v4 > peppol
+  - name: v4 > peppol > invoice
+  - name: v4 > health
+paths:
+  /v4/tax-documents/{id}:
+    get:
+      tags:
+        - v4 > tax-documents > {id}
+      summary: Get a single digital tax document
+      description: Gets the specified digital tax document by documentId.
+      parameters:
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier can be used during troubleshooting as it
+            identifies the API call in the log files.
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: '*/*'
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Description: <string>
+                DebugInfo:
+                  in_11: {}
+                  anim_ff: {}
+                  enim7b: {}
+                  velit_ae6: {}
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Description: <string>
+                DebugInfo:
+                  in_11: {}
+                  anim_ff: {}
+                  enim7b: {}
+                  velit_ae6: {}
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Description: <string>
+                DebugInfo:
+                  in_11: {}
+                  anim_ff: {}
+                  enim7b: {}
+                  velit_ae6: {}
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Description: <string>
+                DebugInfo:
+                  in_11: {}
+                  anim_ff: {}
+                  enim7b: {}
+                  velit_ae6: {}
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Description: <string>
+                DebugInfo:
+                  in_11: {}
+                  anim_ff: {}
+                  enim7b: {}
+                  velit_ae6: {}
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Description: <string>
+                DebugInfo:
+                  in_11: {}
+                  anim_ff: {}
+                  enim7b: {}
+                  velit_ae6: {}
+    put:
+      tags:
+        - v4 > tax-documents > {id}
+      summary: Validate and upload digital tax document
+      description: >-
+        API for uploading digital tax document and upload displayed version of
+        document
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                digitalTaxDocument:
+                  type: string
+                  description: (Required) Digital Tax Document
+                  example: '[object Object]'
+                displayedVersion:
+                  type: string
+                  description: PDF Displayed version
+                  example: <string>
+      parameters:
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier can be used during troubleshooting as it
+            identifies the API call in the log files.
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: multipart/form-data
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                DocumentId: <string>
+                Description: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Description: <string>
+                DebugInfo:
+                  in_11: {}
+                  anim_ff: {}
+                  enim7b: {}
+                  velit_ae6: {}
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Description: <string>
+                DebugInfo:
+                  in_11: {}
+                  anim_ff: {}
+                  enim7b: {}
+                  velit_ae6: {}
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Description: <string>
+                DebugInfo:
+                  in_11: {}
+                  anim_ff: {}
+                  enim7b: {}
+                  velit_ae6: {}
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Description: <string>
+                DebugInfo:
+                  in_11: {}
+                  anim_ff: {}
+                  enim7b: {}
+                  velit_ae6: {}
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Description: <string>
+                DebugInfo:
+                  in_11: {}
+                  anim_ff: {}
+                  enim7b: {}
+                  velit_ae6: {}
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Description: <string>
+                DebugInfo:
+                  in_11: {}
+                  anim_ff: {}
+                  enim7b: {}
+                  velit_ae6: {}
+  /v4/peppol/invoice:
+    post:
+      tags:
+        - v4 > peppol > invoice
+      summary: Send Peppol Invoice Document
+      description: DRC calls this API to send Peppol invoice to Concur
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                processType: <string>
+                country: <string>
+                action: <string>
+                channel: <string>
+                sender: <string>
+                receiver: <string>
+                document:
+                  id: <string>
+                  type: <string>
+                  contentType: <string>
+                  content: <string>
+                  attachments:
+                    - type: <string>
+                      fileName: <string>
+                      contentType: <string>
+                      content: <string>
+                    - type: <string>
+                      fileName: <string>
+                      contentType: <string>
+                      content: <string>
+      parameters:
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier can be used during troubleshooting as it
+            identifies the API call in the log files.
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                invoiceNumber: <string>
+                message: <string>
+                participantId: <string>
+                status: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                invoiceNumber: <string>
+                message: <string>
+                participantId: <string>
+                status: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                invoiceNumber: <string>
+                message: <string>
+                participantId: <string>
+                status: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                invoiceNumber: <string>
+                message: <string>
+                participantId: <string>
+                status: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                invoiceNumber: <string>
+                message: <string>
+                participantId: <string>
+                status: <string>
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                invoiceNumber: <string>
+                message: <string>
+                participantId: <string>
+                status: <string>
+  /v4/health:
+    get:
+      tags:
+        - v4 > health
+      summary: Check DCG health status
+      description: DRC calls this API to check for health status
+      parameters:
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier can be used during troubleshooting as it
+            identifies the API call in the log files.
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                ad__6a: <string>
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                ad__6a: <string>

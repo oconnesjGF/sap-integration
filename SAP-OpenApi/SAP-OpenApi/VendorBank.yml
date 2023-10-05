@@ -1,0 +1,103 @@
+openapi: 3.0.0
+info:
+  title: VendorBank
+  description: >-
+    An invoice is a bill of sale for goods or services provided by a vendor.
+    This API provides methods to create or update banking information for the
+    specified invoice vendor.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+tags:
+  - name: invoice
+  - name: invoice > vendor
+  - name: invoice > vendor > banks
+paths:
+  /invoice/vendor/banks:
+    put:
+      tags:
+        - invoice > vendor > banks
+      summary: Updates/creates vendor banking information.
+      description: Updates/creates vendor banking information.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                VendorBank:
+                  AccountNumber: <string>
+                  AccountType: <string>
+                  AddressCode: <string>
+                  BankCode: <string>
+                  BankName: <string>
+                  BranchCode: <string>
+                  BranchLocation: <string>
+                  CountryCode: <string>
+                  CurrencyAlphaCode: <string>
+                  ID: <string>
+                  IsActive: <string>
+                  NameOnAccount: <string>
+                  RoutingNumber: <string>
+                  StatusList:
+                    Code: <integer>
+                    Message: <string>
+                    RecordNumber: <integer>
+                    Type: <string>
+                  TransType: <string>
+                  URI: <string>
+                  VendorCode: <string>
+                NextPage: <string>
+                RequestRunSummary: <string>
+                TotalCount: <integer>
+                Items: {}
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                VendorBank:
+                  AccountNumber: <string>
+                  AccountType: <string>
+                  AddressCode: <string>
+                  BankCode: <string>
+                  BankName: <string>
+                  BranchCode: <string>
+                  BranchLocation: <string>
+                  CountryCode: <string>
+                  CurrencyAlphaCode: <string>
+                  ID: <string>
+                  IsActive: <string>
+                  NameOnAccount: <string>
+                  RoutingNumber: <string>
+                  StatusList:
+                    Code: <integer>
+                    Message: <string>
+                    RecordNumber: <integer>
+                    Type: <string>
+                  TransType: <string>
+                  URI: <string>
+                  VendorCode: <string>
+                NextPage: <string>
+                RequestRunSummary: <string>
+                TotalCount: <integer>
+                Items: {}

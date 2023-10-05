@@ -1,0 +1,75 @@
+openapi: 3.0.0
+info:
+  title: Request Group Configurations
+  description: >-
+    Requests allow travelers to submit travel plans, expected expenses, and
+    expected cash advance needs prior to spending funds. Request policies define
+    the required information and workflow for the requests. This API provides
+    the details of the Request policies for the supplied user ID.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: travelrequest
+  - name: travelrequest > requestgroupconfigurations
+paths:
+  /travelrequest/requestgroupconfigurations:
+    get:
+      tags:
+        - travelrequest > requestgroupconfigurations
+      summary: Get Request group configuration.
+      description: >-
+        Get the Request group configuration owned by the specified user, or all
+        Request group configurations for the company.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Items:
+                  AgencyOffices:
+                    ID: <string>
+                    Name: <string>
+                  DefaultPolicyID: <string>
+                  ID: <string>
+                  Name: <string>
+                  Policies:
+                    HeaderFormID: <string>
+                    ID: <string>
+                    IsDefault: <boolean>
+                    Name: <string>
+                    NoCreation: <boolean>
+                    SegmentTypes:
+                      DisplayOrder: <integer>
+                      IconCode: <string>
+                      ID: <string>
+                      Name: <string>
+                      SegmentCustomFormID: <string>
+                      SegmentFormID: <string>
+                      SegmentTypeCode: <string>
+                  RequestTypes:
+                    Code: <string>
+                    Name: <string>
+                  URI: <string>
+                NextPage: <string>

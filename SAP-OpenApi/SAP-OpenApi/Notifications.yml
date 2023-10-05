@@ -1,0 +1,194 @@
+openapi: 3.0.0
+info:
+  title: Notifications
+  description: >-
+    The purpose of this API is to provide SAP Concur's partners the ability to
+    message users, through the web and mobile product.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+tags:
+  - name: messages
+  - name: messages > {userId}
+  - name: messages > {userId} > session
+paths:
+  /messages/{userId}/session:
+    post:
+      tags:
+        - messages > {userId} > session
+      summary: >-
+        This endpoint provides a way for SAP Concur partners to message users
+        and notify them. Partners will provide details about the message they
+        want to send, along with data to apply to the message.
+      description: >-
+        This endpoint provides a way for SAP Concur partners to message users
+        and notify them. Partners will provide details about the message they
+        want to send, along with data to apply to the message.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                sessionId: <string>
+                templateId: <string>
+                context:
+                  url: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorId: <string>
+                    errorCode: <string>
+                    errorMessage: <string>
+                  - errorId: <string>
+                    errorCode: <string>
+                    errorMessage: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorId: <string>
+                    errorCode: <string>
+                    errorMessage: <string>
+                  - errorId: <string>
+                    errorCode: <string>
+                    errorMessage: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorId: <string>
+                    errorCode: <string>
+                    errorMessage: <string>
+                  - errorId: <string>
+                    errorCode: <string>
+                    errorMessage: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorId: <string>
+                    errorCode: <string>
+                    errorMessage: <string>
+                  - errorId: <string>
+                    errorCode: <string>
+                    errorMessage: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorId: <string>
+                    errorCode: <string>
+                    errorMessage: <string>
+                  - errorId: <string>
+                    errorCode: <string>
+                    errorMessage: <string>
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorId: <string>
+                    errorCode: <string>
+                    errorMessage: <string>
+                  - errorId: <string>
+                    errorCode: <string>
+                    errorMessage: <string>
+        '504':
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errors:
+                  - errorId: <string>
+                    errorCode: <string>
+                    errorMessage: <string>
+                  - errorId: <string>
+                    errorCode: <string>
+                    errorMessage: <string>

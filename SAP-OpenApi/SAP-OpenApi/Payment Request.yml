@@ -1,0 +1,679 @@
+openapi: 3.0.0
+info:
+  title: Payment Request
+  description: >-
+    A payment request is a request for payment (partial or full) of an invoice.
+    This API provides methods to create or update a payment request, or view a
+    payment request by ID.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    oauth2Auth:
+      type: http
+      scheme: oauth2
+security:
+  - oauth2Auth: []
+tags:
+  - name: invoice
+  - name: invoice > paymentrequest
+  - name: invoice > paymentrequest > {id}
+paths:
+  /invoice/paymentrequest/{id}:
+    get:
+      tags:
+        - invoice > paymentrequest > {id}
+      summary: Gets all Payment Request information.
+      description: >-
+        Gets all relevant information (Payment Request Header, Payment Request
+        Line Item and Payment Request Allocation) of a Payment Request.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                AmountWithoutVat: <string>
+                ApprovalStatus: <string>
+                ApprovedByDelegate: <string>
+                AssignedByUsername: <string>
+                AssignedDate: <string>
+                BuyerCostCenter: <string>
+                CalculatedAmount: <string>
+                CheckNumber: <string>
+                CompanyBillToAddress:
+                  Address1: <string>
+                  Address2: <string>
+                  Address3: <string>
+                  City: <string>
+                  CountryCode: <string>
+                  Name: <string>
+                  PostalCode: <string>
+                  State: <string>
+                CompanyShipToAddress:
+                  Address1: <string>
+                  Address2: <string>
+                  Address3: <string>
+                  City: <string>
+                  CountryCode: <string>
+                  Name: <string>
+                  PostalCode: <string>
+                  State: <string>
+                CountryCode: <string>
+                CreatedByUsername: <string>
+                CurrencyCode: <string>
+                Custom1: <string>
+                Custom10: <string>
+                Custom11: <string>
+                Custom12: <string>
+                Custom13: <string>
+                Custom14: <string>
+                Custom15: <string>
+                Custom16: <string>
+                Custom17: <string>
+                Custom18: <string>
+                Custom19: <string>
+                Custom2: <string>
+                Custom20: <string>
+                Custom21: <string>
+                Custom22: <string>
+                Custom23: <string>
+                Custom24: <string>
+                Custom3: <string>
+                Custom4: <string>
+                Custom5: <string>
+                Custom6: <string>
+                Custom7: <string>
+                Custom8: <string>
+                Custom9: <string>
+                DataSource: <string>
+                DeletedDate: <string>
+                DeliverySlipNumber: <string>
+                Description: <string>
+                DiscountPercentage: <string>
+                DiscountTerms: <string>
+                EmployeeName: <string>
+                ExternalPolicyId: <string>
+                ExtractDate: <string>
+                FirstApprovalDate: <string>
+                FirstSubmitDate: <string>
+                ID: <string>
+                InvoiceAmount: <string>
+                InvoiceDate: <string>
+                InvoiceNumber: <string>
+                InvoiceReceivedDate: <string>
+                IsAssigned: <string>
+                IsInvoiceConfirmed: <string>
+                IsPaymentRequestDeleted: <string>
+                IsPaymentRequestDuplicate: <string>
+                IsTestTransaction: <string>
+                LastSubmitDate: <string>
+                LedgerCode: <string>
+                LineItems:
+                  LineItem:
+                    Allocations:
+                      Allocation:
+                        AllocationAccountCode: <string>
+                        Custom1: <string>
+                        Custom10: <string>
+                        Custom11: <string>
+                        Custom12: <string>
+                        Custom13: <string>
+                        Custom14: <string>
+                        Custom15: <string>
+                        Custom16: <string>
+                        Custom17: <string>
+                        Custom18: <string>
+                        Custom19: <string>
+                        Custom2: <string>
+                        Custom20: <string>
+                        Custom3: <string>
+                        Custom4: <string>
+                        Custom5: <string>
+                        Custom6: <string>
+                        Custom7: <string>
+                        Custom8: <string>
+                        Custom9: <string>
+                        IsTestUser: <string>
+                        Percentage: <string>
+                    AllocationStatus: <string>
+                    AmountWithoutVat: <string>
+                    ApprovedLineItemAmount: <string>
+                    Custom1: <string>
+                    Custom10: <string>
+                    Custom11: <string>
+                    Custom12: <string>
+                    Custom13: <string>
+                    Custom14: <string>
+                    Custom15: <string>
+                    Custom16: <string>
+                    Custom17: <string>
+                    Custom18: <string>
+                    Custom19: <string>
+                    Custom2: <string>
+                    Custom20: <string>
+                    Custom3: <string>
+                    Custom4: <string>
+                    Custom5: <string>
+                    Custom6: <string>
+                    Custom7: <string>
+                    Custom8: <string>
+                    Custom9: <string>
+                    DeliverySlipNumber: <string>
+                    Description: <string>
+                    ExpenseTypeCode: <string>
+                    IsMatched: <string>
+                    LineItemId: <string>
+                    LineItemIsTestUser: <string>
+                    MatchedPurchaseOrderLineItemId: <string>
+                    PurchaseOrderNumber: <string>
+                    Quantity: <string>
+                    RequestedLineItemAmount: <string>
+                    RequestLineItemNumber: <string>
+                    ShipFromPostalCode: <string>
+                    ShipToPostalCode: <string>
+                    SupplierPartId: <string>
+                    Tax: <string>
+                    TaxCode: <string>
+                    TaxCode2: <string>
+                    TaxCode3: <string>
+                    TaxCode4: <string>
+                    TotalPrice: <string>
+                    UnitOfMeasure: <string>
+                    UnitPrice: <string>
+                    VatAmount: <string>
+                    VatAmountFour: <string>
+                    VatAmountThree: <string>
+                    VatAmountTwo: <string>
+                    VatRate: <string>
+                    VatRateFour: <string>
+                    VatRateThree: <string>
+                    VatRateTwo: <string>
+                LineItemTotalAmount: <string>
+                LineItemVatAmount: <string>
+                Name: <string>
+                NotesToVendor: <string>
+                OB10BuyerId: <string>
+                OB10TransactionId: <string>
+                OrgUnit01: <string>
+                OrgUnit02: <string>
+                OrgUnit03: <string>
+                OrgUnit04: <string>
+                OrgUnit05: <string>
+                OrgUnit06: <string>
+                PaidAmount: <string>
+                PaidDate: <string>
+                PaymentAdjustmentNotes: <string>
+                PaymentDueDate: <string>
+                PaymentMethod: <string>
+                PaymentRequestCreatedByTestUser: <string>
+                PaymentRequestDeletedBy: <string>
+                PaymentStatus: <string>
+                PaymentTermsDays: <string>
+                ProvincialTaxId: <string>
+                PurchaseOrderNumber: <string>
+                ReceiptConfirmationType: <string>
+                ShippingAmount: <string>
+                SubmittedByDelegate: <string>
+                TaxAmount: <string>
+                TaxCode: <string>
+                TaxCode2: <string>
+                TaxCode3: <string>
+                TaxCode4: <string>
+                TotalApprovedAmount: <string>
+                URI: <string>
+                UserCreationDate: <string>
+                VatAmountFour: <string>
+                VatAmountOne: <string>
+                VatAmountThree: <string>
+                VatAmountTwo: <string>
+                VatRateFour: <string>
+                VatRateOne: <string>
+                VatRateThree: <string>
+                VatRateTwo: <string>
+                VendorRemitAddress:
+                  Address1: <string>
+                  Address2: <string>
+                  Address3: <string>
+                  City: <string>
+                  CountryCode: <string>
+                  DiscountTerms: <string>
+                  Name: <string>
+                  PostalCode: <string>
+                  State: <string>
+                VendorShipFromAddress:
+                  Address1: <string>
+                  Address2: <string>
+                  Address3: <string>
+                  City: <string>
+                  CountryCode: <string>
+                  DiscountTerms: <string>
+                  Name: <string>
+                  PostalCode: <string>
+                  State: <string>
+                VendorTaxId: <string>
+                WorkflowCompleteDate: <string>
+  /invoice/paymentrequest:
+    post:
+      tags:
+        - invoice > paymentrequest
+      summary: Create a Payment Request.
+      description: >-
+        Creates a new Payment Request with all relevant details including line
+        items and associated allocations.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                AmountWithoutVat: <string>
+                BuyerCostCenter: <string>
+                CheckNumber: <string>
+                CompanyBillToAddressCode: <string>
+                CompanyShipToAddressCode: <string>
+                CountryCode: <string>
+                CurrencyCode: <string>
+                Custom01: <string>
+                Custom02: <string>
+                Custom03: <string>
+                Custom04: <string>
+                Custom05: <string>
+                Custom06: <string>
+                Custom07: <string>
+                Custom08: <string>
+                Custom09: <string>
+                Custom10: <string>
+                Custom11: <string>
+                Custom12: <string>
+                Custom13: <string>
+                Custom14: <string>
+                Custom15: <string>
+                Custom16: <string>
+                Custom17: <string>
+                Custom18: <string>
+                Custom19: <string>
+                Custom20: <string>
+                Custom21: <string>
+                Custom22: <string>
+                Custom23: <string>
+                Custom24: <string>
+                DataSource: <string>
+                DeliverySlipNumber: <string>
+                Description: <string>
+                DiscountPercentage: <string>
+                DiscountTerms: <string>
+                EmployeeEmailAddress: <string>
+                EmployeeId: <string>
+                EmployeeLoginId: <string>
+                ExternalPolicyId: <string>
+                InvoiceAmount: <string>
+                InvoiceDate: <string>
+                InvoiceNumber: <string>
+                InvoiceReceivedDate: <string>
+                IsEmergencyCheckRun: <string>
+                IsInvoiceConfirmed: <string>
+                LedgerCode: <string>
+                LineItems:
+                  Allocations:
+                    Custom01: <string>
+                    Custom02: <string>
+                    Custom03: <string>
+                    Custom04: <string>
+                    Custom05: <string>
+                    Custom06: <string>
+                    Custom07: <string>
+                    Custom08: <string>
+                    Custom09: <string>
+                    Custom10: <string>
+                    Custom11: <string>
+                    Custom12: <string>
+                    Custom13: <string>
+                    Custom14: <string>
+                    Custom15: <string>
+                    Custom16: <string>
+                    Custom17: <string>
+                    Custom18: <string>
+                    Custom19: <string>
+                    Custom20: <string>
+                    Percentage: <string>
+                  AmountWithoutVat: <string>
+                  Custom01: <string>
+                  Custom02: <string>
+                  Custom03: <string>
+                  Custom04: <string>
+                  Custom05: <string>
+                  Custom06: <string>
+                  Custom07: <string>
+                  Custom08: <string>
+                  Custom09: <string>
+                  Custom10: <string>
+                  Custom11: <string>
+                  Custom12: <string>
+                  Custom13: <string>
+                  Custom14: <string>
+                  Custom15: <string>
+                  Custom16: <string>
+                  Custom17: <string>
+                  Custom18: <string>
+                  Custom19: <string>
+                  Custom20: <string>
+                  Description: <string>
+                  ExpenseTypeCode: <string>
+                  ItemCode: <string>
+                  PurchaseOrderNumber: <string>
+                  Quantity: <string>
+                  ShipFromPostalCode: <string>
+                  ShipToPostalCode: <string>
+                  SupplierPartId: <string>
+                  Tax: <string>
+                  TaxCode: <string>
+                  TaxCode2: <string>
+                  TaxCode3: <string>
+                  TaxCode4: <string>
+                  TotalPrice: <string>
+                  UnitOfMeasure: <string>
+                  UnitPrice: <string>
+                  VatAmount: <string>
+                  VatAmountFour: <string>
+                  VatAmountThree: <string>
+                  VatAmountTwo: <string>
+                  VatRate: <string>
+                  VatRateFour: <string>
+                  VatRateThree: <string>
+                  VatRateTwo: <string>
+                Name: <string>
+                NotesToVendor: <string>
+                OB10BuyerId: <string>
+                OB10TransactionId: <string>
+                OrgUnit01: <string>
+                OrgUnit02: <string>
+                OrgUnit03: <string>
+                OrgUnit04: <string>
+                OrgUnit05: <string>
+                OrgUnit06: <string>
+                PaymentAdjustmentNotes: <string>
+                PaymentAmount: <string>
+                PaymentDueDate: <string>
+                PaymentTermsDays: <string>
+                ProvincialTaxId: <string>
+                PurchaseOrderId: <string>
+                ReceiptConfirmationType: <string>
+                ShippingAmount: <string>
+                TaxAmount: <string>
+                VatAmountFour: <string>
+                VatAmountOne: <string>
+                VatAmountThree: <string>
+                VatAmountTwo: <string>
+                VatRateFour: <string>
+                VatRateOne: <string>
+                VatRateThree: <string>
+                VatRateTwo: <string>
+                VendorRemitToIdentifier:
+                  Address1: <string>
+                  AddressCode: <string>
+                  Name: <string>
+                  PostalCode: <string>
+                  VendorCode: <string>
+                VendorShipFromAddressCode: <string>
+                VendorTaxId: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                ID: <string>
+                URI: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+    put:
+      tags:
+        - invoice > paymentrequest
+      summary: Update a Payment Request.
+      description: >-
+        Updates a payment request with all relevant details including line items
+        and associated allocations.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                AmountWithoutVat: <string>
+                BuyerCostCenter: <string>
+                CheckNumber: <string>
+                CompanyBillToAddressCode: <string>
+                CompanyShipToAddressCode: <string>
+                CountryCode: <string>
+                CurrencyCode: <string>
+                Custom01: <string>
+                Custom02: <string>
+                Custom03: <string>
+                Custom04: <string>
+                Custom05: <string>
+                Custom06: <string>
+                Custom07: <string>
+                Custom08: <string>
+                Custom09: <string>
+                Custom10: <string>
+                Custom11: <string>
+                Custom12: <string>
+                Custom13: <string>
+                Custom14: <string>
+                Custom15: <string>
+                Custom16: <string>
+                Custom17: <string>
+                Custom18: <string>
+                Custom19: <string>
+                Custom20: <string>
+                Custom21: <string>
+                Custom22: <string>
+                Custom23: <string>
+                Custom24: <string>
+                DeliverySlipNumber: <string>
+                Description: <string>
+                DiscountPercentage: <string>
+                DiscountTerms: <string>
+                DoCopyDown: <string>
+                DoCopyDownFromPO: <string>
+                EmployeeEmailAddress: <string>
+                EmployeeId: <string>
+                EmployeeLoginId: <string>
+                InvoiceAmount: <string>
+                InvoiceDate: <string>
+                InvoiceNumber: <string>
+                InvoiceReceivedDate: <string>
+                IsEmergencyCheckRun: <string>
+                IsInvoiceConfirmed: <string>
+                LineItems:
+                  Action: <string>
+                  Allocations:
+                    Custom01: <string>
+                    Custom02: <string>
+                    Custom03: <string>
+                    Custom04: <string>
+                    Custom05: <string>
+                    Custom06: <string>
+                    Custom07: <string>
+                    Custom08: <string>
+                    Custom09: <string>
+                    Custom10: <string>
+                    Custom11: <string>
+                    Custom12: <string>
+                    Custom13: <string>
+                    Custom14: <string>
+                    Custom15: <string>
+                    Custom16: <string>
+                    Custom17: <string>
+                    Custom18: <string>
+                    Custom19: <string>
+                    Custom20: <string>
+                    Percentage: <string>
+                  AmountWithoutVat: <string>
+                  Custom01: <string>
+                  Custom02: <string>
+                  Custom03: <string>
+                  Custom04: <string>
+                  Custom05: <string>
+                  Custom06: <string>
+                  Custom07: <string>
+                  Custom08: <string>
+                  Custom09: <string>
+                  Custom10: <string>
+                  Custom11: <string>
+                  Custom12: <string>
+                  Custom13: <string>
+                  Custom14: <string>
+                  Custom15: <string>
+                  Custom16: <string>
+                  Custom17: <string>
+                  Custom18: <string>
+                  Custom19: <string>
+                  Custom20: <string>
+                  Description: <string>
+                  ExpenseTypeCode: <string>
+                  ItemCode: <string>
+                  LineItemID: <string>
+                  PurchaseOrderNumber: <string>
+                  Quantity: <string>
+                  ShipFromPostalCode: <string>
+                  ShipToPostalCode: <string>
+                  SupplierPartId: <string>
+                  Tax: <string>
+                  TaxCode: <string>
+                  TaxCode2: <string>
+                  TaxCode3: <string>
+                  TaxCode4: <string>
+                  UnitOfMeasure: <string>
+                  UnitPrice: <string>
+                  VatAmount: <string>
+                  VatAmountFour: <string>
+                  VatAmountThree: <string>
+                  VatAmountTwo: <string>
+                  VatRate: <string>
+                  VatRateFour: <string>
+                  VatRateThree: <string>
+                  VatRateTwo: <string>
+                Name: <string>
+                NotesToVendor: <string>
+                OB10BuyerId: <string>
+                OB10TransactionId: <string>
+                OrgUnit01: <string>
+                OrgUnit02: <string>
+                OrgUnit03: <string>
+                OrgUnit04: <string>
+                OrgUnit05: <string>
+                OrgUnit06: <string>
+                PaymentAdjustmentNotes: <string>
+                PaymentAmount: <string>
+                PaymentDueDate: <string>
+                PaymentTermsDays: <string>
+                ProvincialTaxId: <string>
+                PurchaseOrderId: <string>
+                ReceiptConfirmationType: <string>
+                RequestID: <string>
+                ShippingAmount: <string>
+                TaxAmount: <string>
+                VatAmountFour: <string>
+                VatAmountOne: <string>
+                VatAmountThree: <string>
+                VatAmountTwo: <string>
+                VatRateFour: <string>
+                VatRateOne: <string>
+                VatRateThree: <string>
+                VatRateTwo: <string>
+                VendorRemitToIdentifier:
+                  Address1: <string>
+                  AddressCode: <string>
+                  Name: <string>
+                  PostalCode: <string>
+                  VendorCode: <string>
+                VendorShipFromAddressCode: <string>
+                VendorTaxId: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                ID: <string>
+                URI: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}

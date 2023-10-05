@@ -1,0 +1,276 @@
+openapi: 3.0.0
+info:
+  title: Purchase Order Receipts
+  description: >-
+    Purchase order receipts are records that the purchase order was completed.
+    This API provides methods to create a new purchase order receipt, view or
+    update an existing purchase order receipt, or delete a purchase order
+    receipt.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+tags:
+  - name: invoice
+  - name: invoice > purchaseorderreceipts
+paths:
+  /invoice/purchaseorderreceipts:
+    put:
+      tags:
+        - invoice > purchaseorderreceipts
+      summary: Updates purchase order receipts that are already in the system.
+      description: >-
+        Updates purchase order receipts that are already in the system and
+        returns status of the update.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                LineItemExternalID: <string>
+                PurchaseOrderNumber: <string>
+                Custom1: <string>
+                Custom10: <string>
+                Custom2: <string>
+                Custom3: <string>
+                Custom4: <string>
+                Custom5: <string>
+                Custom6: <string>
+                Custom7: <string>
+                Custom8: <string>
+                Custom9: <string>
+                Deleted: <string>
+                DeliverySlipNumber: <string>
+                GoodsReceiptNumber: <string>
+                ID: <string>
+                ReceivedDate: <string>
+                ReceivedQuantity: <string>
+                UnitOfMeasureCode: <string>
+                URI: <string>
+                Version: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                ErrorCode: <string>
+                ErrorMessage: <string>
+                FieldCode: <string>
+                LineItemExternalID: <string>
+                Message: <string>
+                PurchaseOrderNumber: <string>
+                Status: <string>
+    post:
+      tags:
+        - invoice > purchaseorderreceipts
+      summary: >-
+        Create purchase order receiving information for a purchase order line
+        item.
+      description: >-
+        Creates purchase order receipts and associate if to purchase order line
+        item and returns status of updation.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                LineItemExternalID: <string>
+                PurchaseOrderNumber: <string>
+                Custom1: <string>
+                Custom10: <string>
+                Custom2: <string>
+                Custom3: <string>
+                Custom4: <string>
+                Custom5: <string>
+                Custom6: <string>
+                Custom7: <string>
+                Custom8: <string>
+                Custom9: <string>
+                Deleted: <string>
+                DeliverySlipNumber: <string>
+                GoodsReceiptNumber: <string>
+                ID: <string>
+                ReceivedDate: <string>
+                ReceivedQuantity: <string>
+                UnitOfMeasureCode: <string>
+                URI: <string>
+                Version: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                ErrorCode: <string>
+                ErrorMessage: <string>
+                FieldCode: <string>
+                LineItemExternalID: <string>
+                Message: <string>
+                PurchaseOrderNumber: <string>
+                Status: <string>
+    get:
+      tags:
+        - invoice > purchaseorderreceipts
+      summary: Gets existing purchase order receipts information.
+      description: Gets existing purchase order receipts using below parameters.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: goodsReceiptNumber
+          in: query
+          schema:
+            type: string
+          description: >-
+            (Required) Goods receipt number for a purchase order line item
+            receipt. This parameter can be used alone or in combination with the
+            other two parameters.
+          example: <string>
+        - name: purchaseOrderNumber
+          in: query
+          schema:
+            type: string
+          description: >-
+            (Required) The purchase order number. This parameter can be used
+            alone or in combination with the other two parameters.
+          example: <string>
+        - name: lineItemExternalID
+          in: query
+          schema:
+            type: string
+          description: >-
+            A value that uniquely identifies the line item within the purchase
+            order. This parameter cannot be used alone. It must be used in
+            combination with one or more of the other available parameters.
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Items:
+                  LineItemExternalID: <string>
+                  PurchaseOrderNumber: <string>
+                  Custom1: <string>
+                  Custom10: <string>
+                  Custom2: <string>
+                  Custom3: <string>
+                  Custom4: <string>
+                  Custom5: <string>
+                  Custom6: <string>
+                  Custom7: <string>
+                  Custom8: <string>
+                  Custom9: <string>
+                  Deleted: <string>
+                  DeliverySlipNumber: <string>
+                  GoodsReceiptNumber: <string>
+                  ID: <string>
+                  ReceivedDate: <string>
+                  ReceivedQuantity: <string>
+                  UnitOfMeasureCode: <string>
+                  URI: <string>
+                  Version: <string>
+                NextPage: <string>
+                TotalCount: <integer>
+                Info: <string>
+    delete:
+      tags:
+        - invoice > purchaseorderreceipts
+      summary: Deletes a purchase order line item receipt.
+      description: >-
+        Deletes a existing purchase order line item receipt using the available
+        parameters below. The delete will only be executed if a unique record is
+        found and not associated to a payment request.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: goodsReceiptNumber
+          in: query
+          schema:
+            type: string
+          description: >-
+            (Required) Goods receipt number for a purchase order line item
+            receipt. This parameter can be used alone or in combination with the
+            other two parameters.
+          example: <string>
+        - name: purchaseOrderNumber
+          in: query
+          schema:
+            type: string
+          description: >-
+            (Required) The purchase order number. This parameter can be used
+            alone or in combination with the other two parameters.
+          example: <string>
+        - name: lineItemExternalID
+          in: query
+          schema:
+            type: string
+          description: >-
+            A value that uniquely identifies the line item within the purchase
+            order. This parameter cannot be used alone. It must be used in
+            combination with one or more of the other available parameters.
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}

@@ -1,0 +1,129 @@
+openapi: 3.0.0
+info:
+  title: VendorGroup
+  description: >-
+    An invoice is a bill of sale for goods or services provided by a vendor.
+    This API provides methods to create or delete invoice vendor groups that
+    meet the search parameters.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+tags:
+  - name: invoice
+  - name: invoice > vendor
+  - name: invoice > vendor > groups
+paths:
+  /invoice/vendor/groups:
+    put:
+      tags:
+        - invoice > vendor > groups
+      summary: Add vendor groups by Vendor Code, Address Code, and Vendor Group.
+      description: Add vendor groups by Vendor Code, Address Code, and Vendor Group.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                VendorGroup:
+                  ID: <string>
+                  Name: <string>
+                  URI: <string>
+                NextPage: <string>
+                RequestRunSummary: <string>
+                TotalCount: <integer>
+                Items: {}
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: vendorCode
+          in: query
+          schema:
+            type: string
+          description: (Required) The Vendor Code to be searched.
+          example: <string>
+        - name: addressCode
+          in: query
+          schema:
+            type: string
+          description: (Required) Address Code to be searched.
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                VendorGroup:
+                  ID: <string>
+                  Name: <string>
+                  URI: <string>
+                NextPage: <string>
+                RequestRunSummary: <string>
+                TotalCount: <integer>
+                Items: {}
+    delete:
+      tags:
+        - invoice > vendor > groups
+      summary: Delete a vendor group by Vendor Code, Address Code, and Group Name.
+      description: Delete a vendor group by Vendor Code, Address Code, and Group Name.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: vendorCode
+          in: query
+          schema:
+            type: string
+          description: (Required) The Vendor Code to be deleted.
+          example: <string>
+        - name: addressCode
+          in: query
+          schema:
+            type: string
+          description: (Required) Address Code to be deleted.
+          example: <string>
+        - name: groupName
+          in: query
+          schema:
+            type: string
+          description: (Required) Group Name to be deleted.
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                VendorGroup:
+                  ID: <string>
+                  Name: <string>
+                  URI: <string>
+                NextPage: <string>
+                RequestRunSummary: <string>
+                TotalCount: <integer>
+                Items: {}

@@ -1,0 +1,261 @@
+openapi: 3.0.0
+info:
+  title: Event Service API
+  description: Event Service API.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+  - url: https://{{datacenteruri}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: v4
+  - name: v4 > subscriptions
+  - name: v4 > subscriptions > webhook
+  - name: v4 > subscriptions > {id}
+  - name: v4 > topics
+paths:
+  /v4/subscriptions/webhook:
+    put:
+      tags:
+        - v4 > subscriptions > webhook
+      summary: Create or update subscription webhook
+      description: >-
+        Allows you to create or update subscription webhook for allowed topic
+        (look up Topic Management for details).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: <string>
+                topic: <string>
+                webHookConfig:
+                  endpoint: <string>
+                filter: <string>
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: '*/*'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: '*/*'
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                {
+                  "message": "<string>"
+                }
+  /v4/subscriptions/{id}:
+    get:
+      tags:
+        - v4 > subscriptions > {id}
+      summary: Fetch your subscription details
+      description: Allows you to fetch certain subscription details.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: servicenow.concur.travel.integration
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                applicationId: <string>
+                id: <string>
+                topic: <string>
+                webHookConfig:
+                  endpoint: <string>
+                companyIds:
+                  - <string>
+                  - <string>
+                filter: <string>
+                groups:
+                  - <string>
+                  - <string>
+                scope: <string>
+    delete:
+      tags:
+        - v4 > subscriptions > {id}
+      summary: Delete your subscription
+      description: Allows you to delete an existing subscription.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: <string>
+  /v4/subscriptions:
+    get:
+      tags:
+        - v4 > subscriptions
+      summary: Fetch all of your subscriptions and subscription details
+      description: >-
+        Allows you to fetch all of your subscriptions based on your Application
+        ID found in the JWT (web token).
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - applicationId: <string>
+                  id: <string>
+                  topic: <string>
+                  webHookConfig:
+                    endpoint: <string>
+                  companyIds:
+                    - <string>
+                    - <string>
+                  filter: <string>
+                  groups:
+                    - <string>
+                    - <string>
+                  scope: <string>
+                - applicationId: <string>
+                  id: <string>
+                  topic: <string>
+                  webHookConfig:
+                    endpoint: <string>
+                  companyIds:
+                    - <string>
+                    - <string>
+                  filter: <string>
+                  groups:
+                    - <string>
+                    - <string>
+                  scope: <string>
+  /v4/topics:
+    get:
+      tags:
+        - v4 > topics
+      summary: Fetch allowed topics
+      description: >-
+        Fetch all allowed topics. If you don't see a specific topic, you don't
+        have necessary scopes in your JWT. Please contact topic owner to add
+        correct scopes to your Application.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - <string>
+                - <string>
+  /oauth2/v0/token:
+    post:
+      tags:
+        - General
+      summary: Event Subscription Authentication
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  type: string
+                  example: client_credentials
+                client_secret:
+                  type: string
+                  example: '{{clientSecret}}'
+                client_id:
+                  type: string
+                  example: '{{clientId}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

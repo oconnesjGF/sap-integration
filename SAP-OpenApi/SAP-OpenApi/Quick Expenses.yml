@@ -1,0 +1,375 @@
+openapi: 3.0.0
+info:
+  title: Quick Expenses
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+tags:
+  - name: quickexpense
+  - name: quickexpense > v4
+  - name: quickexpense > v4 > users
+  - name: quickexpense > v4 > users > {userID}
+  - name: quickexpense > v4 > users > {userID} > context
+  - name: quickexpense > v4 > users > {userID} > context > {contextType}
+  - name: >-
+      quickexpense > v4 > users > {userID} > context > {contextType} >
+      quickexpenses
+  - name: >-
+      quickexpense > v4 > users > {userID} > context > {contextType} >
+      quickexpenses > image
+paths:
+  /quickexpense/v4/users/{userID}/context/{contextType}/quickexpenses/image:
+    post:
+      tags:
+        - >-
+          quickexpense > v4 > users > {userID} > context > {contextType} >
+          quickexpenses > image
+      summary: >-
+        This API is used to create a quick expense with image. An image is
+        required. This API accepts multipart/form-data request.
+      description: >-
+        This API creates a new quick expense and attaches an image to it, which
+        is provided with multipart/form-data request.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                fileContent:
+                  type: string
+                  description: >-
+                    (Required) Image file. <br>Supported image file type
+                    ['PNG','GIF','PDF','TIFF','JPEG']. Max image size supported
+                    - 5MB
+                  example: <string>
+                quickExpenseRequest:
+                  type: string
+                  description: >-
+                    <b>QuickExpenseRequest</b> {<br><b>comment</b> (string,
+                    optional): This is a comment attached to the quick expense.
+                    ,<br><b>entryDetails</b> (string, optional): The quick
+                    expense entry details. ,<br><b>expenseTypeId</b> (string,
+                    optional): This is the expense type id of the quick expense.
+                    ,<br><b>location</b> (Location): The location where the
+                    quick expense occurred. ,<br><b>paymentTypeId</b> (string,
+                    optional): This is the payment type id of the quick expense.
+                    , <br><b>transactionAmount</b> (Amount): The amount of the
+                    quick expense. ,<br><b>transactionDate</b> (string): This is
+                    the transaction date of the quick expense. Format:
+                    YYYY-MM-DD ,<br><b>vendor</b> (string, optional): The name
+                    of the vendor. ,<br><b>Location</b> {<br><b>city</b>
+                    (string, optional): The location city.
+                    ,<br><b>countryCode</b> (string, optional): The location
+                    country ISO 3166-1 code. ,<br><b>countrySubDivisionCode</b>
+                    (string, optional): The location country sub division ISO
+                    3166-2 code. ,<br><b>id</b> (string, optional): The unique
+                    identifier of the location. ,<br><b>name</b> (string,
+                    optional): The location name.<br>}<br><b>Amount</b>
+                    {<br><b>currencyCode</b> (string): The 3-letter ISO 4217
+                    currency code for the amount. ,<br><b>value</b> (number):
+                    The amount value.<br>}
+                  example: <string>
+      parameters:
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: A SAP Concur specific custom header used for technical support.
+          example: <string>
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the user's locale that indicates the
+            language in which the API response should be formulated.
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: multipart/form-data
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userID
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: contextType
+          in: path
+          schema:
+            type: string
+          required: true
+          example: TRAVELER
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                quickExpenseIdUri: <string>
+        '201':
+          description: Created
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                quickExpenseIdUri: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - value: >-
+                      reference #/components/schemas/ValidationError not found
+                      in the OpenAPI spec
+                  - value: >-
+                      reference #/components/schemas/ValidationError not found
+                      in the OpenAPI spec
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - value: >-
+                      reference #/components/schemas/ValidationError not found
+                      in the OpenAPI spec
+                  - value: >-
+                      reference #/components/schemas/ValidationError not found
+                      in the OpenAPI spec
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - value: >-
+                      reference #/components/schemas/ValidationError not found
+                      in the OpenAPI spec
+                  - value: >-
+                      reference #/components/schemas/ValidationError not found
+                      in the OpenAPI spec
+  /quickexpense/v4/users/{userID}/context/{contextType}/quickexpenses:
+    post:
+      tags:
+        - >-
+          quickexpense > v4 > users > {userID} > context > {contextType} >
+          quickexpenses
+      summary: >-
+        This API is used to create a quick expense. This API does not support
+        image creation.
+      description: >-
+        This API creates a basic expense with minimal fields. Can be added to
+        expense reports from within SAP Concur.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                location:
+                  city: <string>
+                  countryCode: <string>
+                  countrySubDivisionCode: <string>
+                  id: <string>
+                  name: <string>
+                transactionAmount:
+                  currencyCode: <string>
+                  value: <double>
+                transactionDate: <date>
+                comment: <string>
+                entryDetails: <string>
+                expenseTypeId: <string>
+                paymentTypeId: PENDC
+                vendor: <string>
+      parameters:
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: A SAP Concur specific custom header used for technical support.
+          example: <string>
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the user's locale that indicates the
+            language in which the API response should be formulated.
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userID
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: contextType
+          in: path
+          schema:
+            type: string
+          required: true
+          example: TRAVELER
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                quickExpenseIdUri: <string>
+        '201':
+          description: Created
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                quickExpenseIdUri: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - value: >-
+                      reference #/components/schemas/ValidationError not found
+                      in the OpenAPI spec
+                  - value: >-
+                      reference #/components/schemas/ValidationError not found
+                      in the OpenAPI spec
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - value: >-
+                      reference #/components/schemas/ValidationError not found
+                      in the OpenAPI spec
+                  - value: >-
+                      reference #/components/schemas/ValidationError not found
+                      in the OpenAPI spec
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - value: >-
+                      reference #/components/schemas/ValidationError not found
+                      in the OpenAPI spec
+                  - value: >-
+                      reference #/components/schemas/ValidationError not found
+                      in the OpenAPI spec

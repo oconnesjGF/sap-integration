@@ -1,0 +1,957 @@
+openapi: 3.0.0
+info:
+  title: Entries
+  description: >-
+    Get all entries for a user, create new entries, update entries, or delete
+    entries.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: expense
+  - name: expense > entries
+  - name: expense > entries > {id}
+paths:
+  /expense/entries/{id}:
+    get:
+      tags:
+        - expense > entries > {id}
+      summary: Get a single expense entry
+      description: Gets the specified expense entry.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: user
+          in: query
+          schema:
+            type: string
+          description: >-
+            The login ID of the user who owns the entries. The user must have
+            the Web Services Admin role to use this parameter.
+          example: <string>
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                AllocationType: <string>
+                ApprovedAmount: <double>
+                CompanyCardTransactionID: <string>
+                Custom1:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom10:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom11:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom12:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom13:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom14:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom15:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom16:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom17:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom18:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom19:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom2:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom20:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom21:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom22:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom23:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom24:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom25:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom26:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom27:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom28:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom29:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom3:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom30:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom31:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom32:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom33:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom34:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom35:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom36:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom37:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom38:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom39:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom4:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom40:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom5:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom6:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom7:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom8:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom9:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Description: <string>
+                ElectronicReceiptID: <string>
+                EmployeeBankAccountID: <string>
+                ExchangeRate: <double>
+                ExpenseTypeCode: <string>
+                ExpenseTypeName: <string>
+                FormID: <string>
+                HasAppliedCashAdvance: <boolean>
+                HasAttendees: <boolean>
+                HasComments: <boolean>
+                HasExceptions: <boolean>
+                HasImage: <boolean>
+                HasItemizations: <boolean>
+                HasVAT: <boolean>
+                ID: <string>
+                IsBillable: <boolean>
+                IsImageRequired: <boolean>
+                IsPaidByExpensePay: <boolean>
+                IsPersonal: <boolean>
+                IsPersonalCardCharge: <boolean>
+                Journey:
+                  BusinessDistance: <integer>
+                  EndLocation: <string>
+                  NumberOfPassengers: <integer>
+                  OdometerEnd: <integer>
+                  OdometerStart: <integer>
+                  PersonalDistance: <integer>
+                  StartLocation: <string>
+                  UnitOfMeasure: <string>
+                  VehicleID: <string>
+                LastModified: <dateTime>
+                LocationCountry: <string>
+                LocationID: <string>
+                LocationName: <string>
+                LocationSubdivision: <string>
+                OrgUnit1:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                OrgUnit2:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                OrgUnit3:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                OrgUnit4:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                OrgUnit5:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                OrgUnit6:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                PaymentTypeID: <string>
+                PaymentTypeName: <string>
+                PostedAmount: <double>
+                ReceiptReceived: <boolean>
+                ReportID: <string>
+                ReportOwnerID: <string>
+                SpendCategoryCode: <string>
+                SpendCategoryName: <string>
+                TaxReceiptType: <string>
+                TransactionAmount: <double>
+                TransactionCurrencyCode: <string>
+                TransactionDate: <dateTime>
+                TripID: <string>
+                URI: <string>
+                VendorDescription: <string>
+                VendorListItemID: <string>
+                VendorListItemName: <string>
+    put:
+      tags:
+        - expense > entries > {id}
+      summary: Update an expense entry
+      description: >-
+        Updates the specified expense entry. Only the fields provided in the
+        supplied object are updated. Missing fields will not be altered.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                Comment: <string>
+                Custom1: <string>
+                Custom10: <string>
+                Custom11: <string>
+                Custom12: <string>
+                Custom13: <string>
+                Custom14: <string>
+                Custom15: <string>
+                Custom16: <string>
+                Custom17: <string>
+                Custom18: <string>
+                Custom19: <string>
+                Custom2: <string>
+                Custom20: <string>
+                Custom21: <string>
+                Custom22: <string>
+                Custom23: <string>
+                Custom24: <string>
+                Custom25: <string>
+                Custom26: <string>
+                Custom27: <string>
+                Custom28: <string>
+                Custom29: <string>
+                Custom3: <string>
+                Custom30: <string>
+                Custom31: <string>
+                Custom32: <string>
+                Custom33: <string>
+                Custom34: <string>
+                Custom35: <string>
+                Custom36: <string>
+                Custom37: <string>
+                Custom38: <string>
+                Custom39: <string>
+                Custom4: <string>
+                Custom40: <string>
+                Custom5: <string>
+                Custom6: <string>
+                Custom7: <string>
+                Custom8: <string>
+                Custom9: <string>
+                Description: <string>
+                ExchangeRate: <double>
+                ExpenseTypeCode: <string>
+                IsBillable: <boolean>
+                IsPersonal: <boolean>
+                Journey:
+                  BusinessDistance: <integer>
+                  EndLocation: <string>
+                  NumberOfPassengers: <integer>
+                  OdometerEnd: <integer>
+                  OdometerStart: <integer>
+                  PersonalDistance: <integer>
+                  StartLocation: <string>
+                  UnitOfMeasure: <string>
+                  VehicleID: <string>
+                LocationID: <string>
+                OrgUnit1: <string>
+                OrgUnit2: <string>
+                OrgUnit3: <string>
+                OrgUnit4: <string>
+                OrgUnit5: <string>
+                OrgUnit6: <string>
+                PaymentTypeID: <string>
+                ReportID: <string>
+                TaxReceiptType: <string>
+                TransactionAmount: <double>
+                TransactionCurrencyCode: <string>
+                TransactionDate: <dateTime>
+                VendorDescription: <string>
+                VendorListItemID: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: user
+          in: query
+          schema:
+            type: string
+          description: >-
+            The login ID of the user who owns the entries. The user must have
+            the Web Services Admin role to use this parameter.
+          example: <string>
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+    delete:
+      tags:
+        - expense > entries > {id}
+      summary: Delete an expense entry
+      description: Deletes the specified expense entry.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: user
+          in: query
+          schema:
+            type: string
+          description: >-
+            The login ID of the user who owns the entries. The user must have
+            the Web Services Admin role to use this parameter.
+          example: <string>
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+  /expense/entries:
+    get:
+      tags:
+        - expense > entries
+      summary: Get expense entries
+      description: Gets all expense entries owned by the user.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Items:
+                  AllocationType: <string>
+                  ApprovedAmount: <double>
+                  CompanyCardTransactionID: <string>
+                  Custom1:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom10:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom11:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom12:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom13:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom14:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom15:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom16:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom17:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom18:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom19:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom2:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom20:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom21:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom22:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom23:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom24:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom25:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom26:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom27:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom28:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom29:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom3:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom30:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom31:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom32:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom33:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom34:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom35:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom36:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom37:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom38:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom39:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom4:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom40:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom5:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom6:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom7:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom8:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom9:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Description: <string>
+                  ElectronicReceiptID: <string>
+                  EmployeeBankAccountID: <string>
+                  ExchangeRate: <double>
+                  ExpenseTypeCode: <string>
+                  ExpenseTypeName: <string>
+                  FormID: <string>
+                  HasAppliedCashAdvance: <boolean>
+                  HasAttendees: <boolean>
+                  HasComments: <boolean>
+                  HasExceptions: <boolean>
+                  HasImage: <boolean>
+                  HasItemizations: <boolean>
+                  HasVAT: <boolean>
+                  ID: <string>
+                  IsBillable: <boolean>
+                  IsImageRequired: <boolean>
+                  IsPaidByExpensePay: <boolean>
+                  IsPersonal: <boolean>
+                  IsPersonalCardCharge: <boolean>
+                  Journey:
+                    BusinessDistance: <integer>
+                    EndLocation: <string>
+                    NumberOfPassengers: <integer>
+                    OdometerEnd: <integer>
+                    OdometerStart: <integer>
+                    PersonalDistance: <integer>
+                    StartLocation: <string>
+                    UnitOfMeasure: <string>
+                    VehicleID: <string>
+                  LastModified: <dateTime>
+                  LocationCountry: <string>
+                  LocationID: <string>
+                  LocationName: <string>
+                  LocationSubdivision: <string>
+                  OrgUnit1:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  OrgUnit2:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  OrgUnit3:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  OrgUnit4:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  OrgUnit5:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  OrgUnit6:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  PaymentTypeID: <string>
+                  PaymentTypeName: <string>
+                  PostedAmount: <double>
+                  ReceiptReceived: <boolean>
+                  ReportID: <string>
+                  ReportOwnerID: <string>
+                  SpendCategoryCode: <string>
+                  SpendCategoryName: <string>
+                  TaxReceiptType: <string>
+                  TransactionAmount: <double>
+                  TransactionCurrencyCode: <string>
+                  TransactionDate: <dateTime>
+                  TripID: <string>
+                  URI: <string>
+                  VendorDescription: <string>
+                  VendorListItemID: <string>
+                  VendorListItemName: <string>
+                NextPage: <string>
+    post:
+      tags:
+        - expense > entries
+      summary: Create expense entry
+      description: Creates a new expense entry for the specified user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                Comment: <string>
+                Custom1: <string>
+                Custom10: <string>
+                Custom11: <string>
+                Custom12: <string>
+                Custom13: <string>
+                Custom14: <string>
+                Custom15: <string>
+                Custom16: <string>
+                Custom17: <string>
+                Custom18: <string>
+                Custom19: <string>
+                Custom2: <string>
+                Custom20: <string>
+                Custom21: <string>
+                Custom22: <string>
+                Custom23: <string>
+                Custom24: <string>
+                Custom25: <string>
+                Custom26: <string>
+                Custom27: <string>
+                Custom28: <string>
+                Custom29: <string>
+                Custom3: <string>
+                Custom30: <string>
+                Custom31: <string>
+                Custom32: <string>
+                Custom33: <string>
+                Custom34: <string>
+                Custom35: <string>
+                Custom36: <string>
+                Custom37: <string>
+                Custom38: <string>
+                Custom39: <string>
+                Custom4: <string>
+                Custom40: <string>
+                Custom5: <string>
+                Custom6: <string>
+                Custom7: <string>
+                Custom8: <string>
+                Custom9: <string>
+                Description: <string>
+                ExchangeRate: <double>
+                ExpenseTypeCode: <string>
+                IsBillable: <boolean>
+                IsPersonal: <boolean>
+                Journey:
+                  BusinessDistance: <integer>
+                  EndLocation: <string>
+                  NumberOfPassengers: <integer>
+                  OdometerEnd: <integer>
+                  OdometerStart: <integer>
+                  PersonalDistance: <integer>
+                  StartLocation: <string>
+                  UnitOfMeasure: <string>
+                  VehicleID: <string>
+                LocationID: <string>
+                OrgUnit1: <string>
+                OrgUnit2: <string>
+                OrgUnit3: <string>
+                OrgUnit4: <string>
+                OrgUnit5: <string>
+                OrgUnit6: <string>
+                PaymentTypeID: <string>
+                ReportID: <string>
+                TaxReceiptType: <string>
+                TransactionAmount: <double>
+                TransactionCurrencyCode: <string>
+                TransactionDate: <dateTime>
+                VendorDescription: <string>
+                VendorListItemID: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: user
+          in: query
+          schema:
+            type: string
+          description: >-
+            The login ID of the user who owns the entries. The user must have
+            the Web Services Admin role to use this parameter.
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                ID: <string>
+                URI: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}

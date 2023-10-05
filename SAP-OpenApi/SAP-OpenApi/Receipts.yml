@@ -1,0 +1,1475 @@
+openapi: 3.0.0
+info:
+  title: Receipts
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: receipts
+  - name: receipts > v4
+  - name: receipts > v4 > status
+  - name: receipts > v4 > status > {receiptId}
+  - name: receipts > v4 > {receiptId}
+  - name: receipts > v4 > {receiptId} > digitizedImage
+  - name: receipts > v4 > {receiptId} > image
+  - name: receipts > v4 > {receiptId} > states
+  - name: receipts > v4 > {receiptId} > sdr
+  - name: receipts > v4 > digitizedImages
+  - name: receipts > v4 > image-only-receipts
+  - name: receipts > v4 > image-only-receipts > {receiptId}
+  - name: receipts > v4 > image-only-receipts > {receiptId} > image
+  - name: receipts > v4 > sdrExtracts
+  - name: receipts > v4 > users
+  - name: receipts > v4 > users > {userId}
+  - name: receipts > v4 > users > {userId} > image-only-receipts
+  - name: receipts > v4 > users > {userId} > image-only-receipts > {state}
+  - name: receipts > v4 > users > {userId} > {state}
+  - name: receipts > schemas
+  - name: receipts > schemas > {schemaId}
+paths:
+  /receipts/v4/status/{receiptId}:
+    get:
+      tags:
+        - receipts > v4 > status > {receiptId}
+      summary: Receipt status
+      description: Get status information about a receipt.
+      parameters:
+        - name: receiptId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /receipts/v4/status:
+    post:
+      tags:
+        - receipts > v4 > status
+      summary: Bulk status
+      description: >-
+        Get status information for multiple receipts at once. Either receiptIds
+        or forwardIds can be used. Maximum 50 receipts per call.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                receiptIds:
+                  - <string>
+                  - <string>
+                forwardIds:
+                  - <string>
+                  - <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - receiptId: <string>
+                  responseCode: <number>
+                  receiptStatus:
+                    status: PROCESSING
+                    digitizationStatus: FAILED
+                  receiptEventLogs: <string>
+                - receiptId: <string>
+                  responseCode: <number>
+                  receiptStatus:
+                    status: PROCESSED
+                    digitizationStatus: NO_PROCESSING_REQUIRED
+                  receiptEventLogs: <string>
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /receipts/v4/{receiptId}/digitizedImage:
+    get:
+      tags:
+        - receipts > v4 > {receiptId} > digitizedImage
+      summary: Digitized image by ID
+      description: >-
+        Get a digitized receipt image. These digitized images are the result of
+        special processing and comply with legal regulations in certain
+        jurisdictions.
+      parameters:
+        - name: receiptId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /receipts/v4/{receiptId}/image:
+    get:
+      tags:
+        - receipts > v4 > {receiptId} > image
+      summary: Image by ID
+      description: Get the image file for a given receiptId
+      parameters:
+        - name: receiptId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /receipts/v4/{receiptId}/states:
+    get:
+      tags:
+        - receipts > v4 > {receiptId} > states
+      summary: Receipt by ID
+      description: >-
+        Get an individual receipt by receiptId, including state metadata. The
+        JSON will include links that can be called to change the state of the
+        receipt.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: receiptId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                links:
+                  - href: commodo eu
+                    method: ut nulla aute
+                    rel: ad eu laborum id
+                  - href: dolor non esse ex
+                    method: pariatur enim esse
+                    rel: Lorem fugiat adipisicing eu qui
+                modifiedAt: <string>
+                companyId: <string>
+                dateTimeReceived: <string>
+                entityId: <string>
+                validationSchema: >-
+                  http://schema.concursolutions.com/car-rental-receipt.schema.json
+                receipt: {}
+                image: <string>
+                userId: <string>
+                id: <string>
+                digitizationStatus: PROCESSING
+                forwardId: {}
+                self: <string>
+                template: <string>
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /receipts/v4/{receiptId}/sdr:
+    get:
+      tags:
+        - receipts > v4 > {receiptId} > sdr
+      summary: SDR
+      description: >-
+        Get the structured data record (SDR) for a receipt. This data is related
+        to tax regulations in certain jurisdictions.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: receiptId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                invoiceNumber: <string>
+                invoiceType: FA
+                supplierName: <string>
+                supplierTaxId: <string>
+                supplierAddress:
+                  streetAddress: <string>
+                  addressLocality: <string>
+                  addressRegion: <string>
+                  addressCountry: <string>
+                  postalCode: <string>
+                transactionDate: <string>
+                issueDate: <string>
+                taxes:
+                  - rateType: parking
+                    taxRate: '.571'
+                    taxBase: '4287802'
+                    amount: '5746941053'
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+    post:
+      tags:
+        - receipts > v4 > {receiptId} > sdr
+      summary: >-
+        Create/update SDR data for a receipt. The receipt MUST have been
+        successfully digitized (digitizationStatus is PROCESSED) for the request
+        to succeed. Digitization status can be checked by calling GET
+        /receipts/receipts/v4/status/{receiptId}
+      description: >-
+        Create/update SDR data for a receipt. The receipt MUST have been
+        successfully digitized (digitizationStatus is PROCESSED) for the request
+        to succeed. Digitization status can be checked by calling GET
+        /receipts/receipts/v4/status/{receiptId}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                sdrData:
+                  invoiceNumber: <string>
+                  invoiceType: FC
+                  supplierName: <string>
+                  supplierTaxId: <string>
+                  supplierAddress:
+                    streetAddress: <string>
+                    addressLocality: <string>
+                    addressRegion: <string>
+                    addressCountry: <string>
+                    postalCode: <string>
+                  transactionDate: <string>
+                  issueDate: <string>
+                  taxes:
+                    - rateType: superReduced
+                      taxRate: '35.23377'
+                      taxBase: '99641.0010934'
+                      amount: '0526165.8475'
+      parameters:
+        - name: link
+          in: header
+          schema:
+            type: string
+          description: >-
+            A link to the SDR schema to be used to validate the incoming
+            E-receipt data. Currently, Spain is the only locality supported for
+            SDR.
+          example: >-
+            <http://schema.concursolutions.com/spain-sdr.schema.json>;rel=describedBy
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: receiptId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '202':
+          description: Accepted
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '422':
+          description: Unprocessable Entity (WebDAV) (RFC 4918)
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /receipts/v4/{receiptId}:
+    get:
+      tags:
+        - receipts > v4 > {receiptId}
+      summary: Receipt by ID
+      description: Get an individual receipt by receiptId.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: receiptId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                modifiedAt: <string>
+                companyId: <string>
+                dateTimeReceived: <string>
+                entityId: <string>
+                validationSchema: http://schema.concursolutions.com/air-receipt.schema.json
+                receipt: {}
+                image: <string>
+                userId: <string>
+                id: <string>
+                digitizationStatus: FAILED
+                forwardId: {}
+                self: <string>
+                template: <string>
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /receipts/v4/digitizedImages:
+    get:
+      tags:
+        - receipts > v4 > digitizedImages
+      summary: Digitized image by alternate query parameters
+      description: >-
+        Get a digitized receipt image. These digitized images are the result of
+        special processing and comply with legal regulations in certain
+        jurisdictions. This route is an alternative method for retrieving a
+        digitized image, and should only be used if the caller does not have
+        access to the receiptId associated with the image.
+      parameters:
+        - name: forwardId
+          in: query
+          schema:
+            type: string
+          description: The forwardId submitted along with the original receipt POST request
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /receipts/v4/image-only-receipts/{receiptId}/image:
+    get:
+      tags:
+        - receipts > v4 > image-only-receipts > {receiptId} > image
+      summary: Image by ID
+      description: Get the image file for a given receiptId
+      parameters:
+        - name: receiptId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /receipts/v4/image-only-receipts/{receiptId}:
+    get:
+      tags:
+        - receipts > v4 > image-only-receipts > {receiptId}
+      summary: Image-only receipt by ID
+      description: Get an individual image-only receipt by receiptId.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: receiptId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                modifiedAt: <string>
+                companyId: <string>
+                dateTimeReceived: <string>
+                entityId: <string>
+                digitizationData:
+                  captureMethod: expenseItCapture
+                  hashCode: <string>
+                image: <string>
+                userId: <string>
+                id: <string>
+                digitizationStatus: FAILED
+                forwardId: {}
+                self: <string>
+                template: <string>
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /receipts/v4/sdrExtracts:
+    get:
+      tags:
+        - receipts > v4 > sdrExtracts
+      summary: SDR extract
+      description: >-
+        Get a compressed extract file containing all SDR records for a given
+        company from a one-month fiscal period. Extracts are generated at the
+        end of each month.
+      parameters:
+        - name: company-id
+          in: query
+          schema:
+            type: string
+          description: (Required) Company UUID
+          example: <string>
+        - name: fiscal-period
+          in: query
+          schema:
+            type: string
+          description: (Required) One month fiscal period in the format YYYY-MM
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /receipts/v4/users/{userId}/image-only-receipts/{state}:
+    get:
+      tags:
+        - receipts > v4 > users > {userId} > image-only-receipts > {state}
+      summary: Receipts for a user by state
+      description: >-
+        Get all v4 image-only receipts for a single user with a certain state.
+        Valid states are consumable (not attached to an expense report),
+        consumed (attached), and discarded (deleted by the user). Maximum 50
+        receipts per page. If there are more results after the first page, a
+        next page link will be provided in the results.  Calling that link will
+        retrieve the next page of receipts.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: state
+          in: path
+          schema:
+            type: string
+          required: true
+          example: consumed
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                imageOnlyReceipts:
+                  - modifiedAt: <string>
+                    companyId: <string>
+                    dateTimeReceived: <string>
+                    entityId: <string>
+                    validationSchema: >-
+                      http://schema.concursolutions.com/ground-transport-receipt.schema.json
+                    receipt: {}
+                    image: <string>
+                    userId: <string>
+                    id: <string>
+                    digitizationStatus: FAILED
+                    forwardId: {}
+                    self: <string>
+                    template: <string>
+                  - modifiedAt: <string>
+                    companyId: <string>
+                    dateTimeReceived: <string>
+                    entityId: <string>
+                    validationSchema: >-
+                      http://schema.concursolutions.com/ground-transport-receipt.schema.json
+                    receipt: {}
+                    image: <string>
+                    userId: <string>
+                    id: <string>
+                    digitizationStatus: PROCESSED
+                    forwardId: {}
+                    self: <string>
+                    template: <string>
+                next: <string>
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /receipts/v4/users/{userId}/image-only-receipts:
+    get:
+      tags:
+        - receipts > v4 > users > {userId} > image-only-receipts
+      summary: Image-only receipts by userId
+      description: >-
+        Get all v4 image-only receipts for a single user. Maximum 50 receipts
+        per page. If there are more results after the first page, a next page
+        link will be provided in the results. Calling that link will retrieve
+        the next page of receipts.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                imageOnlyReceipts:
+                  - modifiedAt: <string>
+                    companyId: <string>
+                    dateTimeReceived: <string>
+                    entityId: <string>
+                    digitizationData:
+                      captureMethod: expenseItCapture
+                      hashCode: <string>
+                    image: <string>
+                    userId: <string>
+                    id: <string>
+                    digitizationStatus: ACCEPTED
+                    forwardId: {}
+                    self: <string>
+                    template: <string>
+                  - modifiedAt: <string>
+                    companyId: <string>
+                    dateTimeReceived: <string>
+                    entityId: <string>
+                    digitizationData:
+                      captureMethod: mobileCapture
+                      hashCode: <string>
+                    image: <string>
+                    userId: <string>
+                    id: <string>
+                    digitizationStatus: ACCEPTED
+                    forwardId: {}
+                    self: <string>
+                    template: <string>
+                next: <string>
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+    post:
+      tags:
+        - receipts > v4 > users > {userId} > image-only-receipts
+      summary: New image-only receipt
+      description: >-
+        Create a new image-only receipt. Image-only receipts consist of an image
+        without the JSON data that is included with E-receipts.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  description: (Required) The receipt image
+                  example: <string>
+                clientData:
+                  type: string
+                  description: >-
+                    Metadata about the capture of a paper receipt. Required for
+                    special GRDC processing rules to take effect. This parameter
+                    should be JSON. Please see the model for clientData for more
+                    details.
+                  example: <string>
+                forwardId:
+                  type: string
+                  description: >-
+                    A user provided string of up to 40 characters used to
+                    identify a receipt submission. Should be unique from the 
+                    perspective of the client application. If a receipt is
+                    submitted with a forwardId that already exists in the system
+                    for that particular client, the request will be rejected
+                    with a 304 Not Modified response. This helps prevent
+                    duplicate receipt submissions from mobile clients.
+                  example: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: multipart/form-data
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '202':
+          description: Accepted
+          headers:
+            Location:
+              schema:
+                type: string
+                example: <string>
+            Link:
+              schema:
+                type: string
+                example: <string>
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '304':
+          description: Not Modified
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '413':
+          description: Request Entity Too Large
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '415':
+          description: Unsupported Media Type
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /receipts/v4/users/{userId}/{state}:
+    get:
+      tags:
+        - receipts > v4 > users > {userId} > {state}
+      summary: Receipts for a user by state
+      description: >-
+        Get all v4 receipts for a single user with a certain state. Valid states
+        are consumable (not attached to an expense report), consumed (attached),
+        and discarded (deleted by the user). Maximum 50 receipts per page. If
+        there are more results after the first page, a next page link will be
+        provided in the results.  Calling that link will retrieve the next page
+        of receipts.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: state
+          in: path
+          schema:
+            type: string
+          required: true
+          example: consumed
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                receipts:
+                  - modifiedAt: <string>
+                    companyId: <string>
+                    dateTimeReceived: <string>
+                    entityId: <string>
+                    validationSchema: >-
+                      http://schema.concursolutions.com/jpt-ic-card-receipt.schema.json
+                    receipt: {}
+                    image: <string>
+                    userId: <string>
+                    id: <string>
+                    digitizationStatus: PROCESSING
+                    forwardId: {}
+                    self: <string>
+                    template: <string>
+                  - modifiedAt: <string>
+                    companyId: <string>
+                    dateTimeReceived: <string>
+                    entityId: <string>
+                    validationSchema: >-
+                      http://schema.concursolutions.com/hotel-receipt.schema.json
+                    receipt: {}
+                    image: <string>
+                    userId: <string>
+                    id: <string>
+                    digitizationStatus: PROCESSING
+                    forwardId: {}
+                    self: <string>
+                    template: <string>
+                next: <string>
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+    post:
+      tags:
+        - receipts > v4 > users > {userId} > {state}
+      summary: Receipt state
+      description: >-
+        Change the state of a receipt. Valid states are consumable (not attached
+        to an expense report), consumed (attached), and discarded (deleted by
+        the user). This is an asynchronous operation, so the receipt state
+        change might not take effect immediately.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: state
+          in: path
+          schema:
+            type: string
+          required: true
+          example: consumed
+      responses:
+        '201':
+          description: Created
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /receipts/v4/users/{userId}:
+    get:
+      tags:
+        - receipts > v4 > users > {userId}
+      summary: Receipts by userId
+      description: >-
+        Get all v4 receipts for a single user. Maximum 50 receipts per page. If
+        there are more results after the first page, a next page link will be
+        provided in the results. Calling that link will retrieve the next page
+        of receipts.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                receipts:
+                  - modifiedAt: <string>
+                    companyId: <string>
+                    dateTimeReceived: <string>
+                    entityId: <string>
+                    validationSchema: >-
+                      http://schema.concursolutions.com/jpt-ic-card-receipt.schema.json
+                    receipt: {}
+                    image: <string>
+                    userId: <string>
+                    id: <string>
+                    digitizationStatus: PROCESSING
+                    forwardId: {}
+                    self: <string>
+                    template: <string>
+                  - modifiedAt: <string>
+                    companyId: <string>
+                    dateTimeReceived: <string>
+                    entityId: <string>
+                    validationSchema: >-
+                      http://schema.concursolutions.com/hotel-receipt.schema.json
+                    receipt: {}
+                    image: <string>
+                    userId: <string>
+                    id: <string>
+                    digitizationStatus: PROCESSING
+                    forwardId: {}
+                    self: <string>
+                    template: <string>
+                next: <string>
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+    post:
+      tags:
+        - receipts > v4 > users > {userId}
+      summary: New E-receipt
+      description: Create a new E-receipt for a user.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                receipt:
+                  type: string
+                  description: (Required) The JSON data for the receipt
+                  example: <string>
+                image:
+                  type: string
+                  description: >-
+                    The image for this E-receipt. If no image is submitted, one
+                    will be generated automatically based on the JSON data.
+                  example: <string>
+      parameters:
+        - name: link
+          in: header
+          schema:
+            type: string
+          description: >-
+            (Required) A link to the E-receipt schema to be used to validate the
+            incoming E-receipt data. Retrieve the list of schemas from the GET
+            schemas route.
+          example: >-
+            <http://schema.concursolutions.com/air-receipt.schema.json>;rel=describedBy
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: multipart/form-data
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '201':
+          description: Created
+          headers:
+            Location:
+              schema:
+                type: string
+                example: <string>
+            Link:
+              schema:
+                type: string
+                example: <string>
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '413':
+          description: Request Entity Too Large
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '415':
+          description: Unsupported Media Type
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /receipts/v4/:
+    get:
+      tags:
+        - receipts > v4
+      summary: Service index
+      description: >-
+        Get a list of links to all the receipts endpoints in this environment.
+        Call this endpoint first, then use the url templates in your code to
+        make subsequent calls.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - rel: <string>
+                  href: <string>
+                  method: <string>
+                - rel: <string>
+                  href: <string>
+                  method: <string>
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /receipts/schemas/{schemaId}:
+    get:
+      tags:
+        - receipts > schemas > {schemaId}
+      summary: Schema by ID
+      description: >-
+        Get an individual schema by schemaId. Find schemaIds by calling the
+        schema index.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: schemaId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+  /receipts/schemas/:
+    get:
+      tags:
+        - receipts > schemas
+      summary: Schema index
+      description: >-
+        Returns objects with links to all available schemas, including the
+        schemas used to validate E-receipts. Call the links returned from this
+        route to retrieve individual schemas.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                receiptSchemas:
+                  - rel: <string>
+                    href: <string>
+                    method: <string>
+                  - rel: <string>
+                    href: <string>
+                    method: <string>
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''

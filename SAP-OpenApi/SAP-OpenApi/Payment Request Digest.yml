@@ -1,0 +1,229 @@
+openapi: 3.0.0
+info:
+  title: Payment Request Digest
+  description: >-
+    A payment request digest is a collection of summarized payment requests to
+    invoice vendors. This API provides methods to view all payment requests
+    corresponding to search parameters, or view a payment request digest by ID.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    oauth2Auth:
+      type: http
+      scheme: oauth2
+security:
+  - oauth2Auth: []
+tags:
+  - name: invoice
+  - name: invoice > paymentrequestdigests
+  - name: invoice > paymentrequestdigests > {id}
+paths:
+  /invoice/paymentrequestdigests/{id}:
+    get:
+      tags:
+        - invoice > paymentrequestdigests > {id}
+      summary: Get payment request digest
+      description: 'Returns the specified payment request digest. '
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                ApprovalStatusCode: <string>
+                CreateDate: <string>
+                CurrencyCode: <string>
+                ID: <string>
+                InvoiceNumber: <string>
+                IsDeleted: <string>
+                OwnerLoginID: <string>
+                OwnerName: <string>
+                PaidDate: <string>
+                PaymentRequestId: <string>
+                PaymentRequestUri: <string>
+                PaymentStatusCode: <string>
+                PurchaseOrderNumber: <string>
+                Total: <string>
+                URI: <string>
+                UserDefinedDate: <string>
+                VendorName: <string>
+  /invoice/paymentrequestdigests:
+    get:
+      tags:
+        - invoice > paymentrequestdigests
+      summary: Get all payment requests digests
+      description: Returns all payment requests digests based on the search criteria.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: offset
+          in: query
+          schema:
+            type: string
+          description: The start of the page offset.
+          example: <string>
+        - name: limit
+          in: query
+          schema:
+            type: string
+          description: The number of records to return (default 1000).
+          example: <integer>
+        - name: approvalStatus
+          in: query
+          schema:
+            type: string
+          description: >-
+            A code representing a payment request approval status. Use "GET
+            /invoice/localizeddata" to get the available approval status codes.
+          example: <string>
+        - name: paymentStatus
+          in: query
+          schema:
+            type: string
+          description: >-
+            A code representing a Payment Request Payment Status. Use "GET
+            /invoice/localizeddata" to get the available payment status codes
+          example: <string>
+        - name: vendorInvoiceNumber
+          in: query
+          schema:
+            type: string
+          description: Vendor invoice number tied to invoice.
+          example: <string>
+        - name: createDateBefore
+          in: query
+          schema:
+            type: string
+          description: >-
+            The payment request create date is before this date. Format:
+            YYYY-MM-DD
+          example: <dateTime>
+        - name: createDateAfter
+          in: query
+          schema:
+            type: string
+          description: >-
+            The payment request create date is after this date. Format:
+            YYYY-MM-DD
+          example: <dateTime>
+        - name: userDefinedDateBefore
+          in: query
+          schema:
+            type: string
+          description: >-
+            The payment request user defined date is before this date. Format:
+            YYYY-MM-DD
+          example: <dateTime>
+        - name: userDefinedDateAfter
+          in: query
+          schema:
+            type: string
+          description: >-
+            The payment request user defined date is after this date. Format:
+            YYYY-MM-DD
+          example: <dateTime>
+        - name: submitDateBefore
+          in: query
+          schema:
+            type: string
+          description: >-
+            The payment request submit date is before this date. Format:
+            YYYY-MM-DD
+          example: <dateTime>
+        - name: submitDateAfter
+          in: query
+          schema:
+            type: string
+          description: >-
+            The payment request submit date is after this date. Format:
+            YYYY-MM-DD
+          example: <dateTime>
+        - name: paidDateBefore
+          in: query
+          schema:
+            type: string
+          description: >-
+            The payment request paid date is before this date. Format:
+            YYYY-MM-DD
+          example: <dateTime>
+        - name: paidDateAfter
+          in: query
+          schema:
+            type: string
+          description: 'The payment request paid date is after this date. Format: YYYY-MM-DD'
+          example: <dateTime>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Items:
+                  ApprovalStatusCode: <string>
+                  CreateDate: <string>
+                  CurrencyCode: <string>
+                  ID: <string>
+                  InvoiceNumber: <string>
+                  IsDeleted: <string>
+                  OwnerLoginID: <string>
+                  OwnerName: <string>
+                  PaidDate: <string>
+                  PaymentRequestId: <string>
+                  PaymentRequestUri: <string>
+                  PaymentStatusCode: <string>
+                  PurchaseOrderNumber: <string>
+                  Total: <string>
+                  URI: <string>
+                  UserDefinedDate: <string>
+                  VendorName: <string>
+                NextPage: <string>
+                PaymentRequestDigest:
+                  ApprovalStatusCode: <string>
+                  CreateDate: <string>
+                  CurrencyCode: <string>
+                  ID: <string>
+                  InvoiceNumber: <string>
+                  IsDeleted: <string>
+                  OwnerLoginID: <string>
+                  OwnerName: <string>
+                  PaidDate: <string>
+                  PaymentRequestId: <string>
+                  PaymentRequestUri: <string>
+                  PaymentStatusCode: <string>
+                  PurchaseOrderNumber: <string>
+                  Total: <string>
+                  URI: <string>
+                  UserDefinedDate: <string>
+                  VendorName: <string>
+                TotalCount: <integer>

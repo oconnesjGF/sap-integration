@@ -1,0 +1,1208 @@
+openapi: 3.0.0
+info:
+  title: Spend User Service
+  description: |-
+    Rest API for Spend User Service
+
+    Contact Support:
+     Name: Team Up
+     Email: Team_Up@sap.com
+  version: 1.0.0
+servers:
+  - url: https://us.api.concursolutions.com
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: spend
+  - name: spend > v4
+  - name: spend > v4 > Users
+  - name: spend > v4 > Users > {uuid}
+paths:
+  /spend/v4/Users/{uuid}:
+    get:
+      tags:
+        - spend > v4 > Users > {uuid}
+      summary: get User
+      description: Get the aggregated user.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: uuid
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <uuid>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - <string>
+                  - <string>
+                externalId: <string>
+                meta:
+                  resourceType: <string>
+                  created: <dateTime>
+                  lastModified: <dateTime>
+                  location: <uri>
+                  version: <string>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:User:
+                  country: <string>
+                  locale: <string>
+                  reimbursementCurrency: <string>
+                  reimbursementType: ADP_PAYROLL
+                  ledgerCode: <string>
+                  budgetCountryCode: <string>
+                  stateProvince: <string>
+                  cashAdvanceAccountCode: <string>
+                  testEmployee: <boolean>
+                  nonEmployee: <boolean>
+                  biManager:
+                    value: <uuid>
+                    displayName: <string>
+                    employeeNumber: <string>
+                    $ref: <uri>
+                  customData:
+                    - id: <string>
+                      value: <string>
+                    - id: <string>
+                      value: <string>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:Approver:
+                  report:
+                    - approver:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      primary: <boolean>
+                    - approver:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      primary: <boolean>
+                  cashAdvance:
+                    - approver:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      primary: <boolean>
+                    - approver:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      primary: <boolean>
+                  request:
+                    - approver:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      primary: <boolean>
+                    - approver:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      primary: <boolean>
+                  invoice:
+                    - approver:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      primary: <boolean>
+                    - approver:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      primary: <boolean>
+                  purchaseRequest:
+                    - approver:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      primary: <boolean>
+                    - approver:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      primary: <boolean>
+                  statement:
+                    - approver:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      primary: <boolean>
+                    - approver:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      primary: <boolean>
+                  budget:
+                    - approver:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      primary: <boolean>
+                    - approver:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      primary: <boolean>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate:
+                  expense:
+                    - canApprove: <boolean>
+                      canPrepare: <boolean>
+                      canPrepareForApproval: <boolean>
+                      canReceiveApprovalEmail: <boolean>
+                      canReceiveEmail: <boolean>
+                      canSubmit: <boolean>
+                      canSubmitTravelRequest: <boolean>
+                      canUseBi: <boolean>
+                      canViewReceipt: <boolean>
+                      delegate:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      temporaryDelegation:
+                        temporaryDelegationFromDate: <string>
+                        temporaryDelegationToDate: <string>
+                    - canApprove: <boolean>
+                      canPrepare: <boolean>
+                      canPrepareForApproval: <boolean>
+                      canReceiveApprovalEmail: <boolean>
+                      canReceiveEmail: <boolean>
+                      canSubmit: <boolean>
+                      canSubmitTravelRequest: <boolean>
+                      canUseBi: <boolean>
+                      canViewReceipt: <boolean>
+                      delegate:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      temporaryDelegation:
+                        temporaryDelegationFromDate: <string>
+                        temporaryDelegationToDate: <string>
+                  payment:
+                    - canApprove: <boolean>
+                      canPrepare: <boolean>
+                      canPrepareForApproval: <boolean>
+                      canReceiveApprovalEmail: <boolean>
+                      canReceiveEmail: <boolean>
+                      canSubmit: <boolean>
+                      canSubmitTravelRequest: <boolean>
+                      canUseBi: <boolean>
+                      canViewReceipt: <boolean>
+                      delegate:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      temporaryDelegation:
+                        temporaryDelegationFromDate: <string>
+                        temporaryDelegationToDate: <string>
+                    - canApprove: <boolean>
+                      canPrepare: <boolean>
+                      canPrepareForApproval: <boolean>
+                      canReceiveApprovalEmail: <boolean>
+                      canReceiveEmail: <boolean>
+                      canSubmit: <boolean>
+                      canSubmitTravelRequest: <boolean>
+                      canUseBi: <boolean>
+                      canViewReceipt: <boolean>
+                      delegate:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      temporaryDelegation:
+                        temporaryDelegationFromDate: <string>
+                        temporaryDelegationToDate: <string>
+                  purchaseRequest:
+                    - canApprove: <boolean>
+                      canPrepare: <boolean>
+                      canPrepareForApproval: <boolean>
+                      canReceiveApprovalEmail: <boolean>
+                      canReceiveEmail: <boolean>
+                      canSubmit: <boolean>
+                      canSubmitTravelRequest: <boolean>
+                      canUseBi: <boolean>
+                      canViewReceipt: <boolean>
+                      delegate:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      temporaryDelegation:
+                        temporaryDelegationFromDate: <string>
+                        temporaryDelegationToDate: <string>
+                    - canApprove: <boolean>
+                      canPrepare: <boolean>
+                      canPrepareForApproval: <boolean>
+                      canReceiveApprovalEmail: <boolean>
+                      canReceiveEmail: <boolean>
+                      canSubmit: <boolean>
+                      canSubmitTravelRequest: <boolean>
+                      canUseBi: <boolean>
+                      canViewReceipt: <boolean>
+                      delegate:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      temporaryDelegation:
+                        temporaryDelegationFromDate: <string>
+                        temporaryDelegationToDate: <string>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:Role:
+                  roles:
+                    - roleName: SHD_AUTHORIZED_APPROVER
+                      roleGroups:
+                        - <string>
+                        - <string>
+                    - roleName: REPORTING_PRO_AUTHOR
+                      roleGroups:
+                        - <string>
+                        - <string>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference:
+                  showImagingIntro: <boolean>
+                  expenseAuditRequired: <string>
+                  allowCreditCardTransArrivalEmails: <boolean>
+                  allowReceiptImageAvailEmails: <boolean>
+                  promptForCardTransactionsOnReport: <boolean>
+                  autoAddTripCardTransOnReport: <boolean>
+                  promptForReportPrintFormat: <boolean>
+                  defaultReportPrintFormat: <string>
+                  showTotalOnReport: <boolean>
+                  showExpenseOnReport: <string>
+                  showInstructHelpPanel: <boolean>
+                  useQuickItinAsDefault: <boolean>
+                  allowAutoCreateTripReport: <boolean>
+                urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll:
+                  adp:
+                    companyCode: <string>
+                    deductionCode: <string>
+                    employeeFileNumber: <string>
+                urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference:
+                  emailStatusChangeOnCashAdvance: <boolean>
+                  emailAwaitApprovalOnCashAdvance: <boolean>
+                  emailStatusChangeOnReport: <boolean>
+                  emailAwaitApprovalOnReport: <boolean>
+                  promptForApproverOnReportSubmit: <boolean>
+                  emailStatusChangeOnTravelRequest: <boolean>
+                  emailAwaitApprovalOnTravelRequest: <boolean>
+                  promptForApproverOnTravelRequestSubmit: <boolean>
+                  emailStatusChangeOnPayment: <boolean>
+                  emailAwaitApprovalOnPayment: <boolean>
+                  promptForApproverOnPaymentSubmit: <boolean>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - <string>
+                  - <string>
+                id: <string>
+                externalId: <string>
+                meta:
+                  resourceType: <string>
+                  created: <dateTime>
+                  lastModified: <dateTime>
+                  location: <uri>
+                  version: <string>
+                scimType: <string>
+                detail: <string>
+                status: <integer>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - <string>
+                  - <string>
+                id: <string>
+                externalId: <string>
+                meta:
+                  resourceType: <string>
+                  created: <dateTime>
+                  lastModified: <dateTime>
+                  location: <uri>
+                  version: <string>
+                scimType: <string>
+                detail: <string>
+                status: <integer>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - <string>
+                  - <string>
+                id: <string>
+                externalId: <string>
+                meta:
+                  resourceType: <string>
+                  created: <dateTime>
+                  lastModified: <dateTime>
+                  location: <uri>
+                  version: <string>
+                scimType: <string>
+                detail: <string>
+                status: <integer>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - <string>
+                  - <string>
+                id: <string>
+                externalId: <string>
+                meta:
+                  resourceType: <string>
+                  created: <dateTime>
+                  lastModified: <dateTime>
+                  location: <uri>
+                  version: <string>
+                scimType: <string>
+                detail: <string>
+                status: <integer>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - <string>
+                  - <string>
+                id: <string>
+                externalId: <string>
+                meta:
+                  resourceType: <string>
+                  created: <dateTime>
+                  lastModified: <dateTime>
+                  location: <uri>
+                  version: <string>
+                scimType: <string>
+                detail: <string>
+                status: <integer>
+  /spend/v4/Users:
+    get:
+      tags:
+        - spend > v4 > Users
+      summary: get Spend Users
+      description: Get the filtered and paginated spend users from the specified company
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: startIndex
+          in: query
+          schema:
+            type: string
+          description: '(Required) '
+          example: <integer>
+        - name: itemsPerPage
+          in: query
+          schema:
+            type: string
+          description: '(Required) '
+          example: <integer>
+        - name: filter
+          in: query
+          schema:
+            type: string
+          description: '(Required) '
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Resources:
+                  - schemas:
+                      - <string>
+                      - <string>
+                    externalId: <string>
+                    meta:
+                      resourceType: <string>
+                      created: <dateTime>
+                      lastModified: <dateTime>
+                      location: <uri>
+                      version: <string>
+                    urn:ietf:params:scim:schemas:extension:spend:2.0:User:
+                      country: <string>
+                      locale: <string>
+                      reimbursementCurrency: <string>
+                      reimbursementType: CONCUR_PAY
+                      ledgerCode: <string>
+                      budgetCountryCode: <string>
+                      stateProvince: <string>
+                      cashAdvanceAccountCode: <string>
+                      testEmployee: <boolean>
+                      nonEmployee: <boolean>
+                      biManager:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      customData:
+                        - id: <string>
+                          value: <string>
+                        - id: <string>
+                          value: <string>
+                    urn:ietf:params:scim:schemas:extension:spend:2.0:Approver:
+                      report:
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                      cashAdvance:
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                      request:
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                      invoice:
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                      purchaseRequest:
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                      statement:
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                      budget:
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                    urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate:
+                      expense:
+                        - canApprove: <boolean>
+                          canPrepare: <boolean>
+                          canPrepareForApproval: <boolean>
+                          canReceiveApprovalEmail: <boolean>
+                          canReceiveEmail: <boolean>
+                          canSubmit: <boolean>
+                          canSubmitTravelRequest: <boolean>
+                          canUseBi: <boolean>
+                          canViewReceipt: <boolean>
+                          delegate:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          temporaryDelegation:
+                            temporaryDelegationFromDate: <string>
+                            temporaryDelegationToDate: <string>
+                        - canApprove: <boolean>
+                          canPrepare: <boolean>
+                          canPrepareForApproval: <boolean>
+                          canReceiveApprovalEmail: <boolean>
+                          canReceiveEmail: <boolean>
+                          canSubmit: <boolean>
+                          canSubmitTravelRequest: <boolean>
+                          canUseBi: <boolean>
+                          canViewReceipt: <boolean>
+                          delegate:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          temporaryDelegation:
+                            temporaryDelegationFromDate: <string>
+                            temporaryDelegationToDate: <string>
+                      payment:
+                        - canApprove: <boolean>
+                          canPrepare: <boolean>
+                          canPrepareForApproval: <boolean>
+                          canReceiveApprovalEmail: <boolean>
+                          canReceiveEmail: <boolean>
+                          canSubmit: <boolean>
+                          canSubmitTravelRequest: <boolean>
+                          canUseBi: <boolean>
+                          canViewReceipt: <boolean>
+                          delegate:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          temporaryDelegation:
+                            temporaryDelegationFromDate: <string>
+                            temporaryDelegationToDate: <string>
+                        - canApprove: <boolean>
+                          canPrepare: <boolean>
+                          canPrepareForApproval: <boolean>
+                          canReceiveApprovalEmail: <boolean>
+                          canReceiveEmail: <boolean>
+                          canSubmit: <boolean>
+                          canSubmitTravelRequest: <boolean>
+                          canUseBi: <boolean>
+                          canViewReceipt: <boolean>
+                          delegate:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          temporaryDelegation:
+                            temporaryDelegationFromDate: <string>
+                            temporaryDelegationToDate: <string>
+                      purchaseRequest:
+                        - canApprove: <boolean>
+                          canPrepare: <boolean>
+                          canPrepareForApproval: <boolean>
+                          canReceiveApprovalEmail: <boolean>
+                          canReceiveEmail: <boolean>
+                          canSubmit: <boolean>
+                          canSubmitTravelRequest: <boolean>
+                          canUseBi: <boolean>
+                          canViewReceipt: <boolean>
+                          delegate:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          temporaryDelegation:
+                            temporaryDelegationFromDate: <string>
+                            temporaryDelegationToDate: <string>
+                        - canApprove: <boolean>
+                          canPrepare: <boolean>
+                          canPrepareForApproval: <boolean>
+                          canReceiveApprovalEmail: <boolean>
+                          canReceiveEmail: <boolean>
+                          canSubmit: <boolean>
+                          canSubmitTravelRequest: <boolean>
+                          canUseBi: <boolean>
+                          canViewReceipt: <boolean>
+                          delegate:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          temporaryDelegation:
+                            temporaryDelegationFromDate: <string>
+                            temporaryDelegationToDate: <string>
+                    urn:ietf:params:scim:schemas:extension:spend:2.0:Role:
+                      roles:
+                        - roleName: EXP_CASHADVANCE_ADMIN
+                          roleGroups:
+                            - <string>
+                            - <string>
+                        - roleName: REPORTING_CAS_ANALYST
+                          roleGroups:
+                            - <string>
+                            - <string>
+                    urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference:
+                      showImagingIntro: <boolean>
+                      expenseAuditRequired: <string>
+                      allowCreditCardTransArrivalEmails: <boolean>
+                      allowReceiptImageAvailEmails: <boolean>
+                      promptForCardTransactionsOnReport: <boolean>
+                      autoAddTripCardTransOnReport: <boolean>
+                      promptForReportPrintFormat: <boolean>
+                      defaultReportPrintFormat: <string>
+                      showTotalOnReport: <boolean>
+                      showExpenseOnReport: <string>
+                      showInstructHelpPanel: <boolean>
+                      useQuickItinAsDefault: <boolean>
+                      allowAutoCreateTripReport: <boolean>
+                    urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll:
+                      adp:
+                        companyCode: <string>
+                        deductionCode: <string>
+                        employeeFileNumber: <string>
+                    urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference:
+                      emailStatusChangeOnCashAdvance: <boolean>
+                      emailAwaitApprovalOnCashAdvance: <boolean>
+                      emailStatusChangeOnReport: <boolean>
+                      emailAwaitApprovalOnReport: <boolean>
+                      promptForApproverOnReportSubmit: <boolean>
+                      emailStatusChangeOnTravelRequest: <boolean>
+                      emailAwaitApprovalOnTravelRequest: <boolean>
+                      promptForApproverOnTravelRequestSubmit: <boolean>
+                      emailStatusChangeOnPayment: <boolean>
+                      emailAwaitApprovalOnPayment: <boolean>
+                      promptForApproverOnPaymentSubmit: <boolean>
+                  - schemas:
+                      - <string>
+                      - <string>
+                    externalId: <string>
+                    meta:
+                      resourceType: <string>
+                      created: <dateTime>
+                      lastModified: <dateTime>
+                      location: <uri>
+                      version: <string>
+                    urn:ietf:params:scim:schemas:extension:spend:2.0:User:
+                      country: <string>
+                      locale: <string>
+                      reimbursementCurrency: <string>
+                      reimbursementType: ADP_PAYROLL
+                      ledgerCode: <string>
+                      budgetCountryCode: <string>
+                      stateProvince: <string>
+                      cashAdvanceAccountCode: <string>
+                      testEmployee: <boolean>
+                      nonEmployee: <boolean>
+                      biManager:
+                        value: <uuid>
+                        displayName: <string>
+                        employeeNumber: <string>
+                        $ref: <uri>
+                      customData:
+                        - id: <string>
+                          value: <string>
+                        - id: <string>
+                          value: <string>
+                    urn:ietf:params:scim:schemas:extension:spend:2.0:Approver:
+                      report:
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                      cashAdvance:
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                      request:
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                      invoice:
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                      purchaseRequest:
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                      statement:
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                      budget:
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                        - approver:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          primary: <boolean>
+                    urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate:
+                      expense:
+                        - canApprove: <boolean>
+                          canPrepare: <boolean>
+                          canPrepareForApproval: <boolean>
+                          canReceiveApprovalEmail: <boolean>
+                          canReceiveEmail: <boolean>
+                          canSubmit: <boolean>
+                          canSubmitTravelRequest: <boolean>
+                          canUseBi: <boolean>
+                          canViewReceipt: <boolean>
+                          delegate:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          temporaryDelegation:
+                            temporaryDelegationFromDate: <string>
+                            temporaryDelegationToDate: <string>
+                        - canApprove: <boolean>
+                          canPrepare: <boolean>
+                          canPrepareForApproval: <boolean>
+                          canReceiveApprovalEmail: <boolean>
+                          canReceiveEmail: <boolean>
+                          canSubmit: <boolean>
+                          canSubmitTravelRequest: <boolean>
+                          canUseBi: <boolean>
+                          canViewReceipt: <boolean>
+                          delegate:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          temporaryDelegation:
+                            temporaryDelegationFromDate: <string>
+                            temporaryDelegationToDate: <string>
+                      payment:
+                        - canApprove: <boolean>
+                          canPrepare: <boolean>
+                          canPrepareForApproval: <boolean>
+                          canReceiveApprovalEmail: <boolean>
+                          canReceiveEmail: <boolean>
+                          canSubmit: <boolean>
+                          canSubmitTravelRequest: <boolean>
+                          canUseBi: <boolean>
+                          canViewReceipt: <boolean>
+                          delegate:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          temporaryDelegation:
+                            temporaryDelegationFromDate: <string>
+                            temporaryDelegationToDate: <string>
+                        - canApprove: <boolean>
+                          canPrepare: <boolean>
+                          canPrepareForApproval: <boolean>
+                          canReceiveApprovalEmail: <boolean>
+                          canReceiveEmail: <boolean>
+                          canSubmit: <boolean>
+                          canSubmitTravelRequest: <boolean>
+                          canUseBi: <boolean>
+                          canViewReceipt: <boolean>
+                          delegate:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          temporaryDelegation:
+                            temporaryDelegationFromDate: <string>
+                            temporaryDelegationToDate: <string>
+                      purchaseRequest:
+                        - canApprove: <boolean>
+                          canPrepare: <boolean>
+                          canPrepareForApproval: <boolean>
+                          canReceiveApprovalEmail: <boolean>
+                          canReceiveEmail: <boolean>
+                          canSubmit: <boolean>
+                          canSubmitTravelRequest: <boolean>
+                          canUseBi: <boolean>
+                          canViewReceipt: <boolean>
+                          delegate:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          temporaryDelegation:
+                            temporaryDelegationFromDate: <string>
+                            temporaryDelegationToDate: <string>
+                        - canApprove: <boolean>
+                          canPrepare: <boolean>
+                          canPrepareForApproval: <boolean>
+                          canReceiveApprovalEmail: <boolean>
+                          canReceiveEmail: <boolean>
+                          canSubmit: <boolean>
+                          canSubmitTravelRequest: <boolean>
+                          canUseBi: <boolean>
+                          canViewReceipt: <boolean>
+                          delegate:
+                            value: <uuid>
+                            displayName: <string>
+                            employeeNumber: <string>
+                            $ref: <uri>
+                          temporaryDelegation:
+                            temporaryDelegationFromDate: <string>
+                            temporaryDelegationToDate: <string>
+                    urn:ietf:params:scim:schemas:extension:spend:2.0:Role:
+                      roles:
+                        - roleName: REPORTING_HIST_DATA_USER
+                          roleGroups:
+                            - <string>
+                            - <string>
+                        - roleName: EXP_PROCESSOR
+                          roleGroups:
+                            - <string>
+                            - <string>
+                    urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference:
+                      showImagingIntro: <boolean>
+                      expenseAuditRequired: <string>
+                      allowCreditCardTransArrivalEmails: <boolean>
+                      allowReceiptImageAvailEmails: <boolean>
+                      promptForCardTransactionsOnReport: <boolean>
+                      autoAddTripCardTransOnReport: <boolean>
+                      promptForReportPrintFormat: <boolean>
+                      defaultReportPrintFormat: <string>
+                      showTotalOnReport: <boolean>
+                      showExpenseOnReport: <string>
+                      showInstructHelpPanel: <boolean>
+                      useQuickItinAsDefault: <boolean>
+                      allowAutoCreateTripReport: <boolean>
+                    urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll:
+                      adp:
+                        companyCode: <string>
+                        deductionCode: <string>
+                        employeeFileNumber: <string>
+                    urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference:
+                      emailStatusChangeOnCashAdvance: <boolean>
+                      emailAwaitApprovalOnCashAdvance: <boolean>
+                      emailStatusChangeOnReport: <boolean>
+                      emailAwaitApprovalOnReport: <boolean>
+                      promptForApproverOnReportSubmit: <boolean>
+                      emailStatusChangeOnTravelRequest: <boolean>
+                      emailAwaitApprovalOnTravelRequest: <boolean>
+                      promptForApproverOnTravelRequestSubmit: <boolean>
+                      emailStatusChangeOnPayment: <boolean>
+                      emailAwaitApprovalOnPayment: <boolean>
+                      promptForApproverOnPaymentSubmit: <boolean>
+                totalResults: <integer>
+                id: <string>
+                externalId: <string>
+                meta:
+                  resourceType: <string>
+                  created: <dateTime>
+                  lastModified: <dateTime>
+                  location: <uri>
+                  version: <string>
+                startIndex: <integer>
+                itemsPerPage: <integer>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - <string>
+                  - <string>
+                id: <string>
+                externalId: <string>
+                meta:
+                  resourceType: <string>
+                  created: <dateTime>
+                  lastModified: <dateTime>
+                  location: <uri>
+                  version: <string>
+                scimType: <string>
+                detail: <string>
+                status: <integer>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - <string>
+                  - <string>
+                id: <string>
+                externalId: <string>
+                meta:
+                  resourceType: <string>
+                  created: <dateTime>
+                  lastModified: <dateTime>
+                  location: <uri>
+                  version: <string>
+                scimType: <string>
+                detail: <string>
+                status: <integer>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - <string>
+                  - <string>
+                id: <string>
+                externalId: <string>
+                meta:
+                  resourceType: <string>
+                  created: <dateTime>
+                  lastModified: <dateTime>
+                  location: <uri>
+                  version: <string>
+                scimType: <string>
+                detail: <string>
+                status: <integer>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - <string>
+                  - <string>
+                id: <string>
+                externalId: <string>
+                meta:
+                  resourceType: <string>
+                  created: <dateTime>
+                  lastModified: <dateTime>
+                  location: <uri>
+                  version: <string>
+                scimType: <string>
+                detail: <string>
+                status: <integer>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - <string>
+                  - <string>
+                id: <string>
+                externalId: <string>
+                meta:
+                  resourceType: <string>
+                  created: <dateTime>
+                  lastModified: <dateTime>
+                  location: <uri>
+                  version: <string>
+                scimType: <string>
+                detail: <string>
+                status: <integer>
+        '501':
+          description: Not Implemented
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - <string>
+                  - <string>
+                id: <string>
+                externalId: <string>
+                meta:
+                  resourceType: <string>
+                  created: <dateTime>
+                  lastModified: <dateTime>
+                  location: <uri>
+                  version: <string>
+                scimType: <string>
+                detail: <string>
+                status: <integer>

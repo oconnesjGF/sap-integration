@@ -1,0 +1,2249 @@
+openapi: 3.0.0
+info:
+  title: HotelService API
+  description: >-
+    ## Important: Please refer to
+    [Endpoints](https://developer.concur.com/api-reference/direct-connects/hotel-service-4/v4.endpoints.html)
+    document for detailed documentation on all endpoints for this API.
+
+    HotelService API provides a method for Custom Hotel Source vendors to
+    provide hotel inventory, rates and booking related functionality to users of
+    Concur OBT (Online Booking Tool).
+
+
+    Contact Support:
+     Name: SAP Concur Developer Center
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+security:
+  - basicAuth: []
+tags:
+  - name: hotels
+  - name: hotels > details
+  - name: hotels > ratedetails
+  - name: hotels > rates
+  - name: hotels > reservation
+  - name: hotels > reservation > cancel
+  - name: hotels > reservation > modify
+  - name: hotels > reservation > read
+  - name: hotels > search
+paths:
+  /hotels/details:
+    post:
+      tags:
+        - hotels > details
+      summary: Retrieve descriptive details about specified hotels.
+      description: Retrieve hotel property information
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                hotelCodes:
+                  - propertyCode: <string>
+                    chainCode: <string>
+                  - propertyCode: <string>
+                    chainCode: <string>
+                requestorInfo:
+                  posRequestorId: <string>
+                  travelerUuid: <string>
+                  bookingForSelf: <boolean>
+                  loginId: <string>
+                searchSessionToken: <uuid>
+      parameters:
+        - name: Accept-Language
+          in: header
+          schema:
+            type: string
+          example: <string>
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            (Required) This unique code can be used during troubleshooting as it
+            identifies the API call in the log files.
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                hotelDetailsList:
+                  - hotelDescriptiveInfo:
+                      descriptiveInfos:
+                        - contents:
+                            - <string>
+                            - <string>
+                          otaCode: <integer>
+                          endDate: <date>
+                          startDate: <date>
+                        - contents:
+                            - <string>
+                            - <string>
+                          otaCode: <integer>
+                          endDate: <date>
+                          startDate: <date>
+                      mediaItems:
+                        - type: IMAGE
+                          url: <uri>
+                          category: <integer>
+                          description: <string>
+                        - type: IMAGE
+                          url: <uri>
+                          category: <integer>
+                          description: <string>
+                      propertyDescription: <string>
+                    propertyRef:
+                      propertyCode: <string>
+                      chainCode: <string>
+                    checkInTime: <string>
+                    checkOutTime: <string>
+                  - hotelDescriptiveInfo:
+                      descriptiveInfos:
+                        - contents:
+                            - <string>
+                            - <string>
+                          otaCode: <integer>
+                          endDate: <date>
+                          startDate: <date>
+                        - contents:
+                            - <string>
+                            - <string>
+                          otaCode: <integer>
+                          endDate: <date>
+                          startDate: <date>
+                      mediaItems:
+                        - type: VIDEO
+                          url: <uri>
+                          category: <integer>
+                          description: <string>
+                        - type: IMAGE
+                          url: <uri>
+                          category: <integer>
+                          description: <string>
+                      propertyDescription: <string>
+                    propertyRef:
+                      propertyCode: <string>
+                      chainCode: <string>
+                    checkInTime: <string>
+                    checkOutTime: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: <string>
+                otaCode: <integer>
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: <string>
+                otaCode: <integer>
+  /hotels/ratedetails:
+    post:
+      tags:
+        - hotels > ratedetails
+      summary: Retrieve hotel rate details
+      description: >-
+        Retrieve hotel rate details for rates of a property - used when rate
+        details are missing from /rates call and/or during checkout process.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                checkin: <date>
+                checkout: <date>
+                hotelPropertyRef:
+                  propertyCode: <string>
+                  chainCode: <string>
+                ratePlanIds:
+                  - <string>
+                  - <string>
+                requestorInfo:
+                  posRequestorId: <string>
+                  travelerUuid: <string>
+                  bookingForSelf: <boolean>
+                  loginId: <string>
+                guestCountryCode: <string>
+                numGuests: 1
+                rateCategories:
+                  - otaCode: <integer>
+                    value: <string>
+                  - otaCode: <integer>
+                    value: <string>
+                searchSessionToken: <uuid>
+      parameters:
+        - name: Accept-Language
+          in: header
+          schema:
+            type: string
+          example: <string>
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            (Required) This unique code can be used during troubleshooting as it
+            identifies the API call in the log files.
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                checkin: <date>
+                checkout: <date>
+                roomRates:
+                  - cancelPenalties:
+                      penalties:
+                        - description: <string>
+                          refundableStatus: FULLY_REFUNDABLE
+                          amountPercent:
+                            amount:
+                              amount: <number>
+                              currencyCode: <string>
+                            applyAs: LAST_NIGHT_DEPOST
+                            basisType: FIRST_LAST
+                            feesInclusive: <boolean>
+                            numberOfNights: <integer>
+                            percent: <number>
+                            taxInclusive: <boolean>
+                          cancelDeadline: <string>
+                    guarantee:
+                      guaranteeType: DEPOSIT_REQUIRED
+                      acceptedPayments:
+                        - AMEX
+                        - AMEX
+                      amountPercent:
+                        amount:
+                          amount: <number>
+                          currencyCode: <string>
+                        applyAs: FIRST_AND_LAST_NIGHT_DEPOSIT
+                        basisType: NIGHTS
+                        feesInclusive: <boolean>
+                        numberOfNights: <integer>
+                        percent: <number>
+                        taxInclusive: <boolean>
+                      cvvRequired: <boolean>
+                    rateChangesOverStay: <boolean>
+                    ratePlanId: <string>
+                    totalPrice:
+                      currencyCode: <string>
+                      totalBeforeTax: <number>
+                      fees: <number>
+                      isTotalBeforeTaxDisplayEligible: true
+                      taxes: <number>
+                      totalAfterTax: <number>
+                    nightlyPrices:
+                      - basePrice: <number>
+                        currencyCode: <string>
+                        endDate: <date>
+                        startDate: <date>
+                        fees:
+                          amount: <number>
+                          feeBreakdown:
+                            - amount: <number>
+                              fttCode: <integer>
+                              inclusive: <boolean>
+                            - amount: <number>
+                              fttCode: <integer>
+                              inclusive: <boolean>
+                        taxes:
+                          amount: <number>
+                          taxBreakdown:
+                            - amount: <number>
+                              fttCode: <integer>
+                              inclusive: <boolean>
+                            - amount: <number>
+                              fttCode: <integer>
+                              inclusive: <boolean>
+                        totalPrice: <number>
+                    prepayRequired: <boolean>
+                    rateCategory:
+                      otaCode: <integer>
+                      value: <string>
+                    rateDescription:
+                      - <string>
+                      - <string>
+                    refundable: <boolean>
+                    roomId: <string>
+                    rateDetailsCallRequired: false
+                  - cancelPenalties:
+                      penalties:
+                        - description: <string>
+                          refundableStatus: PARTIALLY_REFUNDABLE
+                          amountPercent:
+                            amount:
+                              amount: <number>
+                              currencyCode: <string>
+                            applyAs: FIRST_AND_LAST_NIGHT_PAYMENT
+                            basisType: FULL_STAY
+                            feesInclusive: <boolean>
+                            numberOfNights: <integer>
+                            percent: <number>
+                            taxInclusive: <boolean>
+                          cancelDeadline: <string>
+                    guarantee:
+                      guaranteeType: GUARANTEE_REQUIRED
+                      acceptedPayments:
+                        - AMERICAN_AIRLINES
+                        - DINERS_CLUB
+                      amountPercent:
+                        amount:
+                          amount: <number>
+                          currencyCode: <string>
+                        applyAs: FIRST_NIGHT_PAYMENT
+                        basisType: FIRST_LAST
+                        feesInclusive: <boolean>
+                        numberOfNights: <integer>
+                        percent: <number>
+                        taxInclusive: <boolean>
+                      cvvRequired: <boolean>
+                    rateChangesOverStay: <boolean>
+                    ratePlanId: <string>
+                    totalPrice:
+                      currencyCode: <string>
+                      totalBeforeTax: <number>
+                      fees: <number>
+                      isTotalBeforeTaxDisplayEligible: true
+                      taxes: <number>
+                      totalAfterTax: <number>
+                    nightlyPrices:
+                      - basePrice: <number>
+                        currencyCode: <string>
+                        endDate: <date>
+                        startDate: <date>
+                        fees:
+                          amount: <number>
+                          feeBreakdown:
+                            - amount: <number>
+                              fttCode: <integer>
+                              inclusive: <boolean>
+                            - amount: <number>
+                              fttCode: <integer>
+                              inclusive: <boolean>
+                        taxes:
+                          amount: <number>
+                          taxBreakdown:
+                            - amount: <number>
+                              fttCode: <integer>
+                              inclusive: <boolean>
+                            - amount: <number>
+                              fttCode: <integer>
+                              inclusive: <boolean>
+                        totalPrice: <number>
+                    prepayRequired: <boolean>
+                    rateCategory:
+                      otaCode: <integer>
+                      value: <string>
+                    rateDescription:
+                      - <string>
+                      - <string>
+                    refundable: <boolean>
+                    roomId: <string>
+                    rateDetailsCallRequired: false
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: <string>
+                otaCode: <integer>
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: <string>
+                otaCode: <integer>
+  /hotels/rates:
+    post:
+      tags:
+        - hotels > rates
+      summary: Retrieve rates for specific hotel properties
+      description: Retrieve hotel rates
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                checkin: <date>
+                checkout: <date>
+                hotelPropertyRefs:
+                  - propertyCode: <string>
+                    chainCode: <string>
+                  - propertyCode: <string>
+                    chainCode: <string>
+                requestorInfo:
+                  posRequestorId: <string>
+                  travelerUuid: <string>
+                  bookingForSelf: <boolean>
+                  loginId: <string>
+                guestCountryCode: <string>
+                numGuests: 1
+                rateCategories:
+                  - otaCode: <integer>
+                    value: <string>
+                  - otaCode: <integer>
+                    value: <string>
+                searchSessionToken: <uuid>
+      parameters:
+        - name: Accept-Language
+          in: header
+          schema:
+            type: string
+          example: <string>
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            (Required) This unique code can be used during troubleshooting as it
+            identifies the API call in the log files.
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                checkin: <date>
+                checkout: <date>
+                hotelRates:
+                  - propertyCode: <string>
+                    rates:
+                      - roomRate:
+                          rateChangesOverStay: <boolean>
+                          ratePlanId: <string>
+                          totalPrice:
+                            currencyCode: <string>
+                            totalBeforeTax: <number>
+                            fees: <number>
+                            isTotalBeforeTaxDisplayEligible: true
+                            taxes: <number>
+                            totalAfterTax: <number>
+                          cancelPenalties:
+                            penalties:
+                              - description: <string>
+                                refundableStatus: PARTIALLY_REFUNDABLE
+                                amountPercent:
+                                  amount:
+                                    amount: <number>
+                                    currencyCode: <string>
+                                  applyAs: FIRST_AND_LAST_NIGHT_DEPOSIT
+                                  basisType: FIRST_LAST
+                                  feesInclusive: <boolean>
+                                  numberOfNights: <integer>
+                                  percent: <number>
+                                  taxInclusive: <boolean>
+                                cancelDeadline: <string>
+                          guarantee:
+                            guaranteeType: DEPOSIT_REQUIRED
+                            acceptedPayments:
+                              - AWARD_CREDIT
+                              - UNITED_TRAVEL
+                            amountPercent:
+                              amount:
+                                amount: <number>
+                                currencyCode: <string>
+                              applyAs: FIRST_NIGHT_PAYMENT
+                              basisType: NIGHTS
+                              feesInclusive: <boolean>
+                              numberOfNights: <integer>
+                              percent: <number>
+                              taxInclusive: <boolean>
+                            cvvRequired: <boolean>
+                          nightlyPrices:
+                            - basePrice: <number>
+                              currencyCode: <string>
+                              endDate: <date>
+                              startDate: <date>
+                              fees:
+                                amount: <number>
+                                feeBreakdown:
+                                  - amount: <number>
+                                    fttCode: <integer>
+                                    inclusive: <boolean>
+                                  - amount: <number>
+                                    fttCode: <integer>
+                                    inclusive: <boolean>
+                              taxes:
+                                amount: <number>
+                                taxBreakdown:
+                                  - amount: <number>
+                                    fttCode: <integer>
+                                    inclusive: <boolean>
+                                  - amount: <number>
+                                    fttCode: <integer>
+                                    inclusive: <boolean>
+                              totalPrice: <number>
+                          prepayRequired: <boolean>
+                          rateCategory:
+                            otaCode: <integer>
+                            value: <string>
+                          rateDescription:
+                            - <string>
+                            - <string>
+                          refundable: <boolean>
+                          roomId: <string>
+                          rateDetailsCallRequired: false
+                        bedding:
+                          - bedTypeCode: <integer>
+                            quantity: <integer>
+                          - bedTypeCode: <integer>
+                            quantity: <integer>
+                        mealsIncluded:
+                          - <integer>
+                          - <integer>
+                        roomAmenities:
+                          - amenityCode: <integer>
+                          - amenityCode: <integer>
+                        roomDescription:
+                          - <string>
+                          - <string>
+                        roomType: <integer>
+                        source:
+                          logo: <uri>
+                          name: <string>
+                          suppress: <boolean>
+                      - roomRate:
+                          rateChangesOverStay: <boolean>
+                          ratePlanId: <string>
+                          totalPrice:
+                            currencyCode: <string>
+                            totalBeforeTax: <number>
+                            fees: <number>
+                            isTotalBeforeTaxDisplayEligible: true
+                            taxes: <number>
+                            totalAfterTax: <number>
+                          cancelPenalties:
+                            penalties:
+                              - description: <string>
+                                refundableStatus: NON_REFUNDABLE
+                                amountPercent:
+                                  amount:
+                                    amount: <number>
+                                    currencyCode: <string>
+                                  applyAs: LAST_NIGHT_DEPOST
+                                  basisType: FULL_STAY
+                                  feesInclusive: <boolean>
+                                  numberOfNights: <integer>
+                                  percent: <number>
+                                  taxInclusive: <boolean>
+                                cancelDeadline: <string>
+                          guarantee:
+                            guaranteeType: GUARANTEE_REQUIRED
+                            acceptedPayments:
+                              - TWA
+                              - DISCOVER
+                            amountPercent:
+                              amount:
+                                amount: <number>
+                                currencyCode: <string>
+                              applyAs: FIRST_AND_LAST_NIGHT_DEPOSIT
+                              basisType: FIRST_LAST
+                              feesInclusive: <boolean>
+                              numberOfNights: <integer>
+                              percent: <number>
+                              taxInclusive: <boolean>
+                            cvvRequired: <boolean>
+                          nightlyPrices:
+                            - basePrice: <number>
+                              currencyCode: <string>
+                              endDate: <date>
+                              startDate: <date>
+                              fees:
+                                amount: <number>
+                                feeBreakdown:
+                                  - amount: <number>
+                                    fttCode: <integer>
+                                    inclusive: <boolean>
+                                  - amount: <number>
+                                    fttCode: <integer>
+                                    inclusive: <boolean>
+                              taxes:
+                                amount: <number>
+                                taxBreakdown:
+                                  - amount: <number>
+                                    fttCode: <integer>
+                                    inclusive: <boolean>
+                                  - amount: <number>
+                                    fttCode: <integer>
+                                    inclusive: <boolean>
+                              totalPrice: <number>
+                          prepayRequired: <boolean>
+                          rateCategory:
+                            otaCode: <integer>
+                            value: <string>
+                          rateDescription:
+                            - <string>
+                            - <string>
+                          refundable: <boolean>
+                          roomId: <string>
+                          rateDetailsCallRequired: false
+                        bedding:
+                          - bedTypeCode: <integer>
+                            quantity: <integer>
+                          - bedTypeCode: <integer>
+                            quantity: <integer>
+                        mealsIncluded:
+                          - <integer>
+                          - <integer>
+                        roomAmenities:
+                          - amenityCode: <integer>
+                          - amenityCode: <integer>
+                        roomDescription:
+                          - <string>
+                          - <string>
+                        roomType: <integer>
+                        source:
+                          logo: <uri>
+                          name: <string>
+                          suppress: <boolean>
+                  - propertyCode: <string>
+                    rates:
+                      - roomRate:
+                          rateChangesOverStay: <boolean>
+                          ratePlanId: <string>
+                          totalPrice:
+                            currencyCode: <string>
+                            totalBeforeTax: <number>
+                            fees: <number>
+                            isTotalBeforeTaxDisplayEligible: true
+                            taxes: <number>
+                            totalAfterTax: <number>
+                          cancelPenalties:
+                            penalties:
+                              - description: <string>
+                                refundableStatus: FULLY_REFUNDABLE
+                                amountPercent:
+                                  amount:
+                                    amount: <number>
+                                    currencyCode: <string>
+                                  applyAs: FIRST_NIGHT_PAYMENT
+                                  basisType: FIRST_LAST
+                                  feesInclusive: <boolean>
+                                  numberOfNights: <integer>
+                                  percent: <number>
+                                  taxInclusive: <boolean>
+                                cancelDeadline: <string>
+                          guarantee:
+                            guaranteeType: GUARANTEE_REQUIRED
+                            acceptedPayments:
+                              - TWA
+                              - DELTA
+                            amountPercent:
+                              amount:
+                                amount: <number>
+                                currencyCode: <string>
+                              applyAs: FIRST_AND_LAST_NIGHT_PAYMENT
+                              basisType: FULL_STAY
+                              feesInclusive: <boolean>
+                              numberOfNights: <integer>
+                              percent: <number>
+                              taxInclusive: <boolean>
+                            cvvRequired: <boolean>
+                          nightlyPrices:
+                            - basePrice: <number>
+                              currencyCode: <string>
+                              endDate: <date>
+                              startDate: <date>
+                              fees:
+                                amount: <number>
+                                feeBreakdown:
+                                  - amount: <number>
+                                    fttCode: <integer>
+                                    inclusive: <boolean>
+                                  - amount: <number>
+                                    fttCode: <integer>
+                                    inclusive: <boolean>
+                              taxes:
+                                amount: <number>
+                                taxBreakdown:
+                                  - amount: <number>
+                                    fttCode: <integer>
+                                    inclusive: <boolean>
+                                  - amount: <number>
+                                    fttCode: <integer>
+                                    inclusive: <boolean>
+                              totalPrice: <number>
+                          prepayRequired: <boolean>
+                          rateCategory:
+                            otaCode: <integer>
+                            value: <string>
+                          rateDescription:
+                            - <string>
+                            - <string>
+                          refundable: <boolean>
+                          roomId: <string>
+                          rateDetailsCallRequired: false
+                        bedding:
+                          - bedTypeCode: <integer>
+                            quantity: <integer>
+                          - bedTypeCode: <integer>
+                            quantity: <integer>
+                        mealsIncluded:
+                          - <integer>
+                          - <integer>
+                        roomAmenities:
+                          - amenityCode: <integer>
+                          - amenityCode: <integer>
+                        roomDescription:
+                          - <string>
+                          - <string>
+                        roomType: <integer>
+                        source:
+                          logo: <uri>
+                          name: <string>
+                          suppress: <boolean>
+                      - roomRate:
+                          rateChangesOverStay: <boolean>
+                          ratePlanId: <string>
+                          totalPrice:
+                            currencyCode: <string>
+                            totalBeforeTax: <number>
+                            fees: <number>
+                            isTotalBeforeTaxDisplayEligible: true
+                            taxes: <number>
+                            totalAfterTax: <number>
+                          cancelPenalties:
+                            penalties:
+                              - description: <string>
+                                refundableStatus: PARTIALLY_REFUNDABLE
+                                amountPercent:
+                                  amount:
+                                    amount: <number>
+                                    currencyCode: <string>
+                                  applyAs: LAST_NIGHT_PAYMENT
+                                  basisType: NIGHTS
+                                  feesInclusive: <boolean>
+                                  numberOfNights: <integer>
+                                  percent: <number>
+                                  taxInclusive: <boolean>
+                                cancelDeadline: <string>
+                          guarantee:
+                            guaranteeType: DEPOSIT_REQUIRED
+                            acceptedPayments:
+                              - VISA
+                              - UNITED_TRAVEL
+                            amountPercent:
+                              amount:
+                                amount: <number>
+                                currencyCode: <string>
+                              applyAs: FIRST_AND_LAST_NIGHT_DEPOSIT
+                              basisType: NIGHTS
+                              feesInclusive: <boolean>
+                              numberOfNights: <integer>
+                              percent: <number>
+                              taxInclusive: <boolean>
+                            cvvRequired: <boolean>
+                          nightlyPrices:
+                            - basePrice: <number>
+                              currencyCode: <string>
+                              endDate: <date>
+                              startDate: <date>
+                              fees:
+                                amount: <number>
+                                feeBreakdown:
+                                  - amount: <number>
+                                    fttCode: <integer>
+                                    inclusive: <boolean>
+                                  - amount: <number>
+                                    fttCode: <integer>
+                                    inclusive: <boolean>
+                              taxes:
+                                amount: <number>
+                                taxBreakdown:
+                                  - amount: <number>
+                                    fttCode: <integer>
+                                    inclusive: <boolean>
+                                  - amount: <number>
+                                    fttCode: <integer>
+                                    inclusive: <boolean>
+                              totalPrice: <number>
+                          prepayRequired: <boolean>
+                          rateCategory:
+                            otaCode: <integer>
+                            value: <string>
+                          rateDescription:
+                            - <string>
+                            - <string>
+                          refundable: <boolean>
+                          roomId: <string>
+                          rateDetailsCallRequired: false
+                        bedding:
+                          - bedTypeCode: <integer>
+                            quantity: <integer>
+                          - bedTypeCode: <integer>
+                            quantity: <integer>
+                        mealsIncluded:
+                          - <integer>
+                          - <integer>
+                        roomAmenities:
+                          - amenityCode: <integer>
+                          - amenityCode: <integer>
+                        roomDescription:
+                          - <string>
+                          - <string>
+                        roomType: <integer>
+                        source:
+                          logo: <uri>
+                          name: <string>
+                          suppress: <boolean>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: <string>
+                otaCode: <integer>
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: <string>
+                otaCode: <integer>
+  /hotels/reservation/cancel:
+    post:
+      tags:
+        - hotels > reservation > cancel
+      summary: Cancel specified reservation
+      description: Cancel specified reservation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                confirmationCodes:
+                  - code: <string>
+                    codeType: SUPPLIER_CONFIRMATION
+                  - code: <string>
+                    codeType: HOTEL_CONFIRMATION
+                requestorInfo:
+                  posRequestorId: <string>
+                  travelerUuid: <string>
+                  bookingForSelf: <boolean>
+                  loginId: <string>
+      parameters:
+        - name: Accept-Language
+          in: header
+          schema:
+            type: string
+          example: <string>
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            (Required) This unique code can be used during troubleshooting as it
+            identifies the API call in the log files.
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                confirmationCodes:
+                  - code: <string>
+                    codeType: HOTEL_CONFIRMATION
+                  - code: <string>
+                    codeType: SUPPLIER_CONFIRMATION
+                cancellationRemarks: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: <string>
+                otaCode: <integer>
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: <string>
+                otaCode: <integer>
+  /hotels/reservation/modify:
+    post:
+      tags:
+        - hotels > reservation > modify
+      summary: Modify specific reservation
+      description: Modify given reservation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                confirmationCodes:
+                  - code: <string>
+                    codeType: PASSIVE_CONFIRMATION
+                  - code: <string>
+                    codeType: CONCUR_GDS_REFERENCE
+                reservationCriteria:
+                  checkin: <date>
+                  checkout: <date>
+                  customFields:
+                    - name: <string>
+                      value: <string>
+                    - name: <string>
+                      value: <string>
+                  guests:
+                    - firstname: <string>
+                      lastname: <string>
+                      address:
+                        addressLines:
+                          - <string>
+                          - <string>
+                        city: <string>
+                        countryCode: <string>
+                        postalCode: <string>
+                        state: <string>
+                        stateName: <string>
+                      birthdate: <date>
+                      companyName: <string>
+                      contactInfo:
+                        emails:
+                          - <email>
+                          - <email>
+                        phoneNumbers:
+                          - <string>
+                          - <string>
+                        faxNumber: <string>
+                    - firstname: <string>
+                      lastname: <string>
+                      address:
+                        addressLines:
+                          - <string>
+                          - <string>
+                        city: <string>
+                        countryCode: <string>
+                        postalCode: <string>
+                        state: <string>
+                        stateName: <string>
+                      birthdate: <date>
+                      companyName: <string>
+                      contactInfo:
+                        emails:
+                          - <email>
+                          - <email>
+                        phoneNumbers:
+                          - <string>
+                          - <string>
+                        faxNumber: <string>
+                  hotelPropertyRef:
+                    propertyCode: <string>
+                    chainCode: <string>
+                  ratePlanId: <string>
+                  requestorInfo:
+                    posRequestorId: <string>
+                    travelerUuid: <string>
+                    bookingForSelf: <boolean>
+                    loginId: <string>
+                  comments:
+                    - <string>
+                    - <string>
+                  guarantee:
+                    cardNumber: <string>
+                    cardType: DISCOVER
+                    cardHolderAddress:
+                      addressLines:
+                        - <string>
+                        - <string>
+                      city: <string>
+                      countryCode: <string>
+                      postalCode: <string>
+                      state: <string>
+                      stateName: <string>
+                    cardHolderName: <string>
+                    cardExpiryMonth: <integer>
+                    cardExpiryYear: <integer>
+                    cvv: <string>
+                  legalEntity:
+                    name: <string>
+                    taxId: <string>
+                    address:
+                      addressLines:
+                        - <string>
+                        - <string>
+                      city: <string>
+                      countryCode: <string>
+                      postalCode: <string>
+                      state: <string>
+                      stateName: <string>
+                  loyalty:
+                    accountId: <string>
+                    programCode: <string>
+                  paymentModeIndicator: CONCUR_VIRTUAL_CARD
+                  searchSessionToken: <uuid>
+                  threeDSecure:
+                    avv: <string>
+                    eci: <string>
+                    messageVersion: <string>
+                    transactionId: <string>
+                    cavvAlgorithm: <string>
+                    exemptionCode: <string>
+                    threeDSServerTransactionId: <string>
+      parameters:
+        - name: Accept-Language
+          in: header
+          schema:
+            type: string
+          example: <string>
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            (Required) This unique code can be used during troubleshooting as it
+            identifies the API call in the log files.
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                basicHotelProperty:
+                  cityCode: <string>
+                  contactInfo:
+                    emails:
+                      - <email>
+                      - <email>
+                    phoneNumbers:
+                      - <string>
+                      - <string>
+                    faxNumber: <string>
+                  hotelName: <string>
+                  propertyCode: <string>
+                  address:
+                    addressLines:
+                      - <string>
+                      - <string>
+                    city: <string>
+                    countryCode: <string>
+                    postalCode: <string>
+                    state: <string>
+                    stateName: <string>
+                  chainCode: <string>
+                  position:
+                    latitude: <number>
+                    longitude: <number>
+                confirmationCodes:
+                  - code: <string>
+                    codeType: SUPPLIER_CONFIRMATION
+                  - code: <string>
+                    codeType: HOTEL_CONFIRMATION
+                guests:
+                  - firstname: <string>
+                    lastname: <string>
+                    address:
+                      addressLines:
+                        - <string>
+                        - <string>
+                      city: <string>
+                      countryCode: <string>
+                      postalCode: <string>
+                      state: <string>
+                      stateName: <string>
+                    birthdate: <date>
+                    companyName: <string>
+                    contactInfo:
+                      emails:
+                        - <email>
+                        - <email>
+                      phoneNumbers:
+                        - <string>
+                        - <string>
+                      faxNumber: <string>
+                  - firstname: <string>
+                    lastname: <string>
+                    address:
+                      addressLines:
+                        - <string>
+                        - <string>
+                      city: <string>
+                      countryCode: <string>
+                      postalCode: <string>
+                      state: <string>
+                      stateName: <string>
+                    birthdate: <date>
+                    companyName: <string>
+                    contactInfo:
+                      emails:
+                        - <email>
+                        - <email>
+                      phoneNumbers:
+                        - <string>
+                        - <string>
+                      faxNumber: <string>
+                roomDescription:
+                  - <string>
+                  - <string>
+                roomRate:
+                  cancelPenalties:
+                    penalties:
+                      - description: <string>
+                        refundableStatus: FULLY_REFUNDABLE
+                        amountPercent:
+                          amount:
+                            amount: <number>
+                            currencyCode: <string>
+                          applyAs: FIRST_AND_LAST_NIGHT_DEPOSIT
+                          basisType: FIRST_LAST
+                          feesInclusive: <boolean>
+                          numberOfNights: <integer>
+                          percent: <number>
+                          taxInclusive: <boolean>
+                        cancelDeadline: <string>
+                  guarantee:
+                    guaranteeType: DEPOSIT_REQUIRED
+                    acceptedPayments:
+                      - UNITED_TRAVEL
+                      - CONFERMA
+                    amountPercent:
+                      amount:
+                        amount: <number>
+                        currencyCode: <string>
+                      applyAs: FIRST_AND_LAST_NIGHT_DEPOSIT
+                      basisType: FULL_STAY
+                      feesInclusive: <boolean>
+                      numberOfNights: <integer>
+                      percent: <number>
+                      taxInclusive: <boolean>
+                    cvvRequired: <boolean>
+                  rateChangesOverStay: <boolean>
+                  ratePlanId: <string>
+                  totalPrice:
+                    currencyCode: <string>
+                    totalBeforeTax: <number>
+                    fees: <number>
+                    isTotalBeforeTaxDisplayEligible: true
+                    taxes: <number>
+                    totalAfterTax: <number>
+                  nightlyPrices:
+                    - basePrice: <number>
+                      currencyCode: <string>
+                      endDate: <date>
+                      startDate: <date>
+                      fees:
+                        amount: <number>
+                        feeBreakdown:
+                          - amount: <number>
+                            fttCode: <integer>
+                            inclusive: <boolean>
+                          - amount: <number>
+                            fttCode: <integer>
+                            inclusive: <boolean>
+                      taxes:
+                        amount: <number>
+                        taxBreakdown:
+                          - amount: <number>
+                            fttCode: <integer>
+                            inclusive: <boolean>
+                          - amount: <number>
+                            fttCode: <integer>
+                            inclusive: <boolean>
+                      totalPrice: <number>
+                  prepayRequired: <boolean>
+                  rateCategory:
+                    otaCode: <integer>
+                    value: <string>
+                  rateDescription:
+                    - <string>
+                    - <string>
+                  refundable: <boolean>
+                  roomId: <string>
+                  rateDetailsCallRequired: false
+                status: CANCELLED
+                checkin: <date>
+                checkout: <date>
+                comments:
+                  - <string>
+                  - <string>
+                isModifiable: true
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: <string>
+                otaCode: <integer>
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: <string>
+                otaCode: <integer>
+        '501':
+          description: Not Implemented
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /hotels/reservation/read:
+    post:
+      tags:
+        - hotels > reservation > read
+      summary: Returns detailed information about a hotel reservation.
+      description: >
+        Read reservation details. Used in a process of reserving a hotel to
+        acknowledge receipt of booking confirmation as well as write information
+        to Itinerary. Not invoked by user, but by automatic Concur process.
+        Hotel Supplier should reply with the same response as provided for the
+        book response.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                confirmationCodes:
+                  - code: <string>
+                    codeType: SUPPLIER_CONFIRMATION
+                  - code: <string>
+                    codeType: HOTEL_CONFIRMATION
+                requestorInfo:
+                  posRequestorId: <string>
+                  travelerUuid: <string>
+                  bookingForSelf: <boolean>
+                  loginId: <string>
+      parameters:
+        - name: Accept-Language
+          in: header
+          schema:
+            type: string
+          example: <string>
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            (Required) This unique code can be used during troubleshooting as it
+            identifies the API call in the log files.
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                basicHotelProperty:
+                  cityCode: <string>
+                  contactInfo:
+                    emails:
+                      - <email>
+                      - <email>
+                    phoneNumbers:
+                      - <string>
+                      - <string>
+                    faxNumber: <string>
+                  hotelName: <string>
+                  propertyCode: <string>
+                  address:
+                    addressLines:
+                      - <string>
+                      - <string>
+                    city: <string>
+                    countryCode: <string>
+                    postalCode: <string>
+                    state: <string>
+                    stateName: <string>
+                  chainCode: <string>
+                  position:
+                    latitude: <number>
+                    longitude: <number>
+                confirmationCodes:
+                  - code: <string>
+                    codeType: SUPPLIER_CONFIRMATION
+                  - code: <string>
+                    codeType: HOTEL_CONFIRMATION
+                guests:
+                  - firstname: <string>
+                    lastname: <string>
+                    address:
+                      addressLines:
+                        - <string>
+                        - <string>
+                      city: <string>
+                      countryCode: <string>
+                      postalCode: <string>
+                      state: <string>
+                      stateName: <string>
+                    birthdate: <date>
+                    companyName: <string>
+                    contactInfo:
+                      emails:
+                        - <email>
+                        - <email>
+                      phoneNumbers:
+                        - <string>
+                        - <string>
+                      faxNumber: <string>
+                  - firstname: <string>
+                    lastname: <string>
+                    address:
+                      addressLines:
+                        - <string>
+                        - <string>
+                      city: <string>
+                      countryCode: <string>
+                      postalCode: <string>
+                      state: <string>
+                      stateName: <string>
+                    birthdate: <date>
+                    companyName: <string>
+                    contactInfo:
+                      emails:
+                        - <email>
+                        - <email>
+                      phoneNumbers:
+                        - <string>
+                        - <string>
+                      faxNumber: <string>
+                roomDescription:
+                  - <string>
+                  - <string>
+                roomRate:
+                  cancelPenalties:
+                    penalties:
+                      - description: <string>
+                        refundableStatus: FULLY_REFUNDABLE
+                        amountPercent:
+                          amount:
+                            amount: <number>
+                            currencyCode: <string>
+                          applyAs: FIRST_AND_LAST_NIGHT_DEPOSIT
+                          basisType: FIRST_LAST
+                          feesInclusive: <boolean>
+                          numberOfNights: <integer>
+                          percent: <number>
+                          taxInclusive: <boolean>
+                        cancelDeadline: <string>
+                  guarantee:
+                    guaranteeType: DEPOSIT_REQUIRED
+                    acceptedPayments:
+                      - UNITED_TRAVEL
+                      - CONFERMA
+                    amountPercent:
+                      amount:
+                        amount: <number>
+                        currencyCode: <string>
+                      applyAs: FIRST_AND_LAST_NIGHT_DEPOSIT
+                      basisType: FULL_STAY
+                      feesInclusive: <boolean>
+                      numberOfNights: <integer>
+                      percent: <number>
+                      taxInclusive: <boolean>
+                    cvvRequired: <boolean>
+                  rateChangesOverStay: <boolean>
+                  ratePlanId: <string>
+                  totalPrice:
+                    currencyCode: <string>
+                    totalBeforeTax: <number>
+                    fees: <number>
+                    isTotalBeforeTaxDisplayEligible: true
+                    taxes: <number>
+                    totalAfterTax: <number>
+                  nightlyPrices:
+                    - basePrice: <number>
+                      currencyCode: <string>
+                      endDate: <date>
+                      startDate: <date>
+                      fees:
+                        amount: <number>
+                        feeBreakdown:
+                          - amount: <number>
+                            fttCode: <integer>
+                            inclusive: <boolean>
+                          - amount: <number>
+                            fttCode: <integer>
+                            inclusive: <boolean>
+                      taxes:
+                        amount: <number>
+                        taxBreakdown:
+                          - amount: <number>
+                            fttCode: <integer>
+                            inclusive: <boolean>
+                          - amount: <number>
+                            fttCode: <integer>
+                            inclusive: <boolean>
+                      totalPrice: <number>
+                  prepayRequired: <boolean>
+                  rateCategory:
+                    otaCode: <integer>
+                    value: <string>
+                  rateDescription:
+                    - <string>
+                    - <string>
+                  refundable: <boolean>
+                  roomId: <string>
+                  rateDetailsCallRequired: false
+                status: CANCELLED
+                checkin: <date>
+                checkout: <date>
+                comments:
+                  - <string>
+                  - <string>
+                isModifiable: true
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: <string>
+                otaCode: <integer>
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: <string>
+                otaCode: <integer>
+  /hotels/reservation:
+    post:
+      tags:
+        - hotels > reservation
+      summary: Reserve the given hotel rate
+      description: Reserve hotel rate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                checkin: <date>
+                checkout: <date>
+                customFields:
+                  - name: <string>
+                    value: <string>
+                  - name: <string>
+                    value: <string>
+                guests:
+                  - firstname: <string>
+                    lastname: <string>
+                    address:
+                      addressLines:
+                        - <string>
+                        - <string>
+                      city: <string>
+                      countryCode: <string>
+                      postalCode: <string>
+                      state: <string>
+                      stateName: <string>
+                    birthdate: <date>
+                    companyName: <string>
+                    contactInfo:
+                      emails:
+                        - <email>
+                        - <email>
+                      phoneNumbers:
+                        - <string>
+                        - <string>
+                      faxNumber: <string>
+                  - firstname: <string>
+                    lastname: <string>
+                    address:
+                      addressLines:
+                        - <string>
+                        - <string>
+                      city: <string>
+                      countryCode: <string>
+                      postalCode: <string>
+                      state: <string>
+                      stateName: <string>
+                    birthdate: <date>
+                    companyName: <string>
+                    contactInfo:
+                      emails:
+                        - <email>
+                        - <email>
+                      phoneNumbers:
+                        - <string>
+                        - <string>
+                      faxNumber: <string>
+                hotelPropertyRef:
+                  propertyCode: <string>
+                  chainCode: <string>
+                ratePlanId: <string>
+                requestorInfo:
+                  posRequestorId: <string>
+                  travelerUuid: <string>
+                  bookingForSelf: <boolean>
+                  loginId: <string>
+                comments:
+                  - <string>
+                  - <string>
+                guarantee:
+                  cardNumber: <string>
+                  cardType: UATP
+                  cardHolderAddress:
+                    addressLines:
+                      - <string>
+                      - <string>
+                    city: <string>
+                    countryCode: <string>
+                    postalCode: <string>
+                    state: <string>
+                    stateName: <string>
+                  cardHolderName: <string>
+                  cardExpiryMonth: <integer>
+                  cardExpiryYear: <integer>
+                  cvv: <string>
+                legalEntity:
+                  name: <string>
+                  taxId: <string>
+                  address:
+                    addressLines:
+                      - <string>
+                      - <string>
+                    city: <string>
+                    countryCode: <string>
+                    postalCode: <string>
+                    state: <string>
+                    stateName: <string>
+                loyalty:
+                  accountId: <string>
+                  programCode: <string>
+                paymentModeIndicator: CONCUR_VIRTUAL_CARD
+                searchSessionToken: <uuid>
+                threeDSecure:
+                  avv: <string>
+                  eci: <string>
+                  messageVersion: <string>
+                  transactionId: <string>
+                  cavvAlgorithm: <string>
+                  exemptionCode: <string>
+                  threeDSServerTransactionId: <string>
+      parameters:
+        - name: Accept-Language
+          in: header
+          schema:
+            type: string
+          example: <string>
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            (Required) This unique code can be used during troubleshooting as it
+            identifies the API call in the log files.
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                basicHotelProperty:
+                  cityCode: <string>
+                  contactInfo:
+                    emails:
+                      - <email>
+                      - <email>
+                    phoneNumbers:
+                      - <string>
+                      - <string>
+                    faxNumber: <string>
+                  hotelName: <string>
+                  propertyCode: <string>
+                  address:
+                    addressLines:
+                      - <string>
+                      - <string>
+                    city: <string>
+                    countryCode: <string>
+                    postalCode: <string>
+                    state: <string>
+                    stateName: <string>
+                  chainCode: <string>
+                  position:
+                    latitude: <number>
+                    longitude: <number>
+                confirmationCodes:
+                  - code: <string>
+                    codeType: SUPPLIER_CONFIRMATION
+                  - code: <string>
+                    codeType: HOTEL_CONFIRMATION
+                guests:
+                  - firstname: <string>
+                    lastname: <string>
+                    address:
+                      addressLines:
+                        - <string>
+                        - <string>
+                      city: <string>
+                      countryCode: <string>
+                      postalCode: <string>
+                      state: <string>
+                      stateName: <string>
+                    birthdate: <date>
+                    companyName: <string>
+                    contactInfo:
+                      emails:
+                        - <email>
+                        - <email>
+                      phoneNumbers:
+                        - <string>
+                        - <string>
+                      faxNumber: <string>
+                  - firstname: <string>
+                    lastname: <string>
+                    address:
+                      addressLines:
+                        - <string>
+                        - <string>
+                      city: <string>
+                      countryCode: <string>
+                      postalCode: <string>
+                      state: <string>
+                      stateName: <string>
+                    birthdate: <date>
+                    companyName: <string>
+                    contactInfo:
+                      emails:
+                        - <email>
+                        - <email>
+                      phoneNumbers:
+                        - <string>
+                        - <string>
+                      faxNumber: <string>
+                roomDescription:
+                  - <string>
+                  - <string>
+                roomRate:
+                  cancelPenalties:
+                    penalties:
+                      - description: <string>
+                        refundableStatus: FULLY_REFUNDABLE
+                        amountPercent:
+                          amount:
+                            amount: <number>
+                            currencyCode: <string>
+                          applyAs: FIRST_AND_LAST_NIGHT_DEPOSIT
+                          basisType: FIRST_LAST
+                          feesInclusive: <boolean>
+                          numberOfNights: <integer>
+                          percent: <number>
+                          taxInclusive: <boolean>
+                        cancelDeadline: <string>
+                  guarantee:
+                    guaranteeType: DEPOSIT_REQUIRED
+                    acceptedPayments:
+                      - UNITED_TRAVEL
+                      - CONFERMA
+                    amountPercent:
+                      amount:
+                        amount: <number>
+                        currencyCode: <string>
+                      applyAs: FIRST_AND_LAST_NIGHT_DEPOSIT
+                      basisType: FULL_STAY
+                      feesInclusive: <boolean>
+                      numberOfNights: <integer>
+                      percent: <number>
+                      taxInclusive: <boolean>
+                    cvvRequired: <boolean>
+                  rateChangesOverStay: <boolean>
+                  ratePlanId: <string>
+                  totalPrice:
+                    currencyCode: <string>
+                    totalBeforeTax: <number>
+                    fees: <number>
+                    isTotalBeforeTaxDisplayEligible: true
+                    taxes: <number>
+                    totalAfterTax: <number>
+                  nightlyPrices:
+                    - basePrice: <number>
+                      currencyCode: <string>
+                      endDate: <date>
+                      startDate: <date>
+                      fees:
+                        amount: <number>
+                        feeBreakdown:
+                          - amount: <number>
+                            fttCode: <integer>
+                            inclusive: <boolean>
+                          - amount: <number>
+                            fttCode: <integer>
+                            inclusive: <boolean>
+                      taxes:
+                        amount: <number>
+                        taxBreakdown:
+                          - amount: <number>
+                            fttCode: <integer>
+                            inclusive: <boolean>
+                          - amount: <number>
+                            fttCode: <integer>
+                            inclusive: <boolean>
+                      totalPrice: <number>
+                  prepayRequired: <boolean>
+                  rateCategory:
+                    otaCode: <integer>
+                    value: <string>
+                  rateDescription:
+                    - <string>
+                    - <string>
+                  refundable: <boolean>
+                  roomId: <string>
+                  rateDetailsCallRequired: false
+                status: CANCELLED
+                checkin: <date>
+                checkout: <date>
+                comments:
+                  - <string>
+                  - <string>
+                isModifiable: true
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: <string>
+                otaCode: <integer>
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: <string>
+                otaCode: <integer>
+  /hotels/search:
+    post:
+      tags:
+        - hotels > search
+      summary: Perform the initial search for hotels.
+      description: Perform the initial search for hotels.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                checkin: <date>
+                checkout: <date>
+                includeDepositRequired: <boolean>
+                requestorInfo:
+                  posRequestorId: <string>
+                  travelerUuid: <string>
+                  bookingForSelf: <boolean>
+                  loginId: <string>
+                customFields:
+                  - name: <string>
+                    value: <string>
+                  - name: <string>
+                    value: <string>
+                guestCountryCode: <string>
+                hotelPropertyRefs:
+                  - propertyCode: <string>
+                    chainCode: <string>
+                  - propertyCode: <string>
+                    chainCode: <string>
+                locationSearch:
+                  location:
+                    geoLocation:
+                      latitude: <number>
+                      longitude: <number>
+                    locationType: ADDRESS
+                    name: <string>
+                    address:
+                      addressLines:
+                        - <string>
+                        - <string>
+                      city: <string>
+                      countryCode: <string>
+                      postalCode: <string>
+                      state: <string>
+                      stateName: <string>
+                    iataCode: <string>
+                  maxRadius:
+                    unit: KM
+                    value: <integer>
+                  radius:
+                    unit: KM
+                    value: <integer>
+                maxSearchResults: 100
+                numGuests: 1
+                rateCategories:
+                  - otaCode: <integer>
+                    value: <string>
+                  - otaCode: <integer>
+                    value: <string>
+      parameters:
+        - name: Accept-Language
+          in: header
+          schema:
+            type: string
+          example: <string>
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: '(Required) '
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                hotelProperties:
+                  - address:
+                      addressLines:
+                        - <string>
+                        - <string>
+                      city: <string>
+                      countryCode: <string>
+                      postalCode: <string>
+                      state: <string>
+                      stateName: <string>
+                    amenities:
+                      - amenityCode: <integer>
+                      - amenityCode: <integer>
+                    availabilityStatus: AVAILABLE_FOR_SALE
+                    contactInfo:
+                      emails:
+                        - <email>
+                        - <email>
+                      phoneNumbers:
+                        - <string>
+                        - <string>
+                      faxNumber: <string>
+                    hotelName: <string>
+                    leadImageURI: <uri>
+                    leadRate:
+                      avgNightlyRate:
+                        amount: <number>
+                        currencyCode: <string>
+                      isTaxAndFeesInclusive: false
+                    propertyCode: <string>
+                    altPropertyCode:
+                      catalogCode: <string>
+                      catalogName: NORTHSTAR
+                    chainCode: <string>
+                    position:
+                      latitude: <number>
+                      longitude: <number>
+                    preferenceRank: MOST_PREFERRED
+                    preferenceLevel: PROPERTY
+                    rating:
+                      source: AAA_DIAMONDS
+                      value: <integer>
+                      name: <string>
+                    superChainCode: <string>
+                    sustainabilityAwards:
+                      - label: GREEN_STAY
+                        level: <string>
+                        name: <string>
+                      - label: GREEN_SEAL
+                        level: <string>
+                        name: <string>
+                  - address:
+                      addressLines:
+                        - <string>
+                        - <string>
+                      city: <string>
+                      countryCode: <string>
+                      postalCode: <string>
+                      state: <string>
+                      stateName: <string>
+                    amenities:
+                      - amenityCode: <integer>
+                      - amenityCode: <integer>
+                    availabilityStatus: CLOSED_OUT
+                    contactInfo:
+                      emails:
+                        - <email>
+                        - <email>
+                      phoneNumbers:
+                        - <string>
+                        - <string>
+                      faxNumber: <string>
+                    hotelName: <string>
+                    leadImageURI: <uri>
+                    leadRate:
+                      avgNightlyRate:
+                        amount: <number>
+                        currencyCode: <string>
+                      isTaxAndFeesInclusive: false
+                    propertyCode: <string>
+                    altPropertyCode:
+                      catalogCode: <string>
+                      catalogName: BOOKING.COM
+                    chainCode: <string>
+                    position:
+                      latitude: <number>
+                      longitude: <number>
+                    preferenceRank: PREFERRED
+                    preferenceLevel: CHAIN
+                    rating:
+                      source: HRS_STAR_RATING
+                      value: <integer>
+                      name: <string>
+                    superChainCode: <string>
+                    sustainabilityAwards:
+                      - label: GSTC
+                        level: <string>
+                        name: <string>
+                      - label: LEED
+                        level: <string>
+                        name: <string>
+                searchSessionToken: <uuid>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: <string>
+                otaCode: <integer>
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: <string>
+                otaCode: <integer>

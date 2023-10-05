@@ -1,0 +1,920 @@
+openapi: 3.0.0
+info:
+  title: Purchase Orders
+  description: >-
+    In Concur Invoice, purchase orders are requests for a vendor to supply goods
+    or services. This API provides methods to create a new purchase order, or
+    view or update an existing purchase order.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    oauth2Auth:
+      type: http
+      scheme: oauth2
+security:
+  - oauth2Auth: []
+tags:
+  - name: invoice
+  - name: invoice > purchaseorders
+  - name: invoice > purchaseorders > {id}
+paths:
+  /invoice/purchaseorders/{id}:
+    get:
+      tags:
+        - invoice > purchaseorders > {id}
+      summary: Get a purchase order.
+      description: Retrieves information about the specified purchase order.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                BillToAddress:
+                  Address1: <string>
+                  City: <string>
+                  CountryCode: <string>
+                  ExternalID: <string>
+                  PostalCode: <string>
+                  Address2: <string>
+                  Address3: <string>
+                  Name: <string>
+                  State: <string>
+                  StateProvince: <string>
+                LineItem:
+                  - LineNumber: <string>
+                    ExternalID: <string>
+                    Quantity: <string>
+                    UnitPrice: <string>
+                    AccountCode: <string>
+                    Allocation:
+                      - Amount: <string>
+                        Custom1: <string>
+                        Custom10: <string>
+                        Custom11: <string>
+                        Custom12: <string>
+                        Custom13: <string>
+                        Custom14: <string>
+                        Custom15: <string>
+                        Custom16: <string>
+                        Custom17: <string>
+                        Custom18: <string>
+                        Custom19: <string>
+                        Custom2: <string>
+                        Custom20: <string>
+                        Custom3: <string>
+                        Custom4: <string>
+                        Custom5: <string>
+                        Custom6: <string>
+                        Custom7: <string>
+                        Custom8: <string>
+                        Custom9: <string>
+                        GrossAmount: <string>
+                        Percentage: <string>
+                      - Amount: <string>
+                        Custom1: <string>
+                        Custom10: <string>
+                        Custom11: <string>
+                        Custom12: <string>
+                        Custom13: <string>
+                        Custom14: <string>
+                        Custom15: <string>
+                        Custom16: <string>
+                        Custom17: <string>
+                        Custom18: <string>
+                        Custom19: <string>
+                        Custom2: <string>
+                        Custom20: <string>
+                        Custom3: <string>
+                        Custom4: <string>
+                        Custom5: <string>
+                        Custom6: <string>
+                        Custom7: <string>
+                        Custom8: <string>
+                        Custom9: <string>
+                        GrossAmount: <string>
+                        Percentage: <string>
+                    AmountWithoutVat: <string>
+                    CreateDate: <string>
+                    Custom1: <string>
+                    Custom10: <string>
+                    Custom11: <string>
+                    Custom12: <string>
+                    Custom13: <string>
+                    Custom14: <string>
+                    Custom15: <string>
+                    Custom16: <string>
+                    Custom17: <string>
+                    Custom18: <string>
+                    Custom19: <string>
+                    Custom2: <string>
+                    Custom20: <string>
+                    Custom3: <string>
+                    Custom4: <string>
+                    Custom5: <string>
+                    Custom6: <string>
+                    Custom7: <string>
+                    Custom8: <string>
+                    Custom9: <string>
+                    Description: <string>
+                    ExpenseType: <string>
+                    IsReceiptRequired: <string>
+                    PurchaseOrderReceiptType: <string>
+                    RequestedBy: <string>
+                    RequestedDeliveryDate: <string>
+                    SupplierPartID: <string>
+                    Tax: <string>
+                    UnitOfMeasureCode: <string>
+                    VatAmount: <string>
+                    VatRate: <string>
+                  - LineNumber: <string>
+                    ExternalID: <string>
+                    Quantity: <string>
+                    UnitPrice: <string>
+                    AccountCode: <string>
+                    Allocation:
+                      - Amount: <string>
+                        Custom1: <string>
+                        Custom10: <string>
+                        Custom11: <string>
+                        Custom12: <string>
+                        Custom13: <string>
+                        Custom14: <string>
+                        Custom15: <string>
+                        Custom16: <string>
+                        Custom17: <string>
+                        Custom18: <string>
+                        Custom19: <string>
+                        Custom2: <string>
+                        Custom20: <string>
+                        Custom3: <string>
+                        Custom4: <string>
+                        Custom5: <string>
+                        Custom6: <string>
+                        Custom7: <string>
+                        Custom8: <string>
+                        Custom9: <string>
+                        GrossAmount: <string>
+                        Percentage: <string>
+                      - Amount: <string>
+                        Custom1: <string>
+                        Custom10: <string>
+                        Custom11: <string>
+                        Custom12: <string>
+                        Custom13: <string>
+                        Custom14: <string>
+                        Custom15: <string>
+                        Custom16: <string>
+                        Custom17: <string>
+                        Custom18: <string>
+                        Custom19: <string>
+                        Custom2: <string>
+                        Custom20: <string>
+                        Custom3: <string>
+                        Custom4: <string>
+                        Custom5: <string>
+                        Custom6: <string>
+                        Custom7: <string>
+                        Custom8: <string>
+                        Custom9: <string>
+                        GrossAmount: <string>
+                        Percentage: <string>
+                    AmountWithoutVat: <string>
+                    CreateDate: <string>
+                    Custom1: <string>
+                    Custom10: <string>
+                    Custom11: <string>
+                    Custom12: <string>
+                    Custom13: <string>
+                    Custom14: <string>
+                    Custom15: <string>
+                    Custom16: <string>
+                    Custom17: <string>
+                    Custom18: <string>
+                    Custom19: <string>
+                    Custom2: <string>
+                    Custom20: <string>
+                    Custom3: <string>
+                    Custom4: <string>
+                    Custom5: <string>
+                    Custom6: <string>
+                    Custom7: <string>
+                    Custom8: <string>
+                    Custom9: <string>
+                    Description: <string>
+                    ExpenseType: <string>
+                    IsReceiptRequired: <string>
+                    PurchaseOrderReceiptType: <string>
+                    RequestedBy: <string>
+                    RequestedDeliveryDate: <string>
+                    SupplierPartID: <string>
+                    Tax: <string>
+                    UnitOfMeasureCode: <string>
+                    VatAmount: <string>
+                    VatRate: <string>
+                PolicyExternalID: <string>
+                ShipToAddress:
+                  Address1: <string>
+                  City: <string>
+                  CountryCode: <string>
+                  ExternalID: <string>
+                  PostalCode: <string>
+                  Address2: <string>
+                  Address3: <string>
+                  Name: <string>
+                  State: <string>
+                  StateProvince: <string>
+                CurrencyCode: <string>
+                OrderDate: <string>
+                VendorAddressCode: <string>
+                VendorCode: <string>
+                AmountWithoutVat: <string>
+                Custom1: <string>
+                Custom10: <string>
+                Custom11: <string>
+                Custom12: <string>
+                Custom13: <string>
+                Custom14: <string>
+                Custom15: <string>
+                Custom16: <string>
+                Custom17: <string>
+                Custom18: <string>
+                Custom19: <string>
+                Custom2: <string>
+                Custom20: <string>
+                Custom21: <string>
+                Custom22: <string>
+                Custom23: <string>
+                Custom24: <string>
+                Custom3: <string>
+                Custom4: <string>
+                Custom5: <string>
+                Custom6: <string>
+                Custom7: <string>
+                Custom8: <string>
+                Custom9: <string>
+                Description: <string>
+                DiscountPercentage: <string>
+                DiscountTerms: <string>
+                ID: <string>
+                IsTest: <boolean>
+                IsChangeOrder: <boolean>
+                LedgerCode: <string>
+                Name: <string>
+                NeededByDate: <string>
+                PaymentTerms: <string>
+                PoVendorTaxId: <string>
+                ProvincialTaxId: <string>
+                PurchaseOrderNumber: <string>
+                PurchaseRequestNumber: <string>
+                ReceiptType: <string>
+                RequestedBy: <string>
+                RequestedDeliveryDate: <string>
+                Shipping: <string>
+                ShippingDescription: <string>
+                ShippingMethodKey: <string>
+                ShippingTermsKey: <string>
+                Status: <string>
+                Tax: <string>
+                URI: <string>
+                VatAmountOne: <string>
+                VatAmountTwo: <string>
+                VatRateOne: <string>
+                VatRateTwo: <string>
+                VendorAccountNumber: <string>
+  /invoice/purchaseorders:
+    post:
+      tags:
+        - invoice > purchaseorders
+      summary: Create a purchase order
+      description: Creates a purchase order and returns the status of the creation request.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                BillToAddress:
+                  Address1: <string>
+                  City: <string>
+                  CountryCode: <string>
+                  ExternalID: <string>
+                  PostalCode: <string>
+                  Address2: <string>
+                  Address3: <string>
+                  Name: <string>
+                  State: <string>
+                  StateProvince: <string>
+                LineItem:
+                  - LineNumber: <string>
+                    ExternalID: <string>
+                    Quantity: <string>
+                    UnitPrice: <string>
+                    AccountCode: <string>
+                    Allocation:
+                      - Amount: <string>
+                        Custom1: <string>
+                        Custom10: <string>
+                        Custom11: <string>
+                        Custom12: <string>
+                        Custom13: <string>
+                        Custom14: <string>
+                        Custom15: <string>
+                        Custom16: <string>
+                        Custom17: <string>
+                        Custom18: <string>
+                        Custom19: <string>
+                        Custom2: <string>
+                        Custom20: <string>
+                        Custom3: <string>
+                        Custom4: <string>
+                        Custom5: <string>
+                        Custom6: <string>
+                        Custom7: <string>
+                        Custom8: <string>
+                        Custom9: <string>
+                        GrossAmount: <string>
+                        Percentage: <string>
+                      - Amount: <string>
+                        Custom1: <string>
+                        Custom10: <string>
+                        Custom11: <string>
+                        Custom12: <string>
+                        Custom13: <string>
+                        Custom14: <string>
+                        Custom15: <string>
+                        Custom16: <string>
+                        Custom17: <string>
+                        Custom18: <string>
+                        Custom19: <string>
+                        Custom2: <string>
+                        Custom20: <string>
+                        Custom3: <string>
+                        Custom4: <string>
+                        Custom5: <string>
+                        Custom6: <string>
+                        Custom7: <string>
+                        Custom8: <string>
+                        Custom9: <string>
+                        GrossAmount: <string>
+                        Percentage: <string>
+                    AmountWithoutVat: <string>
+                    CreateDate: <string>
+                    Custom1: <string>
+                    Custom10: <string>
+                    Custom11: <string>
+                    Custom12: <string>
+                    Custom13: <string>
+                    Custom14: <string>
+                    Custom15: <string>
+                    Custom16: <string>
+                    Custom17: <string>
+                    Custom18: <string>
+                    Custom19: <string>
+                    Custom2: <string>
+                    Custom20: <string>
+                    Custom3: <string>
+                    Custom4: <string>
+                    Custom5: <string>
+                    Custom6: <string>
+                    Custom7: <string>
+                    Custom8: <string>
+                    Custom9: <string>
+                    Description: <string>
+                    ExpenseType: <string>
+                    IsReceiptRequired: <string>
+                    PurchaseOrderReceiptType: <string>
+                    RequestedBy: <string>
+                    RequestedDeliveryDate: <string>
+                    SupplierPartID: <string>
+                    Tax: <string>
+                    UnitOfMeasureCode: <string>
+                    VatAmount: <string>
+                    VatRate: <string>
+                  - LineNumber: <string>
+                    ExternalID: <string>
+                    Quantity: <string>
+                    UnitPrice: <string>
+                    AccountCode: <string>
+                    Allocation:
+                      - Amount: <string>
+                        Custom1: <string>
+                        Custom10: <string>
+                        Custom11: <string>
+                        Custom12: <string>
+                        Custom13: <string>
+                        Custom14: <string>
+                        Custom15: <string>
+                        Custom16: <string>
+                        Custom17: <string>
+                        Custom18: <string>
+                        Custom19: <string>
+                        Custom2: <string>
+                        Custom20: <string>
+                        Custom3: <string>
+                        Custom4: <string>
+                        Custom5: <string>
+                        Custom6: <string>
+                        Custom7: <string>
+                        Custom8: <string>
+                        Custom9: <string>
+                        GrossAmount: <string>
+                        Percentage: <string>
+                      - Amount: <string>
+                        Custom1: <string>
+                        Custom10: <string>
+                        Custom11: <string>
+                        Custom12: <string>
+                        Custom13: <string>
+                        Custom14: <string>
+                        Custom15: <string>
+                        Custom16: <string>
+                        Custom17: <string>
+                        Custom18: <string>
+                        Custom19: <string>
+                        Custom2: <string>
+                        Custom20: <string>
+                        Custom3: <string>
+                        Custom4: <string>
+                        Custom5: <string>
+                        Custom6: <string>
+                        Custom7: <string>
+                        Custom8: <string>
+                        Custom9: <string>
+                        GrossAmount: <string>
+                        Percentage: <string>
+                    AmountWithoutVat: <string>
+                    CreateDate: <string>
+                    Custom1: <string>
+                    Custom10: <string>
+                    Custom11: <string>
+                    Custom12: <string>
+                    Custom13: <string>
+                    Custom14: <string>
+                    Custom15: <string>
+                    Custom16: <string>
+                    Custom17: <string>
+                    Custom18: <string>
+                    Custom19: <string>
+                    Custom2: <string>
+                    Custom20: <string>
+                    Custom3: <string>
+                    Custom4: <string>
+                    Custom5: <string>
+                    Custom6: <string>
+                    Custom7: <string>
+                    Custom8: <string>
+                    Custom9: <string>
+                    Description: <string>
+                    ExpenseType: <string>
+                    IsReceiptRequired: <string>
+                    PurchaseOrderReceiptType: <string>
+                    RequestedBy: <string>
+                    RequestedDeliveryDate: <string>
+                    SupplierPartID: <string>
+                    Tax: <string>
+                    UnitOfMeasureCode: <string>
+                    VatAmount: <string>
+                    VatRate: <string>
+                PolicyExternalID: <string>
+                ShipToAddress:
+                  Address1: <string>
+                  City: <string>
+                  CountryCode: <string>
+                  ExternalID: <string>
+                  PostalCode: <string>
+                  Address2: <string>
+                  Address3: <string>
+                  Name: <string>
+                  State: <string>
+                  StateProvince: <string>
+                CurrencyCode: <string>
+                OrderDate: <string>
+                VendorAddressCode: <string>
+                VendorCode: <string>
+                AmountWithoutVat: <string>
+                Custom1: <string>
+                Custom10: <string>
+                Custom11: <string>
+                Custom12: <string>
+                Custom13: <string>
+                Custom14: <string>
+                Custom15: <string>
+                Custom16: <string>
+                Custom17: <string>
+                Custom18: <string>
+                Custom19: <string>
+                Custom2: <string>
+                Custom20: <string>
+                Custom21: <string>
+                Custom22: <string>
+                Custom23: <string>
+                Custom24: <string>
+                Custom3: <string>
+                Custom4: <string>
+                Custom5: <string>
+                Custom6: <string>
+                Custom7: <string>
+                Custom8: <string>
+                Custom9: <string>
+                Description: <string>
+                DiscountPercentage: <string>
+                DiscountTerms: <string>
+                ID: <string>
+                IsTest: <boolean>
+                IsChangeOrder: <boolean>
+                LedgerCode: <string>
+                Name: <string>
+                NeededByDate: <string>
+                PaymentTerms: <string>
+                PoVendorTaxId: <string>
+                ProvincialTaxId: <string>
+                PurchaseOrderNumber: <string>
+                PurchaseRequestNumber: <string>
+                ReceiptType: <string>
+                RequestedBy: <string>
+                RequestedDeliveryDate: <string>
+                Shipping: <string>
+                ShippingDescription: <string>
+                ShippingMethodKey: <string>
+                ShippingTermsKey: <string>
+                Status: <string>
+                Tax: <string>
+                URI: <string>
+                VatAmountOne: <string>
+                VatAmountTwo: <string>
+                VatRateOne: <string>
+                VatRateTwo: <string>
+                VendorAccountNumber: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                ErrorCode: <string>
+                ErrorMessage: <string>
+                FieldCode: <string>
+                LineItemExternalID: <string>
+                Message: <string>
+                PurchaseOrderNumber: <string>
+                Status: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+    put:
+      tags:
+        - invoice > purchaseorders
+      summary: Update a purchase order.
+      description: >-
+        Updates the specified purchase order and returns the status of the
+        update request.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                BillToAddress:
+                  Address1: <string>
+                  City: <string>
+                  CountryCode: <string>
+                  ExternalID: <string>
+                  PostalCode: <string>
+                  Address2: <string>
+                  Address3: <string>
+                  Name: <string>
+                  State: <string>
+                  StateProvince: <string>
+                LineItem:
+                  - LineNumber: <string>
+                    ExternalID: <string>
+                    Quantity: <string>
+                    UnitPrice: <string>
+                    AccountCode: <string>
+                    Allocation:
+                      - Amount: <string>
+                        Custom1: <string>
+                        Custom10: <string>
+                        Custom11: <string>
+                        Custom12: <string>
+                        Custom13: <string>
+                        Custom14: <string>
+                        Custom15: <string>
+                        Custom16: <string>
+                        Custom17: <string>
+                        Custom18: <string>
+                        Custom19: <string>
+                        Custom2: <string>
+                        Custom20: <string>
+                        Custom3: <string>
+                        Custom4: <string>
+                        Custom5: <string>
+                        Custom6: <string>
+                        Custom7: <string>
+                        Custom8: <string>
+                        Custom9: <string>
+                        GrossAmount: <string>
+                        Percentage: <string>
+                      - Amount: <string>
+                        Custom1: <string>
+                        Custom10: <string>
+                        Custom11: <string>
+                        Custom12: <string>
+                        Custom13: <string>
+                        Custom14: <string>
+                        Custom15: <string>
+                        Custom16: <string>
+                        Custom17: <string>
+                        Custom18: <string>
+                        Custom19: <string>
+                        Custom2: <string>
+                        Custom20: <string>
+                        Custom3: <string>
+                        Custom4: <string>
+                        Custom5: <string>
+                        Custom6: <string>
+                        Custom7: <string>
+                        Custom8: <string>
+                        Custom9: <string>
+                        GrossAmount: <string>
+                        Percentage: <string>
+                    AmountWithoutVat: <string>
+                    CreateDate: <string>
+                    Custom1: <string>
+                    Custom10: <string>
+                    Custom11: <string>
+                    Custom12: <string>
+                    Custom13: <string>
+                    Custom14: <string>
+                    Custom15: <string>
+                    Custom16: <string>
+                    Custom17: <string>
+                    Custom18: <string>
+                    Custom19: <string>
+                    Custom2: <string>
+                    Custom20: <string>
+                    Custom3: <string>
+                    Custom4: <string>
+                    Custom5: <string>
+                    Custom6: <string>
+                    Custom7: <string>
+                    Custom8: <string>
+                    Custom9: <string>
+                    Description: <string>
+                    ExpenseType: <string>
+                    IsReceiptRequired: <string>
+                    PurchaseOrderReceiptType: <string>
+                    RequestedBy: <string>
+                    RequestedDeliveryDate: <string>
+                    SupplierPartID: <string>
+                    Tax: <string>
+                    UnitOfMeasureCode: <string>
+                    VatAmount: <string>
+                    VatRate: <string>
+                  - LineNumber: <string>
+                    ExternalID: <string>
+                    Quantity: <string>
+                    UnitPrice: <string>
+                    AccountCode: <string>
+                    Allocation:
+                      - Amount: <string>
+                        Custom1: <string>
+                        Custom10: <string>
+                        Custom11: <string>
+                        Custom12: <string>
+                        Custom13: <string>
+                        Custom14: <string>
+                        Custom15: <string>
+                        Custom16: <string>
+                        Custom17: <string>
+                        Custom18: <string>
+                        Custom19: <string>
+                        Custom2: <string>
+                        Custom20: <string>
+                        Custom3: <string>
+                        Custom4: <string>
+                        Custom5: <string>
+                        Custom6: <string>
+                        Custom7: <string>
+                        Custom8: <string>
+                        Custom9: <string>
+                        GrossAmount: <string>
+                        Percentage: <string>
+                      - Amount: <string>
+                        Custom1: <string>
+                        Custom10: <string>
+                        Custom11: <string>
+                        Custom12: <string>
+                        Custom13: <string>
+                        Custom14: <string>
+                        Custom15: <string>
+                        Custom16: <string>
+                        Custom17: <string>
+                        Custom18: <string>
+                        Custom19: <string>
+                        Custom2: <string>
+                        Custom20: <string>
+                        Custom3: <string>
+                        Custom4: <string>
+                        Custom5: <string>
+                        Custom6: <string>
+                        Custom7: <string>
+                        Custom8: <string>
+                        Custom9: <string>
+                        GrossAmount: <string>
+                        Percentage: <string>
+                    AmountWithoutVat: <string>
+                    CreateDate: <string>
+                    Custom1: <string>
+                    Custom10: <string>
+                    Custom11: <string>
+                    Custom12: <string>
+                    Custom13: <string>
+                    Custom14: <string>
+                    Custom15: <string>
+                    Custom16: <string>
+                    Custom17: <string>
+                    Custom18: <string>
+                    Custom19: <string>
+                    Custom2: <string>
+                    Custom20: <string>
+                    Custom3: <string>
+                    Custom4: <string>
+                    Custom5: <string>
+                    Custom6: <string>
+                    Custom7: <string>
+                    Custom8: <string>
+                    Custom9: <string>
+                    Description: <string>
+                    ExpenseType: <string>
+                    IsReceiptRequired: <string>
+                    PurchaseOrderReceiptType: <string>
+                    RequestedBy: <string>
+                    RequestedDeliveryDate: <string>
+                    SupplierPartID: <string>
+                    Tax: <string>
+                    UnitOfMeasureCode: <string>
+                    VatAmount: <string>
+                    VatRate: <string>
+                PolicyExternalID: <string>
+                ShipToAddress:
+                  Address1: <string>
+                  City: <string>
+                  CountryCode: <string>
+                  ExternalID: <string>
+                  PostalCode: <string>
+                  Address2: <string>
+                  Address3: <string>
+                  Name: <string>
+                  State: <string>
+                  StateProvince: <string>
+                CurrencyCode: <string>
+                OrderDate: <string>
+                VendorAddressCode: <string>
+                VendorCode: <string>
+                AmountWithoutVat: <string>
+                Custom1: <string>
+                Custom10: <string>
+                Custom11: <string>
+                Custom12: <string>
+                Custom13: <string>
+                Custom14: <string>
+                Custom15: <string>
+                Custom16: <string>
+                Custom17: <string>
+                Custom18: <string>
+                Custom19: <string>
+                Custom2: <string>
+                Custom20: <string>
+                Custom21: <string>
+                Custom22: <string>
+                Custom23: <string>
+                Custom24: <string>
+                Custom3: <string>
+                Custom4: <string>
+                Custom5: <string>
+                Custom6: <string>
+                Custom7: <string>
+                Custom8: <string>
+                Custom9: <string>
+                Description: <string>
+                DiscountPercentage: <string>
+                DiscountTerms: <string>
+                ID: <string>
+                IsTest: <boolean>
+                IsChangeOrder: <boolean>
+                LedgerCode: <string>
+                Name: <string>
+                NeededByDate: <string>
+                PaymentTerms: <string>
+                PoVendorTaxId: <string>
+                ProvincialTaxId: <string>
+                PurchaseOrderNumber: <string>
+                PurchaseRequestNumber: <string>
+                ReceiptType: <string>
+                RequestedBy: <string>
+                RequestedDeliveryDate: <string>
+                Shipping: <string>
+                ShippingDescription: <string>
+                ShippingMethodKey: <string>
+                ShippingTermsKey: <string>
+                Status: <string>
+                Tax: <string>
+                URI: <string>
+                VatAmountOne: <string>
+                VatAmountTwo: <string>
+                VatRateOne: <string>
+                VatRateTwo: <string>
+                VendorAccountNumber: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                ErrorCode: <string>
+                ErrorMessage: <string>
+                FieldCode: <string>
+                LineItemExternalID: <string>
+                Message: <string>
+                PurchaseOrderNumber: <string>
+                Status: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}

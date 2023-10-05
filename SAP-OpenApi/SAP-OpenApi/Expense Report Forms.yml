@@ -1,0 +1,117 @@
+openapi: 3.0.0
+info:
+  title: Expense Report Forms
+  description: Returns the configured fields for the specified expense form.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: expense
+  - name: expense > expensereport
+  - name: expense > expensereport > v1.1
+  - name: expense > expensereport > v1.1 > report
+  - name: expense > expensereport > v1.1 > report > Forms
+  - name: expense > expensereport > v1.1 > report > Forms > {FormId}
+  - name: expense > expensereport > v1.1 > report > Forms > {FormId} > Fields
+paths:
+  /expense/expensereport/v1.1/report/Forms/{FormId}/Fields:
+    get:
+      tags:
+        - expense > expensereport > v1.1 > report > Forms > {FormId} > Fields
+      summary: Retrieves the list of configured form fields for the specified form.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/xml
+        - name: FormId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/xml
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: |-
+                <?xml version="1.0" encoding="UTF-8"?>
+                <element>
+                  <FormField>
+                    <Id>(string)</Id>
+                    <Label>(string)</Label>
+                    <ControlType>(string)</ControlType>
+                    <DataType>(string)</DataType>
+                    <MaxLength>(integer)</MaxLength>
+                    <Required>(string)</Required>
+                    <Cols>(integer)</Cols>
+                    <Access>(string)</Access>
+                    <Width>(integer)</Width>
+                    <Custom>(string)</Custom>
+                    <Sequence>(integer)</Sequence>
+                  </FormField>
+                  <FormField>
+                    <Id>(string)</Id>
+                    <Label>(string)</Label>
+                    <ControlType>(string)</ControlType>
+                    <DataType>(string)</DataType>
+                    <MaxLength>(integer)</MaxLength>
+                    <Required>(string)</Required>
+                    <Cols>(integer)</Cols>
+                    <Access>(string)</Access>
+                    <Width>(integer)</Width>
+                    <Custom>(string)</Custom>
+                    <Sequence>(integer)</Sequence>
+                  </FormField>
+                </element>
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''

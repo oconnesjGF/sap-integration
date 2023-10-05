@@ -1,0 +1,215 @@
+openapi: 3.0.0
+info:
+  title: Exchange Rate Broker
+  description: Rest API for Exchange Rate Broker
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    apikeyAuth:
+      type: http
+      scheme: apikey
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: exchangerate
+  - name: exchangerate > v4
+  - name: exchangerate > v4 > rates
+paths:
+  /exchangerate/v4/rates:
+    post:
+      tags:
+        - exchangerate > v4 > rates
+      summary: Upload custom exchange rates for an entity.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                currency_sets:
+                  - from_crn_code: <string>
+                    rate: <number>
+                    start_date: <string>
+                    to_crn_code: <string>
+                  - from_crn_code: <string>
+                    rate: <number>
+                    start_date: <string>
+                    to_crn_code: <string>
+      security:
+        - apikeyAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                currencySets:
+                  - from_crn_code: <string>
+                    rate: <number>
+                    start_date: <string>
+                    statusCode: <integer>
+                    statusMessage: <string>
+                    to_crn_code: <string>
+                  - from_crn_code: <string>
+                    rate: <number>
+                    start_date: <string>
+                    statusCode: <integer>
+                    statusMessage: <string>
+                    to_crn_code: <string>
+                message: <string>
+                overallStatus: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '503':
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>

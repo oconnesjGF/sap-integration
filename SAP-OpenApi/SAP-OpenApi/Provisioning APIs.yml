@@ -1,0 +1,742 @@
+openapi: 3.0.0
+info:
+  title: Provisioning APIs
+  description: |-
+    Provisioning APIs
+
+    Contact Support:
+     Email: profile@concur.com
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    apikeyAuth:
+      type: http
+      scheme: apikey
+security:
+  - apikeyAuth: []
+tags:
+  - name: provisions
+  - name: provisions > {id}
+  - name: provisions > {id} > status
+  - name: Bulk
+  - name: Schemas
+  - name: Schemas > {id}
+  - name: ServiceProviderConfig
+paths:
+  /provisions/{id}/status:
+    get:
+      tags:
+        - provisions > {id} > status
+      summary: Get the status of a provisioning request.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: attributes
+          in: query
+          schema:
+            type: string
+          description: Additional attributes to include in response
+          example: operations
+        - name: startIndex
+          in: query
+          schema:
+            type: string
+          description: The 1-based index of the first operation in the set of operations
+          example: <integer>
+        - name: count
+          in: query
+          schema:
+            type: string
+          description: The number of operations to be returned in response
+          example: <integer>
+        - name: state
+          in: query
+          schema:
+            type: string
+          description: Filter operations to be returned in response based on status
+          example: success
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: <string>
+                status:
+                  completed: <boolean>
+                  success: <boolean>
+                operationsCount:
+                  total: <number>
+                  success: <number>
+                  failed: <number>
+                  pending: <number>
+                itemsPerPage: <integer>
+                operations:
+                  - id: <string>
+                    status:
+                      completed: <boolean>
+                      success: <boolean>
+                    bulkId: <string>
+                    extensions:
+                      - name: <string>
+                        status:
+                          completed: <boolean>
+                          code: <string>
+                          result: no-op
+                          success: <boolean>
+                        messages:
+                          code: <string>
+                          type: warning
+                          message: <string>
+                          schemaPath: <string>
+                      - name: <string>
+                        status:
+                          completed: <boolean>
+                          code: <string>
+                          result: no-op
+                          success: <boolean>
+                        messages:
+                          code: <string>
+                          type: error
+                          message: <string>
+                          schemaPath: <string>
+                    resource:
+                      id: <string>
+                      type: User
+                  - id: <string>
+                    status:
+                      completed: <boolean>
+                      success: <boolean>
+                    bulkId: <string>
+                    extensions:
+                      - name: <string>
+                        status:
+                          completed: <boolean>
+                          code: <string>
+                          result: error
+                          success: <boolean>
+                        messages:
+                          code: <string>
+                          type: warning
+                          message: <string>
+                          schemaPath: <string>
+                      - name: <string>
+                        status:
+                          completed: <boolean>
+                          code: <string>
+                          result: not-processed
+                          success: <boolean>
+                        messages:
+                          code: <string>
+                          type: warning
+                          message: <string>
+                          schemaPath: <string>
+                    resource:
+                      id: <string>
+                      type: User
+                startIndex: <integer>
+                totalResults: <integer>
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /Bulk:
+    post:
+      tags:
+        - Bulk
+      summary: Create a bulk provisioning request.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:BulkRequest
+                  - urn:ietf:params:scim:api:messages:2.0:BulkRequest
+                Operations:
+                  - data:
+                      name:
+                        familyName: <string>
+                        givenName: <string>
+                        formatted: <string>
+                        hasNoMiddleName: <boolean>
+                        honorificPrefix: Dr Mrs
+                        honorificSuffix: Jr.
+                        legalName: <string>
+                        middleInitial: <string>
+                        middleName: <string>
+                      active: <boolean>
+                      id: <string>
+                      emails:
+                        - value: <string>
+                          dateAdded: <string>
+                          dateVerified: <string>
+                          notifications: <boolean>
+                          type: home
+                          verified: <boolean>
+                        - value: <string>
+                          dateAdded: <string>
+                          dateVerified: <string>
+                          notifications: <boolean>
+                          type: work2
+                          verified: <boolean>
+                      userName: <string>
+                      addresses:
+                        - country: <string>
+                          locality: <string>
+                          postalCode: <string>
+                          region: <string>
+                          streetAddress: <string>
+                          type: billing
+                        - country: <string>
+                          locality: <string>
+                          postalCode: <string>
+                          region: <string>
+                          streetAddress: <string>
+                          type: other
+                      dateOfBirth: <string>
+                      displayName: <string>
+                      emergencyContacts:
+                        - name: <string>
+                          relationship: Brother
+                          country: <string>
+                          emails:
+                            - <string>
+                            - <string>
+                          locality: <string>
+                          phones:
+                            - <string>
+                            - <string>
+                          postalCode: <string>
+                          region: <string>
+                          streetAddress: <string>
+                        - name: <string>
+                          relationship: Other
+                          country: <string>
+                          emails:
+                            - <string>
+                            - <string>
+                          locality: <string>
+                          phones:
+                            - <string>
+                            - <string>
+                          postalCode: <string>
+                          region: <string>
+                          streetAddress: <string>
+                      entitlements:
+                        - Expense
+                        - Locate
+                      externalId: <string>
+                      gender: Male
+                      localeOverrides:
+                        preference24Hour: H:mm
+                        preferenceCurrencySymbolLocation: BeforeAmount
+                        preferenceDateFormat: dd-mm-yyyy
+                        preferenceDefaultCalView: day
+                        preferenceDistance: km
+                        preferenceEndDayViewHour: <integer>
+                        preferenceFirstDayOfWeek: Thursday
+                        preferenceHourMinuteSeparator: .
+                        preferenceNegativeCurrencyFormat: (100)
+                        preferenceNegativeNumberFormat: (100)
+                        preferenceNumberFormat: 1 000,00
+                        preferenceStartDayViewHour: <integer>
+                      meta: {}
+                      nickName: <string>
+                      phoneNumbers:
+                        - display: <string>
+                          notifications: <boolean>
+                          operatingSystem: Android Phone
+                          primary: <boolean>
+                          type: home
+                          value: <string>
+                        - display: <string>
+                          notifications: <boolean>
+                          operatingSystem: iOS Phone
+                          primary: <boolean>
+                          type: other
+                          value: <string>
+                      preferredLanguage: <string>
+                      timezone: <string>
+                      urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll:
+                        adp:
+                          companyCode: <string>
+                          deductionCode: <string>
+                          employeeFileNumber: <string>
+                      urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                        companyId: <string>
+                        costCenter: <string>
+                        department: <string>
+                        division: <string>
+                        employeeNumber: <string>
+                        jobTitle: <string>
+                        manager:
+                          $ref: <string>
+                          displayName: <string>
+                          employeeNumber: <string>
+                          value: <string>
+                        orgUnit: <string>
+                        organization: <string>
+                        self:
+                          $ref: <string>
+                          displayName: <string>
+                          employeeNumber: <string>
+                          value: <string>
+                        startDate: <string>
+                        terminationDate: <string>
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:Approver:
+                        approverType:
+                          - request
+                          - budget
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate:
+                        delegateProdCode:
+                          - expense
+                          - purchaseRequest
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:Role:
+                        roles:
+                          - roleName: {}
+                          - roleName: {}
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:User:
+                        cashAdvanceAccountCode: <string>
+                        country: <string>
+                        locale: <string>
+                        reimbursementCurrency: <string>
+                        budgetCountryCode: <string>
+                        ledgerCode: <string>
+                        nonEmployee: <boolean>
+                        reimbursementType: ACCOUNTS_PAYABLE
+                        schemaCustomData:
+                          - id: <string>
+                            value: <string>
+                          - id: <string>
+                            value: <string>
+                        stateProvince: <string>
+                        testEmployee: <boolean>
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference:
+                        allowCreditCardTransArrivalEmails: <boolean>
+                        allowReceiptImageAvailEmails: <boolean>
+                        autoAddTripCardTransOnReport: <boolean>
+                        defaultReportPrintFormat: FAX
+                        expenseAuditRequired: NEVER
+                        processorReportAccess: All reports Pending processor and above
+                        promptForCardTransactionsOnReport: <boolean>
+                        promptForReportPrintFormat: <boolean>
+                        showExpenseOnReport: NOTHING
+                        showImagingIntro: <boolean>
+                        showInstructHelpPanel: <boolean>
+                        showTotalOnReport: <boolean>
+                        useQuickItinAsDefault: <boolean>
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference:
+                        emailAwaitApprovalOnCashAdvance: <boolean>
+                        emailAwaitApprovalOnPayment: <boolean>
+                        emailAwaitApprovalOnReport: <boolean>
+                        emailAwaitApprovalOnTravelRequest: <boolean>
+                        emailStatusChangeOnCashAdvance: <boolean>
+                        emailStatusChangeOnPayment: <boolean>
+                        emailStatusChangeOnReport: <boolean>
+                        emailStatusChangeOnTravelRequest: <boolean>
+                        promptForApproverOnPaymentSubmit: <boolean>
+                        promptForApproverOnReportSubmit: <boolean>
+                        promptForApproverOnTravelRequestSubmit: <boolean>
+                      urn:ietf:params:scim:schemas:extension:travel:2.0:User:
+                        ruleClass:
+                          id: <integer>
+                          name: <string>
+                        travelCrsName: <string>
+                        customFields:
+                          - name: <string>
+                            value: <string>
+                          - name: <string>
+                            value: <string>
+                        groups:
+                          - <integer>
+                          - <integer>
+                        manager:
+                          employeeNumber: <string>
+                          value: <string>
+                        travelNameRemark: <string>
+                        xmlProfileSyncId: <string>
+                    method: PATCH
+                    bulkId: <string>
+                    path: /Users
+                  - data:
+                      name:
+                        familyName: <string>
+                        givenName: <string>
+                        formatted: <string>
+                        hasNoMiddleName: <boolean>
+                        honorificPrefix: Prof Dr Mr
+                        honorificSuffix: IV
+                        legalName: <string>
+                        middleInitial: <string>
+                        middleName: <string>
+                      active: <boolean>
+                      id: <string>
+                      emails:
+                        - value: <string>
+                          dateAdded: <string>
+                          dateVerified: <string>
+                          notifications: <boolean>
+                          type: sms
+                          verified: <boolean>
+                        - value: <string>
+                          dateAdded: <string>
+                          dateVerified: <string>
+                          notifications: <boolean>
+                          type: home
+                          verified: <boolean>
+                      userName: <string>
+                      addresses:
+                        - country: <string>
+                          locality: <string>
+                          postalCode: <string>
+                          region: <string>
+                          streetAddress: <string>
+                          type: other
+                        - country: <string>
+                          locality: <string>
+                          postalCode: <string>
+                          region: <string>
+                          streetAddress: <string>
+                          type: other
+                      dateOfBirth: <string>
+                      displayName: <string>
+                      emergencyContacts:
+                        - name: <string>
+                          relationship: Life Partner
+                          country: <string>
+                          emails:
+                            - <string>
+                            - <string>
+                          locality: <string>
+                          phones:
+                            - <string>
+                            - <string>
+                          postalCode: <string>
+                          region: <string>
+                          streetAddress: <string>
+                        - name: <string>
+                          relationship: Spouse
+                          country: <string>
+                          emails:
+                            - <string>
+                            - <string>
+                          locality: <string>
+                          phones:
+                            - <string>
+                            - <string>
+                          postalCode: <string>
+                          region: <string>
+                          streetAddress: <string>
+                      entitlements:
+                        - Locate
+                        - Invoice
+                      externalId: <string>
+                      gender: Male
+                      localeOverrides:
+                        preference24Hour: h:mm AM/PM
+                        preferenceCurrencySymbolLocation: AfterAmount
+                        preferenceDateFormat: mm/dd/yyyy
+                        preferenceDefaultCalView: month
+                        preferenceDistance: km
+                        preferenceEndDayViewHour: <integer>
+                        preferenceFirstDayOfWeek: Monday
+                        preferenceHourMinuteSeparator: .
+                        preferenceNegativeCurrencyFormat: (100)
+                        preferenceNegativeNumberFormat: (100)
+                        preferenceNumberFormat: 1 000,00
+                        preferenceStartDayViewHour: <integer>
+                      meta: {}
+                      nickName: <string>
+                      phoneNumbers:
+                        - display: <string>
+                          notifications: <boolean>
+                          operatingSystem: Other smartphone
+                          primary: <boolean>
+                          type: mobile
+                          value: <string>
+                        - display: <string>
+                          notifications: <boolean>
+                          operatingSystem: Android Phone
+                          primary: <boolean>
+                          type: mobile
+                          value: <string>
+                      preferredLanguage: <string>
+                      timezone: <string>
+                      urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll:
+                        adp:
+                          companyCode: <string>
+                          deductionCode: <string>
+                          employeeFileNumber: <string>
+                      urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                        companyId: <string>
+                        costCenter: <string>
+                        department: <string>
+                        division: <string>
+                        employeeNumber: <string>
+                        jobTitle: <string>
+                        manager:
+                          $ref: <string>
+                          displayName: <string>
+                          employeeNumber: <string>
+                          value: <string>
+                        orgUnit: <string>
+                        organization: <string>
+                        self:
+                          $ref: <string>
+                          displayName: <string>
+                          employeeNumber: <string>
+                          value: <string>
+                        startDate: <string>
+                        terminationDate: <string>
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:Approver:
+                        approverType:
+                          - budget
+                          - report
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate:
+                        delegateProdCode:
+                          - payment
+                          - expense
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:Role:
+                        roles:
+                          - roleName: {}
+                          - roleName: {}
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:User:
+                        cashAdvanceAccountCode: <string>
+                        country: <string>
+                        locale: <string>
+                        reimbursementCurrency: <string>
+                        budgetCountryCode: <string>
+                        ledgerCode: <string>
+                        nonEmployee: <boolean>
+                        reimbursementType: ACCOUNTS_PAYABLE
+                        schemaCustomData:
+                          - id: <string>
+                            value: <string>
+                          - id: <string>
+                            value: <string>
+                        stateProvince: <string>
+                        testEmployee: <boolean>
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference:
+                        allowCreditCardTransArrivalEmails: <boolean>
+                        allowReceiptImageAvailEmails: <boolean>
+                        autoAddTripCardTransOnReport: <boolean>
+                        defaultReportPrintFormat: RECEIPTS
+                        expenseAuditRequired: NEVER
+                        processorReportAccess: All reports Pending processor and above
+                        promptForCardTransactionsOnReport: <boolean>
+                        promptForReportPrintFormat: <boolean>
+                        showExpenseOnReport: ALL
+                        showImagingIntro: <boolean>
+                        showInstructHelpPanel: <boolean>
+                        showTotalOnReport: <boolean>
+                        useQuickItinAsDefault: <boolean>
+                      urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference:
+                        emailAwaitApprovalOnCashAdvance: <boolean>
+                        emailAwaitApprovalOnPayment: <boolean>
+                        emailAwaitApprovalOnReport: <boolean>
+                        emailAwaitApprovalOnTravelRequest: <boolean>
+                        emailStatusChangeOnCashAdvance: <boolean>
+                        emailStatusChangeOnPayment: <boolean>
+                        emailStatusChangeOnReport: <boolean>
+                        emailStatusChangeOnTravelRequest: <boolean>
+                        promptForApproverOnPaymentSubmit: <boolean>
+                        promptForApproverOnReportSubmit: <boolean>
+                        promptForApproverOnTravelRequestSubmit: <boolean>
+                      urn:ietf:params:scim:schemas:extension:travel:2.0:User:
+                        ruleClass:
+                          id: <integer>
+                          name: <string>
+                        travelCrsName: <string>
+                        customFields:
+                          - name: <string>
+                            value: <string>
+                          - name: <string>
+                            value: <string>
+                        groups:
+                          - <integer>
+                          - <integer>
+                        manager:
+                          employeeNumber: <string>
+                          value: <string>
+                        travelNameRemark: <string>
+                        xmlProfileSyncId: <string>
+                    method: POST
+                    bulkId: <string>
+                    path: /Users
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '202':
+          description: Accepted
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: <string>
+                status:
+                  completed: <boolean>
+                  success: <boolean>
+                operationsCount:
+                  total: <number>
+                  success: <number>
+                  failed: <number>
+                  pending: <number>
+                itemsPerPage: <integer>
+                operations:
+                  - id: <string>
+                    status:
+                      completed: <boolean>
+                      success: <boolean>
+                    bulkId: <string>
+                    extensions:
+                      - name: <string>
+                        status:
+                          completed: <boolean>
+                          code: <string>
+                          result: no-op
+                          success: <boolean>
+                        messages:
+                          code: <string>
+                          type: warning
+                          message: <string>
+                          schemaPath: <string>
+                      - name: <string>
+                        status:
+                          completed: <boolean>
+                          code: <string>
+                          result: no-op
+                          success: <boolean>
+                        messages:
+                          code: <string>
+                          type: error
+                          message: <string>
+                          schemaPath: <string>
+                    resource:
+                      id: <string>
+                      type: User
+                  - id: <string>
+                    status:
+                      completed: <boolean>
+                      success: <boolean>
+                    bulkId: <string>
+                    extensions:
+                      - name: <string>
+                        status:
+                          completed: <boolean>
+                          code: <string>
+                          result: error
+                          success: <boolean>
+                        messages:
+                          code: <string>
+                          type: warning
+                          message: <string>
+                          schemaPath: <string>
+                      - name: <string>
+                        status:
+                          completed: <boolean>
+                          code: <string>
+                          result: not-processed
+                          success: <boolean>
+                        messages:
+                          code: <string>
+                          type: warning
+                          message: <string>
+                          schemaPath: <string>
+                    resource:
+                      id: <string>
+                      type: User
+                startIndex: <integer>
+                totalResults: <integer>
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /Schemas/{id}:
+    get:
+      tags:
+        - Schemas > {id}
+      summary: Get a schema.
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /Schemas:
+    get:
+      tags:
+        - Schemas
+      summary: Get all supported schemas.
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /ServiceProviderConfig:
+    get:
+      tags:
+        - ServiceProviderConfig
+      summary: >-
+        SCIM service provider configuration representation/implementation
+        details.
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''

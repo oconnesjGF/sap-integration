@@ -1,0 +1,130 @@
+openapi: 3.0.0
+info:
+  title: Data Visualization
+  description: >-
+    # Get Started Here 👇
+
+
+    The _Postman Visualizer_ provides a programmable way to visually represent
+    your request
+    [responses](https://learning.postman.com/docs/sending-requests/responses/).
+
+
+    ## **Using this collection**
+
+
+    This collection contains six sample requests and scripts for rendering Bar
+    graph, Table, Map and visualizing any CSV, JSON or XML data.
+
+
+    **Step 1:** Send the sample requests.
+
+
+    **Step 2:** Find the visualization in the "visualize" tab in the response
+    near the "Pretty" view.
+
+
+    <img
+    src="https://content.pstmn.io/a4c4bb63-d25b-460d-b885-38fbe6effcca/dmlzdWFsaXplci1tYXAtdjguanBn"
+    alt="Visualizer%20Map">
+
+
+    **Step 3:** You can copy, update and use the test script under the "Test"
+    tab for your requests.
+
+
+    **Resource:** [Visualizing
+    responses](https://learning.postman.com/docs/sending-requests/visualizer/#:~:text=as%20an%20object.-,Viewing%20visualizations,be%20in%20a%20web%20browser.)
+  version: 1.0.0
+servers:
+  - url: https://postman-echo.com
+  - url: https://earthquake.usgs.gov
+  - url: https://www.sample-videos.com
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+paths:
+  /post:
+    post:
+      tags:
+        - General
+      summary: Visualize any XML data
+      description: >-
+        This request will help you to visualize any XML.
+
+
+        Change the URL and run the request, then go to the Visualizer tab to see
+        the XML as a table.
+
+
+        You can head over to the `Tests` tab, scroll down to the bottom and
+        change the `xmlData` to `pm.response.text()` to visualize your entire
+        XML response.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: |-
+                <?xml version="1.0" encoding="UTF-8"?>
+                <book>
+                 <name>A Song of Ice and Fire</name>
+                 <author>George R. R. Martin</author>
+                 <language>English</language>
+                 <genre>Epic fantasy</genre>
+                </book>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /fdsnws/event/1/query:
+    get:
+      tags:
+        - General
+      summary: Visualize Map
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+          example: geojson
+        - name: starttime
+          in: query
+          schema:
+            type: string
+          example: '{{eq-starttime}}'
+        - name: endtime
+          in: query
+          schema:
+            type: string
+          example: '{{eq-endtime}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /csv/Sample-Spreadsheet-100-rows.csv:
+    get:
+      tags:
+        - General
+      summary: Visualize any CSV data
+      description: >-
+        This request will help you to visualize any CSV.
+
+
+        Change the URL and run the request, then go to the Visualizer tab to see
+        the CSV as a table.
+
+
+        In case your CSV isn't rendering correctly, you might need to tweak the
+        delimters or other properties.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

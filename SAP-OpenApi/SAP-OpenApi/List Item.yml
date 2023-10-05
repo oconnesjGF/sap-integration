@@ -1,0 +1,1822 @@
+openapi: 3.0.0
+info:
+  title: List Item
+  description: >-
+    Provides an automated solution to clients who would like to manage list
+    items. This API provides methods to view, add, update or delete list items
+    owned by the specified lists.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    apikeyAuth:
+      type: http
+      scheme: apikey
+tags:
+  - name: list
+  - name: list > v4
+  - name: list > v4 > items
+  - name: list > v4 > items > {itemId}
+  - name: list > v4 > items > {itemId} > children
+  - name: list > v4 > items > {itemId} > path
+  - name: list > v4 > lists
+  - name: list > v4 > lists > {listId}
+  - name: list > v4 > lists > {listId} > children
+  - name: list > v4 > lists > {listId} > items
+paths:
+  /list/v4/items/{itemId}/children:
+    get:
+      tags:
+        - list > v4 > items > {itemId} > children
+      summary: Get direct children of list item
+      description: Returns list item children
+      security:
+        - apikeyAuth: []
+      parameters:
+        - name: Accept-Language
+          in: header
+          schema:
+            type: string
+          description: Language code
+          example: en
+        - name: company-uuid
+          in: header
+          schema:
+            type: string
+          description: Company UUID of the user (Used for x509 authorization)
+          example: <string>
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the consumer making the API calls. Minimum
+            length: 6 characters
+          example: <string>
+        - name: concur-uid
+          in: header
+          schema:
+            type: string
+          description: Concur Employee UUID of the caller (Used for x509 authorization)
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: endDate
+          in: query
+          schema:
+            type: string
+          description: Filter capabilities for EndDate
+          example: <string>
+        - name: hasChildren
+          in: query
+          schema:
+            type: string
+          description: Show items with children
+          example: <boolean>
+        - name: isDeleted
+          in: query
+          schema:
+            type: string
+          description: Show deleted items
+          example: <boolean>
+        - name: page
+          in: query
+          schema:
+            type: integer
+          description: Page number starting from 1
+          example: '1'
+        - name: shortCode
+          in: query
+          schema:
+            type: string
+          description: Filter capabilities for ShortCode
+          example: <string>
+        - name: shortCodeOrValue
+          in: query
+          schema:
+            type: string
+          description: Filter capabilities for Value OR ShortCode
+          example: <string>
+        - name: sortBy
+          in: query
+          schema:
+            type: string
+          description: Field to sort by, {value, shortcode}
+          example: value
+        - name: sortDirection
+          in: query
+          schema:
+            type: string
+          description: Sort direction, {asc, desc}
+          example: desc
+        - name: startDate
+          in: query
+          schema:
+            type: string
+          description: Filter capabilities for StartDate
+          example: <string>
+        - name: value
+          in: query
+          schema:
+            type: string
+          description: Filter capabilities for Value
+          example: <string>
+        - name: itemId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <uuid>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                content:
+                  - id: <uuid>
+                    code: <string>
+                    shortCode: <string>
+                    value: <string>
+                    parentId: <uuid>
+                    listId: <uuid>
+                    level: <integer>
+                    hasChildren: <boolean>
+                    lists:
+                      - id: <uuid>
+                      - id: <uuid>
+                    isDeleted: <boolean>
+                  - id: <uuid>
+                    code: <string>
+                    shortCode: <string>
+                    value: <string>
+                    parentId: <uuid>
+                    listId: <uuid>
+                    level: <integer>
+                    hasChildren: <boolean>
+                    lists:
+                      - id: <uuid>
+                      - id: <uuid>
+                    isDeleted: <boolean>
+                links:
+                  - deprecation: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    rel: <string>
+                    templated: <boolean>
+                    title: <string>
+                    type: <string>
+                  - deprecation: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    rel: <string>
+                    templated: <boolean>
+                    title: <string>
+                    type: <string>
+                page:
+                  number: <long>
+                  size: <long>
+                  totalElements: <long>
+                  totalPages: <long>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+  /list/v4/items/{itemId}/path:
+    get:
+      tags:
+        - list > v4 > items > {itemId} > path
+      summary: Get list item path using its id
+      description: >-
+        Returns a list of listItem nodes sorted in ascending order of their
+        level
+      security:
+        - apikeyAuth: []
+      parameters:
+        - name: Accept-Language
+          in: header
+          schema:
+            type: string
+          description: Language code
+          example: en
+        - name: company-uuid
+          in: header
+          schema:
+            type: string
+          description: Company UUID of the user (Used for x509 authorization)
+          example: <string>
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the consumer making the API calls. Minimum
+            length: 6 characters
+          example: <string>
+        - name: concur-uid
+          in: header
+          schema:
+            type: string
+          description: Concur Employee UUID of the caller (Used for x509 authorization)
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: itemId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <uuid>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - id: <uuid>
+                  code: <string>
+                  shortCode: <string>
+                  value: <string>
+                  parentId: <uuid>
+                  listId: <uuid>
+                  level: <integer>
+                  hasChildren: <boolean>
+                  lists:
+                    - id: <uuid>
+                    - id: <uuid>
+                  isDeleted: <boolean>
+                - id: <uuid>
+                  code: <string>
+                  shortCode: <string>
+                  value: <string>
+                  parentId: <uuid>
+                  listId: <uuid>
+                  level: <integer>
+                  hasChildren: <boolean>
+                  lists:
+                    - id: <uuid>
+                    - id: <uuid>
+                  isDeleted: <boolean>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+  /list/v4/items/{itemId}:
+    get:
+      tags:
+        - list > v4 > items > {itemId}
+      summary: Gets list item by id
+      description: Returns list item
+      security:
+        - apikeyAuth: []
+      parameters:
+        - name: Accept-Language
+          in: header
+          schema:
+            type: string
+          description: Language code
+          example: en
+        - name: company-uuid
+          in: header
+          schema:
+            type: string
+          description: Company UUID of the user (Used for x509 authorization)
+          example: <string>
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the consumer making the API calls. Minimum
+            length: 6 characters
+          example: <string>
+        - name: concur-uid
+          in: header
+          schema:
+            type: string
+          description: Concur Employee UUID of the caller (Used for x509 authorization)
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: itemId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <uuid>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: <uuid>
+                code: <string>
+                shortCode: <string>
+                value: <string>
+                parentId: <uuid>
+                listId: <uuid>
+                level: <integer>
+                hasChildren: <boolean>
+                lists:
+                  - id: <uuid>
+                  - id: <uuid>
+                isDeleted: <boolean>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+    put:
+      tags:
+        - list > v4 > items > {itemId}
+      summary: Update a list item with provided request body
+      description: Returns the updated list item
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                shortCode: <string>
+                value: <string>
+      security:
+        - apikeyAuth: []
+      parameters:
+        - name: Accept-Language
+          in: header
+          schema:
+            type: string
+          description: Language code
+          example: en
+        - name: company-uuid
+          in: header
+          schema:
+            type: string
+          description: Company UUID of the user (Used for x509 authorization)
+          example: <string>
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the consumer making the API calls. Minimum
+            length: 6 characters
+          example: <string>
+        - name: concur-uid
+          in: header
+          schema:
+            type: string
+          description: Concur Employee UUID of the caller (Used for x509 authorization)
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: itemId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <uuid>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: <uuid>
+                code: <string>
+                shortCode: <string>
+                value: <string>
+                parentId: <uuid>
+                listId: <uuid>
+                level: <integer>
+                hasChildren: <boolean>
+                lists:
+                  - id: <uuid>
+                  - id: <uuid>
+                isDeleted: <boolean>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '415':
+          description: Unsupported Media Type
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+    delete:
+      tags:
+        - list > v4 > items > {itemId}
+      summary: Delete a list item
+      description: Deletes list item
+      security:
+        - apikeyAuth: []
+      parameters:
+        - name: company-uuid
+          in: header
+          schema:
+            type: string
+          description: Company UUID of the user (Used for x509 authorization)
+          example: <string>
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the consumer making the API calls. Minimum
+            length: 6 characters
+          example: <string>
+        - name: concur-uid
+          in: header
+          schema:
+            type: string
+          description: Concur Employee UUID of the caller (Used for x509 authorization)
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: itemId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <uuid>
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+  /list/v4/items:
+    get:
+      tags:
+        - list > v4 > items
+      summary: >-
+        Gets list items by query on id, long code or legacy item key. Supports
+        batch get list items by ids or legacy item keys. Required query
+        parameters: a single code OR one or more id(s) OR one or more
+        legacyKey(s). Query parameters code, id, legacyKey cannot 
+      description: Returns list items
+      security:
+        - apikeyAuth: []
+      parameters:
+        - name: Accept-Language
+          in: header
+          schema:
+            type: string
+          description: Language code
+          example: en
+        - name: company-uuid
+          in: header
+          schema:
+            type: string
+          description: Company UUID of the user (Used for x509 authorization)
+          example: <string>
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the consumer making the API calls. Minimum
+            length: 6 characters
+          example: <string>
+        - name: concur-uid
+          in: header
+          schema:
+            type: string
+          description: Concur Employee UUID of the caller (Used for x509 authorization)
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: code
+          in: query
+          schema:
+            type: string
+          description: List item long code
+          example: <string>
+        - name: id
+          in: query
+          schema:
+            type: string
+          description: The unique identifier of the list item. Maximum number of ids is 100
+          example: <string>
+        - name: legacyKey
+          in: query
+          schema:
+            type: string
+          description: >-
+            The legacy unique identifier of the list item. Maximum number of the
+            legacy keys is 100
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - id: <uuid>
+                  code: <string>
+                  shortCode: <string>
+                  value: <string>
+                  parentId: <uuid>
+                  listId: <uuid>
+                  level: <integer>
+                  hasChildren: <boolean>
+                  lists:
+                    - id: <uuid>
+                    - id: <uuid>
+                  isDeleted: <boolean>
+                - id: <uuid>
+                  code: <string>
+                  shortCode: <string>
+                  value: <string>
+                  parentId: <uuid>
+                  listId: <uuid>
+                  level: <integer>
+                  hasChildren: <boolean>
+                  lists:
+                    - id: <uuid>
+                    - id: <uuid>
+                  isDeleted: <boolean>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+    post:
+      tags:
+        - list > v4 > items
+      summary: Create a list item with provided request body
+      description: Returns the newly created list item
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                listId: <uuid>
+                shortCode: <string>
+                value: <string>
+                parentId: <uuid>
+      security:
+        - apikeyAuth: []
+      parameters:
+        - name: Accept-Language
+          in: header
+          schema:
+            type: string
+          description: Language code
+          example: en
+        - name: company-uuid
+          in: header
+          schema:
+            type: string
+          description: Company UUID of the user (Used for x509 authorization)
+          example: <string>
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the consumer making the API calls. Minimum
+            length: 6 characters
+          example: <string>
+        - name: concur-uid
+          in: header
+          schema:
+            type: string
+          description: Concur Employee UUID of the caller (Used for x509 authorization)
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '201':
+          description: Created
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: <uuid>
+                code: <string>
+                shortCode: <string>
+                value: <string>
+                parentId: <uuid>
+                listId: <uuid>
+                level: <integer>
+                hasChildren: <boolean>
+                lists:
+                  - id: <uuid>
+                  - id: <uuid>
+                isDeleted: <boolean>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '415':
+          description: Unsupported Media Type
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+  /list/v4/lists/{listId}/children:
+    get:
+      tags:
+        - list > v4 > lists > {listId} > children
+      summary: Get the first level list items for a given list id
+      description: Returns first level list items
+      security:
+        - apikeyAuth: []
+      parameters:
+        - name: Accept-Language
+          in: header
+          schema:
+            type: string
+          description: Language code
+          example: en
+        - name: company-uuid
+          in: header
+          schema:
+            type: string
+          description: Company UUID of the user (Used for x509 authorization)
+          example: <string>
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the consumer making the API calls. Minimum
+            length: 6 characters
+          example: <string>
+        - name: concur-uid
+          in: header
+          schema:
+            type: string
+          description: Concur Employee UUID of the caller (Used for x509 authorization)
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: endDate
+          in: query
+          schema:
+            type: string
+          description: Filter capabilities for EndDate
+          example: <string>
+        - name: hasChildren
+          in: query
+          schema:
+            type: string
+          description: Show items with children
+          example: <boolean>
+        - name: isDeleted
+          in: query
+          schema:
+            type: string
+          description: Show deleted items
+          example: <boolean>
+        - name: page
+          in: query
+          schema:
+            type: integer
+          description: Page number starting from 1
+          example: '1'
+        - name: shortCode
+          in: query
+          schema:
+            type: string
+          description: Filter capabilities for ShortCode
+          example: <string>
+        - name: shortCodeOrValue
+          in: query
+          schema:
+            type: string
+          description: Filter capabilities for Value OR ShortCode
+          example: <string>
+        - name: sortBy
+          in: query
+          schema:
+            type: string
+          description: Field to sort by, {value, shortcode}
+          example: value
+        - name: sortDirection
+          in: query
+          schema:
+            type: string
+          description: Sort direction, {asc, desc}
+          example: desc
+        - name: startDate
+          in: query
+          schema:
+            type: string
+          description: Filter capabilities for StartDate
+          example: <string>
+        - name: value
+          in: query
+          schema:
+            type: string
+          description: Filter capabilities for Value
+          example: <string>
+        - name: listId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <uuid>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                content:
+                  - id: <uuid>
+                    code: <string>
+                    shortCode: <string>
+                    value: <string>
+                    parentId: <uuid>
+                    listId: <uuid>
+                    level: <integer>
+                    hasChildren: <boolean>
+                    lists:
+                      - id: <uuid>
+                      - id: <uuid>
+                    isDeleted: <boolean>
+                  - id: <uuid>
+                    code: <string>
+                    shortCode: <string>
+                    value: <string>
+                    parentId: <uuid>
+                    listId: <uuid>
+                    level: <integer>
+                    hasChildren: <boolean>
+                    lists:
+                      - id: <uuid>
+                      - id: <uuid>
+                    isDeleted: <boolean>
+                links:
+                  - deprecation: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    rel: <string>
+                    templated: <boolean>
+                    title: <string>
+                    type: <string>
+                  - deprecation: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    rel: <string>
+                    templated: <boolean>
+                    title: <string>
+                    type: <string>
+                page:
+                  number: <long>
+                  size: <long>
+                  totalElements: <long>
+                  totalPages: <long>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+  /list/v4/lists/{listId}/items:
+    get:
+      tags:
+        - list > v4 > lists > {listId} > items
+      summary: Get list item by long code for a specific list
+      description: Returns a list item
+      security:
+        - apikeyAuth: []
+      parameters:
+        - name: Accept-Language
+          in: header
+          schema:
+            type: string
+          description: Language code
+          example: en
+        - name: company-uuid
+          in: header
+          schema:
+            type: string
+          description: Company UUID of the user (Used for x509 authorization)
+          example: <string>
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the consumer making the API calls. Minimum
+            length: 6 characters
+          example: <string>
+        - name: concur-uid
+          in: header
+          schema:
+            type: string
+          description: Concur Employee UUID of the caller (Used for x509 authorization)
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: code
+          in: query
+          schema:
+            type: string
+          description: (Required) List item long code
+          example: <string>
+        - name: listId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <uuid>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: <uuid>
+                code: <string>
+                shortCode: <string>
+                value: <string>
+                parentId: <uuid>
+                listId: <uuid>
+                level: <integer>
+                hasChildren: <boolean>
+                lists:
+                  - id: <uuid>
+                  - id: <uuid>
+                isDeleted: <boolean>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  id: <string>
+                  message: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                validationErrors:
+                  - message: <string>
+                    source: <string>
+                  - message: <string>
+                    source: <string>

@@ -1,0 +1,927 @@
+openapi: 3.0.0
+info:
+  title: Requests
+  description: >-
+    Requests allow travelers to submit travel plans, expected expenses, and
+    expected cash advance needs prior to spending funds. This API provides
+    methods to view, create, update, submit, or recall requests owned by
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+  - url: https://us.api.concursolutions.com
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: travelrequest
+  - name: travelrequest > requests
+  - name: travelrequest > requests > {id}
+  - name: travelrequest > requests > {id} > submit
+paths:
+  /travelrequest/requests/{id}/submit:
+    post:
+      tags:
+        - travelrequest > requests > {id} > submit
+      summary: Submit a Request by ID
+      description: Submit a Request by ID
+      requestBody:
+        content: {}
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+  /travelrequest/requests/{id}:
+    get:
+      tags:
+        - travelrequest > requests > {id}
+      summary: Get a Request by ID
+      description: Returns a Request by ID.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: user
+          in: query
+          schema:
+            type: string
+          description: >-
+            The login ID of the user. Optional. The user must have the Web
+            Services Admin (Professional) or Can Administer (Standard) user role
+            to use this parameter.
+          example: <string>
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                AgencyOfficeName: <string>
+                AllocationFormID: <string>
+                ApprovalLimitDate: <dateTime>
+                ApprovalStatusCode: <string>
+                ApprovalStatusName: <string>
+                AuthorizedDate: <dateTime>
+                CashAdvances:
+                  AmountRequested: <string>
+                  ApprovalStatusName: <string>
+                  Comments:
+                    AuthorFirstName: <string>
+                    AuthorLastName: <string>
+                    CommentDateTime: <dateTime>
+                    IsLatest: <boolean>
+                    Value: <string>
+                  CurrencyCode: <string>
+                  CurrencyName: <string>
+                  EmployeeCurrencyCode: <string>
+                  EmployeeCurrencyName: <string>
+                  ExchangeRate: <string>
+                  IssueDate: <dateTime>
+                  RequestDate: <dateTime>
+                  StartingBalance: <string>
+                Comments:
+                  AuthorFirstName: <string>
+                  AuthorLastName: <string>
+                  CommentDateTime: <dateTime>
+                  IsLatest: <boolean>
+                  Value: <string>
+                CreationDate: <dateTime>
+                CurrencyCode: <string>
+                CurrencyName: <string>
+                Custom1:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom10:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom11:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom12:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom13:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom14:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom15:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom16:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom17:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom18:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom19:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom2:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom20:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom3:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom4:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom5:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom6:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom7:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom8:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                Custom9:
+                  Code: <string>
+                  ListItemID: <string>
+                  Type: <string>
+                  Value: <string>
+                EmployeeName: <string>
+                EndDate: <string>
+                EndTime: <string>
+                Entries:
+                  Allocations:
+                    Custom1:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom10:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom11:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom12:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom13:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom14:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom15:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom16:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom17:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom18:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom19:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom2:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom20:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom3:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom4:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom5:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom6:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom7:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom8:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom9:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Percentage: <string>
+                  ApprovedAmount: <string>
+                  Comments:
+                    AuthorFirstName: <string>
+                    AuthorLastName: <string>
+                    CommentDateTime: <dateTime>
+                    IsLatest: <boolean>
+                    Value: <string>
+                  Custom1:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom10:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom11:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom12:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom13:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom14:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom15:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom16:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom17:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom18:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom19:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom2:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom20:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom21:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom22:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom23:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom24:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom25:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom26:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom27:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom28:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom29:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom3:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom30:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom31:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom32:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom33:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom34:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom35:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom36:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom37:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom38:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom39:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom4:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom40:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom5:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom6:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom7:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom8:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  Custom9:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  EntryDescription: <string>
+                  EntryFormID: <string>
+                  Exceptions:
+                    Code: <string>
+                    Level: <integer>
+                    Message: <string>
+                  ExchangeRate: <string>
+                  ExpenseTypeName: <string>
+                  ForeignAmount: <string>
+                  ForeignCurrencyCode: <string>
+                  ForeignCurrencyName: <string>
+                  LastModifiedDate: <dateTime>
+                  OrgUnit1:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  OrgUnit2:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  OrgUnit3:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  OrgUnit4:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  OrgUnit5:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  OrgUnit6:
+                    Code: <string>
+                    ListItemID: <string>
+                    Type: <string>
+                    Value: <string>
+                  PostedAmount: <string>
+                  RemainingAmount: <string>
+                  Segments:
+                    ApprovedAmount: <string>
+                    ArrivalDate: <string>
+                    ArrivalTime: <string>
+                    Class:
+                      Code: <string>
+                      ListItemID: <string>
+                      Value: <string>
+                    ClassOfServiceCode: <string>
+                    Comments:
+                      AuthorFirstName: <string>
+                      AuthorLastName: <string>
+                      CommentDateTime: <dateTime>
+                      IsLatest: <boolean>
+                      Value: <string>
+                    Custom1:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom10:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom11:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom12:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom13:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom14:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom15:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom16:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom17:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom18:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom19:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom2:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom20:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom21:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom22:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom23:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom24:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom25:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom26:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom27:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom28:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom29:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom3:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom30:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom31:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom32:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom33:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom34:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom35:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom36:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom37:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom38:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom39:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom4:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom40:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom5:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom6:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom7:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom8:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    Custom9:
+                      Code: <string>
+                      ListItemID: <string>
+                      Type: <string>
+                      Value: <string>
+                    DepartureDate: <string>
+                    DepartureTime: <string>
+                    Exceptions:
+                      Code: <string>
+                      Level: <integer>
+                      Message: <string>
+                    ExchangeRate: <string>
+                    FlightNumber: <string>
+                    ForeignAmount: <string>
+                    ForeignCurrencyCode: <string>
+                    ForeignCurrencyName: <string>
+                    FormTypeCode: <string>
+                    FromLocationAirportName: <string>
+                    FromLocationCode: <string>
+                    FromLocationCountryCode: <string>
+                    FromLocationDetail: <string>
+                    FromLocationIataCode: <string>
+                    FromLocationID: <string>
+                    FromLocationIsAirport: <boolean>
+                    FromLocationName: <string>
+                    FromLocationSubCountryCode: <string>
+                    FromLocationVendor: <string>
+                    IsAgencyBooked: <string>
+                    IsSelfBooked: <string>
+                    LastModifiedDate: <dateTime>
+                    OutboundSegmentID: <string>
+                    PostedAmount: <string>
+                    RecordLocator: <string>
+                    RemainingAmount: <string>
+                    SegmentFormID: <string>
+                    SegmentLocator: <string>
+                    SegmentType: <string>
+                    SegmentTypeCode: <string>
+                    ToLocationAirportName: <string>
+                    ToLocationCode: <string>
+                    ToLocationCountryCode: <string>
+                    ToLocationDetail: <string>
+                    ToLocationIataCode: <string>
+                    ToLocationID: <string>
+                    ToLocationIsAirport: <boolean>
+                    ToLocationName: <string>
+                    ToLocationSubCountryCode: <string>
+                    ToLocationVendor: <string>
+                    TripLocator: <string>
+                    VendorName: <string>
+                  TransactionDate: <dateTime>
+                  TripType: <triptype>
+                EverSentBack: <string>
+                Exceptions:
+                  Code: <string>
+                  Level: <integer>
+                  Message: <string>
+                ExtensionOf: <string>
+                HasException: <string>
+                HeaderFormID: <string>
+                LastModifiedDate: <dateTime>
+                LoginID: <string>
+                Name: <string>
+                PolicyID: <string>
+                PolicyName: <string>
+                Purpose: <string>
+                RequestID: <string>
+                StartDate: <string>
+                StartTime: <string>
+                SubmitDate: <dateTime>
+                TotalApprovedAmount: <string>
+                TotalPostedAmount: <string>
+                TotalRemainingAmount: <string>
+                UserPermissions:
+                  Links:
+                    Action: <string>
+                    Method: <string>
+                    Url: <string>
+  /api/v3.0travelrequest/requests:
+    get:
+      tags:
+        - travelrequest > requests
+      summary: Get all Requests
+      description: Returns all Requests owned by the user.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          description: Number of records to return (default 100)
+          example: '5'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Items:
+                  ApprovalStatusCode: <string>
+                  ApprovalStatusName: <string>
+                  ApproverLoginID: <string>
+                  CreationDate: <dateTime>
+                  CurrencyCode: <string>
+                  EmployeeName: <string>
+                  EndDate: <string>
+                  HeaderFormID: <string>
+                  ID: <string>
+                  LastComment: <string>
+                  Name: <string>
+                  Purpose: <string>
+                  RequestDetailsUrl: <string>
+                  RequestID: <string>
+                  SegmentTypes: <string>
+                  StartDate: <string>
+                  TotalApprovedAmount: <string>
+                  TotalPostedAmount: <string>
+                  URI: <string>
+                  UserLoginID: <string>
+                NextPage: <string>

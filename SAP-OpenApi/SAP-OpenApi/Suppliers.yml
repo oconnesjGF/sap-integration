@@ -1,0 +1,202 @@
+openapi: 3.0.0
+info:
+  title: Suppliers
+  description: TripLink supplier information.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: common
+  - name: common > suppliers
+  - name: common > suppliers > {id}
+paths:
+  /common/suppliers/{id}:
+    get:
+      tags:
+        - common > suppliers > {id}
+      summary: Get a single Supplier by ID
+      description: Returns a single Supplier ID
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                AmadeusId: <string>
+                AustinTetra: <string>
+                BusinessName: <string>
+                ChainCode: <string>
+                ChainName: <string>
+                City: <string>
+                CountryCode: <string>
+                CreditCardVendorId: <string>
+                DunsNumber: <string>
+                Email: <string>
+                Fax: <string>
+                GalileoId: <string>
+                ID: <string>
+                MccCode: <string>
+                NorthstarId: <string>
+                PegasusId: <string>
+                Phone: <string>
+                PostalCode: <string>
+                PrimaryNaics: <string>
+                PrimarySic: <string>
+                PropertyCode: <string>
+                SabreId: <string>
+                SecondaryNaics: <string>
+                SecondarySic: <string>
+                State: <string>
+                StreetAddress: <string>
+                StreetAddress2: <string>
+                TaxId: <string>
+                TollFree: <string>
+                URI: <string>
+                WebUrl: <string>
+                WorldspanId: <string>
+  /common/suppliers:
+    get:
+      tags:
+        - common > suppliers
+      summary: Gets All Suppliers by Search Criteria
+      description: Returns all Suppliers based on the search criteria.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: name
+          in: query
+          schema:
+            type: string
+          description: Name
+          example: <string>
+        - name: address
+          in: query
+          schema:
+            type: string
+          description: Address
+          example: <string>
+        - name: address2
+          in: query
+          schema:
+            type: string
+          description: Address
+          example: <string>
+        - name: city
+          in: query
+          schema:
+            type: string
+          description: City
+          example: <string>
+        - name: state
+          in: query
+          schema:
+            type: string
+          description: State
+          example: <string>
+        - name: zip
+          in: query
+          schema:
+            type: string
+          description: Zip
+          example: <string>
+        - name: country
+          in: query
+          schema:
+            type: string
+          description: Country Code
+          example: <string>
+        - name: phone
+          in: query
+          schema:
+            type: string
+          description: Phone
+          example: <string>
+        - name: mcCode
+          in: query
+          schema:
+            type: string
+          description: 'MCC Code (Ex: Delta Airline - 3058)'
+          example: <string>
+        - name: taxId
+          in: query
+          schema:
+            type: string
+          description: Tax Id
+          example: <string>
+        - name: merchantType
+          in: query
+          schema:
+            type: string
+          description: 'Merchant Type Code(Ex: Visa - VI, Amex - AX) '
+          example: <string>
+        - name: merchantID
+          in: query
+          schema:
+            type: string
+          description: Merchant Id
+          example: <string>
+        - name: iataCode
+          in: query
+          schema:
+            type: string
+          description: IATA Code
+          example: <string>
+        - name: relevance
+          in: query
+          schema:
+            type: string
+          description: Relevance of the Search results
+          example: <integer>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Items:
+                  BusinessName: <string>
+                  City: <string>
+                  CountryCode: <string>
+                  ID: <string>
+                  PostalCode: <string>
+                  State: <string>
+                  StreetAddress: <string>
+                  StreetAddress2: <string>
+                  URI: <string>
+                NextPage: <string>

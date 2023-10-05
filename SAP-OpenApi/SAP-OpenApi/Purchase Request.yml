@@ -1,0 +1,260 @@
+openapi: 3.0.0
+info:
+  title: Purchase Request
+  description: >-
+    The Purchase Request API allows clients and partners to create and
+    automatically submit purchase requests in the preauthorization workflow
+    using the POST resource. With the GET resource you can retrieve the purchase
+    request number, resulting purchase order number, workflow status, and any
+    exception triggered for the records created.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+tags:
+  - name: purchaserequest
+  - name: purchaserequest > v4
+  - name: purchaserequest > v4 > purchaserequests
+  - name: purchaserequest > v4 > purchaserequests > {id}?mode=COMPACT
+paths:
+  /purchaserequest/v4/purchaserequests/{id}:
+    get:
+      tags:
+        - purchaserequest > v4 > purchaserequests > {id}?mode=COMPACT
+      summary: Gets details of an existing purchase request
+      description: >-
+        Gets purchase request details. The supported mode is COMPACT, which
+        returns basic info about the purchase request along with any exceptions.
+      parameters:
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            Concur specific custom header used for technical support in the form
+            of a RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace.
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: mode
+          in: query
+          schema:
+            type: string
+          example: COMPACT
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                purchaseRequestId: <string>
+                purchaseRequestNumber: <string>
+                purchaseRequestQueueStatus: <string>
+                purchaseRequestWorkflowStatus: <string>
+                purchaseOrders:
+                  purchaseOrderNumber: <string>
+                purchaseRequestExceptions:
+                  eventCode: <string>
+                  exceptionCode: <string>
+                  isCleared: <string>
+                  prExceptionId: <string>
+                  message: <string>
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '503':
+          description: Service Unavailable
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /purchaserequest/v4/purchaserequests/:
+    post:
+      tags:
+        - purchaserequest > v4 > purchaserequests
+      summary: Create a new purchase request
+      description: >-
+        Create a Purchase Request based on provided header and line item
+        details. If the request is valid it creates a purchase request and
+        returns back a unique identifier to get the purchase request details.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                userId: <string>
+                userEmail: <string>
+                userLoginId: <string>
+                currencyCode: <string>
+                lineItems:
+                  purchaseType: <string>
+                  vendorCode: <string>
+                  vendorAddressCode: <string>
+                  description: <string>
+                  quantity: <string>
+                  unitPrice: <string>
+                  expenseType: <string>
+                  receiptType: <string>
+                  neededByDate: <date>
+                  uoMCode: <string>
+                  shipping: <string>
+                  tax: <string>
+                  supplierPartId: <string>
+                  url: <string>
+                  notesToVendor: <string>
+                  comments: <string>
+                  custom1: <string>
+                  custom2: <string>
+                  custom3: <string>
+                  custom4: <string>
+                  custom5: <string>
+                  custom6: <string>
+                  custom7: <string>
+                  custom8: <string>
+                  custom9: <string>
+                  custom10: <string>
+                  custom11: <string>
+                  custom12: <string>
+                  custom13: <string>
+                  custom14: <string>
+                  custom15: <string>
+                  custom16: <string>
+                  custom17: <string>
+                  custom18: <string>
+                  custom19: <string>
+                  custom20: <string>
+                description: <string>
+                policyExternalId: <string>
+                notesToSupplier: <string>
+                comments: <string>
+                custom1: <string>
+                custom2: <string>
+                custom3: <string>
+                custom4: <string>
+                custom5: <string>
+                custom6: <string>
+                custom7: <string>
+                custom8: <string>
+                custom9: <string>
+                custom10: <string>
+                custom11: <string>
+                custom12: <string>
+                custom13: <string>
+                custom14: <string>
+                custom15: <string>
+                custom16: <string>
+                custom17: <string>
+                custom18: <string>
+                custom19: <string>
+                custom20: <string>
+                custom21: <string>
+                custom22: <string>
+                custom23: <string>
+                custom24: <string>
+                shipToAddressCode: <string>
+                billToAddressCode: <string>
+      parameters:
+        - name: concur-correlationid
+          in: header
+          schema:
+            type: string
+          description: >-
+            Concur specific custom header used for technical support in the form
+            of a RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace.
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: <string>
+                uri: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                error:
+                  errorCode: <string>
+                  errorMessage: <string>
+                  dataPath: <string>
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '503':
+          description: Service Unavailable
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''

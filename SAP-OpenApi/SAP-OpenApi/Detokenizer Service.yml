@@ -1,0 +1,85 @@
+openapi: 3.0.0
+info:
+  title: Detokenizer Service
+  description: >-
+    The Detokenizer Service allows clients to retrieve the user's credit card
+    number from Concur Expense in a secure way. The Detokenizer service returns
+    the user's credit card number encrypted with a public key that the client
+    provides in the request. The client will be able to decrypt the user's
+    credit card number using their private key.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: company
+  - name: company > {companyUUID}
+  - name: company > {companyUUID} > creditcard
+  - name: company > {companyUUID} > creditcard > {creditcardGUID}
+paths:
+  /company/{companyUUID}/creditcard/{creditcardGUID}:
+    get:
+      tags:
+        - company > {companyUUID} > creditcard > {creditcardGUID}
+      summary: Get credit card account details
+      description: >-
+        Returns the credit card number encrypted with the public key provided in
+        the request.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pubkeyAlgorithm
+          in: query
+          schema:
+            type: string
+          description: >-
+            (Required) The RSA Algorithm used by the PublicKey for credit card
+            number encryption.
+          example: <string>
+        - name: pubkeyFormat
+          in: query
+          schema:
+            type: string
+          description: (Required) Public key format
+          example: <string>
+        - name: pubkey
+          in: query
+          schema:
+            type: string
+          description: (Required) Public Key
+          example: <string>
+        - name: companyUUID
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: creditcardGUID
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                'accountNumber ': <string>

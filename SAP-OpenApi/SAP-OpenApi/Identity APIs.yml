@@ -1,0 +1,2649 @@
+openapi: 3.0.0
+info:
+  title: Identity APIs
+  description: |-
+    Identity v4.1 APIs
+
+    Contact Support:
+     Email: profile@concur.com
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: Users
+  - name: Users > {id}
+  - name: Users > .search
+  - name: Schemas
+  - name: Schemas > {id}
+  - name: ServiceProviderConfig
+  - name: ResourceTypes
+paths:
+  /Users/{id}:
+    get:
+      tags:
+        - Users > {id}
+      summary: Fetch User
+      description: Retrieve a User Identity Profile by Id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: 5fd5d342-e191-42bb-b25e-e1b76c085a43
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timezone: <string>
+                name:
+                  familyName: <string>
+                  givenName: <string>
+                  academicTitle: Prof.
+                  familyNamePrefix: <string>
+                  formatted: <string>
+                  honorificPrefix: <string>
+                  honorificSuffix: <string>
+                  legalName: <string>
+                  middleInitial: <string>
+                  middleName: <string>
+                preferredLanguage: <string>
+                active: <boolean>
+                id: <string>
+                emails:
+                  - value: <string>
+                    type: other2
+                    notifications: <boolean>
+                    verified: <boolean>
+                  - value: <string>
+                    type: other2
+                    notifications: <boolean>
+                    verified: <boolean>
+                userName: <string>
+                urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                  companyId: <string>
+                  startDate: <string>
+                  costCenter: <string>
+                  department: <string>
+                  division: <string>
+                  employeeNumber: <string>
+                  leavesOfAbsence:
+                    - startDate: <string>
+                      endDate: <string>
+                      type: voluntary
+                    - startDate: <string>
+                      endDate: <string>
+                      type: mandatory
+                  legalEntity: <string>
+                  manager:
+                    value: <string>
+                    $ref: <string>
+                    displayName: <string>
+                    employeeNumber: <string>
+                  organization: <string>
+                  terminationDate: <string>
+                addresses:
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: billing
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: home
+                dateOfBirth: <string>
+                displayName: <string>
+                emergencyContacts:
+                  - name: <string>
+                    relationship: Sister
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                  - name: <string>
+                    relationship: Spouse
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                entitlements:
+                  - Invoice
+                  - Travel
+                externalId: <string>
+                localeOverrides:
+                  preferenceEndDayViewHour: <integer>
+                  preferenceFirstDayOfWeek: Saturday
+                  preferenceDateFormat: yyyy.mm.dd
+                  preferenceCurrencySymbolLocation: BeforeAmount
+                  preferenceHourMinuteSeparator: .
+                  preferenceDefaultCalView: week
+                  preference24Hour: hh:mm
+                  preferenceNumberFormat: 1,000.00
+                  preferenceStartDayViewHour: <integer>
+                  preferenceDistance: km
+                  preferenceNegativeCurrencyFormat: '-100'
+                  preferenceNegativeNumberFormat: '-100'
+                meta:
+                  created: <string>
+                  lastModified: <string>
+                  location: <string>
+                  resourceType: <string>
+                  version: <integer>
+                nickName: <string>
+                phoneNumbers:
+                  - value: <string>
+                    type: home
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                  - value: <string>
+                    type: pager
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                schemas:
+                  - <string>
+                  - <string>
+                title: <string>
+                urn:ietf:params:scim:schemas:extension:sap:2.0:User:
+                  userUuid: <string>
+                urn:ietf:params:scim:schemas:extension:settings:2.0:User:
+                  theme: SAP Horizon Morning
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+    patch:
+      tags:
+        - Users > {id}
+      summary: Patch User
+      description: Update an existing User Identity Profile by Id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:PatchOp
+                  - urn:ietf:params:scim:api:messages:2.0:PatchOp
+                Operations:
+                  - op: remove
+                    path: <string>
+                    value: {}
+                  - op: add
+                    path: <string>
+                    value: {}
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timezone: <string>
+                name:
+                  familyName: <string>
+                  givenName: <string>
+                  academicTitle: Prof.
+                  familyNamePrefix: <string>
+                  formatted: <string>
+                  honorificPrefix: <string>
+                  honorificSuffix: <string>
+                  legalName: <string>
+                  middleInitial: <string>
+                  middleName: <string>
+                preferredLanguage: <string>
+                active: <boolean>
+                id: <string>
+                emails:
+                  - value: <string>
+                    type: other2
+                    notifications: <boolean>
+                    verified: <boolean>
+                  - value: <string>
+                    type: other2
+                    notifications: <boolean>
+                    verified: <boolean>
+                userName: <string>
+                urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                  companyId: <string>
+                  startDate: <string>
+                  costCenter: <string>
+                  department: <string>
+                  division: <string>
+                  employeeNumber: <string>
+                  leavesOfAbsence:
+                    - startDate: <string>
+                      endDate: <string>
+                      type: voluntary
+                    - startDate: <string>
+                      endDate: <string>
+                      type: mandatory
+                  legalEntity: <string>
+                  manager:
+                    value: <string>
+                    $ref: <string>
+                    displayName: <string>
+                    employeeNumber: <string>
+                  organization: <string>
+                  terminationDate: <string>
+                addresses:
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: billing
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: home
+                dateOfBirth: <string>
+                displayName: <string>
+                emergencyContacts:
+                  - name: <string>
+                    relationship: Sister
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                  - name: <string>
+                    relationship: Spouse
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                entitlements:
+                  - Invoice
+                  - Travel
+                externalId: <string>
+                localeOverrides:
+                  preferenceEndDayViewHour: <integer>
+                  preferenceFirstDayOfWeek: Saturday
+                  preferenceDateFormat: yyyy.mm.dd
+                  preferenceCurrencySymbolLocation: BeforeAmount
+                  preferenceHourMinuteSeparator: .
+                  preferenceDefaultCalView: week
+                  preference24Hour: hh:mm
+                  preferenceNumberFormat: 1,000.00
+                  preferenceStartDayViewHour: <integer>
+                  preferenceDistance: km
+                  preferenceNegativeCurrencyFormat: '-100'
+                  preferenceNegativeNumberFormat: '-100'
+                meta:
+                  created: <string>
+                  lastModified: <string>
+                  location: <string>
+                  resourceType: <string>
+                  version: <integer>
+                nickName: <string>
+                phoneNumbers:
+                  - value: <string>
+                    type: home
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                  - value: <string>
+                    type: pager
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                schemas:
+                  - <string>
+                  - <string>
+                title: <string>
+                urn:ietf:params:scim:schemas:extension:sap:2.0:User:
+                  userUuid: <string>
+                urn:ietf:params:scim:schemas:extension:settings:2.0:User:
+                  theme: SAP Horizon Morning
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+    put:
+      tags:
+        - Users > {id}
+      summary: Replace User
+      description: Update an existing User Identity Profile by Id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                timezone: <string>
+                name:
+                  familyName: <string>
+                  givenName: <string>
+                  academicTitle: Prof.
+                  familyNamePrefix: <string>
+                  formatted: <string>
+                  honorificPrefix: <string>
+                  honorificSuffix: <string>
+                  legalName: <string>
+                  middleInitial: <string>
+                  middleName: <string>
+                preferredLanguage: <string>
+                active: <boolean>
+                id: <string>
+                emails:
+                  - value: <string>
+                    type: other2
+                    notifications: <boolean>
+                    verified: <boolean>
+                  - value: <string>
+                    type: other2
+                    notifications: <boolean>
+                    verified: <boolean>
+                userName: <string>
+                urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                  companyId: <string>
+                  startDate: <string>
+                  costCenter: <string>
+                  department: <string>
+                  division: <string>
+                  employeeNumber: <string>
+                  leavesOfAbsence:
+                    - startDate: <string>
+                      endDate: <string>
+                      type: voluntary
+                    - startDate: <string>
+                      endDate: <string>
+                      type: mandatory
+                  legalEntity: <string>
+                  manager:
+                    value: <string>
+                    $ref: <string>
+                    displayName: <string>
+                    employeeNumber: <string>
+                  organization: <string>
+                  terminationDate: <string>
+                addresses:
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: billing
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: home
+                dateOfBirth: <string>
+                displayName: <string>
+                emergencyContacts:
+                  - name: <string>
+                    relationship: Sister
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                  - name: <string>
+                    relationship: Spouse
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                entitlements:
+                  - Invoice
+                  - Travel
+                externalId: <string>
+                localeOverrides:
+                  preferenceEndDayViewHour: <integer>
+                  preferenceFirstDayOfWeek: Saturday
+                  preferenceDateFormat: yyyy.mm.dd
+                  preferenceCurrencySymbolLocation: BeforeAmount
+                  preferenceHourMinuteSeparator: .
+                  preferenceDefaultCalView: week
+                  preference24Hour: hh:mm
+                  preferenceNumberFormat: 1,000.00
+                  preferenceStartDayViewHour: <integer>
+                  preferenceDistance: km
+                  preferenceNegativeCurrencyFormat: '-100'
+                  preferenceNegativeNumberFormat: '-100'
+                meta:
+                  created: <string>
+                  lastModified: <string>
+                  location: <string>
+                  resourceType: <string>
+                  version: <integer>
+                nickName: <string>
+                phoneNumbers:
+                  - value: <string>
+                    type: home
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                  - value: <string>
+                    type: pager
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                schemas:
+                  - <string>
+                  - <string>
+                title: <string>
+                urn:ietf:params:scim:schemas:extension:sap:2.0:User:
+                  userUuid: <string>
+                urn:ietf:params:scim:schemas:extension:settings:2.0:User:
+                  theme: SAP Horizon Morning
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timezone: <string>
+                name:
+                  familyName: <string>
+                  givenName: <string>
+                  academicTitle: Prof.
+                  familyNamePrefix: <string>
+                  formatted: <string>
+                  honorificPrefix: <string>
+                  honorificSuffix: <string>
+                  legalName: <string>
+                  middleInitial: <string>
+                  middleName: <string>
+                preferredLanguage: <string>
+                active: <boolean>
+                id: <string>
+                emails:
+                  - value: <string>
+                    type: other2
+                    notifications: <boolean>
+                    verified: <boolean>
+                  - value: <string>
+                    type: other2
+                    notifications: <boolean>
+                    verified: <boolean>
+                userName: <string>
+                urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                  companyId: <string>
+                  startDate: <string>
+                  costCenter: <string>
+                  department: <string>
+                  division: <string>
+                  employeeNumber: <string>
+                  leavesOfAbsence:
+                    - startDate: <string>
+                      endDate: <string>
+                      type: voluntary
+                    - startDate: <string>
+                      endDate: <string>
+                      type: mandatory
+                  legalEntity: <string>
+                  manager:
+                    value: <string>
+                    $ref: <string>
+                    displayName: <string>
+                    employeeNumber: <string>
+                  organization: <string>
+                  terminationDate: <string>
+                addresses:
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: billing
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: home
+                dateOfBirth: <string>
+                displayName: <string>
+                emergencyContacts:
+                  - name: <string>
+                    relationship: Sister
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                  - name: <string>
+                    relationship: Spouse
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                entitlements:
+                  - Invoice
+                  - Travel
+                externalId: <string>
+                localeOverrides:
+                  preferenceEndDayViewHour: <integer>
+                  preferenceFirstDayOfWeek: Saturday
+                  preferenceDateFormat: yyyy.mm.dd
+                  preferenceCurrencySymbolLocation: BeforeAmount
+                  preferenceHourMinuteSeparator: .
+                  preferenceDefaultCalView: week
+                  preference24Hour: hh:mm
+                  preferenceNumberFormat: 1,000.00
+                  preferenceStartDayViewHour: <integer>
+                  preferenceDistance: km
+                  preferenceNegativeCurrencyFormat: '-100'
+                  preferenceNegativeNumberFormat: '-100'
+                meta:
+                  created: <string>
+                  lastModified: <string>
+                  location: <string>
+                  resourceType: <string>
+                  version: <integer>
+                nickName: <string>
+                phoneNumbers:
+                  - value: <string>
+                    type: home
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                  - value: <string>
+                    type: pager
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                schemas:
+                  - <string>
+                  - <string>
+                title: <string>
+                urn:ietf:params:scim:schemas:extension:sap:2.0:User:
+                  userUuid: <string>
+                urn:ietf:params:scim:schemas:extension:settings:2.0:User:
+                  theme: SAP Horizon Morning
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+    delete:
+      tags:
+        - Users > {id}
+      summary: Delete User
+      description: Delete all data associated with User Identity Profile by Id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+  /Users/.search:
+    post:
+      tags:
+        - Users > .search
+      summary: Filter for Users within a Company
+      description: Retrieve all matching user profiles by a unique query
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                attributes:
+                  - <string>
+                  - <string>
+                continuationToken: <string>
+                count: <integer>
+                cursor: <string>
+                excludedAttributes:
+                  - <string>
+                  - <string>
+                filter: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:ListResponse
+                  - urn:ietf:params:scim:api:messages:2.0:ListResponse
+                totalResults: <integer>
+                itemsPerPage: <integer>
+                startIndex: <integer>
+                Resources:
+                  - timezone: <string>
+                    name:
+                      familyName: <string>
+                      givenName: <string>
+                      academicTitle: Professor Doctor
+                      familyNamePrefix: <string>
+                      formatted: <string>
+                      honorificPrefix: <string>
+                      honorificSuffix: <string>
+                      legalName: <string>
+                      middleInitial: <string>
+                      middleName: <string>
+                    preferredLanguage: <string>
+                    active: <boolean>
+                    id: <string>
+                    emails:
+                      - value: <string>
+                        type: work2
+                        notifications: <boolean>
+                        verified: <boolean>
+                      - value: <string>
+                        type: home
+                        notifications: <boolean>
+                        verified: <boolean>
+                    userName: <string>
+                    urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                      companyId: <string>
+                      startDate: <string>
+                      costCenter: <string>
+                      department: <string>
+                      division: <string>
+                      employeeNumber: <string>
+                      leavesOfAbsence:
+                        - startDate: <string>
+                          endDate: <string>
+                          type: mandatory
+                        - startDate: <string>
+                          endDate: <string>
+                          type: voluntary
+                      legalEntity: <string>
+                      manager:
+                        value: <string>
+                        $ref: <string>
+                        displayName: <string>
+                        employeeNumber: <string>
+                      organization: <string>
+                      terminationDate: <string>
+                    addresses:
+                      - country: <string>
+                        locality: <string>
+                        postalCode: <string>
+                        region: <string>
+                        streetAddress: <string>
+                        type: billing
+                      - country: <string>
+                        locality: <string>
+                        postalCode: <string>
+                        region: <string>
+                        streetAddress: <string>
+                        type: billing
+                    dateOfBirth: <string>
+                    displayName: <string>
+                    emergencyContacts:
+                      - name: <string>
+                        relationship: Spouse
+                        country: <string>
+                        emails:
+                          - <string>
+                          - <string>
+                        locality: <string>
+                        phones:
+                          - <string>
+                          - <string>
+                        postalCode: <string>
+                        region: <string>
+                        streetAddress: <string>
+                      - name: <string>
+                        relationship: Brother
+                        country: <string>
+                        emails:
+                          - <string>
+                          - <string>
+                        locality: <string>
+                        phones:
+                          - <string>
+                          - <string>
+                        postalCode: <string>
+                        region: <string>
+                        streetAddress: <string>
+                    entitlements:
+                      - Expense
+                      - Invoice
+                    externalId: <string>
+                    localeOverrides:
+                      preferenceEndDayViewHour: <integer>
+                      preferenceFirstDayOfWeek: Saturday
+                      preferenceDateFormat: yyyy-mm-dd
+                      preferenceCurrencySymbolLocation: AfterAmount
+                      preferenceHourMinuteSeparator: .
+                      preferenceDefaultCalView: month
+                      preference24Hour: hh:mm
+                      preferenceNumberFormat: 1.000,00
+                      preferenceStartDayViewHour: <integer>
+                      preferenceDistance: km
+                      preferenceNegativeCurrencyFormat: '-100'
+                      preferenceNegativeNumberFormat: '-100'
+                    meta:
+                      created: <string>
+                      lastModified: <string>
+                      location: <string>
+                      resourceType: <string>
+                      version: <integer>
+                    nickName: <string>
+                    phoneNumbers:
+                      - value: <string>
+                        type: fax
+                        display: <string>
+                        issuingCountry: <string>
+                        notifications: <boolean>
+                        primary: <boolean>
+                        workExtension: <string>
+                      - value: <string>
+                        type: mobile
+                        display: <string>
+                        issuingCountry: <string>
+                        notifications: <boolean>
+                        primary: <boolean>
+                        workExtension: <string>
+                    schemas:
+                      - <string>
+                      - <string>
+                    title: <string>
+                    urn:ietf:params:scim:schemas:extension:sap:2.0:User:
+                      userUuid: <string>
+                    urn:ietf:params:scim:schemas:extension:settings:2.0:User:
+                      theme: Concur Gateway
+                  - timezone: <string>
+                    name:
+                      familyName: <string>
+                      givenName: <string>
+                      academicTitle: Prof. Dr.
+                      familyNamePrefix: <string>
+                      formatted: <string>
+                      honorificPrefix: <string>
+                      honorificSuffix: <string>
+                      legalName: <string>
+                      middleInitial: <string>
+                      middleName: <string>
+                    preferredLanguage: <string>
+                    active: <boolean>
+                    id: <string>
+                    emails:
+                      - value: <string>
+                        type: home
+                        notifications: <boolean>
+                        verified: <boolean>
+                      - value: <string>
+                        type: work
+                        notifications: <boolean>
+                        verified: <boolean>
+                    userName: <string>
+                    urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                      companyId: <string>
+                      startDate: <string>
+                      costCenter: <string>
+                      department: <string>
+                      division: <string>
+                      employeeNumber: <string>
+                      leavesOfAbsence:
+                        - startDate: <string>
+                          endDate: <string>
+                          type: mandatory
+                        - startDate: <string>
+                          endDate: <string>
+                          type: voluntary
+                      legalEntity: <string>
+                      manager:
+                        value: <string>
+                        $ref: <string>
+                        displayName: <string>
+                        employeeNumber: <string>
+                      organization: <string>
+                      terminationDate: <string>
+                    addresses:
+                      - country: <string>
+                        locality: <string>
+                        postalCode: <string>
+                        region: <string>
+                        streetAddress: <string>
+                        type: billing
+                      - country: <string>
+                        locality: <string>
+                        postalCode: <string>
+                        region: <string>
+                        streetAddress: <string>
+                        type: billing
+                    dateOfBirth: <string>
+                    displayName: <string>
+                    emergencyContacts:
+                      - name: <string>
+                        relationship: Parent
+                        country: <string>
+                        emails:
+                          - <string>
+                          - <string>
+                        locality: <string>
+                        phones:
+                          - <string>
+                          - <string>
+                        postalCode: <string>
+                        region: <string>
+                        streetAddress: <string>
+                      - name: <string>
+                        relationship: Brother
+                        country: <string>
+                        emails:
+                          - <string>
+                          - <string>
+                        locality: <string>
+                        phones:
+                          - <string>
+                          - <string>
+                        postalCode: <string>
+                        region: <string>
+                        streetAddress: <string>
+                    entitlements:
+                      - Analytics
+                      - Invoice
+                    externalId: <string>
+                    localeOverrides:
+                      preferenceEndDayViewHour: <integer>
+                      preferenceFirstDayOfWeek: Tuesday
+                      preferenceDateFormat: yyyy/mm/dd
+                      preferenceCurrencySymbolLocation: BeforeAmount
+                      preferenceHourMinuteSeparator: ':'
+                      preferenceDefaultCalView: day
+                      preference24Hour: H:mm AM/PM
+                      preferenceNumberFormat: 1'000,00
+                      preferenceStartDayViewHour: <integer>
+                      preferenceDistance: mile
+                      preferenceNegativeCurrencyFormat: (100)
+                      preferenceNegativeNumberFormat: (100)
+                    meta:
+                      created: <string>
+                      lastModified: <string>
+                      location: <string>
+                      resourceType: <string>
+                      version: <integer>
+                    nickName: <string>
+                    phoneNumbers:
+                      - value: <string>
+                        type: mobile
+                        display: <string>
+                        issuingCountry: <string>
+                        notifications: <boolean>
+                        primary: <boolean>
+                        workExtension: <string>
+                      - value: <string>
+                        type: mobile
+                        display: <string>
+                        issuingCountry: <string>
+                        notifications: <boolean>
+                        primary: <boolean>
+                        workExtension: <string>
+                    schemas:
+                      - <string>
+                      - <string>
+                    title: <string>
+                    urn:ietf:params:scim:schemas:extension:sap:2.0:User:
+                      userUuid: <string>
+                    urn:ietf:params:scim:schemas:extension:settings:2.0:User:
+                      theme: SAP Horizon Morning
+                nextCursor: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+  /Users/:
+    get:
+      tags:
+        - Users
+      summary: Fetch all Users
+      description: Retrieve all User Profiles within a Company resource
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: count
+          in: query
+          schema:
+            type: integer
+          description: >-
+            An integer indicating the desired maximum number of query results
+            per page.
+          example: '100'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                schemas:
+                  - urn:ietf:params:scim:api:messages:2.0:ListResponse
+                  - urn:ietf:params:scim:api:messages:2.0:ListResponse
+                totalResults: <integer>
+                itemsPerPage: <integer>
+                startIndex: <integer>
+                Resources:
+                  - timezone: <string>
+                    name:
+                      familyName: <string>
+                      givenName: <string>
+                      academicTitle: Professor Doctor
+                      familyNamePrefix: <string>
+                      formatted: <string>
+                      honorificPrefix: <string>
+                      honorificSuffix: <string>
+                      legalName: <string>
+                      middleInitial: <string>
+                      middleName: <string>
+                    preferredLanguage: <string>
+                    active: <boolean>
+                    id: <string>
+                    emails:
+                      - value: <string>
+                        type: work2
+                        notifications: <boolean>
+                        verified: <boolean>
+                      - value: <string>
+                        type: home
+                        notifications: <boolean>
+                        verified: <boolean>
+                    userName: <string>
+                    urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                      companyId: <string>
+                      startDate: <string>
+                      costCenter: <string>
+                      department: <string>
+                      division: <string>
+                      employeeNumber: <string>
+                      leavesOfAbsence:
+                        - startDate: <string>
+                          endDate: <string>
+                          type: mandatory
+                        - startDate: <string>
+                          endDate: <string>
+                          type: voluntary
+                      legalEntity: <string>
+                      manager:
+                        value: <string>
+                        $ref: <string>
+                        displayName: <string>
+                        employeeNumber: <string>
+                      organization: <string>
+                      terminationDate: <string>
+                    addresses:
+                      - country: <string>
+                        locality: <string>
+                        postalCode: <string>
+                        region: <string>
+                        streetAddress: <string>
+                        type: billing
+                      - country: <string>
+                        locality: <string>
+                        postalCode: <string>
+                        region: <string>
+                        streetAddress: <string>
+                        type: billing
+                    dateOfBirth: <string>
+                    displayName: <string>
+                    emergencyContacts:
+                      - name: <string>
+                        relationship: Spouse
+                        country: <string>
+                        emails:
+                          - <string>
+                          - <string>
+                        locality: <string>
+                        phones:
+                          - <string>
+                          - <string>
+                        postalCode: <string>
+                        region: <string>
+                        streetAddress: <string>
+                      - name: <string>
+                        relationship: Brother
+                        country: <string>
+                        emails:
+                          - <string>
+                          - <string>
+                        locality: <string>
+                        phones:
+                          - <string>
+                          - <string>
+                        postalCode: <string>
+                        region: <string>
+                        streetAddress: <string>
+                    entitlements:
+                      - Expense
+                      - Invoice
+                    externalId: <string>
+                    localeOverrides:
+                      preferenceEndDayViewHour: <integer>
+                      preferenceFirstDayOfWeek: Saturday
+                      preferenceDateFormat: yyyy-mm-dd
+                      preferenceCurrencySymbolLocation: AfterAmount
+                      preferenceHourMinuteSeparator: .
+                      preferenceDefaultCalView: month
+                      preference24Hour: hh:mm
+                      preferenceNumberFormat: 1.000,00
+                      preferenceStartDayViewHour: <integer>
+                      preferenceDistance: km
+                      preferenceNegativeCurrencyFormat: '-100'
+                      preferenceNegativeNumberFormat: '-100'
+                    meta:
+                      created: <string>
+                      lastModified: <string>
+                      location: <string>
+                      resourceType: <string>
+                      version: <integer>
+                    nickName: <string>
+                    phoneNumbers:
+                      - value: <string>
+                        type: fax
+                        display: <string>
+                        issuingCountry: <string>
+                        notifications: <boolean>
+                        primary: <boolean>
+                        workExtension: <string>
+                      - value: <string>
+                        type: mobile
+                        display: <string>
+                        issuingCountry: <string>
+                        notifications: <boolean>
+                        primary: <boolean>
+                        workExtension: <string>
+                    schemas:
+                      - <string>
+                      - <string>
+                    title: <string>
+                    urn:ietf:params:scim:schemas:extension:sap:2.0:User:
+                      userUuid: <string>
+                    urn:ietf:params:scim:schemas:extension:settings:2.0:User:
+                      theme: Concur Gateway
+                  - timezone: <string>
+                    name:
+                      familyName: <string>
+                      givenName: <string>
+                      academicTitle: Prof. Dr.
+                      familyNamePrefix: <string>
+                      formatted: <string>
+                      honorificPrefix: <string>
+                      honorificSuffix: <string>
+                      legalName: <string>
+                      middleInitial: <string>
+                      middleName: <string>
+                    preferredLanguage: <string>
+                    active: <boolean>
+                    id: <string>
+                    emails:
+                      - value: <string>
+                        type: home
+                        notifications: <boolean>
+                        verified: <boolean>
+                      - value: <string>
+                        type: work
+                        notifications: <boolean>
+                        verified: <boolean>
+                    userName: <string>
+                    urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                      companyId: <string>
+                      startDate: <string>
+                      costCenter: <string>
+                      department: <string>
+                      division: <string>
+                      employeeNumber: <string>
+                      leavesOfAbsence:
+                        - startDate: <string>
+                          endDate: <string>
+                          type: mandatory
+                        - startDate: <string>
+                          endDate: <string>
+                          type: voluntary
+                      legalEntity: <string>
+                      manager:
+                        value: <string>
+                        $ref: <string>
+                        displayName: <string>
+                        employeeNumber: <string>
+                      organization: <string>
+                      terminationDate: <string>
+                    addresses:
+                      - country: <string>
+                        locality: <string>
+                        postalCode: <string>
+                        region: <string>
+                        streetAddress: <string>
+                        type: billing
+                      - country: <string>
+                        locality: <string>
+                        postalCode: <string>
+                        region: <string>
+                        streetAddress: <string>
+                        type: billing
+                    dateOfBirth: <string>
+                    displayName: <string>
+                    emergencyContacts:
+                      - name: <string>
+                        relationship: Parent
+                        country: <string>
+                        emails:
+                          - <string>
+                          - <string>
+                        locality: <string>
+                        phones:
+                          - <string>
+                          - <string>
+                        postalCode: <string>
+                        region: <string>
+                        streetAddress: <string>
+                      - name: <string>
+                        relationship: Brother
+                        country: <string>
+                        emails:
+                          - <string>
+                          - <string>
+                        locality: <string>
+                        phones:
+                          - <string>
+                          - <string>
+                        postalCode: <string>
+                        region: <string>
+                        streetAddress: <string>
+                    entitlements:
+                      - Analytics
+                      - Invoice
+                    externalId: <string>
+                    localeOverrides:
+                      preferenceEndDayViewHour: <integer>
+                      preferenceFirstDayOfWeek: Tuesday
+                      preferenceDateFormat: yyyy/mm/dd
+                      preferenceCurrencySymbolLocation: BeforeAmount
+                      preferenceHourMinuteSeparator: ':'
+                      preferenceDefaultCalView: day
+                      preference24Hour: H:mm AM/PM
+                      preferenceNumberFormat: 1'000,00
+                      preferenceStartDayViewHour: <integer>
+                      preferenceDistance: mile
+                      preferenceNegativeCurrencyFormat: (100)
+                      preferenceNegativeNumberFormat: (100)
+                    meta:
+                      created: <string>
+                      lastModified: <string>
+                      location: <string>
+                      resourceType: <string>
+                      version: <integer>
+                    nickName: <string>
+                    phoneNumbers:
+                      - value: <string>
+                        type: mobile
+                        display: <string>
+                        issuingCountry: <string>
+                        notifications: <boolean>
+                        primary: <boolean>
+                        workExtension: <string>
+                      - value: <string>
+                        type: mobile
+                        display: <string>
+                        issuingCountry: <string>
+                        notifications: <boolean>
+                        primary: <boolean>
+                        workExtension: <string>
+                    schemas:
+                      - <string>
+                      - <string>
+                    title: <string>
+                    urn:ietf:params:scim:schemas:extension:sap:2.0:User:
+                      userUuid: <string>
+                    urn:ietf:params:scim:schemas:extension:settings:2.0:User:
+                      theme: SAP Horizon Morning
+                nextCursor: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+  /Users:
+    post:
+      tags:
+        - Users
+      summary: Create User
+      description: Create a new User Identity Profile within a Company Resource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                timezone: <string>
+                name:
+                  familyName: <string>
+                  givenName: <string>
+                  academicTitle: Prof.
+                  familyNamePrefix: <string>
+                  formatted: <string>
+                  honorificPrefix: <string>
+                  honorificSuffix: <string>
+                  legalName: <string>
+                  middleInitial: <string>
+                  middleName: <string>
+                preferredLanguage: <string>
+                active: <boolean>
+                id: <string>
+                emails:
+                  - value: <string>
+                    type: other2
+                    notifications: <boolean>
+                    verified: <boolean>
+                  - value: <string>
+                    type: other2
+                    notifications: <boolean>
+                    verified: <boolean>
+                userName: <string>
+                urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                  companyId: <string>
+                  startDate: <string>
+                  costCenter: <string>
+                  department: <string>
+                  division: <string>
+                  employeeNumber: <string>
+                  leavesOfAbsence:
+                    - startDate: <string>
+                      endDate: <string>
+                      type: voluntary
+                    - startDate: <string>
+                      endDate: <string>
+                      type: mandatory
+                  legalEntity: <string>
+                  manager:
+                    value: <string>
+                    $ref: <string>
+                    displayName: <string>
+                    employeeNumber: <string>
+                  organization: <string>
+                  terminationDate: <string>
+                addresses:
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: billing
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: home
+                dateOfBirth: <string>
+                displayName: <string>
+                emergencyContacts:
+                  - name: <string>
+                    relationship: Sister
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                  - name: <string>
+                    relationship: Spouse
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                entitlements:
+                  - Invoice
+                  - Travel
+                externalId: <string>
+                localeOverrides:
+                  preferenceEndDayViewHour: <integer>
+                  preferenceFirstDayOfWeek: Saturday
+                  preferenceDateFormat: yyyy.mm.dd
+                  preferenceCurrencySymbolLocation: BeforeAmount
+                  preferenceHourMinuteSeparator: .
+                  preferenceDefaultCalView: week
+                  preference24Hour: hh:mm
+                  preferenceNumberFormat: 1,000.00
+                  preferenceStartDayViewHour: <integer>
+                  preferenceDistance: km
+                  preferenceNegativeCurrencyFormat: '-100'
+                  preferenceNegativeNumberFormat: '-100'
+                meta:
+                  created: <string>
+                  lastModified: <string>
+                  location: <string>
+                  resourceType: <string>
+                  version: <integer>
+                nickName: <string>
+                phoneNumbers:
+                  - value: <string>
+                    type: home
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                  - value: <string>
+                    type: pager
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                schemas:
+                  - <string>
+                  - <string>
+                title: <string>
+                urn:ietf:params:scim:schemas:extension:sap:2.0:User:
+                  userUuid: <string>
+                urn:ietf:params:scim:schemas:extension:settings:2.0:User:
+                  theme: SAP Horizon Morning
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timezone: <string>
+                name:
+                  familyName: <string>
+                  givenName: <string>
+                  academicTitle: Prof.
+                  familyNamePrefix: <string>
+                  formatted: <string>
+                  honorificPrefix: <string>
+                  honorificSuffix: <string>
+                  legalName: <string>
+                  middleInitial: <string>
+                  middleName: <string>
+                preferredLanguage: <string>
+                active: <boolean>
+                id: <string>
+                emails:
+                  - value: <string>
+                    type: other2
+                    notifications: <boolean>
+                    verified: <boolean>
+                  - value: <string>
+                    type: other2
+                    notifications: <boolean>
+                    verified: <boolean>
+                userName: <string>
+                urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                  companyId: <string>
+                  startDate: <string>
+                  costCenter: <string>
+                  department: <string>
+                  division: <string>
+                  employeeNumber: <string>
+                  leavesOfAbsence:
+                    - startDate: <string>
+                      endDate: <string>
+                      type: voluntary
+                    - startDate: <string>
+                      endDate: <string>
+                      type: mandatory
+                  legalEntity: <string>
+                  manager:
+                    value: <string>
+                    $ref: <string>
+                    displayName: <string>
+                    employeeNumber: <string>
+                  organization: <string>
+                  terminationDate: <string>
+                addresses:
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: billing
+                  - country: <string>
+                    locality: <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                    type: home
+                dateOfBirth: <string>
+                displayName: <string>
+                emergencyContacts:
+                  - name: <string>
+                    relationship: Sister
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                  - name: <string>
+                    relationship: Spouse
+                    country: <string>
+                    emails:
+                      - <string>
+                      - <string>
+                    locality: <string>
+                    phones:
+                      - <string>
+                      - <string>
+                    postalCode: <string>
+                    region: <string>
+                    streetAddress: <string>
+                entitlements:
+                  - Invoice
+                  - Travel
+                externalId: <string>
+                localeOverrides:
+                  preferenceEndDayViewHour: <integer>
+                  preferenceFirstDayOfWeek: Saturday
+                  preferenceDateFormat: yyyy.mm.dd
+                  preferenceCurrencySymbolLocation: BeforeAmount
+                  preferenceHourMinuteSeparator: .
+                  preferenceDefaultCalView: week
+                  preference24Hour: hh:mm
+                  preferenceNumberFormat: 1,000.00
+                  preferenceStartDayViewHour: <integer>
+                  preferenceDistance: km
+                  preferenceNegativeCurrencyFormat: '-100'
+                  preferenceNegativeNumberFormat: '-100'
+                meta:
+                  created: <string>
+                  lastModified: <string>
+                  location: <string>
+                  resourceType: <string>
+                  version: <integer>
+                nickName: <string>
+                phoneNumbers:
+                  - value: <string>
+                    type: home
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                  - value: <string>
+                    type: pager
+                    display: <string>
+                    issuingCountry: <string>
+                    notifications: <boolean>
+                    primary: <boolean>
+                    workExtension: <string>
+                schemas:
+                  - <string>
+                  - <string>
+                title: <string>
+                urn:ietf:params:scim:schemas:extension:sap:2.0:User:
+                  userUuid: <string>
+                urn:ietf:params:scim:schemas:extension:settings:2.0:User:
+                  theme: SAP Horizon Morning
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+  /Schemas/{id}:
+    get:
+      tags:
+        - Schemas > {id}
+      summary: Fetch Schema
+      description: Fetch schema by Id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: com:concur:cte:company:2.0
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+  /Schemas:
+    get:
+      tags:
+        - Schemas
+      summary: Fetch all schemas
+      description: Fetch all supported schemas
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: <string>
+                scimType: <string>
+                detail: <string>
+                urn:ietf:params:scim:api:messages:concur:2.0:Error:
+                  messages:
+                    - code: <string>
+                      type: error
+                      message: <string>
+                      schemaPath: <string>
+                    - code: <string>
+                      type: warning
+                      message: <string>
+                      schemaPath: <string>
+  /ServiceProviderConfig:
+    get:
+      tags:
+        - ServiceProviderConfig
+      summary: Get Service Provider Configurations
+      description: Queries service provider configurations.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                documentationUrl: <string>
+                patch:
+                  supported: <boolean>
+                bulk:
+                  supported: <boolean>
+                filter:
+                  supported: <boolean>
+                changePassword:
+                  supported: <boolean>
+                sort:
+                  supported: <boolean>
+                etag:
+                  supported: <boolean>
+                authenticationSchemes:
+                  name: <string>
+                  description: <string>
+                  specUrl: <string>
+                  documentationUrl: <string>
+                pagination:
+                  cursor:
+                    supported: <boolean>
+                  index:
+                    supported: <boolean>
+                  defaultPageSize: <integer>
+                  maxPageSize: <integer>
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '502':
+          description: Bad Gateway
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '504':
+          description: Gateway Timeout
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /ResourceTypes:
+    get:
+      tags:
+        - ResourceTypes
+      summary: Get Service Provider Configurations
+      description: Queries service provider resource types.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - name: Company
+                  description: <string>
+                  schema: urn:ietf:params:scim:schemas:core:2.0:Company
+                  endpoint: /Companies
+                  schemaExtensions:
+                    - schema: <string>
+                      required: <boolean>
+                    - schema: <string>
+                      required: <boolean>
+                  id: 31738445
+                - name: User
+                  description: <string>
+                  schema: urn:ietf:params:scim:schemas:core:2.0:Company
+                  endpoint: /Companies
+                  schemaExtensions:
+                    - schema: <string>
+                      required: <boolean>
+                    - schema: <string>
+                      required: <boolean>
+                  id: et laborum consectetur
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '502':
+          description: Bad Gateway
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '504':
+          description: Gateway Timeout
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''

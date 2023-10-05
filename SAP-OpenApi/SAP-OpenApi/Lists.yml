@@ -1,0 +1,172 @@
+openapi: 3.0.0
+info:
+  title: Lists
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: common
+  - name: common > lists
+  - name: common > lists > {id}
+paths:
+  /common/lists/{id}:
+    get:
+      tags:
+        - common > lists > {id}
+      summary: Get a single list by ID
+      description: Returns a list by ID.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                ConnectorID: <string>
+                DisplayCodeFirst: <boolean>
+                ExternalThreshold: <integer>
+                ID: <string>
+                IsVendorList: <boolean>
+                Name: <string>
+                SearchCriteriaCode: <string>
+                URI: <string>
+    put:
+      tags:
+        - common > lists > {id}
+      summary: Update list
+      description: >-
+        DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016. Updates list specified
+        in the URL.  Only the fields provided in the supplied object will be
+        updated, missing fields will not be altered.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                DisplayCodeFirst: <boolean>
+                Name: <string>
+                SearchCriteriaCode: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+  /common/lists:
+    get:
+      tags:
+        - common > lists
+      summary: Gets all lists
+      description: Returns all lists based on the search criteria.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Items:
+                  ConnectorID: <string>
+                  DisplayCodeFirst: <boolean>
+                  ExternalThreshold: <integer>
+                  ID: <string>
+                  IsVendorList: <boolean>
+                  Name: <string>
+                  SearchCriteriaCode: <string>
+                  URI: <string>
+                NextPage: <string>
+    post:
+      tags:
+        - common > lists
+      summary: Create a new list
+      description: Create a new list
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ConnectorID: <string>
+                DisplayCodeFirst: <boolean>
+                ExternalThreshold: <integer>
+                IsVendorList: <boolean>
+                Name: <string>
+                SearchCriteriaCode: <string>
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                ID: <string>
+                URI: <string>

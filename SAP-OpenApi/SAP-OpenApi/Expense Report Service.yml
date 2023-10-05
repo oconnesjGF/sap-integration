@@ -1,0 +1,3988 @@
+openapi: 3.0.0
+info:
+  title: Expense Report Service
+  description: >-
+    <b>Expense Report Service (ERS) is the next-generation v4 API for operations
+    related to  creating and processing Expense Reports</b>. In order to
+    interact with this API, a client  must include either an authorized User or
+    Company JWT in the header of each request, or  use an X.509 client
+    certificate with a CN included in the Allowed List by the ERS team.
+
+
+
+    Contact Support:
+     Email: expensereportservice@sap.onmicrosoft.com
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: expensereports
+  - name: expensereports > v4
+  - name: expensereports > v4 > users
+  - name: expensereports > v4 > users > {userId}
+  - name: expensereports > v4 > users > {userId} > context
+  - name: expensereports > v4 > users > {userId} > context > {contextType}
+  - name: expensereports > v4 > users > {userId} > context > {contextType} > reports
+  - name: >-
+      expensereports > v4 > users > {userId} > context > {contextType} > reports
+      > {reportId}
+  - name: >-
+      expensereports > v4 > users > {userId} > context > {contextType} > reports
+      > {reportId} > expenses
+  - name: >-
+      expensereports > v4 > users > {userId} > context > {contextType} > reports
+      > {reportId} > expenses > {expenseId}
+  - name: >-
+      expensereports > v4 > users > {userId} > context > {contextType} > reports
+      > {reportId} > expenses > {expenseId} > comments
+  - name: >-
+      expensereports > v4 > users > {userId} > context > {contextType} > reports
+      > {reportId} > expenses > {expenseId} > allocations
+  - name: >-
+      expensereports > v4 > users > {userId} > context > {contextType} > reports
+      > {reportId} > expenses > {expenseId} > itemizations
+  - name: >-
+      expensereports > v4 > users > {userId} > context > {contextType} > reports
+      > {reportId} > comments
+  - name: >-
+      expensereports > v4 > users > {userId} > context > {contextType} > reports
+      > {reportId} > allocations
+  - name: >-
+      expensereports > v4 > users > {userId} > context > {contextType} > reports
+      > {reportId} > allocations > {allocationId}
+  - name: >-
+      expensereports > v4 > users > {userId} > context > {contextType} >
+      reportsToApprove
+  - name: expensereports > v4 > reports
+  - name: expensereports > v4 > reports > {reportId}
+  - name: expensereports > v4 > reports > {reportId} > sendBack
+  - name: expensereports > v4 > reports > {reportId} > expenses
+  - name: expensereports > v4 > reports > {reportId} > expenses > {expenseId}
+  - name: expensereports > v4 > reports > {reportId} > approve
+paths:
+  /expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}/expenses/{expenseId}/comments:
+    get:
+      tags:
+        - >-
+          expensereports > v4 > users > {userId} > context > {contextType} >
+          reports > {reportId} > expenses > {expenseId} > comments
+      summary: Get expense comments
+      description: Retrieves the comments on the specific expense within an expense report.
+      parameters:
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the user's locale that indicates the
+            language in which the API response should be formulated.
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: contextType
+          in: path
+          schema:
+            type: string
+          required: true
+          example: TRAVELER
+        - name: reportId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: expenseId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - author:
+                    employeeId: <string>
+                    employeeUuid: <uuid>
+                  comment: <string>
+                  createdForEmployee:
+                    employeeId: <string>
+                    employeeUuid: <uuid>
+                  creationDate: <dateTime>
+                  isAuditorComment: <boolean>
+                  isLatest: <boolean>
+                  createdForEmployeeId: <string>
+                  expenseId: <string>
+                  stepInstanceId: <string>
+                - author:
+                    employeeId: <string>
+                    employeeUuid: <uuid>
+                  comment: <string>
+                  createdForEmployee:
+                    employeeId: <string>
+                    employeeUuid: <uuid>
+                  creationDate: <dateTime>
+                  isAuditorComment: <boolean>
+                  isLatest: <boolean>
+                  createdForEmployeeId: <string>
+                  expenseId: <string>
+                  stepInstanceId: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+  /expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}/expenses/{expenseId}/allocations:
+    get:
+      tags:
+        - >-
+          expensereports > v4 > users > {userId} > context > {contextType} >
+          reports > {reportId} > expenses > {expenseId} > allocations
+      summary: Gets all allocations for the specified expense
+      description: >-
+        Retrieves the allocations that belong to a specific expense ID on a
+        specific report ID.
+      parameters:
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the user's locale that indicates the
+            language in which the API response should be formulated.
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: contextType
+          in: path
+          schema:
+            type: string
+          required: true
+          example: TRAVELER
+        - name: reportId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: expenseId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - allocationId: <string>
+                  expenseId: <string>
+                  isSystemAllocation: <boolean>
+                  percentage: <number>
+                  customData:
+                    - id: <string>
+                      value: <string>
+                      isValid: <boolean>
+                      listItemUrl: <string>
+                    - id: <string>
+                      value: <string>
+                      isValid: <boolean>
+                      listItemUrl: <string>
+                  accountCode: <string>
+                  overLimitAccountCode: <string>
+                  allocationAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  approvedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  claimedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  isPercentEdited: <boolean>
+                - allocationId: <string>
+                  expenseId: <string>
+                  isSystemAllocation: <boolean>
+                  percentage: <number>
+                  customData:
+                    - id: <string>
+                      value: <string>
+                      isValid: <boolean>
+                      listItemUrl: <string>
+                    - id: <string>
+                      value: <string>
+                      isValid: <boolean>
+                      listItemUrl: <string>
+                  accountCode: <string>
+                  overLimitAccountCode: <string>
+                  allocationAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  approvedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  claimedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  isPercentEdited: <boolean>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+  /expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}/expenses/{expenseId}/itemizations:
+    get:
+      tags:
+        - >-
+          expensereports > v4 > users > {userId} > context > {contextType} >
+          reports > {reportId} > expenses > {expenseId} > itemizations
+      summary: Gets a list of itemization summaries for the specified expense
+      description: >-
+        Returns a list of itemization summaries for the specified expense. Also
+        returns a self link
+      parameters:
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the user's locale that indicates the
+            language in which the API response should be formulated.
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: contextType
+          in: path
+          schema:
+            type: string
+          required: true
+          example: TRAVELER
+        - name: reportId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: expenseId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - allocationState: FULLY_ALLOCATED
+                  canDelete: <boolean>
+                  exchangeRate:
+                    operation: MULTIPLY
+                    value: <number>
+                  expenseId: <string>
+                  expenseType:
+                    id: <string>
+                    name: <string>
+                    code: <string>
+                    isDeleted: <boolean>
+                    listItemId: <string>
+                  hasBlockingExceptions: <boolean>
+                  hasExceptions: <boolean>
+                  hasMissingReceiptDeclaration: <boolean>
+                  isAutoCreated: <boolean>
+                  isImageRequired: <boolean>
+                  isPaperReceiptRequired: <boolean>
+                  isPersonalExpense: <boolean>
+                  paymentType:
+                    id: <string>
+                    name: <string>
+                    code: <string>
+                  postedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  transactionAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  allocationSetId: <string>
+                  approverAdjustedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  approvedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  attendeeCount: <integer>
+                  businessPurpose: <string>
+                  claimedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  ereceiptImageId: <string>
+                  parentExpenseId: <string>
+                  expenseSourceIdentifiers:
+                    creditCardTransactionId: <string>
+                    receiptImageId: <string>
+                    expenseCaptureImageId: <string>
+                    quickExpenseId: <string>
+                    personalCardTransactionId: <string>
+                    segmentId: <long>
+                    tripId: <long>
+                    segmentTypeId: VISA - Visa
+                    jptRouteId: <string>
+                    receipts:
+                      - feature: expenseIt
+                        id: <uuid>
+                        imageId: <string>
+                        version: '5'
+                    ereceiptId: <string>
+                    ereceiptURL: <string>
+                  imageCertificationStatus: <string>
+                  jptRouteId: <string>
+                  location:
+                    id: <string>
+                    name: <string>
+                    city: <string>
+                    countrySubDivisionCode: <string>
+                    countryCode: <string>
+                  links:
+                    - href: <string>
+                      isTemplated: <boolean>
+                      method: <string>
+                      rel: <string>
+                      hreflang: <string>
+                      media: <string>
+                      title: <string>
+                      type: <string>
+                      deprecation: <string>
+                      profile: <string>
+                      name: <string>
+                    - href: <string>
+                      isTemplated: <boolean>
+                      method: <string>
+                      rel: <string>
+                      hreflang: <string>
+                      media: <string>
+                      title: <string>
+                      type: <string>
+                      deprecation: <string>
+                      profile: <string>
+                      name: <string>
+                  receiptImageId: <string>
+                  ticketNumber: <string>
+                  transactionDate: <date>
+                  travelAllowance:
+                    dailyLimitAmount: <number>
+                    dailyTravelAllowanceId: <string>
+                    isExpensePartOfTravelAllowance: false
+                  vendor:
+                    id: <string>
+                    name: <string>
+                    description: <string>
+                  fuelTypeListItem:
+                    id: <string>
+                    value: <string>
+                    isValid: <boolean>
+                    listItemUrl: <string>
+                  allocationVersion: <dateTime>
+                - allocationState: PARTIALLY_ALLOCATED
+                  canDelete: <boolean>
+                  exchangeRate:
+                    operation: DIVIDE
+                    value: <number>
+                  expenseId: <string>
+                  expenseType:
+                    id: <string>
+                    name: <string>
+                    code: <string>
+                    isDeleted: <boolean>
+                    listItemId: <string>
+                  hasBlockingExceptions: <boolean>
+                  hasExceptions: <boolean>
+                  hasMissingReceiptDeclaration: <boolean>
+                  isAutoCreated: <boolean>
+                  isImageRequired: <boolean>
+                  isPaperReceiptRequired: <boolean>
+                  isPersonalExpense: <boolean>
+                  paymentType:
+                    id: <string>
+                    name: <string>
+                    code: <string>
+                  postedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  transactionAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  allocationSetId: <string>
+                  approverAdjustedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  approvedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  attendeeCount: <integer>
+                  businessPurpose: <string>
+                  claimedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  ereceiptImageId: <string>
+                  parentExpenseId: <string>
+                  expenseSourceIdentifiers:
+                    creditCardTransactionId: <string>
+                    receiptImageId: <string>
+                    expenseCaptureImageId: <string>
+                    quickExpenseId: <string>
+                    personalCardTransactionId: <string>
+                    segmentId: <long>
+                    tripId: <long>
+                    segmentTypeId: TAXIF - Taxi Fare
+                    jptRouteId: <string>
+                    receipts:
+                      - feature: expenseIt
+                        id: <uuid>
+                        imageId: <string>
+                        version: '5'
+                    ereceiptId: <string>
+                    ereceiptURL: <string>
+                  imageCertificationStatus: <string>
+                  jptRouteId: <string>
+                  location:
+                    id: <string>
+                    name: <string>
+                    city: <string>
+                    countrySubDivisionCode: <string>
+                    countryCode: <string>
+                  links:
+                    - href: <string>
+                      isTemplated: <boolean>
+                      method: <string>
+                      rel: <string>
+                      hreflang: <string>
+                      media: <string>
+                      title: <string>
+                      type: <string>
+                      deprecation: <string>
+                      profile: <string>
+                      name: <string>
+                    - href: <string>
+                      isTemplated: <boolean>
+                      method: <string>
+                      rel: <string>
+                      hreflang: <string>
+                      media: <string>
+                      title: <string>
+                      type: <string>
+                      deprecation: <string>
+                      profile: <string>
+                      name: <string>
+                  receiptImageId: <string>
+                  ticketNumber: <string>
+                  transactionDate: <date>
+                  travelAllowance:
+                    dailyLimitAmount: <number>
+                    dailyTravelAllowanceId: <string>
+                    isExpensePartOfTravelAllowance: false
+                  vendor:
+                    id: <string>
+                    name: <string>
+                    description: <string>
+                  fuelTypeListItem:
+                    id: <string>
+                    value: <string>
+                    isValid: <boolean>
+                    listItemUrl: <string>
+                  allocationVersion: <dateTime>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+  /expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}/expenses/{expenseId}:
+    get:
+      tags:
+        - >-
+          expensereports > v4 > users > {userId} > context > {contextType} >
+          reports > {reportId} > expenses > {expenseId}
+      summary: Gets expense details for the specified expense
+      description: >-
+        Returns expense details for the specified expense. Also returns a self
+        link, plus each of the following links, contingent on the existence of
+        the resource: allocations, attendees, comments, exceptions, formFields,
+        itemizations, tax.
+      parameters:
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the user's locale that indicates the
+            language in which the API response should be formulated.
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: contextType
+          in: path
+          schema:
+            type: string
+          required: true
+          example: TRAVELER
+        - name: reportId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: expenseId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                allocationState: PARTIALLY_ALLOCATED
+                canAllocate: <boolean>
+                canDelete: <boolean>
+                exchangeRate:
+                  operation: DIVIDE
+                  value: <number>
+                expenseId: <string>
+                expenseType:
+                  id: <string>
+                  name: <string>
+                  code: <string>
+                  isDeleted: <boolean>
+                  listItemId: <string>
+                hasBlockingExceptions: <boolean>
+                hasExceptions: <boolean>
+                hasMissingReceiptDeclaration: <boolean>
+                isAutoCreated: <boolean>
+                isExcludedFromCashAdvanceByUser: <boolean>
+                isExpenseBillable: <boolean>
+                isExpenseRejected: <boolean>
+                isImageRequired: <boolean>
+                isPaperReceiptReceived: <boolean>
+                isPaperReceiptRequired: <boolean>
+                isPersonalExpense: <boolean>
+                paymentType:
+                  id: <string>
+                  name: <string>
+                  code: <string>
+                postedAmount:
+                  currencyCode: <string>
+                  value: <number>
+                taxRateLocation: HOME
+                transactionAmount:
+                  currencyCode: <string>
+                  value: <number>
+                allocationSetId: <string>
+                approverAdjustedAmount:
+                  currencyCode: <string>
+                  value: <number>
+                approvedAmount:
+                  currencyCode: <string>
+                  value: <number>
+                attendeeCount: <integer>
+                businessPurpose: <string>
+                claimedAmount:
+                  currencyCode: <string>
+                  value: <number>
+                ereceiptImageId: <string>
+                parentExpenseId: <string>
+                expenseSourceIdentifiers:
+                  creditCardTransactionId: <string>
+                  receiptImageId: <string>
+                  expenseCaptureImageId: <string>
+                  quickExpenseId: <string>
+                  personalCardTransactionId: <string>
+                  segmentId: <long>
+                  tripId: <long>
+                  segmentTypeId: VISA - Visa
+                  jptRouteId: <string>
+                  receipts:
+                    - feature: expenseIt
+                      id: <uuid>
+                      imageId: <string>
+                      version: '5'
+                  ereceiptId: <string>
+                  ereceiptURL: <string>
+                imageCertificationStatus: <string>
+                jptRouteId: <string>
+                location:
+                  id: <string>
+                  name: <string>
+                  city: <string>
+                  countrySubDivisionCode: <string>
+                  countryCode: <string>
+                links:
+                  - href: <string>
+                    isTemplated: <boolean>
+                    method: <string>
+                    rel: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+                  - href: <string>
+                    isTemplated: <boolean>
+                    method: <string>
+                    rel: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+                receiptImageId: <string>
+                transactionDate: <date>
+                travelAllowance:
+                  dailyLimitAmount: <number>
+                  dailyTravelAllowanceId: <string>
+                  isExpensePartOfTravelAllowance: false
+                vendor:
+                  id: <string>
+                  name: <string>
+                  description: <string>
+                fuelTypeListItem:
+                  id: <string>
+                  value: <string>
+                  isValid: <boolean>
+                  listItemUrl: <string>
+                authorizationRequestExpenseId: <string>
+                budgetAccrualDate: <date>
+                customData:
+                  - id: <string>
+                    value: <string>
+                    isValid: <boolean>
+                    listItemUrl: <string>
+                  - id: <string>
+                    value: <string>
+                    isValid: <boolean>
+                    listItemUrl: <string>
+                expenseTaxSummary:
+                  totalTaxPostedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  totalTaxAdjustedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  totalReclaimPostedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  totalReclaimAdjustedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  netTaxAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  netAdjustedTaxAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  netReclaimAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  netReclaimAdjustedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  vatTaxTotal:
+                    currencyCode: <string>
+                    value: <number>
+                merchantTaxId: <string>
+                mileage:
+                  totalDistance: <integer>
+                  vehicleId: <string>
+                  odometerStart: <integer>
+                  odometerEnd: <integer>
+                  passengerCount: <integer>
+                  personalDistance: 0
+                  routeId: <string>
+                  hasMobileCanteenOrHeavyLoadAttached: false
+                  hasCaravanAttached: false
+                  hasDogIncluded: false
+                  hasForestOrConstructionSiteRoadInRoute: false
+                  hasForestRoadInRoute: false
+                  isMarkedAsHigherRate: false
+                  hasMachinery: false
+                  hasTrailerAttached: false
+                receiptType:
+                  id: 'N'
+                  status: <string>
+                travel:
+                  airlineFeeTypeCode: UPGRD
+                  airlineFeeTypeName: <string>
+                  airlineServiceClassCode: COACH
+                  airlineServiceClassName: <string>
+                  carRentalDays: <integer>
+                  endLocation: <string>
+                  hotelCheckinDate: <date>
+                  hotelCheckoutDate: <date>
+                  startLocation: <string>
+                  ticketNumber: <string>
+                xmlReceiptId: <string>
+                allocationVersion: <dateTime>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+  /expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}/expenses:
+    get:
+      tags:
+        - >-
+          expensereports > v4 > users > {userId} > context > {contextType} >
+          reports > {reportId} > expenses
+      summary: Gets all expense summaries for the specified report
+      description: >-
+        Returns all expense summaries for the specified report. Includes a link
+        to expense details for each expense and a link to itemizations for each
+        parent expense.
+      parameters:
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the user's locale that indicates the
+            language in which the API response should be formulated.
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: includeItemizations
+          in: query
+          schema:
+            type: boolean
+          description: Include all itemizations of an Expense, if any
+          example: 'false'
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: contextType
+          in: path
+          schema:
+            type: string
+          required: true
+          example: TRAVELER
+        - name: reportId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - allocationState: PARTIALLY_ALLOCATED
+                  canDelete: <boolean>
+                  exchangeRate:
+                    operation: DIVIDE
+                    value: <number>
+                  expenseId: <string>
+                  expenseType:
+                    id: <string>
+                    name: <string>
+                    code: <string>
+                    isDeleted: <boolean>
+                    listItemId: <string>
+                  hasBlockingExceptions: <boolean>
+                  hasExceptions: <boolean>
+                  hasMissingReceiptDeclaration: <boolean>
+                  isAutoCreated: <boolean>
+                  isImageRequired: <boolean>
+                  isPaperReceiptRequired: <boolean>
+                  isPersonalExpense: <boolean>
+                  paymentType:
+                    id: <string>
+                    name: <string>
+                    code: <string>
+                  postedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  transactionAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  allocationSetId: <string>
+                  approverAdjustedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  approvedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  attendeeCount: <integer>
+                  businessPurpose: <string>
+                  claimedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  ereceiptImageId: <string>
+                  parentExpenseId: <string>
+                  expenseSourceIdentifiers:
+                    creditCardTransactionId: <string>
+                    receiptImageId: <string>
+                    expenseCaptureImageId: <string>
+                    quickExpenseId: <string>
+                    personalCardTransactionId: <string>
+                    segmentId: <long>
+                    tripId: <long>
+                    segmentTypeId: TAXIF - Taxi Fare
+                    jptRouteId: <string>
+                    receipts:
+                      - feature: expenseIt
+                        id: <uuid>
+                        imageId: <string>
+                        version: '5'
+                    ereceiptId: <string>
+                    ereceiptURL: <string>
+                  imageCertificationStatus: <string>
+                  jptRouteId: <string>
+                  location:
+                    id: <string>
+                    name: <string>
+                    city: <string>
+                    countrySubDivisionCode: <string>
+                    countryCode: <string>
+                  links:
+                    - href: <string>
+                      isTemplated: <boolean>
+                      method: <string>
+                      rel: <string>
+                      hreflang: <string>
+                      media: <string>
+                      title: <string>
+                      type: <string>
+                      deprecation: <string>
+                      profile: <string>
+                      name: <string>
+                    - href: <string>
+                      isTemplated: <boolean>
+                      method: <string>
+                      rel: <string>
+                      hreflang: <string>
+                      media: <string>
+                      title: <string>
+                      type: <string>
+                      deprecation: <string>
+                      profile: <string>
+                      name: <string>
+                  receiptImageId: <string>
+                  ticketNumber: <string>
+                  transactionDate: <date>
+                  travelAllowance:
+                    dailyLimitAmount: <number>
+                    dailyTravelAllowanceId: <string>
+                    isExpensePartOfTravelAllowance: false
+                  vendor:
+                    id: <string>
+                    name: <string>
+                    description: <string>
+                  fuelTypeListItem:
+                    id: <string>
+                    value: <string>
+                    isValid: <boolean>
+                    listItemUrl: <string>
+                  allocationVersion: <dateTime>
+                - allocationState: NOT_ALLOCATED
+                  canDelete: <boolean>
+                  exchangeRate:
+                    operation: DIVIDE
+                    value: <number>
+                  expenseId: <string>
+                  expenseType:
+                    id: <string>
+                    name: <string>
+                    code: <string>
+                    isDeleted: <boolean>
+                    listItemId: <string>
+                  hasBlockingExceptions: <boolean>
+                  hasExceptions: <boolean>
+                  hasMissingReceiptDeclaration: <boolean>
+                  isAutoCreated: <boolean>
+                  isImageRequired: <boolean>
+                  isPaperReceiptRequired: <boolean>
+                  isPersonalExpense: <boolean>
+                  paymentType:
+                    id: <string>
+                    name: <string>
+                    code: <string>
+                  postedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  transactionAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  allocationSetId: <string>
+                  approverAdjustedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  approvedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  attendeeCount: <integer>
+                  businessPurpose: <string>
+                  claimedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  ereceiptImageId: <string>
+                  parentExpenseId: <string>
+                  expenseSourceIdentifiers:
+                    creditCardTransactionId: <string>
+                    receiptImageId: <string>
+                    expenseCaptureImageId: <string>
+                    quickExpenseId: <string>
+                    personalCardTransactionId: <string>
+                    segmentId: <long>
+                    tripId: <long>
+                    segmentTypeId: DININ - Dining
+                    jptRouteId: <string>
+                    receipts:
+                      - feature: expenseIt
+                        id: <uuid>
+                        imageId: <string>
+                        version: '5'
+                    ereceiptId: <string>
+                    ereceiptURL: <string>
+                  imageCertificationStatus: <string>
+                  jptRouteId: <string>
+                  location:
+                    id: <string>
+                    name: <string>
+                    city: <string>
+                    countrySubDivisionCode: <string>
+                    countryCode: <string>
+                  links:
+                    - href: <string>
+                      isTemplated: <boolean>
+                      method: <string>
+                      rel: <string>
+                      hreflang: <string>
+                      media: <string>
+                      title: <string>
+                      type: <string>
+                      deprecation: <string>
+                      profile: <string>
+                      name: <string>
+                    - href: <string>
+                      isTemplated: <boolean>
+                      method: <string>
+                      rel: <string>
+                      hreflang: <string>
+                      media: <string>
+                      title: <string>
+                      type: <string>
+                      deprecation: <string>
+                      profile: <string>
+                      name: <string>
+                  receiptImageId: <string>
+                  ticketNumber: <string>
+                  transactionDate: <date>
+                  travelAllowance:
+                    dailyLimitAmount: <number>
+                    dailyTravelAllowanceId: <string>
+                    isExpensePartOfTravelAllowance: false
+                  vendor:
+                    id: <string>
+                    name: <string>
+                    description: <string>
+                  fuelTypeListItem:
+                    id: <string>
+                    value: <string>
+                    isValid: <boolean>
+                    listItemUrl: <string>
+                  allocationVersion: <dateTime>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+  /expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}/comments:
+    get:
+      tags:
+        - >-
+          expensereports > v4 > users > {userId} > context > {contextType} >
+          reports > {reportId} > comments
+      summary: Get report header comments
+      description: Returns comments for the specified report.
+      parameters:
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the user's locale that indicates the
+            language in which the API response should be formulated.
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: includeAllComments
+          in: query
+          schema:
+            type: boolean
+          description: Return all the comments that are present on the report at all levels
+          example: 'false'
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: contextType
+          in: path
+          schema:
+            type: string
+          required: true
+          example: TRAVELER
+        - name: reportId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - author:
+                    employeeId: <string>
+                    employeeUuid: <uuid>
+                  comment: <string>
+                  createdForEmployee:
+                    employeeId: <string>
+                    employeeUuid: <uuid>
+                  creationDate: <dateTime>
+                  isAuditorComment: <boolean>
+                  isLatest: <boolean>
+                  createdForEmployeeId: <string>
+                  expenseId: <string>
+                  stepInstanceId: <string>
+                - author:
+                    employeeId: <string>
+                    employeeUuid: <uuid>
+                  comment: <string>
+                  createdForEmployee:
+                    employeeId: <string>
+                    employeeUuid: <uuid>
+                  creationDate: <dateTime>
+                  isAuditorComment: <boolean>
+                  isLatest: <boolean>
+                  createdForEmployeeId: <string>
+                  expenseId: <string>
+                  stepInstanceId: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+  /expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}/allocations/{allocationId}:
+    get:
+      tags:
+        - >-
+          expensereports > v4 > users > {userId} > context > {contextType} >
+          reports > {reportId} > allocations > {allocationId}
+      summary: Gets specified allocation for the specified report.
+      description: >-
+        Retrieves the details of the specific allocation of an expense entry on
+        a report.
+      parameters:
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the user's locale that indicates the
+            language in which the API response should be formulated.
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: contextType
+          in: path
+          schema:
+            type: string
+          required: true
+          example: MANAGER
+        - name: reportId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: allocationId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                allocationId: <string>
+                expenseId: <string>
+                isPercentEdited: <boolean>
+                isSystemAllocation: <boolean>
+                percentage: <number>
+                customData:
+                  - id: <string>
+                    value: <string>
+                    isValid: <boolean>
+                    listItemUrl: <string>
+                  - id: <string>
+                    value: <string>
+                    isValid: <boolean>
+                    listItemUrl: <string>
+                accountCode: <string>
+                overLimitAccountCode: <string>
+                allocationAmount:
+                  currencyCode: <string>
+                  value: <number>
+                approvedAmount:
+                  currencyCode: <string>
+                  value: <number>
+                claimedAmount:
+                  currencyCode: <string>
+                  value: <number>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+    patch:
+      tags:
+        - >-
+          expensereports > v4 > users > {userId} > context > {contextType} >
+          reports > {reportId} > allocations > {allocationId}
+      summary: Updates the specified allocation for the report
+      description: Updates the specified allocation for the report.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                allocation:
+                  customData:
+                    - id: <string>
+                      value: <string>
+                      isValid: <boolean>
+                      listItemUrl: <string>
+                    - id: <string>
+                      value: <string>
+                      isValid: <boolean>
+                      listItemUrl: <string>
+                expenseIds:
+                  - <string>
+                  - <string>
+      parameters:
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the user's locale that indicates the
+            language in which the API response should be formulated.
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: contextType
+          in: path
+          schema:
+            type: string
+          required: true
+          example: TRAVELER
+        - name: reportId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: allocationId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+  /expensereports/v4/users/{userId}/context/{contextType}/reports/{reportId}:
+    get:
+      tags:
+        - >-
+          expensereports > v4 > users > {userId} > context > {contextType} >
+          reports > {reportId}
+      summary: Gets report details for the specified report.
+      description: >-
+        Returns report details for the specified report. Also returns a self
+        link, plus each of the following links, contingent on the existence of
+        the resource: comments, exceptions, expenses, formFields.
+      parameters:
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the user's locale that indicates the
+            language in which the API response should be formulated.
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: contextType
+          in: path
+          schema:
+            type: string
+          required: true
+          example: TRAVELER
+        - name: reportId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                amountCompanyPaid:
+                  currencyCode: <string>
+                  value: <number>
+                amountDueCompany:
+                  currencyCode: <string>
+                  value: <number>
+                amountDueCompanyCard:
+                  currencyCode: <string>
+                  value: <number>
+                amountDueEmployee:
+                  currencyCode: <string>
+                  value: <number>
+                amountNotApproved:
+                  currencyCode: <string>
+                  value: <number>
+                analyticsGroupId: <string>
+                approvalStatus: <string>
+                approvalStatusId: <string>
+                approvedAmount:
+                  currencyCode: <string>
+                  value: <number>
+                canAddExpense: <boolean>
+                canRecall: <boolean>
+                claimedAmount:
+                  currencyCode: <string>
+                  value: <number>
+                concurAuditStatus: PASS
+                creationDate: <dateTime>
+                currency: <string>
+                currencyCode: <string>
+                defaultFieldAccess: RO
+                hierarchyNodeId: <string>
+                imageStatus: NOT_RECEIVED
+                isFinancialIntegrationEnabled: <boolean>
+                isPaperReceiptRequired: <boolean>
+                isPaperReceiptsReceived: <boolean>
+                isPendingDelegatorReview: <boolean>
+                isReceiptImageAvailable: <boolean>
+                isReceiptImageRequired: <boolean>
+                isSentBack: <boolean>
+                isSubmitted: <boolean>
+                ledger: <string>
+                ledgerId: <string>
+                name: <string>
+                paymentConfirmedAmount:
+                  currencyCode: <string>
+                  value: <number>
+                paymentStatus: <string>
+                paymentStatusId: <string>
+                personalAmount:
+                  currencyCode: <string>
+                  value: <number>
+                policy: <string>
+                policyId: <string>
+                receiptStatus: RECEIVED
+                reportFormId: <string>
+                reportId: <string>
+                reportTotal:
+                  currencyCode: <string>
+                  value: <number>
+                reportVersion: <integer>
+                userId: <string>
+                customData:
+                  - id: <string>
+                    value: <string>
+                    isValid: <boolean>
+                    listItemUrl: <string>
+                  - id: <string>
+                    value: <string>
+                    isValid: <boolean>
+                    listItemUrl: <string>
+                submitDate: <dateTime>
+                totalAmountPaidEmployee:
+                  currencyCode: <string>
+                  value: <number>
+                canReopen: <boolean>
+                isReopened: <boolean>
+                isFundsAndGrantsIntegrationEligible: <boolean>
+                allocationFormId: <string>
+                links:
+                  - href: <string>
+                    isTemplated: <boolean>
+                    method: <string>
+                    rel: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+                  - href: <string>
+                    isTemplated: <boolean>
+                    method: <string>
+                    rel: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+                reportDate: <date>
+                businessPurpose: <string>
+                countryCode: <string>
+                countrySubDivisionCode: <string>
+                startDate: <date>
+                endDate: <date>
+                country: <string>
+                hasReceivedCashAdvanceReturns: <boolean>
+                receiptContainerId: <string>
+                reportType: Regular
+                redirectFund:
+                  amount:
+                    currencyCode: <string>
+                    value: <number>
+                  creditCardId: <string>
+                reportNumber: <string>
+                cardProgramStatementPeriodId: <string>
+                sponsorId: <string>
+                submitterId: <string>
+                taxConfigId: <string>
+                employee:
+                  employeeId: <string>
+                  employeeUuid: <uuid>
+                isReportEverSentBack: <boolean>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+    patch:
+      tags:
+        - >-
+          expensereports > v4 > users > {userId} > context > {contextType} >
+          reports > {reportId}
+      summary: Updates the report header
+      description: >-
+        Updates the report header in an un-submitted expense report specified
+        and is flexible for modifying multiple attributes in the schema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                customData:
+                  - id: <string>
+                    value: <string>
+                    isValid: <boolean>
+                    listItemUrl: <string>
+                  - id: <string>
+                    value: <string>
+                    isValid: <boolean>
+                    listItemUrl: <string>
+                businessPurpose: <string>
+                comment: <string>
+                country: <string>
+                countryCode: <string>
+                countrySubDivisionCode: <string>
+                endDate: <date>
+                isCopyDownInherited: <boolean>
+                name: <string>
+                policy: <string>
+                policyId: <string>
+                redirectFund:
+                  amount:
+                    currencyCode: <string>
+                    value: <number>
+                  creditCardId: <string>
+                reportDate: <date>
+                startDate: <date>
+                hasReceivedCashAdvanceReturns: <boolean>
+                isPaperReceiptsReceived: <boolean>
+                receiptContainerId: <string>
+      parameters:
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the user's locale that indicates the
+            language in which the API response should be formulated.
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: contextType
+          in: path
+          schema:
+            type: string
+          required: true
+          example: TRAVELER
+        - name: reportId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+  /expensereports/v4/users/{userId}/context/{contextType}/reports:
+    post:
+      tags:
+        - >-
+          expensereports > v4 > users > {userId} > context > {contextType} >
+          reports
+      summary: Creates a new report
+      description: Creates a new report for the specified user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: <string>
+                policyId: <string>
+                customData:
+                  - id: <string>
+                    value: <string>
+                    isValid: <boolean>
+                    listItemUrl: <string>
+                  - id: <string>
+                    value: <string>
+                    isValid: <boolean>
+                    listItemUrl: <string>
+                businessPurpose: <string>
+                comment: <string>
+                country: <string>
+                countryCode: <string>
+                countrySubDivisionCode: <string>
+                endDate: <date>
+                policy: <string>
+                reportDate: <date>
+                startDate: <date>
+      parameters:
+        - name: idempotency-id
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier for this request. Utilizing this identifier
+            ensures that you do not create duplicate resources when you pass the
+            same value
+          example: <string>
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the user's locale that indicates the
+            language in which the API response should be formulated.
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: contextType
+          in: path
+          schema:
+            type: string
+          required: true
+          example: TRAVELER
+      responses:
+        '201':
+          description: Created
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                uri: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '409':
+          description: Conflict
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+  /expensereports/v4/users/{userId}/context/{contextType}/reportsToApprove:
+    get:
+      tags:
+        - >-
+          expensereports > v4 > users > {userId} > context > {contextType} >
+          reportsToApprove
+      summary: Gets the reports to approve
+      description: Returns the reports to approve for the specified approver.
+      parameters:
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the user's locale that indicates the
+            language in which the API response should be formulated.
+          example: <string>
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: sort
+          in: query
+          schema:
+            type: string
+          description: The name of the field on which to sort
+          example: reportDate
+        - name: order
+          in: query
+          schema:
+            type: string
+          description: Sort order
+          example: desc
+        - name: includeDelegateApprovals
+          in: query
+          schema:
+            type: string
+          description: >-
+            (Required) If true, reports pending approvals of employees you
+            delegate for are returned as well.
+          example: <boolean>
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: contextType
+          in: path
+          schema:
+            type: string
+          required: true
+          example: MANAGER
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - amountDueEmployee:
+                    currencyCode: <string>
+                    value: <number>
+                  approver:
+                    employeeId: <string>
+                    employeeUuid: <uuid>
+                  claimedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  employee:
+                    employeeId: <string>
+                    employeeUuid: <uuid>
+                  hasExceptions: <boolean>
+                  name: <string>
+                  reportDate: <date>
+                  reportId: <string>
+                  reportNumber: <string>
+                  reportType: >-
+                    'Regular' or 'Reconciliation' or 'Statement' or
+                    'AutoCreated'
+                  submitDate: <date>
+                  totalApprovedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  crnCode: <string>
+                  employeeFirstName: <string>
+                  employeeLastName: <string>
+                  employeeMiddleInitial: <string>
+                - amountDueEmployee:
+                    currencyCode: <string>
+                    value: <number>
+                  approver:
+                    employeeId: <string>
+                    employeeUuid: <uuid>
+                  claimedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  employee:
+                    employeeId: <string>
+                    employeeUuid: <uuid>
+                  hasExceptions: <boolean>
+                  name: <string>
+                  reportDate: <date>
+                  reportId: <string>
+                  reportNumber: <string>
+                  reportType: >-
+                    'Regular' or 'Reconciliation' or 'Statement' or
+                    'AutoCreated'
+                  submitDate: <date>
+                  totalApprovedAmount:
+                    currencyCode: <string>
+                    value: <number>
+                  crnCode: <string>
+                  employeeFirstName: <string>
+                  employeeLastName: <string>
+                  employeeMiddleInitial: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+  /expensereports/v4/reports/{reportId}/sendBack:
+    patch:
+      tags:
+        - expensereports > v4 > reports > {reportId} > sendBack
+      summary: Sends back the specified report
+      description: Sends back the specified report to report owner.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                comment: <string>
+                expectedWorkflowStepInstanceId: <string>
+      parameters:
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the user's locale that indicates the
+            language in which the API response should be formulated.
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: reportId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+  /expensereports/v4/reports/{reportId}/expenses/{expenseId}:
+    patch:
+      tags:
+        - expensereports > v4 > reports > {reportId} > expenses > {expenseId}
+      summary: >-
+        Updates (limited fields) the specified expense in an un-submitted or
+        submitted report
+      description: >-
+        Updates the specified expense in an un-submitted or submitted report and
+        is restricted to modify 'Business Purpose', 'Custom/Org unit' and
+        'Expense Rejected' fields only
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                expenseSource: TR
+                customData:
+                  - id: <string>
+                    value: <string>
+                    isValid: <boolean>
+                    listItemUrl: <string>
+                  - id: <string>
+                    value: <string>
+                    isValid: <boolean>
+                    listItemUrl: <string>
+                businessPurpose: <string>
+                isExpenseRejected: <boolean>
+      parameters:
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the user's locale that indicates the
+            language in which the API response should be formulated.
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: reportId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: expenseId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '409':
+          description: Conflict
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+  /expensereports/v4/reports/{reportId}/approve:
+    patch:
+      tags:
+        - expensereports > v4 > reports > {reportId} > approve
+      summary: Approves the specified report
+      description: >-
+        Advances the specified report to the next step if it is in a system
+        step.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                statusId: A_APPR
+                comment: <string>
+                expenseRejectedComment: <string>
+                expectedWorkflowStepInstanceId: <string>
+      parameters:
+        - name: accept-language
+          in: header
+          schema:
+            type: string
+          description: >-
+            The unique identifier of the user's locale that indicates the
+            language in which the API response should be formulated.
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: reportId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                errorMessage: <string>
+                httpStatus: <string>
+                path: <string>
+                timestamp: <dateTime>
+                errorId: <string>
+                validationErrors:
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                  - source: <string>
+                    message: <string>
+                    id: <string>
+                customResponseData:
+                  deseruntb: <string>
+                  ipsum4: <string>

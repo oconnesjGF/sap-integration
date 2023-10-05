@@ -1,0 +1,94 @@
+openapi: 3.0.0
+info:
+  title: Spend Documents API
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    apikeyAuth:
+      type: http
+      scheme: apikey
+security:
+  - apikeyAuth: []
+tags:
+  - name: spend-documents
+  - name: spend-documents > v4
+  - name: spend-documents > v4 > receipts
+  - name: spend-documents > v4 > receipts > {receiptId}
+  - name: spend-documents > v4 > receipts > {receiptId} > representations
+paths:
+  /spend-documents/v4/receipts/{receiptId}/representations:
+    get:
+      tags:
+        - spend-documents > v4 > receipts > {receiptId} > representations
+      summary: get Compliance Documents
+      description: Retrive receipt document representations based on type
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: type
+          in: query
+          schema:
+            type: string
+          description: '(Required) Type of document. eg: compliance'
+          example: <string>
+        - name: receiptId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - <string>
+                - <string>
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''

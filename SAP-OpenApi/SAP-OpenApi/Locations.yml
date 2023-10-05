@@ -1,0 +1,159 @@
+openapi: 3.0.0
+info:
+  title: Locations
+  description: >-
+    The valid city location codes in SAP Concur. The location codes vary by
+    client, and cannot be used across multiple clients. This API provides
+    methods to get a list of valid locations for the supplied user, or get
+    details of a location by ID.
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    oauth2Auth:
+      type: http
+      scheme: oauth2
+security:
+  - oauth2Auth: []
+tags:
+  - name: common
+  - name: common > locations
+  - name: common > locations > {id}
+paths:
+  /common/locations/{id}:
+    get:
+      tags:
+        - common > locations > {id}
+      summary: Retrieves a location by ID.
+      description: Gets details of the specified location.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                AdministrativeRegion: <string>
+                Country: <string>
+                CountrySubdivision: <string>
+                IATACode: <string>
+                ID: <string>
+                IsAirport: <boolean>
+                IsBookingTool: <boolean>
+                Latitude: <double>
+                Longitude: <double>
+                Name: <string>
+                URI: <string>
+  /common/locations:
+    get:
+      tags:
+        - common > locations
+      summary: Retrieves all locations.
+      description: >-
+        Gets details of locations that are used by SAP Concur and that are valid
+        at the user's company.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: offset
+          in: query
+          schema:
+            type: string
+          description: >-
+            The starting point of the next set of results, after the limit
+            specified in the limit field has been reached.
+          example: <string>
+        - name: limit
+          in: query
+          schema:
+            type: string
+          description: 'The number of records to return. Default value: 25.'
+          example: <integer>
+        - name: name
+          in: query
+          schema:
+            type: string
+          description: >-
+            A common name associated with the location. This name can be a
+            location description such as a neighborhood (SoHo), a landmark
+            (Statue of Liberty), or a city name (New York).
+          example: <string>
+        - name: city
+          in: query
+          schema:
+            type: string
+          description: The city name of the location.
+          example: <string>
+        - name: countrySubdivision
+          in: query
+          schema:
+            type: string
+          description: >-
+            The ISO 3166-2:2007 country subdivision code for the location.
+            Example: US-WA.
+          example: <string>
+        - name: country
+          in: query
+          schema:
+            type: string
+          description: >-
+            The 2-letter ISO 3166-1 country code for the location. Example:
+            United States is US.
+          example: <string>
+        - name: administrativeRegion
+          in: query
+          schema:
+            type: string
+          description: >-
+            The administrative region of the location. An administrative region
+            is a government unit, such as a county, that contains one or more
+            cities.
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Items:
+                  AdministrativeRegion: <string>
+                  Country: <string>
+                  CountrySubdivision: <string>
+                  IATACode: <string>
+                  ID: <string>
+                  IsAirport: <boolean>
+                  IsBookingTool: <boolean>
+                  Latitude: <double>
+                  Longitude: <double>
+                  Name: <string>
+                  URI: <string>
+                NextPage: <string>

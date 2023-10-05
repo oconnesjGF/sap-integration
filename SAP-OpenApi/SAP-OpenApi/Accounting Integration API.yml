@@ -1,0 +1,2968 @@
+openapi: 3.0.0
+info:
+  title: Accounting Integration API
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: v4
+  - name: v4 > companies
+  - name: v4 > companies > {companyId}
+  - name: v4 > companies > {companyId} > erps
+  - name: v4 > companies > {companyId} > erps > {erpId}
+  - name: v4 > companies > {companyId} > erps > {erpId} > mappings
+  - name: v4 > companies > {companyId} > erps > {erpId} > accounts
+  - name: v4 > companies > {companyId} > erps > {erpId} > lists
+  - name: v4 > companies > {companyId} > erps > {erpId} > vendors
+  - name: v4 > companies > {companyId} > erps > {erpId} > requests
+  - name: v4 > companies > {companyId} > erps > {erpId} > requests > {requestId}
+  - name: >-
+      v4 > companies > {companyId} > erps > {erpId} > requests > {requestId} >
+      errors
+paths:
+  /v4/companies/{companyId}/erps/{erpId}/mappings:
+    get:
+      tags:
+        - v4 > companies > {companyId} > erps > {erpId} > mappings
+      summary: get Company Mappings For Erp
+      description: Retrieve the configuration settings and mappings
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: companyId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: erpId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                erpId: <string>
+                features:
+                  - id: <string>
+                    value: <string>
+                    description: <string>
+                  - id: <string>
+                    value: <string>
+                    description: <string>
+                files:
+                  - fileId: <string>
+                    paymentTypes:
+                      - patKey: <string>
+                        transactionType: <string>
+                        liabilityAccountCode: <string>
+                        postingDate: REPORTCREATE
+                        clearingAccountCode: <string>
+                        name: <string>
+                        creditCardVendorId: <string>
+                        currencyCode: <string>
+                      - patKey: <string>
+                        transactionType: <string>
+                        liabilityAccountCode: <string>
+                        postingDate: PROCESSORAPPROVAL
+                        clearingAccountCode: <string>
+                        name: <string>
+                        creditCardVendorId: <string>
+                        currencyCode: <string>
+                    listMappings:
+                      - erpListId: <string>
+                        concurListId: <string>
+                        fieldMappings:
+                          - formTypeCode: allocation
+                            fields:
+                              - alternateFieldId: <string>
+                                level: <integer>
+                              - alternateFieldId: <string>
+                                level: <integer>
+                          - formTypeCode: report
+                            fields:
+                              - alternateFieldId: <string>
+                                level: <integer>
+                              - alternateFieldId: <string>
+                                level: <integer>
+                      - erpListId: <string>
+                        concurListId: <string>
+                        fieldMappings:
+                          - formTypeCode: requestAllocation
+                            fields:
+                              - alternateFieldId: <string>
+                                level: <integer>
+                              - alternateFieldId: <string>
+                                level: <integer>
+                          - formTypeCode: requestHeader
+                            fields:
+                              - alternateFieldId: <string>
+                                level: <integer>
+                              - alternateFieldId: <string>
+                                level: <integer>
+                    invoiceLiabilityAccount:
+                      id: <string>
+                      name: <string>
+                      type: ACCOUNTS_RECEIVABLE
+                      isDeleted: false
+                      number: <string>
+                  - fileId: <string>
+                    paymentTypes:
+                      - patKey: <string>
+                        transactionType: <string>
+                        liabilityAccountCode: <string>
+                        postingDate: PROCESSORAPPROVAL
+                        clearingAccountCode: <string>
+                        name: <string>
+                        creditCardVendorId: <string>
+                        currencyCode: <string>
+                      - patKey: <string>
+                        transactionType: <string>
+                        liabilityAccountCode: <string>
+                        postingDate: PROCESSORAPPROVAL
+                        clearingAccountCode: <string>
+                        name: <string>
+                        creditCardVendorId: <string>
+                        currencyCode: <string>
+                    listMappings:
+                      - erpListId: <string>
+                        concurListId: <string>
+                        fieldMappings:
+                          - formTypeCode: report
+                            fields:
+                              - alternateFieldId: <string>
+                                level: <integer>
+                              - alternateFieldId: <string>
+                                level: <integer>
+                          - formTypeCode: requestAllocation
+                            fields:
+                              - alternateFieldId: <string>
+                                level: <integer>
+                              - alternateFieldId: <string>
+                                level: <integer>
+                      - erpListId: <string>
+                        concurListId: <string>
+                        fieldMappings:
+                          - formTypeCode: lineItem
+                            fields:
+                              - alternateFieldId: <string>
+                                level: <integer>
+                              - alternateFieldId: <string>
+                                level: <integer>
+                          - formTypeCode: lineItem
+                            fields:
+                              - alternateFieldId: <string>
+                                level: <integer>
+                              - alternateFieldId: <string>
+                                level: <integer>
+                    invoiceLiabilityAccount:
+                      id: <string>
+                      name: <string>
+                      type: EXPENSE
+                      isDeleted: false
+                      number: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+  /v4/companies/{companyId}/erps/{erpId}/accounts:
+    get:
+      tags:
+        - v4 > companies > {companyId} > erps > {erpId} > accounts
+      summary: get Accounts
+      description: Get the ERP Account data
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: next
+          in: query
+          schema:
+            type: string
+          description: Next page ID
+          example: <string>
+        - name: companyId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: erpId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                data:
+                  - id: <string>
+                    name: <string>
+                    type: OTHER_CURRENT_LIABILITIES
+                    isDeleted: false
+                    number: <string>
+                  - id: <string>
+                    name: <string>
+                    type: ACCOUNTS_PAYABLE
+                    isDeleted: false
+                    number: <string>
+                links:
+                  - rel: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+                  - rel: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+    patch:
+      tags:
+        - v4 > companies > {companyId} > erps > {erpId} > accounts
+      summary: patch Accounts
+      description: Update or delete the ERP Account data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                deleteAll: false
+                data:
+                  - id: <string>
+                    name: <string>
+                    type: CREDIT_CARD
+                    isDeleted: false
+                    number: <string>
+                  - id: <string>
+                    name: <string>
+                    type: COST_OF_GOODS_SOLD
+                    isDeleted: false
+                    number: <string>
+      parameters:
+        - name: if-none-match
+          in: header
+          schema:
+            type: string
+          description: Unique identifier of the request in UUID format
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: companyId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: erpId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '202':
+          description: Accepted
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                companyId: <string>
+                erpId: <string>
+                requestId: <string>
+                status: PROCESSING
+                links:
+                  - rel: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+                  - rel: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '412':
+          description: Precondition Failed
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '429':
+          description: Too Many Requests
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+  /v4/companies/{companyId}/erps/{erpId}/lists:
+    get:
+      tags:
+        - v4 > companies > {companyId} > erps > {erpId} > lists
+      summary: get Lists
+      description: Get the ERP List names
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: next
+          in: query
+          schema:
+            type: string
+          description: Next page ID
+          example: <string>
+        - name: companyId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: erpId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                data:
+                  - id: <string>
+                    name: <string>
+                    isDeleted: false
+                  - id: <string>
+                    name: <string>
+                    isDeleted: false
+                links:
+                  - rel: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+                  - rel: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+    patch:
+      tags:
+        - v4 > companies > {companyId} > erps > {erpId} > lists
+      summary: patch Lists
+      description: Update or delete the ERP List names
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                deleteAll: false
+                data:
+                  - id: <string>
+                    name: <string>
+                    isDeleted: false
+                  - id: <string>
+                    name: <string>
+                    isDeleted: false
+      parameters:
+        - name: if-none-match
+          in: header
+          schema:
+            type: string
+          description: Unique identifier of the request in UUID format
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: companyId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: erpId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '202':
+          description: Accepted
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                companyId: <string>
+                erpId: <string>
+                requestId: <string>
+                status: PROCESSING
+                links:
+                  - rel: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+                  - rel: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '412':
+          description: Precondition Failed
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '429':
+          description: Too Many Requests
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+  /v4/companies/{companyId}/erps/{erpId}/vendors:
+    get:
+      tags:
+        - v4 > companies > {companyId} > erps > {erpId} > vendors
+      summary: get Vendors
+      description: Get the ERP Vendor data
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: next
+          in: query
+          schema:
+            type: string
+          description: Next page ID
+          example: <string>
+        - name: companyId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: erpId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                data:
+                  - id: <string>
+                    type: ACCOUNTING
+                    isDeleted: false
+                    currencyCode: <string>
+                    lastName: <string>
+                    firstName: <string>
+                    name: <string>
+                    employeeId: <string>
+                    companyName: <string>
+                    email: <string>
+                    taxId: <string>
+                    phone: <string>
+                    accountNumber: <string>
+                    address:
+                      addr1: <string>
+                      addr2: <string>
+                      addr3: <string>
+                      state: <string>
+                      country: <string>
+                      postalCode: <string>
+                      city: <string>
+                      note: <string>
+                  - id: <string>
+                    type: EMPLOYEE
+                    isDeleted: false
+                    currencyCode: <string>
+                    lastName: <string>
+                    firstName: <string>
+                    name: <string>
+                    employeeId: <string>
+                    companyName: <string>
+                    email: <string>
+                    taxId: <string>
+                    phone: <string>
+                    accountNumber: <string>
+                    address:
+                      addr1: <string>
+                      addr2: <string>
+                      addr3: <string>
+                      state: <string>
+                      country: <string>
+                      postalCode: <string>
+                      city: <string>
+                      note: <string>
+                links:
+                  - rel: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+                  - rel: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+    patch:
+      tags:
+        - v4 > companies > {companyId} > erps > {erpId} > vendors
+      summary: patch Vendors
+      description: Update or delete the ERP Vendor data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                deleteAll: false
+                data:
+                  - id: <string>
+                    type: EMPLOYEE
+                    isDeleted: false
+                    currencyCode: <string>
+                    lastName: <string>
+                    firstName: <string>
+                    name: <string>
+                    employeeId: <string>
+                    companyName: <string>
+                    email: <string>
+                    taxId: <string>
+                    phone: <string>
+                    accountNumber: <string>
+                    address:
+                      addr1: <string>
+                      addr2: <string>
+                      addr3: <string>
+                      state: <string>
+                      country: <string>
+                      postalCode: <string>
+                      city: <string>
+                      note: <string>
+                  - id: <string>
+                    type: EMPLOYEE
+                    isDeleted: false
+                    currencyCode: <string>
+                    lastName: <string>
+                    firstName: <string>
+                    name: <string>
+                    employeeId: <string>
+                    companyName: <string>
+                    email: <string>
+                    taxId: <string>
+                    phone: <string>
+                    accountNumber: <string>
+                    address:
+                      addr1: <string>
+                      addr2: <string>
+                      addr3: <string>
+                      state: <string>
+                      country: <string>
+                      postalCode: <string>
+                      city: <string>
+                      note: <string>
+      parameters:
+        - name: if-none-match
+          in: header
+          schema:
+            type: string
+          description: Unique identifier of the request in UUID format
+          example: <string>
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: companyId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: erpId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '202':
+          description: Accepted
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                companyId: <string>
+                erpId: <string>
+                requestId: <string>
+                status: PROCESSING
+                links:
+                  - rel: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+                  - rel: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '412':
+          description: Precondition Failed
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '429':
+          description: Too Many Requests
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+  /v4/companies/{companyId}/erps/{erpId}/requests/{requestId}/errors:
+    get:
+      tags:
+        - >-
+          v4 > companies > {companyId} > erps > {erpId} > requests > {requestId}
+          > errors
+      summary: get Processing Errors
+      description: Retrieve the processing errors for a given request
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: next
+          in: query
+          schema:
+            type: string
+          description: Next page ID
+          example: <string>
+        - name: companyId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: erpId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: requestId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                data:
+                  - companyId: <string>
+                    erpId: <string>
+                    requestId: <string>
+                    errorCode: <string>
+                    errorMessage: <string>
+                    objectType: LIST
+                    values: <string>
+                    validationErrors:
+                      - source: <string>
+                        errorMessage: <string>
+                        errorCode: <string>
+                      - source: <string>
+                        errorMessage: <string>
+                        errorCode: <string>
+                  - companyId: <string>
+                    erpId: <string>
+                    requestId: <string>
+                    errorCode: <string>
+                    errorMessage: <string>
+                    objectType: VENDOR
+                    values: <string>
+                    validationErrors:
+                      - source: <string>
+                        errorMessage: <string>
+                        errorCode: <string>
+                      - source: <string>
+                        errorMessage: <string>
+                        errorCode: <string>
+                links:
+                  - rel: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+                  - rel: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+  /v4/companies/{companyId}/erps/{erpId}/requests/{requestId}:
+    get:
+      tags:
+        - v4 > companies > {companyId} > erps > {erpId} > requests > {requestId}
+      summary: get Processing Status
+      description: Retrieve the status of a given request
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: companyId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: erpId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: requestId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                companyId: <string>
+                erpId: <string>
+                requestId: <string>
+                status: PROCESSING
+                links:
+                  - rel: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+                  - rel: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+  /v4/companies/{companyId}/erps/{erpId}:
+    get:
+      tags:
+        - v4 > companies > {companyId} > erps > {erpId}
+      summary: get Erp Package
+      description: Get the ERP integration details
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: companyId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: erpId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                partnerAppName: <string>
+                erpName: <string>
+                externalErpId: <string>
+                features:
+                  - SUPPORTS_RECEIPT_POSTING
+                  - SUPPORTS_RECEIPT_POSTING
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+    delete:
+      tags:
+        - v4 > companies > {companyId} > erps > {erpId}
+      summary: delete Erp Package
+      description: >-
+        Unregister an ERP integration. No API calls for this integration will be
+        accepted after unregistering.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: companyId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: erpId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '204':
+          description: No Content
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: ''
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+    patch:
+      tags:
+        - v4 > companies > {companyId} > erps > {erpId}
+      summary: update Erp Package
+      description: Update the registered ERP integration
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                partnerAppName: <string>
+                erpName: <string>
+                externalErpId: <string>
+                features:
+                  - SUPPORTS_RECEIPT_POSTING
+                  - SUPPORTS_RECEIPT_POSTING
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: companyId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+        - name: erpId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                partnerAppName: <string>
+                erpName: <string>
+                externalErpId: <string>
+                features:
+                  - SUPPORTS_RECEIPT_POSTING
+                  - SUPPORTS_RECEIPT_POSTING
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+  /v4/companies/{companyId}/erps:
+    get:
+      tags:
+        - v4 > companies > {companyId} > erps
+      summary: get Erp Packages
+      description: Get the details of all ERP integrations
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: companyId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: '{{companyUUID}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                data:
+                  - partnerAppName: <string>
+                    erpName: <string>
+                    externalErpId: <string>
+                    features:
+                      - SUPPORTS_RECEIPT_POSTING
+                      - SUPPORTS_RECEIPT_POSTING
+                  - partnerAppName: <string>
+                    erpName: <string>
+                    externalErpId: <string>
+                    features:
+                      - SUPPORTS_RECEIPT_POSTING
+                      - SUPPORTS_RECEIPT_POSTING
+                links:
+                  - rel: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+                  - rel: <string>
+                    href: <string>
+                    hreflang: <string>
+                    media: <string>
+                    title: <string>
+                    type: <string>
+                    deprecation: <string>
+                    profile: <string>
+                    name: <string>
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+    post:
+      tags:
+        - v4 > companies > {companyId} > erps
+      summary: add Erp Package
+      description: Register an ERP integration. After success you can start sending data.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                partnerAppName: <string>
+                erpName: <string>
+                externalErpId: <string>
+                features:
+                  - SUPPORTS_RECEIPT_POSTING
+                  - SUPPORTS_RECEIPT_POSTING
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: companyId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: <string>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                partnerAppName: <string>
+                erpName: <string>
+                externalErpId: <string>
+                features:
+                  - SUPPORTS_RECEIPT_POSTING
+                  - SUPPORTS_RECEIPT_POSTING
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: <dateTime>
+                httpStatus: <string>
+                errorMessage: <string>
+                path: <string>
+                errorCode: <string>
+                validationErrors:
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>
+                  - source: <string>
+                    errorMessage: <string>
+                    errorCode: <string>

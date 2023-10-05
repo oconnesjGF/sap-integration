@@ -1,0 +1,82 @@
+openapi: 3.0.0
+info:
+  title: Opportunities
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+tags:
+  - name: insights
+  - name: insights > opportunities
+paths:
+  /insights/opportunities:
+    get:
+      tags:
+        - insights > opportunities
+      summary: >-
+        Gets a collection of opportunities for a specified trip or for all trips
+        that fall within a date range
+      description: >-
+        Gets a collection of opportunities for a specified trip or for all trips
+        that fall within a date range. Specify values for fromUtc and toUtc to
+        get opportunities for a range of trips. Specify only tripId to get
+        opportunities for a single trip. Specify OpportunityType to filter
+        results by the specified opportunity types.
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: tripId
+          in: query
+          schema:
+            type: string
+          description: The trip id
+          example: <string>
+        - name: opportunityType
+          in: query
+          schema:
+            type: string
+          description: >-
+            Comma seperated list of opportunities (Hotel, Car, Air, Rail, Taxi
+            and Service) to get. Do not specify any values to get all
+            opportunities
+          example: <string>
+        - name: fromUtc
+          in: query
+          schema:
+            type: string
+          description: The From date in UTC for the date range
+          example: <dateTime>
+        - name: toUtc
+          in: query
+          schema:
+            type: string
+          description: The To date in UTC for the date range
+          example: <dateTime>
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                Items:
+                  EndCityCode: <string>
+                  EndDateLocal: <dateTime>
+                  EndPostalCode: <string>
+                  ID: <string>
+                  IsActive: <boolean>
+                  StartCityCode: <string>
+                  StartDateLocal: <dateTime>
+                  StartPostalCode: <string>
+                  TripId: <string>
+                  Type: <string>
+                  URI: <string>
+                NextPage: <string>
